@@ -1,4 +1,5 @@
-useript = int(input('璇疯緭鍏ヤ竴涓暣鏁帮細'))
+# -*- coding: cp936 -*-
+useript = int(input('请输入一个整数：'))
 while useript > 0:
-    print(' '*useript) + print('*'*useript)
+    print(' '*(useript-1) + '*'*useript)
     useript -= 1
