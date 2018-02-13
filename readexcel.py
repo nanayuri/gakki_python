@@ -1,3 +1,8 @@
+# Project: Doha
+# Written by: Huang Chao
+# Date: 2018-02-13
+# .svg image files auto generation
+
 import openpyxl
 import os
 
@@ -29,6 +34,29 @@ image_cat = ['BACS', 'PHE', 'VHTS']
 dict2 = {'BACS': 'Bacs', 'PHE': 'Phe', 'VHTS': 'VHTS'}
 out_des = 'Z:\\git_depots\\cfg\\occ\\model\\metaconf\\proj\\ImageProject_ISCS\\svg-images\\DOHHK\\STA\\Bacs\\DOH\\STA\\'
 
+
+def upd_col_h(x):
+    # 更新h列
+    try:
+        if ws['H' + str(x - 1)].value[-2:-1] == '_':
+            ws['H' + str(x)].value = ws['H' + str(x - 1)].value
+        return ws['H' + str(x)].value
+    except TypeError:
+        print('第%d行有错' %x)
+
+
+def add_col_h(x):
+    # 增加一列，为了判断是否需要增加图
+    z = 0
+    s1 = ws['H' + str(x - 1)].value[-2:]
+    if s1[0] == '_':
+        z = int(s1[1]) + 1
+    else:
+        z = 1
+    ws['H' + str(x)].value = ws['D' + str(x)].value[5:12] + '_' + str(z)
+    return ws['H' + str(x)].value
+
+
 for sys_name in sys_name_list:
     sta_list = []
     image_name = '_' + sys_name + '_Auto_gen'
@@ -40,39 +68,49 @@ for sys_name in sys_name_list:
 
     total_row = ws.max_row + 1
 
+    ws['H1'].value = ws['D1'].value[5:12]
+
     for i in range(2, total_row):
         # 同一个车站，设备类型类相同
-        if ws['A' + str(i)].value == ws['A' + str(i - 1)].value and ws['D'+ str(i)].value[0:11] == ws['D' + str(i - 1)].value[0:11]:
+        if ws['A' + str(i)].value == ws['A' + str(i - 1)].value and ws['D' + str(i)].value[0:11] == ws['D' + str(
+                i - 1)].value[0:11]:
             if ws['B' + str(i - 1)].value + 550 < 6821 and ws['C' + str(i - 1)].value < 2836:
                 ws['B' + str(i)].value = ws['B' + str(i - 1)].value + 550
                 ws['C' + str(i)].value = ws['C' + str(i - 1)].value
                 ws['H' + str(i)].value = ws['D' + str(i)].value[5:12]
+                ws['H' + str(i)].value = upd_col_h(i)
 
             elif ws['B' + str(i - 1)].value + 550 > 6821 and ws['C' + str(i - 1)].value < 2536:
                 ws['B' + str(i)].value = 220
                 ws['C' + str(i)].value = ws['C' + str(i - 1)].value + 300
                 ws['H' + str(i)].value = ws['D' + str(i)].value[5:12]
+                ws['H' + str(i)].value = upd_col_h(i)
 
             elif ws['B' + str(i - 1)].value + 550 < 6821 and ws['C' + str(i - 1)].value > 2834:
                 ws['B' + str(i)].value = 220
-                ws['H' + str(i)].value = ws['D' + str(i)].value[5:12] + '_1'
+                # ws['H' + str(i)].value = ws['D' + str(i)].value[5:12] + '_1'
+                ws['H' + str(i)].value = add_col_h(i)
                 ws['C' + str(i)].value = 735
 
             elif ws['B' + str(i - 1)].value + 550 > 6821 and ws['C' + str(i - 1)].value > 2834:
                 ws['B' + str(i)].value = 220
-                ws['H' + str(i)].value = ws['D' + str(i)].value[5:12] + '_1'
+                # ws['H' + str(i)].value = ws['D' + str(i)].value[5:12] + '_1'
+                ws['H' + str(i)].value = add_col_h(i)
                 ws['C' + str(i)].value = 735
 
         # 同一个车站，但设备类型不同
-        elif ws['A' + str(i)].value != ws['A' + str(i - 1)].value and ws['D' + str(i)].value[0:11] == ws['D' + str(i - 1)].value[0:11]:
+        elif ws['A' + str(i)].value != ws['A' + str(i - 1)].value and ws['D' + str(i)].value[0:11] == ws['D' + str(
+                i - 1)].value[0:11]:
             if ws['C' + str(i - 1)].value < 2536:
                 ws['B' + str(i)].value = 220
                 ws['C' + str(i)].value = ws['C' + str(i - 1)].value + 300
                 ws['H' + str(i)].value = ws['D' + str(i)].value[5:12]
+                ws['H' + str(i)].value = upd_col_h(i)
             else:
                 ws['B' + str(i)].value = 220
                 ws['C' + str(i)].value = 735
-                ws['H' + str(i)].value = ws['D' + str(i)].value[5:12] + '_1'
+                # ws['H' + str(i)].value = ws['D' + str(i)].value[5:12] + '_1'
+                ws['H' + str(i)].value = add_col_h(i)
 
         # 不同车站
         elif ws['D' + str(i)].value[0:11] != ws['D' + str(i - 1)].value[0:11]:
@@ -81,23 +119,15 @@ for sys_name in sys_name_list:
             ws['H' + str(i)].value = ws['D' + str(i)].value[5:12]
 
         elif ws['C' + str(i - 1)].value > 2834:
-            ws['H' + str(i)].value = ws['D' + str(i)].value[5:12] + '_1'
+            # ws['H' + str(i)].value = ws['D' + str(i)].value[5:12] + '_1'
+            ws['H' + str(i)].value = add_col_h(i)
             ws['C' + str(i)].value = 735
 
         elif ws['A' + str(i)].value == '':
             ws['H' + str(i)].value = ws['H' + str(i - 1)].value
 
-    ws['H1'].value = ws['D1'].value[5:12]
-
-    for j in range(2, total_row):
-        try:
-            if (ws['H' + str(j - 1)].value[7:10] == '_1') and (ws['H' + str(j)].value == ws['H' + str(j - 1)].value[0:7]):
-                ws['H' + str(j)].value = ws['H' + str(j - 1)].value
-        except TypeError:
-            print('在第%d行出现问题' %j)
-            pass
-        if ws['H' + str(j)].value not in sta_list:
-            sta_list.append(ws['H' + str(j)].value)
+        if ws['H' + str(i)].value not in sta_list:
+            sta_list.append(ws['H' + str(i)].value)
 
     os.chdir(cur_dir + '\\' + sys_name)
 
@@ -113,6 +143,7 @@ for sys_name in sys_name_list:
             f.write(long_str)
         long_str = ''
     os.chdir(cur_dir)
+
 wb.save(file_n_sour)
 os.chdir(cur_dir)
 
@@ -125,8 +156,8 @@ for each_file in os.listdir(cur_dir + '\\' + 'output_files'):
 
 for each_cat in sys_name_list:
     sour_dir = cur_dir + '\\' + each_cat
-    temp_file1 = cur_dir + '\\Summary_Background_template_' + each_cat + '_1.svg'
-    temp_file2 = cur_dir + '\\Summary_Background_template_' + each_cat + '_2.svg'
+    temp_file1 = cur_dir + '\\Template\\Summary_Background_template_' + each_cat + '_1.svg'
+    temp_file2 = cur_dir + '\\Template\\Summary_Background_template_' + each_cat + '_2.svg'
     list1 = list(os.walk(sour_dir))[0][2]
     str_add = ''
     dict1 = {'RNST050': 'Al Qassar', 'RSST010': 'Al Doha Al Jadeeda', 'RSST030': 'Al Matar', 'RSST040': 'Oqba Ibn Nafie', 'RSST070': 'AL Wakra', 'RNST010': 'Al Bidda', 'RNST030': 'Corniche', 'RNST040': 'Doha Exhibition & Convention Centre', 'RNST060': 'Katara', 'RNST070': 'Legtaifiya', 'RNST020': 'West Bay', 'RNST090': 'Lusail', 'RNST080': 'Qatar University', 'GSST010': 'Al Mansoura', 'RSST020': 'Umm Ghuwailina', 	'RSST050': 'Economic Zone', 'RSST060': 'Ras Bu Fontas', 'UCST000': 'Msheireb', 'REST020': 'Hamad International Airport'}
@@ -148,21 +179,18 @@ for each_cat in sys_name_list:
 
             for each_line in lines:
                 str_line += each_line
-            f_temp1 = open(temp_file1)
-            f_temp2 = open(temp_file2)
-            os.chdir(cur_dir)
 
-            # output to local
-            f_temp_final = open(f_out_dir + '\\' + 'Summary_Background_' + sta_code+ '_' + each_cat + '.svg', 'w')
-            # output to VM cfg repository
-            # f_temp_final = open(temp_vm, 'w')
+            with open(temp_file1) as f_temp1, open(temp_file2) as f_temp2:
+                os.chdir(cur_dir)
 
-            content1 = f_temp1.read()
-            content1 = content1.replace('Hamad International Airport', dict1[sta_code[0:7]])
-            content1 = content1.replace('REST020', sta_code[0:7])
-            content2 = f_temp2.read()
-            f_temp_final.write(content1 + str_line + content2)
-            f_temp_final.close()
-            f_temp1.close()
-            f_temp2.close()
-            os.chdir(cur_dir)
+                # output to local
+                with open(f_out_dir + '\\' + 'Summary_Background_' + sta_code+ '_' + each_cat + '.svg', 'w') as f_temp_final:
+                # output to VM cfg repository
+                # with open (temp_vm, 'w') as f_temp_final:
+
+                    content1 = f_temp1.read()
+                    content1 = content1.replace('Hamad International Airport', dict1[sta_code[0:7]])
+                    content1 = content1.replace('REST020', sta_code[0:7])
+                    content2 = f_temp2.read()
+                    f_temp_final.write(content1 + str_line + content2)
+                    os.chdir(cur_dir)
