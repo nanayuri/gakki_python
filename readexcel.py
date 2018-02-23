@@ -11,7 +11,7 @@ os.chdir(cur_dir)
 # sta_list = ['RNST050', 'RSST010', 'RSST030', 'RSST040',	'RSST070', 'RNST010', 'RNST030', 'RNST040',	'RNST060', 'RNST070', 'RNST020', 'RNST090',	'RNST080', 'GSST010', 'RSST020', 'RSST050', 'RSST060', 'UCST000', 'REST020']
 sta_list = []
 file_path = cur_dir
-file_name = 'image_gen.xlsx'
+file_name = 'image_autogen.xlsx'
 sys_name_list = ['VHTS', 'BACS', 'PHE']
 # sys_name = 'VHTS'
 # sys_name = 'BACS'
