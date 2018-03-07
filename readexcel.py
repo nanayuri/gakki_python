@@ -107,6 +107,46 @@ def ck_unq_sta(x, y):
             nav2_id = a2_er + 'DOH_STA_Bacs_DOH_STA_' + y[0:7] + '_' + arr_cat_fwd + '_' + 'DOH_STA_Bacs_DOH_STA_' + y[
                                                                                                                     0:7] + '_' + \
                       arr_cat_fwd + '_Summary' + b2_er
+        elif x == 'HVAC' and y + '_' + x in sys_sta_list:
+            for each_index in range(1, 10):
+                if '_' + str(each_index) in y:
+                    if y.replace(('_' + str(each_index)), ('_' + str(each_index + 1))) + '_' + x in sys_sta_list:
+                        arr_cat_prv = x
+                        arr_cat_fwd = x
+                        if each_index == 1:
+                            nav1_id = a1_er + 'DOH_STA_Bacs_DOH_STA_' + y[0:7] + '_' + dict2[
+                                x] + '_' + 'DOH_STA_Bacs_DOH_STA_' + y[0:7] + '_' + \
+                                      dict2[x] + '_Summary' + b1_er
+                            nav2_id = a2_er + 'DOH_STA_Bacs_DOH_STA_' + y[0:7] + '_' + dict2[arr_cat_fwd] + '_' + 'DOH_STA_Bacs_DOH_STA_' + y[0:7] + '_' + dict2[arr_cat_fwd] + '_' + str(each_index + 1) + '_Summary' + b2_er
+                        else:
+                            nav1_id = a1_er + 'DOH_STA_Bacs_DOH_STA_' + y[0:7] + '_' + dict2[
+                                x] + '_' + 'DOH_STA_Bacs_DOH_STA_' + y[0:7] + '_' + \
+                                      dict2[x] + '_' + str(each_index - 1) + '_Summary' + b1_er
+                            nav2_id = a2_er + 'DOH_STA_Bacs_DOH_STA_' + y[
+                                                                        0:7] + '_' + dict2[arr_cat_fwd] + '_' + 'DOH_STA_Bacs_DOH_STA_' + y[
+                                                                                  0:7] + '_' + \
+                                      dict2[arr_cat_fwd] + '_' + str(
+                                each_index + 1) + '_Summary' + b2_er
+                    else:
+                        arr_cat_prv = x
+                        arr_cat_fwd = 'CHILLER'
+                        if each_index == 1:
+                            nav1_id = a1_er + 'DOH_STA_Bacs_DOH_STA_' + y[0:7] + '_' + dict2[
+                                x] + '_' + 'DOH_STA_Bacs_DOH_STA_' + y[0:7] + '_' + \
+                                      dict2[x] + '_Summary' + b1_er
+                            nav2_id = a2_er + 'DOH_STA_Bacs_DOH_STA_' + y[
+                                                                        0:7] + '_' + dict2[arr_cat_fwd] + '_' + 'DOH_STA_Bacs_DOH_STA_' + y[
+                                                                                  0:7] + '_' + dict2[arr_cat_fwd] + '_Summary' + b2_er
+                        else:
+                            nav1_id = a1_er + 'DOH_STA_Bacs_DOH_STA_' + y[0:7] + '_' + dict2[
+                                x] + '_' + 'DOH_STA_Bacs_DOH_STA_' + y[0:7] + '_' + \
+                                      dict2[x] + '_' + str(each_index - 1) + '_Summary' + b1_er
+                            nav2_id = a2_er + 'DOH_STA_Bacs_DOH_STA_' + y[
+                                                                        0:7] + '_' + dict2[arr_cat_fwd] + '_' + 'DOH_STA_Bacs_DOH_STA_' + y[
+                                                                                  0:7] + '_' + \
+                                      dict2[arr_cat_fwd] + '_Summary' + b2_er
+                    break
+
     elif len(y) == 7 and y + '_1_' + x in sys_sta_list:
         if x == 'VHTS':
             arr_cat_prv = 'Electrical'
@@ -170,6 +210,16 @@ def ck_unq_sta(x, y):
             nav2_id = a2_er + 'DOH_STA_Bacs_DOH_STA_' + y[0:7] + '_' + dict2[
                 x] + '_' + 'DOH_STA_Bacs_DOH_STA_' + y + '_1_' + \
                       dict2[x] + '_Summary' + b2_er
+        elif x == 'HVAC':
+            arr_cat_prv = 'SVS'
+            arr_cat_fwd = x
+            nav1_id = a1_er + 'DOH_STA_Bacs_DOH_STA_' + y[
+                                                       0:7] + '_' + arr_cat_prv + '_' + 'DOH_STA_Bacs_DOH_STA_' + y[
+                                                                                                                  0:7] + '_' + \
+                      arr_cat_prv + '_Summary' + b1_er
+            nav2_id = a2_er + 'DOH_STA_Bacs_DOH_STA_' + y[0:7] + '_' + dict2[
+                x] + '_' + 'DOH_STA_Bacs_DOH_STA_' + y + '_1_' + \
+                      dict2[x] + '_Summary' + b2_er
 
     else:
         if x == 'VHTS':
@@ -195,6 +245,7 @@ def ck_unq_sta(x, y):
                                                              0:7] + '_' + arr_cat_fwd + '_' + 'DOH_STA_Bacs_DOH_STA_' + y[
                                                                                                                         0:7] + '_' + \
                           arr_cat_fwd + '_Summary' + b2_er
+
             else:
                 arr_cat_prv = 'VHTS'
                 arr_cat_fwd = 'Bacs'
@@ -240,6 +291,17 @@ def ck_unq_sta(x, y):
                                                        0:7] + '_' + arr_cat_fwd + '_' + 'DOH_STA_Bacs_DOH_STA_' + y[
                                                                                                                   0:7] + '_' + \
                       arr_cat_fwd + '_Summary' + b2_er
+        elif x == 'HVAC':
+            arr_cat_prv = 'SVS'
+            arr_cat_fwd = 'Chiller'
+            nav1_id = a1_er + 'DOH_STA_Bacs_DOH_STA_' + y[
+                                                       0:7] + '_' + arr_cat_prv + '_' + 'DOH_STA_Bacs_DOH_STA_' + y[
+                                                                                                                  0:7] + '_' + \
+                      arr_cat_prv + '_Summary' + b1_er
+            nav2_id = a2_er + 'DOH_STA_Bacs_DOH_STA_' + y[
+                                                       0:7] + '_' + arr_cat_fwd + '_' + 'DOH_STA_Bacs_DOH_STA_' + y[
+                                                                                                                  0:7] + '_' + \
+                      arr_cat_fwd + '_Summary' + b2_er
 
     return arr_cat_prv, arr_cat_fwd, nav1_id, nav2_id
 
@@ -260,12 +322,88 @@ def insert_row(x):
     ws['H' + str(x + 1)].value = ws['H' + str(x)].value
 
 
+def to_svg(data):
+    # output to local
+    with open(f_out_dir + '\\' + 'Summary_Background_' + sta_code + '_' + each_cat + '.svg', 'w') as f_temp_final:
+        # output to VM cfg repository
+        # with open(temp_vm, 'w') as f_temp_final:
+        # print(temp_vm_fn)
+        content1 = f_temp1.read()[0:-7]
+        content1 = content1.replace('Hamad International Airport', dict1[sta_code[0:7]])
+        content1 = content1.replace('REST020', sta_code[0:7])
+        content2 = '\n' + '</svg>'
+        f_temp_final.write(content1 + data + content2)
+        os.chdir(cur_dir)
+
+
+def calc_cord(i):
+    origin_x = 220
+    origin_y = 735
+    upper_x = 6820
+    upper_y = 2835
+    x_step = 550
+    y_step = 300
+    if ws['A' + str(i)].value == ws['A' + str(i - 1)].value and ws['D' + str(i)].value[0:11] == ws['D' + str(
+            i - 1)].value[0:11]:
+        if ws['B' + str(i - 1)].value + x_step < upper_x + 1 and ws['C' + str(i - 1)].value < upper_y + 1:
+            ws['B' + str(i)].value = ws['B' + str(i - 1)].value + x_step
+            ws['C' + str(i)].value = ws['C' + str(i - 1)].value
+            ws['H' + str(i)].value = ws['D' + str(i)].value[5:12]
+            ws['H' + str(i)].value = upd_col_h(i)
+
+        elif ws['B' + str(i - 1)].value + x_step > upper_x + 1 and ws['C' + str(i - 1)].value < upper_y + 1 - y_step:
+            ws['B' + str(i)].value = origin_x
+            ws['C' + str(i)].value = ws['C' + str(i - 1)].value + y_step
+            ws['H' + str(i)].value = ws['D' + str(i)].value[5:12]
+            ws['H' + str(i)].value = upd_col_h(i)
+
+        elif ws['B' + str(i - 1)].value + x_step < upper_x + 1 and ws['C' + str(i - 1)].value > upper_y - 1:
+            ws['B' + str(i)].value = origin_x
+            # ws['H' + str(i)].value = ws['D' + str(i)].value[5:12] + '_1'
+            ws['H' + str(i)].value = add_col_h(i)
+            ws['C' + str(i)].value = origin_y
+
+        elif ws['B' + str(i - 1)].value + x_step > upper_x + 1 and ws['C' + str(i - 1)].value > upper_y - 1:
+            ws['B' + str(i)].value = origin_x
+            # ws['H' + str(i)].value = ws['D' + str(i)].value[5:12] + '_1'
+            ws['H' + str(i)].value = add_col_h(i)
+            ws['C' + str(i)].value = origin_y
+
+    # 同一个车站，但设备类型不同
+    elif ws['A' + str(i)].value != ws['A' + str(i - 1)].value and ws['D' + str(i)].value[0:11] == ws['D' + str(
+            i - 1)].value[0:11]:
+        if ws['C' + str(i - 1)].value < upper_y + 1 - y_step:
+            ws['B' + str(i)].value = origin_x
+            ws['C' + str(i)].value = ws['C' + str(i - 1)].value + y_step
+            ws['H' + str(i)].value = ws['D' + str(i)].value[5:12]
+            ws['H' + str(i)].value = upd_col_h(i)
+        else:
+            ws['B' + str(i)].value = origin_x
+            ws['C' + str(i)].value = origin_y
+            # ws['H' + str(i)].value = ws['D' + str(i)].value[5:12] + '_1'
+            ws['H' + str(i)].value = add_col_h(i)
+
+    # 不同车站
+    elif ws['D' + str(i)].value[0:11] != ws['D' + str(i - 1)].value[0:11]:
+        ws['B' + str(i)].value = origin_x
+        ws['C' + str(i)].value = origin_y
+        ws['H' + str(i)].value = ws['D' + str(i)].value[5:12]
+
+    elif ws['C' + str(i - 1)].value > upper_y - 1:
+        # ws['H' + str(i)].value = ws['D' + str(i)].value[5:12] + '_1'
+        ws['H' + str(i)].value = add_col_h(i)
+        ws['C' + str(i)].value = origin_y
+
+    elif ws['A' + str(i)].value == '':
+        ws['H' + str(i)].value = ws['H' + str(i - 1)].value
+
+    if ws['H' + str(i)].value not in sta_list:
+        sta_list.append(ws['H' + str(i)].value)
+
 sys_sta_list = []
 wb = openpyxl.load_workbook(file_sour)
 ws_chwh = wb['CHWH']
 for i in range(1, ws_chwh.max_row + 1):
-    print(ws_chwh['F' + str(1)].value)
-
     dict4[ws_chwh['F' + str(i)].value] = ws_chwh['D' + str(i)].value
 
 for sys_name in sys_name_list:
@@ -282,63 +420,7 @@ for sys_name in sys_name_list:
     ws['H1'].value = ws['D1'].value[5:12]
 
     for i in range(2, total_row):
-        # 同一个车站，设备类型类相同
-        if ws['A' + str(i)].value == ws['A' + str(i - 1)].value and ws['D' + str(i)].value[0:11] == ws['D' + str(
-                i - 1)].value[0:11]:
-            if ws['B' + str(i - 1)].value + 550 < 6821 and ws['C' + str(i - 1)].value < 2836:
-                ws['B' + str(i)].value = ws['B' + str(i - 1)].value + 550
-                ws['C' + str(i)].value = ws['C' + str(i - 1)].value
-                ws['H' + str(i)].value = ws['D' + str(i)].value[5:12]
-                ws['H' + str(i)].value = upd_col_h(i)
-
-            elif ws['B' + str(i - 1)].value + 550 > 6821 and ws['C' + str(i - 1)].value < 2536:
-                ws['B' + str(i)].value = 220
-                ws['C' + str(i)].value = ws['C' + str(i - 1)].value + 300
-                ws['H' + str(i)].value = ws['D' + str(i)].value[5:12]
-                ws['H' + str(i)].value = upd_col_h(i)
-
-            elif ws['B' + str(i - 1)].value + 550 < 6821 and ws['C' + str(i - 1)].value > 2834:
-                ws['B' + str(i)].value = 220
-                # ws['H' + str(i)].value = ws['D' + str(i)].value[5:12] + '_1'
-                ws['H' + str(i)].value = add_col_h(i)
-                ws['C' + str(i)].value = 735
-
-            elif ws['B' + str(i - 1)].value + 550 > 6821 and ws['C' + str(i - 1)].value > 2834:
-                ws['B' + str(i)].value = 220
-                # ws['H' + str(i)].value = ws['D' + str(i)].value[5:12] + '_1'
-                ws['H' + str(i)].value = add_col_h(i)
-                ws['C' + str(i)].value = 735
-
-        # 同一个车站，但设备类型不同
-        elif ws['A' + str(i)].value != ws['A' + str(i - 1)].value and ws['D' + str(i)].value[0:11] == ws['D' + str(
-                i - 1)].value[0:11]:
-            if ws['C' + str(i - 1)].value < 2536:
-                ws['B' + str(i)].value = 220
-                ws['C' + str(i)].value = ws['C' + str(i - 1)].value + 300
-                ws['H' + str(i)].value = ws['D' + str(i)].value[5:12]
-                ws['H' + str(i)].value = upd_col_h(i)
-            else:
-                ws['B' + str(i)].value = 220
-                ws['C' + str(i)].value = 735
-                # ws['H' + str(i)].value = ws['D' + str(i)].value[5:12] + '_1'
-                ws['H' + str(i)].value = add_col_h(i)
-
-        # 不同车站
-        elif ws['D' + str(i)].value[0:11] != ws['D' + str(i - 1)].value[0:11]:
-            ws['B' + str(i)].value = 220
-            ws['C' + str(i)].value = 735
-            ws['H' + str(i)].value = ws['D' + str(i)].value[5:12]
-
-        elif ws['C' + str(i - 1)].value > 2834:
-            # ws['H' + str(i)].value = ws['D' + str(i)].value[5:12] + '_1'
-            ws['H' + str(i)].value = add_col_h(i)
-            ws['C' + str(i)].value = 735
-
-        elif ws['A' + str(i)].value == '':
-            ws['H' + str(i)].value = ws['H' + str(i - 1)].value
-
-        if ws['H' + str(i)].value not in sta_list:
-            sta_list.append(ws['H' + str(i)].value)
+        calc_cord(i)
 
     for j in range(1, 1000):
         if ws['A' + str(j)].value == 'DohBacsChwp_layer' and ws['F' + str(j)].value in dict3:
@@ -362,7 +444,7 @@ for sys_name in sys_name_list:
         if str(each_sta) + '_' + sys_name not in sys_sta_list and os.path.getsize(str(each_sta) + image_name + '.svg') != 0:
             sys_sta_list.append(str(each_sta) + '_' + sys_name)
     os.chdir(cur_dir)
-print(sta_list)
+#print(sta_list)
 print(sys_sta_list)
 wb.save(file_n_sour)
 os.chdir(cur_dir)
@@ -385,10 +467,12 @@ for each_cat in sys_name_list:
     for each in list1:
         each = sour_dir + '\\' + each
         file_name = os.path.basename(each)
-        if (file_name.find('_1') is not -1) or file_name.find('_2') is not -1:
-            sta_code = file_name[0:9]
-        else:
-            sta_code = file_name[0:7]
+        for each_num in range(1, 11):
+            if file_name.find('_' + str(each_num)) is not -1:
+                sta_code = file_name[0:9]
+                break
+            else:
+                sta_code = file_name[0:7]
         str_line = ''
         temp_vm_fn = '\\DOH_STA_Bacs_DOH_STA_' + sta_code + '_' + dict2[each_cat] + '_Summary.svg'
         temp_vm = out_des + sta_code[0:7] + '\\' + dict2[each_cat] + temp_vm_fn
@@ -405,6 +489,7 @@ for each_cat in sys_name_list:
                 str_line += each_line
 
             arr = ck_unq_sta(each_cat, sta_code)
+            print(each_cat, sta_code)
             # print(arr)
 
             if each_cat == 'BACS':
@@ -421,15 +506,5 @@ for each_cat in sys_name_list:
 
             with open(temp_file1) as f_temp1, open(temp_file2) as f_temp2:
                 os.chdir(cur_dir)
-
-                # output to local
-                with open(f_out_dir + '\\' + 'Summary_Background_' + sta_code+ '_' + each_cat + '.svg', 'w') as f_temp_final:
-                # output to VM cfg repository
-                # with open(temp_vm, 'w') as f_temp_final:
-                    print(temp_vm_fn)
-                    content1 = f_temp1.read()[0:-7]
-                    content1 = content1.replace('Hamad International Airport', dict1[sta_code[0:7]])
-                    content1 = content1.replace('REST020', sta_code[0:7])
-                    content2 = '\n' + '</svg>'
-                    f_temp_final.write(content1 + str_line + content2)
-                    os.chdir(cur_dir)
+                to_svg(str_line)
+                os.chdir(cur_dir)
