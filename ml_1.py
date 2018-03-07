@@ -14,7 +14,6 @@ import matplotlib.pyplot as plt
 tf.logging.set_verbosity(tf.logging.ERROR)
 pd.options.display.max_rows = 10
 pd.options.display.float_format = '{:.1f}'.format
-
 california_housing_dataframe = pd.read_csv("https://storage.googleapis.com/ml_universities/california_housing_train.csv", sep=",")
 california_housing_dataframe = california_housing_dataframe.reindex(
     np.random.permutation(california_housing_dataframe.index))
@@ -71,6 +70,7 @@ def my_input_fn(features, targets, batch_size=1, shuffle=True, num_epochs=None):
     features, labels = ds.make_one_shot_iterator().get_next()
     return features, labels
 
+
 _ = linear_regressor.train(
     input_fn = lambda:my_input_fn(my_feature, targets),
     steps=100
@@ -112,25 +112,25 @@ sample = california_housing_dataframe.sample(n=300)
 # Get the min and max total_rooms values.
 x_0 = sample["total_rooms"].min()
 x_1 = sample["total_rooms"].max()
-​
+
 # Retrieve the final weight and bias generated during training.
 weight = linear_regressor.get_variable_value('linear/linear_model/total_rooms/weights')[0]
 bias = linear_regressor.get_variable_value('linear/linear_model/bias_weights')
-​
+
 # Get the predicted median_house_values for the min and max total_rooms values.
 y_0 = weight * x_0 + bias
 y_1 = weight * x_1 + bias
-​
+
 # Plot our regression line from (x_0, y_0) to (x_1, y_1).
 plt.plot([x_0, x_1], [y_0, y_1], c='r')
-​
+
 # Label the graph axes.
 plt.ylabel("median_house_value")
 plt.xlabel("total_rooms")
-​
+
 # Plot a scatter plot from our data sample.
 plt.scatter(sample["total_rooms"], sample["median_house_value"])
-​
+
 # Display graph.
 plt.show()
 
@@ -233,3 +233,11 @@ def train_model(learning_rate, steps, batch_size, input_feature="total_rooms"):
     display.display(calibration_data.describe())
 
     print("Final RMSE (on training data): %0.2f" % root_mean_squared_error)
+    plt.show()
+
+train_model(
+    learning_rate=0.00002,
+    steps=1000,
+    batch_size=5,
+    input_feature="population"
+)
