@@ -385,7 +385,7 @@ for each_cat in sys_name_list:
     for each in list1:
         each = sour_dir + '\\' + each
         file_name = os.path.basename(each)
-        if file_name.find('_1') is not -1:
+        if (file_name.find('_1') is not -1) or file_name.find('_2') is not -1:
             sta_code = file_name[0:9]
         else:
             sta_code = file_name[0:7]
