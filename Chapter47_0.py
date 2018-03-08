@@ -26,6 +26,9 @@ class CountList:
                 each_key -= 1
                 self.count[each_key] = key_val
 
+    def counter(self, index):
+        return self.count[index]
+
 
 
 
