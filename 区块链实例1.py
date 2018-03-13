@@ -45,3 +45,12 @@ class Block():
             if sha256((str(self.valid[i - 1]) + str(self.owner[i])).encode()).hexdigest() != self.valid[i]:
                 return False
         return True
+
+block = Block()
+block.mine("Jerry")
+print("Self verify result:", block.self_verify())
+block.give("Tom")
+block.give("Rose")
+print(block.owner)
+print(block.transaction)
+print(block.valid)
