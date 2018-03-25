@@ -5,6 +5,7 @@ import time
 Class_list_dict = {}
 Class_list_dict['isAComment'] = 1
 Class_list_dict['Class name'] = 4
+Class_list_dict['CSS'] = 5
 Class_list_dict['SIL Level'] = 11
 Instance_list_dict = {}
 Instance_list_dict['isAComment'] = 1
@@ -24,8 +25,8 @@ EV_dict['ve_base'] = 3
 EV_dict['description'] = 4
 EV_dict['address'] = 5
 EV_dict['evgroup'] = 6
-EV_dict['deadband'] = 7
-EV_dict['length'] = 11
+EV_dict['deadband'] = 8
+EV_dict['length'] = 12
 
 type_dict = {
     'dci': 'dac',
@@ -54,6 +55,9 @@ row_list = []
 ws_par_list = []
 link_list = []
 ev_gen_list = []
+label_class_list = ['IDP', 'MSFD', 'VENTILATION', 'ACB', 'ADS', 'EL', 'LBS', 'MCB', 'MCCB', 'MDB', 'MPLCMMS', 'SMDB', 'SPLCMMS', 'TRF']
+all_label = []
+all_hvid = []
 
 
 def save_to_excel(data, i):
@@ -164,16 +168,16 @@ def split_parent_node(data):
 
 
 def equipment_csv():
-    file_name = 'LRT-QSTT-XX-ICD-SCC-GEN00-371058_-B2.1_ICD_SCADA-TVS_Appendix_C_ATT1 SW input.xlsx'
+    file_name = 'LRT-QSTT-XX-ICD-SCC-GEN00-371058_-B2.1_ICD_SCADA-TVS_Appendix_C_ATT1 SW input_HK_1.xlsx'
     wb = openpyxl.load_workbook(file_name, data_only=True)
     list_par = []
     ws_1 = wb['1-Class List']
     ws_2 = wb['2-Instance List']
     ws_3 = wb['3-Class Mapping']
     ws_4 = wb['4-External Variables']
-
+    class_map_dict = {}
     for each_row in ws_3.rows:
-        class_map_dict = {}
+
         if each_row[0].value != 'Class name':
             class_map_dict[each_row[0].value] = each_row[1].value
     print(class_map_dict)
@@ -234,7 +238,7 @@ def ev():
     ws_ev_list = []
     class_list = []
     ev_gp_list = []
-    file_name = 'LRT-QSTT-XX-ICD-SCC-GEN00-371058_-B2.1_ICD_SCADA-TVS_Appendix_C_ATT1 SW input.xlsx'
+    file_name = 'LRT-QSTT-XX-ICD-SCC-GEN00-371058_-B2.1_ICD_SCADA-TVS_Appendix_C_ATT1 SW input_HK_1.xlsx'
     wb = openpyxl.load_workbook(file_name, data_only=True)
     list_par = []
     ws_1 = wb['1-Class List']
@@ -277,7 +281,8 @@ def ev():
         ev_label = each_row[EV_dict['description']].value
         ev_length = each_row[EV_dict['length']].value
         ev_type = each_row[EV_dict['vetype']].value
-        ev_ptname = each_row[EV_dict['iopath']].value.replace(':dac', '')
+        #ev_ptname = each_row[EV_dict['iopath']].value.replace(':dac', '')
+        ev_ptname = each_row[EV_dict['iopath']].value
         ev_group = each_row[EV_dict['evgroup']].value
         ev_list = []
         if each_row[EV_dict['Class name']].value != 'Class name':
@@ -300,12 +305,13 @@ def ev():
             pt_ele_type = type_dict[pt_type] + '_type_link_ve'
             address = each_ele[2]
             if each_ele[0] == class_name:
-                link_id = each[0] + ':' + each_ele[1] + ':' + type_dict[pt_type] + ':link_ve'
+                link_id = each[0] + ':' + each_ele[1] + ':link_ve'
                 for each_sil in class_list:
-                    if each_sil[0] == each_ele[0] and each_sil[1] == str(each_ele[1]).split('-')[-1]:
+                    if each_sil[0] == each_ele[0] and each_sil[1] == str(each_ele[1]).split('-')[-1].split(':')[0]:
                         sil_type = sil_type_dict[each_sil[2]]
                         lk0 = ':R:A:POLE:' + each[2] + sil_type + ':' + each_ele[7] + ':' + ev_type_dict[pt_type] + str(
-                            each[0][5:]).replace(':', '') + str(each_ele[1]).split('-')[-1]
+                            each[0][5:]).replace(':', '') + str(each_ele[1]).split('-')[-1].split(':')[0]
+
                 print(link_id)
                 each_link.append(nom_instance)
                 each_link.append(link_id)
@@ -333,9 +339,63 @@ def ev():
     save_ev_to_excel(ev_gen_list)
 
 
-if __name__ == "__main__":
-    # equipment_csv()
-    ev()
+def gen_label():
+    file_name = 'LRT-QSTT-XX-ICD-SCC-GEN00-371058_-B2.1_ICD_SCADA-TVS_Appendix_C_ATT1 SW input_HK_1.xlsx'
+    wb = openpyxl.load_workbook(file_name, data_only=True)
+    ws_1 = wb['1-Class List']
+    ws_2 = wb['2-Instance List']
+    ws_3 = wb['3-Class Mapping']
+    ws_4 = wb['4-External Variables']
+    class_map_dict = {}
+    for each_row in ws_3.rows:
 
+        if each_row[0].value != 'Class name':
+            class_map_dict[each_row[0].value] = each_row[1].value
+    total_row = ws_1.max_row
+    # generate all class from ICD START
+    for each_row in ws_1:
+        if each_row[4].value is not None and each_row[4].value not in label_class_list:
+            label_class_list.append(each_row[4].value)
+    ### END
+
+    for each_class in label_class_list:
+        label_list = []
+        hvid_list = []
+        for row_num in range(3, total_row):
+            if ws_1['E' + str(row_num)].value is None and ws_1['E' + str(row_num + 1)].value == each_class:
+                str_top1 = 'equipmentType_' + class_map_dict[ws_1['E' + str(row_num + 1)].value][9:] + '_std : ' + ws_1['F' + str(row_num)].value + '\n'
+                str_top2 = class_map_dict[ws_1['E' + str(row_num + 1)].value][9:] + '_layer : ' + ws_1['F' + str(row_num)].value+ '\n'
+                label_list.append('### ' + ws_1['E' + str(row_num + 1)].value + '\n')
+                label_list.append('####################' + '\n')
+                label_list.append(str_top1)
+                label_list.append(str_top2)
+                hvid_list.append('### ' + ws_1['E' + str(row_num + 1)].value + '\n')
+                hvid_list.append('####################' + '\n')
+            elif ws_1['E' + str(row_num)].value == each_class and ws_1['E' + str(row_num - 1)].value is None:
+                for each_row in ws_2.rows:
+                    if ws_1['E' + str(row_num)].value == each_row[8].value and each_row[20].value is not None:
+                        str_lab = each_row[20].value + ' : ' + each_row[9].value + '\n'
+                        hvid_lab = each_row[21].value + ' : ' + str(each_row[20].value).replace('&','') + '\n'
+                        if str_lab not in label_list:
+                            label_list.append(str_lab)
+                            hvid_list.append(hvid_lab)
+        all_label.append(label_list)
+        all_hvid.append(hvid_list)
+
+    with open('label.txt', 'w') as f:
+        for each_list in all_label:
+            for each in each_list:
+                f.write(each)
+
+    with open('hvid.txt', 'w') as fhv:
+        for each_list in all_hvid:
+            for each in each_list:
+                fhv.write(each)
+
+
+if __name__ == "__main__":
+    #equipment_csv()
+    ev()
+    #gen_label()
 
 
