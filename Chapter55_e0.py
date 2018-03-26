@@ -13,3 +13,6 @@ urllib.request.install_opener(opener)
 response = urllib.request.urlopen(url)
 html = response.read().decode('utf-8')
 print(html)
+
+
+r'(?:(?:[0-1]?/d?/d?|2[0-4]/d|25[0-5])/.){3}(?:[0-1]?/d?/d?|2[0-4]/d|25[0-5])'
