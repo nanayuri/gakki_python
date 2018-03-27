@@ -6,7 +6,14 @@ Class_list_dict = {}
 Class_list_dict['isAComment'] = 1
 Class_list_dict['Class name'] = 4
 Class_list_dict['CSS'] = 5
+Class_list_dict['type'] = 10
+Class_list_dict['bit_0'] = 15
+Class_list_dict['bit_1'] = 16
+Class_list_dict['bit_2'] = 17
+Class_list_dict['bit_3'] = 18
+Class_list_dict['bit_default'] = 19
 Class_list_dict['SIL Level'] = 11
+Class_list_dict['code'] = 63
 Instance_list_dict = {}
 Instance_list_dict['isAComment'] = 1
 Instance_list_dict['Description'] = 5
@@ -361,6 +368,64 @@ def gen_label():
     for each_class in label_class_list:
         label_list = []
         hvid_list = []
+        pt_list = []
+        for each_row in ws_1:
+            if each_row[4].value == each_class:
+                if each_row[Class_list_dict['type']].value[1] == 'I':
+                    try:
+                        if each_row[Class_list_dict['Class name']].value != 'Class name':
+                            str_pt_label = 'infopanel_' + class_map_dict[each_row[Class_list_dict['Class name']].value][9:] + '_' + each_row[Class_list_dict['code']].value[0].lower() + each_row[Class_list_dict['code']].value[1:] + ' : ' + each_row[Class_list_dict['CSS']].value + '\n'
+                            pt_list.append(str_pt_label)
+                        if each_row[Class_list_dict['bit_0']].value is not None:
+                            str_bit1_label = 'infopanel_' + class_map_dict[each_row[Class_list_dict['Class name']].value][
+                                                           9:] + '_' + each_row[Class_list_dict['code']].value[0].lower() + each_row[Class_list_dict['code']].value[1:] + '_0 : ' + \
+                                           each_row[Class_list_dict['bit_0']].value + '\n'
+                            pt_list.append(str_bit1_label)
+
+                        if each_row[Class_list_dict['bit_1']].value is not None:
+                            str_bit1_label = 'infopanel_' + class_map_dict[each_row[Class_list_dict['Class name']].value][
+                                                           9:] + '_' + each_row[Class_list_dict['code']].value[0].lower() + each_row[Class_list_dict['code']].value[1:] + '_1 : ' + \
+                                           each_row[Class_list_dict['bit_1']].value + '\n'
+                            pt_list.append(str_bit1_label)
+
+                        if each_row[Class_list_dict['bit_2']].value is not None:
+                            str_bit1_label = 'infopanel_' + class_map_dict[each_row[Class_list_dict['Class name']].value][
+                                                           9:] + '_' + each_row[Class_list_dict['code']].value[0].lower() + each_row[Class_list_dict['code']].value[1:] + '_2 : ' + \
+                                           each_row[Class_list_dict['bit_2']].value + '\n'
+                            pt_list.append(str_bit1_label)
+
+                        if each_row[Class_list_dict['bit_3']].value is not None:
+                            str_bit1_label = 'infopanel_' + class_map_dict[each_row[Class_list_dict['Class name']].value][
+                                                           9:] + '_' + each_row[Class_list_dict['code']].value[0].lower() + each_row[Class_list_dict['code']].value[1:] + '_3 : ' + \
+                                           each_row[Class_list_dict['bit_3']].value + '\n'
+                            pt_list.append(str_bit1_label)
+                    except KeyError:
+                        print(each_row[4].value)
+                elif each_row[Class_list_dict['type']].value[1] == 'O':
+                    if each_row[Class_list_dict['SIL Level']].value == 'SIL0':
+                        str_pt_label = 'cmdPanel_' + class_map_dict[each_row[Class_list_dict['Class name']].value][
+                                                       9:] + '_' + each_row[Class_list_dict['code']].value + '_order : ' + \
+                                       each_row[Class_list_dict['CSS']].value + '\n'
+                        pt_list.append(str_pt_label)
+
+                        if each_row[Class_list_dict['bit_0'] + 7].value != 'NONE' and each_row[Class_list_dict['bit_0'] + 7].value is not None:
+                            str_bit1_label = 'cmdPanel_' + class_map_dict[each_row[Class_list_dict['Class name']].value][
+                                                             9:] + '_' + each_row[Class_list_dict['code']].value + '_0 : ' + \
+                                             each_row[Class_list_dict['bit_0'] + 7].value + '\n'
+                            pt_list.append(str_bit1_label)
+
+                        if each_row[Class_list_dict['bit_1'] + 7].value != 'NONE' and each_row[Class_list_dict['bit_1'] + 7].value is not None:
+                            str_bit1_label = 'cmdPanel_' + class_map_dict[each_row[Class_list_dict['Class name']].value][
+                                                             9:] + '_' + each_row[Class_list_dict['code']].value + '_1 : ' + \
+                                             each_row[Class_list_dict['bit_1'] + 7].value + '\n'
+                            pt_list.append(str_bit1_label)
+                    else:
+                        str_pt_label = 'cmdPanel_' + class_map_dict[each_row[Class_list_dict['Class name']].value][
+                                                     9:] + '_' + each_row[Class_list_dict['code']].value[6:] + '_order : ' + \
+                                       each_row[Class_list_dict['CSS']].value + '\n'
+                        pt_list.append(str_pt_label)
+
+
         for row_num in range(3, total_row):
             if ws_1['E' + str(row_num)].value is None and ws_1['E' + str(row_num + 1)].value == each_class:
                 str_top1 = 'equipmentType_' + class_map_dict[ws_1['E' + str(row_num + 1)].value][9:] + '_std : ' + ws_1['F' + str(row_num)].value + '\n'
@@ -380,6 +445,7 @@ def gen_label():
                             label_list.append(str_lab)
                             hvid_list.append(hvid_lab)
         all_label.append(label_list)
+        all_label.append(pt_list)
         all_hvid.append(hvid_list)
 
     with open('label.txt', 'w') as f:
@@ -395,7 +461,7 @@ def gen_label():
 
 if __name__ == "__main__":
     #equipment_csv()
-    ev()
-    #gen_label()
+    #ev()
+    gen_label()
 
 

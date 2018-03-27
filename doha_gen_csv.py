@@ -374,7 +374,7 @@ def gen_label():
                 if each_row[Class_list_dict['type']].value[1] == 'I':
                     try:
                         if each_row[Class_list_dict['Class name']].value != 'Class name':
-                            str_pt_label = 'infopanel_' + class_map_dict[each_row[Class_list_dict['Class name']].value][9:] + '_' + each_row[Class_list_dict['code']].value + ' : ' + each_row[Class_list_dict['CSS']].value + '\n'
+                            str_pt_label = 'infopanel_' + class_map_dict[each_row[Class_list_dict['Class name']].value][9:][0].lower() + class_map_dict[each_row[Class_list_dict['Class name']].value][9:][1:] + '_' + each_row[Class_list_dict['code']].value + ' : ' + each_row[Class_list_dict['CSS']].value + '\n'
                             pt_list.append(str_pt_label)
                         if each_row[Class_list_dict['bit_0']].value is not None:
                             str_bit1_label = 'infopanel_' + class_map_dict[each_row[Class_list_dict['Class name']].value][
