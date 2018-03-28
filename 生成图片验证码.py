@@ -1,7 +1,7 @@
 # 生成图片验证码
 from PIL import Image,ImageFont,ImageDraw,ImageFilter
 import random
-import pytesser3
+from pytesser3 import *
 
 # 定义验证码的宽度和高度
 width  = 110
@@ -54,7 +54,7 @@ draw = ImageDraw.Draw(im)
 # 循环 不同颜色
 for x in range(4):
     # 加载字体,随机颜色
-    fnt = ImageFont.truetype("C:\\Python\\Python36\\Lib\\site-packages\\werkzeug\\debug\\shared\\ubuntu.ttf", rndFize())
+    fnt = ImageFont.truetype("C:\\Program Files\\Python36\\Lib\\site-packages\\matplotlib\\mpl-data\\fonts\\ttf\\DejaVuSerif.ttf", rndFize())
     draw.text((29*x,5),rndChar(),font=fnt,fill=(rndColor(),rndColor(),rndColor()))
 
 # 循环 干扰点
