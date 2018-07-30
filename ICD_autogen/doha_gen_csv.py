@@ -1,6 +1,8 @@
 import openpyxl
 import time
-
+from openpyxl import load_workbook
+import os
+import csv
 
 Class_list_dict = {}
 Class_list_dict['isAComment'] = 1
@@ -62,7 +64,8 @@ row_list = []
 ws_par_list = []
 link_list = []
 ev_gen_list = []
-label_class_list = ['IDP', 'MSFD', 'VENTILATION', 'ACB', 'ADS', 'EL', 'LBS', 'MCB', 'MCCB', 'MDB', 'MPLCMMS', 'SMDB', 'SPLCMMS', 'TRF']
+#label_class_list = ['IDP', 'MSFD', 'VENTILATION', 'ACB', 'ADS', 'EL', 'LBS', 'MCB', 'MCCB', 'MDB', 'MPLCMMS', 'SMDB', 'SPLCMMS', 'TRF']
+label_class_list = ['66KVHVMV', '33KVSTMV', '66KVBSMV', '33KVBSMV', '33KVOFMV', '33KVVM', '66KVVM', 'AUXTF', 'POWTF', 'BCA']
 all_label = []
 all_hvid = []
 
@@ -74,9 +77,10 @@ def save_to_excel(data, i):
     ws_new.append(['nom_instance', 'ID', 'ELEMENT_NAME', '__PROTOTYPE__', '__AGGREGATE__', 'link_object_is_from_object_type', 'reference_import', 'label', 'shortname', 'hvid'])
     for each in data:
         ws_new.append(each)
-    file_n = str(i) + "-equipment.csv"
+    file_n = str(i) + "-equipment.xlsx"
     wb_new.save(file_n)
     wb_new.close()
+    xlsx2csv(file_n)
 
 
 def save_link_to_excel(data):
@@ -86,9 +90,10 @@ def save_link_to_excel(data):
     ws_new.append(['nom_instance', 'ID', 'ELEMENT_NAME', 'lk0', 'lk1'])
     for each in data:
         ws_new.append(each)
-    file_n = "lk_gen.csv"
+    file_n = "lk_gen.xlsx"
     wb_new.save(file_n)
     wb_new.close()
+    xlsx2csv(file_n)
 
 
 def save_ev_to_excel(data):
@@ -98,9 +103,10 @@ def save_ev_to_excel(data):
     ws_new.append(['ID', 'nom_instance', 'reference_import', 'address', 'deadband', 'label', 'length', 'name', 'type', 'ELEMENT_NAME', 'varInvalid1', 'varInvalid2', 'varInvalid3', 'functCheck', 'functTrans'])
     for each in data:
         ws_new.append(each)
-    file_n = "ev_gen.csv"
+    file_n = "ev_gen.xlsx"
     wb_new.save(file_n)
     wb_new.close()
+    xlsx2csv(file_n)
 
 
 def add_parent_path(row_id):
@@ -174,8 +180,8 @@ def split_parent_node(data):
     return ws_par_list
 
 
-def equipment_csv():
-    file_name = 'LRT-QSTT-XX-ICD-SCC-GEN00-371058_-B2.1_ICD_SCADA-TVS_Appendix_C_ATT1 SW input_HK_1.xlsx'
+def equipment_csv(file_name):
+    # file_name = 'LRT-QSTT-XX-ICD-CCS-GEN00-373543-B- SCADA-DPB-AppendixC_ATT1v0.37_HK_WP7.xlsx'
     wb = openpyxl.load_workbook(file_name, data_only=True)
     list_par = []
     ws_1 = wb['1-Class List']
@@ -241,11 +247,11 @@ def equipment_csv():
             i += 1
 
 
-def ev():
+def ev(file_name):
     ws_ev_list = []
     class_list = []
     ev_gp_list = []
-    file_name = 'LRT-QSTT-XX-ICD-SCC-GEN00-371058_-B2.1_ICD_SCADA-TVS_Appendix_C_ATT1 SW input_HK_1.xlsx'
+    # file_name = 'LRT-QSTT-XX-ICD-CCS-GEN00-373543-B- SCADA-DPB-AppendixC_ATT1v0.37_HK_WP7.xlsx'
     wb = openpyxl.load_workbook(file_name, data_only=True)
     list_par = []
     ws_1 = wb['1-Class List']
@@ -296,7 +302,6 @@ def ev():
             for each in [ev_class, ev_ptname, ev_address, ev_deadband, ev_label, ev_length, ev_type, ev_group]:
                 ev_list.append(each)
             ev_gp_list.append(ev_list)
-
     for each in ws_ev_list:
 
         class_name = each[1]
@@ -308,6 +313,7 @@ def ev():
             label = each_ele[4]
             length = each_ele[5]
             ev_tp = each_ele[6]
+            print(label,length,ev_tp)
             pt_type = each_ele[1][0:3]
             pt_ele_type = type_dict[pt_type] + '_type_link_ve'
             address = each_ele[2]
@@ -346,8 +352,8 @@ def ev():
     save_ev_to_excel(ev_gen_list)
 
 
-def gen_label():
-    file_name = 'LRT-QSTT-XX-ICD-SCC-GEN00-371058_-B2.1_ICD_SCADA-TVS_Appendix_C_ATT1 SW input_HK_1.xlsx'
+def gen_label(file_name):
+    # file_name = 'LRT-QSTT-XX-ICD-CCS-GEN00-373543-B- SCADA-DPB-AppendixC_ATT1v0.37_HK_WP7.xlsx.xlsx'
     wb = openpyxl.load_workbook(file_name, data_only=True)
     ws_1 = wb['1-Class List']
     ws_2 = wb['2-Instance List']
@@ -358,7 +364,9 @@ def gen_label():
 
         if each_row[0].value != 'Class name':
             class_map_dict[each_row[0].value] = each_row[1].value
+    print(class_map_dict)
     total_row = ws_1.max_row
+    print(total_row)
     # generate all class from ICD START
     for each_row in ws_1:
         if each_row[4].value is not None and each_row[4].value not in label_class_list:
@@ -371,7 +379,7 @@ def gen_label():
         pt_list = []
         for each_row in ws_1:
             if each_row[4].value == each_class:
-                if each_row[Class_list_dict['type']].value[1] == 'I':
+                if each_row[Class_list_dict['type']].value is not None and each_row[Class_list_dict['type']].value[1] == 'I':
                     try:
                         if each_row[Class_list_dict['Class name']].value != 'Class name':
                             str_pt_label = 'infopanel_' + class_map_dict[each_row[Class_list_dict['Class name']].value][9:] + '_' + each_row[Class_list_dict['code']].value[0].lower() + each_row[Class_list_dict['code']].value[1:] + ' : ' + each_row[Class_list_dict['CSS']].value + '\n'
@@ -401,7 +409,7 @@ def gen_label():
                             pt_list.append(str_bit1_label)
                     except KeyError:
                         print(each_row[4].value)
-                elif each_row[Class_list_dict['type']].value[1] == 'O':
+                elif each_row[Class_list_dict['type']].value is not None and each_row[Class_list_dict['type']].value[1] == 'O':
                     if each_row[Class_list_dict['SIL Level']].value == 'SIL0':
                         str_pt_label = 'cmdPanel_' + class_map_dict[each_row[Class_list_dict['Class name']].value][
                                                        9:] + '_' + each_row[Class_list_dict['code']].value + '_order : ' + \
@@ -424,10 +432,12 @@ def gen_label():
                                                      9:] + '_' + each_row[Class_list_dict['code']].value[6:] + '_order : ' + \
                                        each_row[Class_list_dict['CSS']].value + '\n'
                         pt_list.append(str_pt_label)
-
-
-        for row_num in range(3, total_row):
+        total_row1 = ws_2.max_row
+        if total_row1 < total_row:
+            total_row1 = total_row
+        for row_num in range(3, total_row1):
             if ws_1['E' + str(row_num)].value is None and ws_1['E' + str(row_num + 1)].value == each_class:
+                print(row_num, class_map_dict[ws_1['E' + str(row_num + 1)].value], ws_1['F' + str(row_num)].value)
                 str_top1 = 'equipmentType_' + class_map_dict[ws_1['E' + str(row_num + 1)].value][9:] + '_std : ' + ws_1['F' + str(row_num)].value + '\n'
                 str_top2 = class_map_dict[ws_1['E' + str(row_num + 1)].value][9:] + '_layer : ' + ws_1['F' + str(row_num)].value+ '\n'
                 label_list.append('### ' + ws_1['E' + str(row_num + 1)].value + '\n')
@@ -438,9 +448,9 @@ def gen_label():
                 hvid_list.append('####################' + '\n')
             elif ws_1['E' + str(row_num)].value == each_class and ws_1['E' + str(row_num - 1)].value is None:
                 for each_row in ws_2.rows:
-                    if ws_1['E' + str(row_num)].value == each_row[8].value and each_row[20].value is not None:
-                        str_lab = each_row[20].value + ' : ' + each_row[9].value + '\n'
-                        hvid_lab = each_row[21].value + ' : ' + str(each_row[20].value).replace('&','') + '\n'
+                    if ws_1['E' + str(row_num)].value == each_row[8].value and each_row[22].value is not None:
+                        str_lab = each_row[21].value + ' : ' + each_row[8].value + '\n'
+                        hvid_lab = each_row[22].value + ' : ' + str(each_row[21].value).replace('&','') + '\n'
                         if str_lab not in label_list:
                             label_list.append(str_lab)
                             hvid_list.append(hvid_lab)
@@ -459,9 +469,63 @@ def gen_label():
                 fhv.write(each)
 
 
-if __name__ == "__main__":
-    #equipment_csv()
-    #ev()
-    gen_label()
+def xlsx2csv(filename):
+    try:
+        xlsx_file_reader = load_workbook(filename=filename)
+        for sheet in xlsx_file_reader.get_sheet_names():
+            # 每个sheet输出到一个csv文件中，文件名用xlsx文件名和sheet名用'_'连接
+            csv_filename = '{xlsx}.csv'.format(
+                xlsx=os.path.splitext(filename.replace(' ', '_'))[0],
+                sheet=sheet.replace(' ', '_'))
 
+            with open(csv_filename, 'w', newline='') as f_out:
+                csv_file_writer = csv.writer(f_out)
+
+                sheet_ranges = xlsx_file_reader[sheet]
+                for row in sheet_ranges.rows:
+                    row_container = []
+                    for cell in row:
+                        if cell.value is not None:
+                            if type(cell.value) == str:
+                                row_container.append(str(cell.value))
+                            else:
+                                row_container.append(str(cell.value))
+                        else:
+                            cell.value = ''
+                            row_container.append(str(cell.value))
+                    # print(row_container)
+                    csv_file_writer.writerow(row_container)
+        os.remove(filename)
+    except Exception as e:
+        print(e)
+
+
+if __name__ == "__main__":
+    print('Please enter your file name:\n')
+    file_name = input()
+    print('Please select: (Q for Quit)：')
+    print('1. Add Equipment csv file.\n2. Add EV csv file.\n3. Generate HVID and labels\n')
+    choice = input()
+    while choice != 'Q':
+        if choice == '1':
+            equipment_csv(file_name)
+            print('Generation Finish！')
+            print('Please select,Q for Quit：')
+            print('1. Add Equipment csv file.\n2. Add EV csv file.\n3. Generate HVID and labels\n')
+            choice = input()
+        elif choice == '2':
+            ev(file_name)
+            print('Generation Finish！')
+            print('Please select,Q for Quit：')
+            print('1. Add Equipment csv file.\n2. Add EV csv file.\n3. Generate HVID and labels\n')
+            choice = input()
+        elif choice == '3':
+            gen_label(file_name)
+            print('Generation Finish！')
+            print('Please select,Q for Quit：')
+            print('1. Add Equipment csv file.\n2. Add EV csv file.\n3. Generate HVID and labels\n')
+            choice = input()
+        else:
+            print('Type error, please re-enter:')
+            choice = input('Please select: (Q for Quit)：')
 

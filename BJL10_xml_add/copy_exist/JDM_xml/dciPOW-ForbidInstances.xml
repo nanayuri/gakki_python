@@ -1,0 +1,3529 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE Instance SYSTEM "dtd/dbkinstance.dtd" >
+<Instance classId="dciPOW-Forbid">
+<InstanceDescription alias="dciPOW-Forbi_441736" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="initValue" position="0" activation="ENABLE" formula="SCSDPC_DCIINIT([&lt;alias&gt;ScadaSoft.dpcTrigger],[.initValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="label" >
+<ScalarValue value="Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="pointName" >
+<ScalarValue value="dciPOW-Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="validity" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="value" position="4" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],MOD([dac.acqValue],4),[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueDate" position="6" activation="ENABLE" formula="SCSDPC_DATE([.source],IF([.soediff]=0,[dac.acqDate],[dac.equipmentDate]),[dfo.forcedDate])" >
+<ScalarValue value="25/06/2018 13:44:03.019"/>
+</AttributDescription>
+<AttributDescription attrId="class_id" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group1" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group2" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="opDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="opSource" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="operStatus" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="previousStatus" position="3" activation="ENABLE" formula="SCSDPC_EQPSYNTH([.status])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="previousValidity" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValue" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValueDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="source" position="1" activation="ENABLE" formula="SCSDPC_SOURCE([.initValue],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="status" position="2" activation="ENABLE" formula="SCSDPC_STATUS([.source],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="userField1" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="userField2" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="soediff" position="5" activation="ENABLE" formula="TIMEDIFF([dac.dumpdate],[dac.equipmentDate])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="value2" position="7" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],[dac.acqValue],[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="alarmSynthesis" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dciPOW-Forbi_441755" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="initValue" position="0" activation="ENABLE" formula="SCSDPC_DCIINIT([&lt;alias&gt;ScadaSoft.dpcTrigger],[.initValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="label" >
+<ScalarValue value="Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="pointName" >
+<ScalarValue value="dciPOW-Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="validity" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="value" position="3" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],MOD([dac.acqValue],4),[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueDate" position="7" activation="ENABLE" formula="SCSDPC_DATE([.source],IF([.soediff]=0,[dac.acqDate],[dac.equipmentDate]),[dfo.forcedDate])" >
+<ScalarValue value="25/06/2018 13:44:03.019"/>
+</AttributDescription>
+<AttributDescription attrId="class_id" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group1" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group2" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="opDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="opSource" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="operStatus" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="previousStatus" position="5" activation="ENABLE" formula="SCSDPC_EQPSYNTH([.status])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="previousValidity" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValue" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValueDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="source" position="1" activation="ENABLE" formula="SCSDPC_SOURCE([.initValue],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="status" position="2" activation="ENABLE" formula="SCSDPC_STATUS([.source],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="userField1" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="userField2" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="soediff" position="4" activation="ENABLE" formula="TIMEDIFF([dac.dumpdate],[dac.equipmentDate])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="value2" position="6" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],[dac.acqValue],[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="alarmSynthesis" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dciPOW-Forbi_441774" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="initValue" position="0" activation="ENABLE" formula="SCSDPC_DCIINIT([&lt;alias&gt;ScadaSoft.dpcTrigger],[.initValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="label" >
+<ScalarValue value="Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="pointName" >
+<ScalarValue value="dciPOW-Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="validity" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="value" position="7" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],MOD([dac.acqValue],4),[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueDate" position="3" activation="ENABLE" formula="SCSDPC_DATE([.source],IF([.soediff]=0,[dac.acqDate],[dac.equipmentDate]),[dfo.forcedDate])" >
+<ScalarValue value="25/06/2018 13:44:03.019"/>
+</AttributDescription>
+<AttributDescription attrId="class_id" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group1" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group2" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="opDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="opSource" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="operStatus" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="previousStatus" position="5" activation="ENABLE" formula="SCSDPC_EQPSYNTH([.status])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="previousValidity" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValue" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValueDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="source" position="2" activation="ENABLE" formula="SCSDPC_SOURCE([.initValue],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="status" position="4" activation="ENABLE" formula="SCSDPC_STATUS([.source],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="userField1" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="userField2" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="soediff" position="1" activation="ENABLE" formula="TIMEDIFF([dac.dumpdate],[dac.equipmentDate])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="value2" position="6" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],[dac.acqValue],[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="alarmSynthesis" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dciPOW-Forbi_441875" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="initValue" position="0" activation="ENABLE" formula="SCSDPC_DCIINIT([&lt;alias&gt;ScadaSoft.dpcTrigger],[.initValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="label" >
+<ScalarValue value="Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="pointName" >
+<ScalarValue value="dciPOW-Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="validity" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="value" position="4" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],MOD([dac.acqValue],4),[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueDate" position="6" activation="ENABLE" formula="SCSDPC_DATE([.source],IF([.soediff]=0,[dac.acqDate],[dac.equipmentDate]),[dfo.forcedDate])" >
+<ScalarValue value="25/06/2018 13:44:03.019"/>
+</AttributDescription>
+<AttributDescription attrId="class_id" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group1" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group2" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="opDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="opSource" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="operStatus" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="previousStatus" position="3" activation="ENABLE" formula="SCSDPC_EQPSYNTH([.status])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="previousValidity" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValue" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValueDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="source" position="1" activation="ENABLE" formula="SCSDPC_SOURCE([.initValue],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="status" position="2" activation="ENABLE" formula="SCSDPC_STATUS([.source],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="userField1" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="userField2" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="soediff" position="5" activation="ENABLE" formula="TIMEDIFF([dac.dumpdate],[dac.equipmentDate])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="value2" position="7" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],[dac.acqValue],[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="alarmSynthesis" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dciPOW-Forbi_441895" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="initValue" position="0" activation="ENABLE" formula="SCSDPC_DCIINIT([&lt;alias&gt;ScadaSoft.dpcTrigger],[.initValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="label" >
+<ScalarValue value="Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="pointName" >
+<ScalarValue value="dciPOW-Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="validity" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="value" position="4" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],MOD([dac.acqValue],4),[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueDate" position="6" activation="ENABLE" formula="SCSDPC_DATE([.source],IF([.soediff]=0,[dac.acqDate],[dac.equipmentDate]),[dfo.forcedDate])" >
+<ScalarValue value="25/06/2018 13:44:03.019"/>
+</AttributDescription>
+<AttributDescription attrId="class_id" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group1" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group2" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="opDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="opSource" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="operStatus" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="previousStatus" position="3" activation="ENABLE" formula="SCSDPC_EQPSYNTH([.status])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="previousValidity" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValue" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValueDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="source" position="1" activation="ENABLE" formula="SCSDPC_SOURCE([.initValue],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="status" position="2" activation="ENABLE" formula="SCSDPC_STATUS([.source],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="userField1" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="userField2" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="soediff" position="5" activation="ENABLE" formula="TIMEDIFF([dac.dumpdate],[dac.equipmentDate])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="value2" position="7" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],[dac.acqValue],[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="alarmSynthesis" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dciPOW-Forbi_441993" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="initValue" position="0" activation="ENABLE" formula="SCSDPC_DCIINIT([&lt;alias&gt;ScadaSoft.dpcTrigger],[.initValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="label" >
+<ScalarValue value="Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="pointName" >
+<ScalarValue value="dciPOW-Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="validity" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="value" position="7" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],MOD([dac.acqValue],4),[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueDate" position="3" activation="ENABLE" formula="SCSDPC_DATE([.source],IF([.soediff]=0,[dac.acqDate],[dac.equipmentDate]),[dfo.forcedDate])" >
+<ScalarValue value="25/06/2018 13:44:03.019"/>
+</AttributDescription>
+<AttributDescription attrId="class_id" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group1" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group2" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="opDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="opSource" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="operStatus" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="previousStatus" position="6" activation="ENABLE" formula="SCSDPC_EQPSYNTH([.status])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="previousValidity" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValue" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValueDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="source" position="1" activation="ENABLE" formula="SCSDPC_SOURCE([.initValue],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="status" position="4" activation="ENABLE" formula="SCSDPC_STATUS([.source],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="userField1" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="userField2" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="soediff" position="2" activation="ENABLE" formula="TIMEDIFF([dac.dumpdate],[dac.equipmentDate])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="value2" position="5" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],[dac.acqValue],[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="alarmSynthesis" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dciPOW-Forbi_442068" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="initValue" position="0" activation="ENABLE" formula="SCSDPC_DCIINIT([&lt;alias&gt;ScadaSoft.dpcTrigger],[.initValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="label" >
+<ScalarValue value="Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="pointName" >
+<ScalarValue value="dciPOW-Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="validity" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="value" position="7" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],MOD([dac.acqValue],4),[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueDate" position="6" activation="ENABLE" formula="SCSDPC_DATE([.source],IF([.soediff]=0,[dac.acqDate],[dac.equipmentDate]),[dfo.forcedDate])" >
+<ScalarValue value="25/06/2018 13:44:03.019"/>
+</AttributDescription>
+<AttributDescription attrId="class_id" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group1" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group2" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="opDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="opSource" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="operStatus" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="previousStatus" position="4" activation="ENABLE" formula="SCSDPC_EQPSYNTH([.status])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="previousValidity" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValue" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValueDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="source" position="1" activation="ENABLE" formula="SCSDPC_SOURCE([.initValue],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="status" position="2" activation="ENABLE" formula="SCSDPC_STATUS([.source],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="userField1" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="userField2" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="soediff" position="5" activation="ENABLE" formula="TIMEDIFF([dac.dumpdate],[dac.equipmentDate])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="value2" position="3" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],[dac.acqValue],[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="alarmSynthesis" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dciPOW-Forbi_442143" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="initValue" position="0" activation="ENABLE" formula="SCSDPC_DCIINIT([&lt;alias&gt;ScadaSoft.dpcTrigger],[.initValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="label" >
+<ScalarValue value="Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="pointName" >
+<ScalarValue value="dciPOW-Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="validity" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="value" position="7" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],MOD([dac.acqValue],4),[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueDate" position="3" activation="ENABLE" formula="SCSDPC_DATE([.source],IF([.soediff]=0,[dac.acqDate],[dac.equipmentDate]),[dfo.forcedDate])" >
+<ScalarValue value="25/06/2018 13:44:03.019"/>
+</AttributDescription>
+<AttributDescription attrId="class_id" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group1" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group2" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="opDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="opSource" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="operStatus" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="previousStatus" position="6" activation="ENABLE" formula="SCSDPC_EQPSYNTH([.status])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="previousValidity" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValue" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValueDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="source" position="2" activation="ENABLE" formula="SCSDPC_SOURCE([.initValue],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="status" position="4" activation="ENABLE" formula="SCSDPC_STATUS([.source],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="userField1" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="userField2" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="soediff" position="1" activation="ENABLE" formula="TIMEDIFF([dac.dumpdate],[dac.equipmentDate])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="value2" position="5" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],[dac.acqValue],[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="alarmSynthesis" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dciPOW-Forbi_442218" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="initValue" position="0" activation="ENABLE" formula="SCSDPC_DCIINIT([&lt;alias&gt;ScadaSoft.dpcTrigger],[.initValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="label" >
+<ScalarValue value="Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="pointName" >
+<ScalarValue value="dciPOW-Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="validity" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="value" position="3" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],MOD([dac.acqValue],4),[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueDate" position="5" activation="ENABLE" formula="SCSDPC_DATE([.source],IF([.soediff]=0,[dac.acqDate],[dac.equipmentDate]),[dfo.forcedDate])" >
+<ScalarValue value="25/06/2018 13:44:03.019"/>
+</AttributDescription>
+<AttributDescription attrId="class_id" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group1" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group2" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="opDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="opSource" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="operStatus" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="previousStatus" position="7" activation="ENABLE" formula="SCSDPC_EQPSYNTH([.status])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="previousValidity" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValue" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValueDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="source" position="1" activation="ENABLE" formula="SCSDPC_SOURCE([.initValue],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="status" position="2" activation="ENABLE" formula="SCSDPC_STATUS([.source],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="userField1" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="userField2" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="soediff" position="4" activation="ENABLE" formula="TIMEDIFF([dac.dumpdate],[dac.equipmentDate])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="value2" position="6" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],[dac.acqValue],[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="alarmSynthesis" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dciPOW-Forbi_442269" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="initValue" position="0" activation="ENABLE" formula="SCSDPC_DCIINIT([&lt;alias&gt;ScadaSoft.dpcTrigger],[.initValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="label" >
+<ScalarValue value="Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="pointName" >
+<ScalarValue value="dciPOW-Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="validity" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="value" position="4" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],MOD([dac.acqValue],4),[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueDate" position="6" activation="ENABLE" formula="SCSDPC_DATE([.source],IF([.soediff]=0,[dac.acqDate],[dac.equipmentDate]),[dfo.forcedDate])" >
+<ScalarValue value="25/06/2018 13:44:03.019"/>
+</AttributDescription>
+<AttributDescription attrId="class_id" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group1" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group2" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="opDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="opSource" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="operStatus" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="previousStatus" position="3" activation="ENABLE" formula="SCSDPC_EQPSYNTH([.status])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="previousValidity" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValue" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValueDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="source" position="1" activation="ENABLE" formula="SCSDPC_SOURCE([.initValue],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="status" position="2" activation="ENABLE" formula="SCSDPC_STATUS([.source],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="userField1" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="userField2" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="soediff" position="5" activation="ENABLE" formula="TIMEDIFF([dac.dumpdate],[dac.equipmentDate])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="value2" position="7" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],[dac.acqValue],[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="alarmSynthesis" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dciPOW-Forbi_442334" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="initValue" position="0" activation="ENABLE" formula="SCSDPC_DCIINIT([&lt;alias&gt;ScadaSoft.dpcTrigger],[.initValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="label" >
+<ScalarValue value="Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="pointName" >
+<ScalarValue value="dciPOW-Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="validity" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="value" position="3" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],MOD([dac.acqValue],4),[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueDate" position="5" activation="ENABLE" formula="SCSDPC_DATE([.source],IF([.soediff]=0,[dac.acqDate],[dac.equipmentDate]),[dfo.forcedDate])" >
+<ScalarValue value="25/06/2018 13:44:03.019"/>
+</AttributDescription>
+<AttributDescription attrId="class_id" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group1" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group2" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="opDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="opSource" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="operStatus" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="previousStatus" position="7" activation="ENABLE" formula="SCSDPC_EQPSYNTH([.status])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="previousValidity" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValue" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValueDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="source" position="1" activation="ENABLE" formula="SCSDPC_SOURCE([.initValue],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="status" position="2" activation="ENABLE" formula="SCSDPC_STATUS([.source],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="userField1" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="userField2" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="soediff" position="4" activation="ENABLE" formula="TIMEDIFF([dac.dumpdate],[dac.equipmentDate])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="value2" position="6" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],[dac.acqValue],[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="alarmSynthesis" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dciPOW-Forbi_442395" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="initValue" position="0" activation="ENABLE" formula="SCSDPC_DCIINIT([&lt;alias&gt;ScadaSoft.dpcTrigger],[.initValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="label" >
+<ScalarValue value="Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="pointName" >
+<ScalarValue value="dciPOW-Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="validity" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="value" position="3" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],MOD([dac.acqValue],4),[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueDate" position="5" activation="ENABLE" formula="SCSDPC_DATE([.source],IF([.soediff]=0,[dac.acqDate],[dac.equipmentDate]),[dfo.forcedDate])" >
+<ScalarValue value="25/06/2018 13:44:03.019"/>
+</AttributDescription>
+<AttributDescription attrId="class_id" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group1" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group2" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="opDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="opSource" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="operStatus" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="previousStatus" position="7" activation="ENABLE" formula="SCSDPC_EQPSYNTH([.status])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="previousValidity" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValue" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValueDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="source" position="1" activation="ENABLE" formula="SCSDPC_SOURCE([.initValue],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="status" position="2" activation="ENABLE" formula="SCSDPC_STATUS([.source],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="userField1" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="userField2" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="soediff" position="4" activation="ENABLE" formula="TIMEDIFF([dac.dumpdate],[dac.equipmentDate])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="value2" position="6" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],[dac.acqValue],[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="alarmSynthesis" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dciPOW-Forbi_442462" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="initValue" position="0" activation="ENABLE" formula="SCSDPC_DCIINIT([&lt;alias&gt;ScadaSoft.dpcTrigger],[.initValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="label" >
+<ScalarValue value="Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="pointName" >
+<ScalarValue value="dciPOW-Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="validity" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="value" position="7" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],MOD([dac.acqValue],4),[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueDate" position="3" activation="ENABLE" formula="SCSDPC_DATE([.source],IF([.soediff]=0,[dac.acqDate],[dac.equipmentDate]),[dfo.forcedDate])" >
+<ScalarValue value="25/06/2018 13:44:03.019"/>
+</AttributDescription>
+<AttributDescription attrId="class_id" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group1" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group2" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="opDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="opSource" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="operStatus" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="previousStatus" position="6" activation="ENABLE" formula="SCSDPC_EQPSYNTH([.status])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="previousValidity" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValue" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValueDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="source" position="1" activation="ENABLE" formula="SCSDPC_SOURCE([.initValue],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="status" position="4" activation="ENABLE" formula="SCSDPC_STATUS([.source],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="userField1" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="userField2" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="soediff" position="2" activation="ENABLE" formula="TIMEDIFF([dac.dumpdate],[dac.equipmentDate])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="value2" position="5" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],[dac.acqValue],[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="alarmSynthesis" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dciPOW-Forbi_442529" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="initValue" position="0" activation="ENABLE" formula="SCSDPC_DCIINIT([&lt;alias&gt;ScadaSoft.dpcTrigger],[.initValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="label" >
+<ScalarValue value="Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="pointName" >
+<ScalarValue value="dciPOW-Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="validity" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="value" position="3" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],MOD([dac.acqValue],4),[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueDate" position="7" activation="ENABLE" formula="SCSDPC_DATE([.source],IF([.soediff]=0,[dac.acqDate],[dac.equipmentDate]),[dfo.forcedDate])" >
+<ScalarValue value="25/06/2018 13:44:03.019"/>
+</AttributDescription>
+<AttributDescription attrId="class_id" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group1" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group2" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="opDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="opSource" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="operStatus" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="previousStatus" position="5" activation="ENABLE" formula="SCSDPC_EQPSYNTH([.status])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="previousValidity" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValue" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValueDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="source" position="1" activation="ENABLE" formula="SCSDPC_SOURCE([.initValue],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="status" position="2" activation="ENABLE" formula="SCSDPC_STATUS([.source],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="userField1" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="userField2" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="soediff" position="4" activation="ENABLE" formula="TIMEDIFF([dac.dumpdate],[dac.equipmentDate])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="value2" position="6" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],[dac.acqValue],[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="alarmSynthesis" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dciPOW-Forbi_442606" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="initValue" position="0" activation="ENABLE" formula="SCSDPC_DCIINIT([&lt;alias&gt;ScadaSoft.dpcTrigger],[.initValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="label" >
+<ScalarValue value="Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="pointName" >
+<ScalarValue value="dciPOW-Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="validity" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="value" position="7" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],MOD([dac.acqValue],4),[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueDate" position="6" activation="ENABLE" formula="SCSDPC_DATE([.source],IF([.soediff]=0,[dac.acqDate],[dac.equipmentDate]),[dfo.forcedDate])" >
+<ScalarValue value="25/06/2018 13:44:03.019"/>
+</AttributDescription>
+<AttributDescription attrId="class_id" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group1" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group2" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="opDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="opSource" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="operStatus" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="previousStatus" position="4" activation="ENABLE" formula="SCSDPC_EQPSYNTH([.status])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="previousValidity" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValue" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValueDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="source" position="1" activation="ENABLE" formula="SCSDPC_SOURCE([.initValue],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="status" position="2" activation="ENABLE" formula="SCSDPC_STATUS([.source],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="userField1" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="userField2" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="soediff" position="5" activation="ENABLE" formula="TIMEDIFF([dac.dumpdate],[dac.equipmentDate])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="value2" position="3" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],[dac.acqValue],[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="alarmSynthesis" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dciPOW-Forbi_442701" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="initValue" position="0" activation="ENABLE" formula="SCSDPC_DCIINIT([&lt;alias&gt;ScadaSoft.dpcTrigger],[.initValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="label" >
+<ScalarValue value="Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="pointName" >
+<ScalarValue value="dciPOW-Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="validity" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="value" position="7" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],MOD([dac.acqValue],4),[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueDate" position="3" activation="ENABLE" formula="SCSDPC_DATE([.source],IF([.soediff]=0,[dac.acqDate],[dac.equipmentDate]),[dfo.forcedDate])" >
+<ScalarValue value="25/06/2018 13:44:03.019"/>
+</AttributDescription>
+<AttributDescription attrId="class_id" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group1" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group2" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="opDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="opSource" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="operStatus" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="previousStatus" position="6" activation="ENABLE" formula="SCSDPC_EQPSYNTH([.status])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="previousValidity" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValue" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValueDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="source" position="2" activation="ENABLE" formula="SCSDPC_SOURCE([.initValue],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="status" position="4" activation="ENABLE" formula="SCSDPC_STATUS([.source],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="userField1" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="userField2" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="soediff" position="1" activation="ENABLE" formula="TIMEDIFF([dac.dumpdate],[dac.equipmentDate])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="value2" position="5" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],[dac.acqValue],[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="alarmSynthesis" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dciPOW-Forbi_442796" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="initValue" position="0" activation="ENABLE" formula="SCSDPC_DCIINIT([&lt;alias&gt;ScadaSoft.dpcTrigger],[.initValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="label" >
+<ScalarValue value="Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="pointName" >
+<ScalarValue value="dciPOW-Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="validity" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="value" position="6" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],MOD([dac.acqValue],4),[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueDate" position="7" activation="ENABLE" formula="SCSDPC_DATE([.source],IF([.soediff]=0,[dac.acqDate],[dac.equipmentDate]),[dfo.forcedDate])" >
+<ScalarValue value="25/06/2018 13:44:03.019"/>
+</AttributDescription>
+<AttributDescription attrId="class_id" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group1" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group2" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="opDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="opSource" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="operStatus" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="previousStatus" position="5" activation="ENABLE" formula="SCSDPC_EQPSYNTH([.status])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="previousValidity" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValue" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValueDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="source" position="1" activation="ENABLE" formula="SCSDPC_SOURCE([.initValue],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="status" position="2" activation="ENABLE" formula="SCSDPC_STATUS([.source],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="userField1" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="userField2" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="soediff" position="4" activation="ENABLE" formula="TIMEDIFF([dac.dumpdate],[dac.equipmentDate])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="value2" position="3" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],[dac.acqValue],[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="alarmSynthesis" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dciPOW-Forbi_442891" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="initValue" position="0" activation="ENABLE" formula="SCSDPC_DCIINIT([&lt;alias&gt;ScadaSoft.dpcTrigger],[.initValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="label" >
+<ScalarValue value="Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="pointName" >
+<ScalarValue value="dciPOW-Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="validity" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="value" position="7" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],MOD([dac.acqValue],4),[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueDate" position="3" activation="ENABLE" formula="SCSDPC_DATE([.source],IF([.soediff]=0,[dac.acqDate],[dac.equipmentDate]),[dfo.forcedDate])" >
+<ScalarValue value="25/06/2018 13:44:03.019"/>
+</AttributDescription>
+<AttributDescription attrId="class_id" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group1" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group2" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="opDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="opSource" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="operStatus" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="previousStatus" position="6" activation="ENABLE" formula="SCSDPC_EQPSYNTH([.status])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="previousValidity" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValue" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValueDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="source" position="2" activation="ENABLE" formula="SCSDPC_SOURCE([.initValue],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="status" position="4" activation="ENABLE" formula="SCSDPC_STATUS([.source],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="userField1" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="userField2" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="soediff" position="1" activation="ENABLE" formula="TIMEDIFF([dac.dumpdate],[dac.equipmentDate])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="value2" position="5" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],[dac.acqValue],[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="alarmSynthesis" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dciPOW-Forbi_442983" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="initValue" position="0" activation="ENABLE" formula="SCSDPC_DCIINIT([&lt;alias&gt;ScadaSoft.dpcTrigger],[.initValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="label" >
+<ScalarValue value="Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="pointName" >
+<ScalarValue value="dciPOW-Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="validity" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="value" position="3" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],MOD([dac.acqValue],4),[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueDate" position="7" activation="ENABLE" formula="SCSDPC_DATE([.source],IF([.soediff]=0,[dac.acqDate],[dac.equipmentDate]),[dfo.forcedDate])" >
+<ScalarValue value="25/06/2018 13:44:03.019"/>
+</AttributDescription>
+<AttributDescription attrId="class_id" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group1" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group2" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="opDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="opSource" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="operStatus" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="previousStatus" position="5" activation="ENABLE" formula="SCSDPC_EQPSYNTH([.status])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="previousValidity" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValue" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValueDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="source" position="1" activation="ENABLE" formula="SCSDPC_SOURCE([.initValue],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="status" position="2" activation="ENABLE" formula="SCSDPC_STATUS([.source],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="userField1" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="userField2" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="soediff" position="4" activation="ENABLE" formula="TIMEDIFF([dac.dumpdate],[dac.equipmentDate])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="value2" position="6" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],[dac.acqValue],[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="alarmSynthesis" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dciPOW-Forbi_443020" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="initValue" position="0" activation="ENABLE" formula="SCSDPC_DCIINIT([&lt;alias&gt;ScadaSoft.dpcTrigger],[.initValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="label" >
+<ScalarValue value="Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="pointName" >
+<ScalarValue value="dciPOW-Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="validity" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="value" position="3" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],MOD([dac.acqValue],4),[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueDate" position="5" activation="ENABLE" formula="SCSDPC_DATE([.source],IF([.soediff]=0,[dac.acqDate],[dac.equipmentDate]),[dfo.forcedDate])" >
+<ScalarValue value="25/06/2018 13:44:03.019"/>
+</AttributDescription>
+<AttributDescription attrId="class_id" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group1" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group2" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="opDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="opSource" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="operStatus" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="previousStatus" position="6" activation="ENABLE" formula="SCSDPC_EQPSYNTH([.status])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="previousValidity" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValue" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValueDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="source" position="1" activation="ENABLE" formula="SCSDPC_SOURCE([.initValue],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="status" position="2" activation="ENABLE" formula="SCSDPC_STATUS([.source],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="userField1" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="userField2" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="soediff" position="4" activation="ENABLE" formula="TIMEDIFF([dac.dumpdate],[dac.equipmentDate])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="value2" position="7" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],[dac.acqValue],[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="alarmSynthesis" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dciPOW-Forbi_443038" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="initValue" position="0" activation="ENABLE" formula="SCSDPC_DCIINIT([&lt;alias&gt;ScadaSoft.dpcTrigger],[.initValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="label" >
+<ScalarValue value="Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="pointName" >
+<ScalarValue value="dciPOW-Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="validity" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="value" position="3" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],MOD([dac.acqValue],4),[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueDate" position="5" activation="ENABLE" formula="SCSDPC_DATE([.source],IF([.soediff]=0,[dac.acqDate],[dac.equipmentDate]),[dfo.forcedDate])" >
+<ScalarValue value="25/06/2018 13:44:03.019"/>
+</AttributDescription>
+<AttributDescription attrId="class_id" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group1" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group2" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="opDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="opSource" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="operStatus" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="previousStatus" position="6" activation="ENABLE" formula="SCSDPC_EQPSYNTH([.status])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="previousValidity" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValue" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValueDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="source" position="1" activation="ENABLE" formula="SCSDPC_SOURCE([.initValue],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="status" position="2" activation="ENABLE" formula="SCSDPC_STATUS([.source],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="userField1" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="userField2" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="soediff" position="4" activation="ENABLE" formula="TIMEDIFF([dac.dumpdate],[dac.equipmentDate])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="value2" position="7" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],[dac.acqValue],[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="alarmSynthesis" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dciPOW-Forbi_443056" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="initValue" position="0" activation="ENABLE" formula="SCSDPC_DCIINIT([&lt;alias&gt;ScadaSoft.dpcTrigger],[.initValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="label" >
+<ScalarValue value="Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="pointName" >
+<ScalarValue value="dciPOW-Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="validity" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="value" position="3" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],MOD([dac.acqValue],4),[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueDate" position="5" activation="ENABLE" formula="SCSDPC_DATE([.source],IF([.soediff]=0,[dac.acqDate],[dac.equipmentDate]),[dfo.forcedDate])" >
+<ScalarValue value="25/06/2018 13:44:03.019"/>
+</AttributDescription>
+<AttributDescription attrId="class_id" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group1" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group2" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="opDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="opSource" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="operStatus" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="previousStatus" position="7" activation="ENABLE" formula="SCSDPC_EQPSYNTH([.status])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="previousValidity" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValue" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValueDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="source" position="1" activation="ENABLE" formula="SCSDPC_SOURCE([.initValue],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="status" position="2" activation="ENABLE" formula="SCSDPC_STATUS([.source],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="userField1" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="userField2" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="soediff" position="4" activation="ENABLE" formula="TIMEDIFF([dac.dumpdate],[dac.equipmentDate])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="value2" position="6" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],[dac.acqValue],[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="alarmSynthesis" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dciPOW-Forbi_443074" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="initValue" position="0" activation="ENABLE" formula="SCSDPC_DCIINIT([&lt;alias&gt;ScadaSoft.dpcTrigger],[.initValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="label" >
+<ScalarValue value="Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="pointName" >
+<ScalarValue value="dciPOW-Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="validity" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="value" position="3" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],MOD([dac.acqValue],4),[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueDate" position="5" activation="ENABLE" formula="SCSDPC_DATE([.source],IF([.soediff]=0,[dac.acqDate],[dac.equipmentDate]),[dfo.forcedDate])" >
+<ScalarValue value="25/06/2018 13:44:03.019"/>
+</AttributDescription>
+<AttributDescription attrId="class_id" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group1" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group2" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="opDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="opSource" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="operStatus" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="previousStatus" position="6" activation="ENABLE" formula="SCSDPC_EQPSYNTH([.status])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="previousValidity" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValue" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValueDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="source" position="1" activation="ENABLE" formula="SCSDPC_SOURCE([.initValue],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="status" position="2" activation="ENABLE" formula="SCSDPC_STATUS([.source],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="userField1" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="userField2" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="soediff" position="4" activation="ENABLE" formula="TIMEDIFF([dac.dumpdate],[dac.equipmentDate])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="value2" position="7" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],[dac.acqValue],[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="alarmSynthesis" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dciPOW-Forbi_443092" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="initValue" position="0" activation="ENABLE" formula="SCSDPC_DCIINIT([&lt;alias&gt;ScadaSoft.dpcTrigger],[.initValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="label" >
+<ScalarValue value="Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="pointName" >
+<ScalarValue value="dciPOW-Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="validity" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="value" position="7" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],MOD([dac.acqValue],4),[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueDate" position="3" activation="ENABLE" formula="SCSDPC_DATE([.source],IF([.soediff]=0,[dac.acqDate],[dac.equipmentDate]),[dfo.forcedDate])" >
+<ScalarValue value="25/06/2018 13:44:03.019"/>
+</AttributDescription>
+<AttributDescription attrId="class_id" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group1" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group2" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="opDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="opSource" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="operStatus" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="previousStatus" position="6" activation="ENABLE" formula="SCSDPC_EQPSYNTH([.status])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="previousValidity" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValue" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValueDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="source" position="1" activation="ENABLE" formula="SCSDPC_SOURCE([.initValue],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="status" position="4" activation="ENABLE" formula="SCSDPC_STATUS([.source],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="userField1" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="userField2" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="soediff" position="2" activation="ENABLE" formula="TIMEDIFF([dac.dumpdate],[dac.equipmentDate])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="value2" position="5" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],[dac.acqValue],[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="alarmSynthesis" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dciPOW-Forbi_443110" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="initValue" position="0" activation="ENABLE" formula="SCSDPC_DCIINIT([&lt;alias&gt;ScadaSoft.dpcTrigger],[.initValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="label" >
+<ScalarValue value="Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="pointName" >
+<ScalarValue value="dciPOW-Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="validity" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="value" position="5" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],MOD([dac.acqValue],4),[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueDate" position="7" activation="ENABLE" formula="SCSDPC_DATE([.source],IF([.soediff]=0,[dac.acqDate],[dac.equipmentDate]),[dfo.forcedDate])" >
+<ScalarValue value="25/06/2018 13:44:03.019"/>
+</AttributDescription>
+<AttributDescription attrId="class_id" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group1" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group2" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="opDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="opSource" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="operStatus" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="previousStatus" position="4" activation="ENABLE" formula="SCSDPC_EQPSYNTH([.status])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="previousValidity" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValue" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValueDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="source" position="1" activation="ENABLE" formula="SCSDPC_SOURCE([.initValue],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="status" position="2" activation="ENABLE" formula="SCSDPC_STATUS([.source],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="userField1" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="userField2" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="soediff" position="6" activation="ENABLE" formula="TIMEDIFF([dac.dumpdate],[dac.equipmentDate])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="value2" position="3" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],[dac.acqValue],[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="alarmSynthesis" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dciPOW-Forbi_443146" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="initValue" position="0" activation="ENABLE" formula="SCSDPC_DCIINIT([&lt;alias&gt;ScadaSoft.dpcTrigger],[.initValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="label" >
+<ScalarValue value="Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="pointName" >
+<ScalarValue value="dciPOW-Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="validity" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="value" position="7" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],MOD([dac.acqValue],4),[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueDate" position="3" activation="ENABLE" formula="SCSDPC_DATE([.source],IF([.soediff]=0,[dac.acqDate],[dac.equipmentDate]),[dfo.forcedDate])" >
+<ScalarValue value="25/06/2018 13:44:03.019"/>
+</AttributDescription>
+<AttributDescription attrId="class_id" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group1" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group2" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="opDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="opSource" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="operStatus" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="previousStatus" position="6" activation="ENABLE" formula="SCSDPC_EQPSYNTH([.status])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="previousValidity" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValue" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValueDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="source" position="2" activation="ENABLE" formula="SCSDPC_SOURCE([.initValue],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="status" position="4" activation="ENABLE" formula="SCSDPC_STATUS([.source],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="userField1" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="userField2" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="soediff" position="1" activation="ENABLE" formula="TIMEDIFF([dac.dumpdate],[dac.equipmentDate])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="value2" position="5" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],[dac.acqValue],[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="alarmSynthesis" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dciPOW-Forbi_443169" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="initValue" position="0" activation="ENABLE" formula="SCSDPC_DCIINIT([&lt;alias&gt;ScadaSoft.dpcTrigger],[.initValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="label" >
+<ScalarValue value="Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="pointName" >
+<ScalarValue value="dciPOW-Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="validity" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="value" position="7" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],MOD([dac.acqValue],4),[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueDate" position="6" activation="ENABLE" formula="SCSDPC_DATE([.source],IF([.soediff]=0,[dac.acqDate],[dac.equipmentDate]),[dfo.forcedDate])" >
+<ScalarValue value="25/06/2018 13:44:03.019"/>
+</AttributDescription>
+<AttributDescription attrId="class_id" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group1" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group2" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="opDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="opSource" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="operStatus" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="previousStatus" position="4" activation="ENABLE" formula="SCSDPC_EQPSYNTH([.status])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="previousValidity" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValue" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValueDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="source" position="2" activation="ENABLE" formula="SCSDPC_SOURCE([.initValue],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="status" position="3" activation="ENABLE" formula="SCSDPC_STATUS([.source],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="userField1" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="userField2" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="soediff" position="1" activation="ENABLE" formula="TIMEDIFF([dac.dumpdate],[dac.equipmentDate])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="value2" position="5" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],[dac.acqValue],[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="alarmSynthesis" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dciPOW-Forbi_443174" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="initValue" position="0" activation="ENABLE" formula="SCSDPC_DCIINIT([&lt;alias&gt;ScadaSoft.dpcTrigger],[.initValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="label" >
+<ScalarValue value="Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="pointName" >
+<ScalarValue value="dciPOW-Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="validity" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="value" position="4" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],MOD([dac.acqValue],4),[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueDate" position="6" activation="ENABLE" formula="SCSDPC_DATE([.source],IF([.soediff]=0,[dac.acqDate],[dac.equipmentDate]),[dfo.forcedDate])" >
+<ScalarValue value="25/06/2018 13:44:03.019"/>
+</AttributDescription>
+<AttributDescription attrId="class_id" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group1" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group2" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="opDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="opSource" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="operStatus" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="previousStatus" position="3" activation="ENABLE" formula="SCSDPC_EQPSYNTH([.status])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="previousValidity" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValue" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValueDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="source" position="1" activation="ENABLE" formula="SCSDPC_SOURCE([.initValue],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="status" position="2" activation="ENABLE" formula="SCSDPC_STATUS([.source],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="userField1" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="userField2" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="soediff" position="5" activation="ENABLE" formula="TIMEDIFF([dac.dumpdate],[dac.equipmentDate])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="value2" position="7" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],[dac.acqValue],[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="alarmSynthesis" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dciPOW-Forbi_443197" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="initValue" position="0" activation="ENABLE" formula="SCSDPC_DCIINIT([&lt;alias&gt;ScadaSoft.dpcTrigger],[.initValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="label" >
+<ScalarValue value="Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="pointName" >
+<ScalarValue value="dciPOW-Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="validity" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="value" position="7" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],MOD([dac.acqValue],4),[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueDate" position="3" activation="ENABLE" formula="SCSDPC_DATE([.source],IF([.soediff]=0,[dac.acqDate],[dac.equipmentDate]),[dfo.forcedDate])" >
+<ScalarValue value="25/06/2018 13:44:03.019"/>
+</AttributDescription>
+<AttributDescription attrId="class_id" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group1" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group2" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="opDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="opSource" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="operStatus" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="previousStatus" position="6" activation="ENABLE" formula="SCSDPC_EQPSYNTH([.status])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="previousValidity" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValue" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValueDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="source" position="1" activation="ENABLE" formula="SCSDPC_SOURCE([.initValue],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="status" position="4" activation="ENABLE" formula="SCSDPC_STATUS([.source],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="userField1" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="userField2" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="soediff" position="2" activation="ENABLE" formula="TIMEDIFF([dac.dumpdate],[dac.equipmentDate])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="value2" position="5" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],[dac.acqValue],[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="alarmSynthesis" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dciPOW-Forbi_443220" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="initValue" position="0" activation="ENABLE" formula="SCSDPC_DCIINIT([&lt;alias&gt;ScadaSoft.dpcTrigger],[.initValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="label" >
+<ScalarValue value="Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="pointName" >
+<ScalarValue value="dciPOW-Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="validity" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="value" position="5" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],MOD([dac.acqValue],4),[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueDate" position="7" activation="ENABLE" formula="SCSDPC_DATE([.source],IF([.soediff]=0,[dac.acqDate],[dac.equipmentDate]),[dfo.forcedDate])" >
+<ScalarValue value="25/06/2018 13:44:03.019"/>
+</AttributDescription>
+<AttributDescription attrId="class_id" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group1" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group2" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="opDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="opSource" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="operStatus" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="previousStatus" position="4" activation="ENABLE" formula="SCSDPC_EQPSYNTH([.status])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="previousValidity" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValue" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValueDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="source" position="1" activation="ENABLE" formula="SCSDPC_SOURCE([.initValue],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="status" position="2" activation="ENABLE" formula="SCSDPC_STATUS([.source],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="userField1" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="userField2" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="soediff" position="6" activation="ENABLE" formula="TIMEDIFF([dac.dumpdate],[dac.equipmentDate])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="value2" position="3" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],[dac.acqValue],[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="alarmSynthesis" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dciPOW-Forbi_443243" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="initValue" position="0" activation="ENABLE" formula="SCSDPC_DCIINIT([&lt;alias&gt;ScadaSoft.dpcTrigger],[.initValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="label" >
+<ScalarValue value="Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="pointName" >
+<ScalarValue value="dciPOW-Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="validity" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="value" position="7" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],MOD([dac.acqValue],4),[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueDate" position="3" activation="ENABLE" formula="SCSDPC_DATE([.source],IF([.soediff]=0,[dac.acqDate],[dac.equipmentDate]),[dfo.forcedDate])" >
+<ScalarValue value="25/06/2018 13:44:03.019"/>
+</AttributDescription>
+<AttributDescription attrId="class_id" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group1" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group2" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="opDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="opSource" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="operStatus" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="previousStatus" position="6" activation="ENABLE" formula="SCSDPC_EQPSYNTH([.status])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="previousValidity" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValue" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValueDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="source" position="1" activation="ENABLE" formula="SCSDPC_SOURCE([.initValue],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="status" position="4" activation="ENABLE" formula="SCSDPC_STATUS([.source],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="userField1" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="userField2" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="soediff" position="2" activation="ENABLE" formula="TIMEDIFF([dac.dumpdate],[dac.equipmentDate])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="value2" position="5" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],[dac.acqValue],[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="alarmSynthesis" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dciPOW-Forbi_443303" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="initValue" position="0" activation="ENABLE" formula="SCSDPC_DCIINIT([&lt;alias&gt;ScadaSoft.dpcTrigger],[.initValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="label" >
+<ScalarValue value="Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="pointName" >
+<ScalarValue value="dciPOW-Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="validity" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="value" position="7" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],MOD([dac.acqValue],4),[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueDate" position="3" activation="ENABLE" formula="SCSDPC_DATE([.source],IF([.soediff]=0,[dac.acqDate],[dac.equipmentDate]),[dfo.forcedDate])" >
+<ScalarValue value="25/06/2018 13:44:03.019"/>
+</AttributDescription>
+<AttributDescription attrId="class_id" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group1" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group2" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="opDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="opSource" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="operStatus" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="previousStatus" position="5" activation="ENABLE" formula="SCSDPC_EQPSYNTH([.status])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="previousValidity" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValue" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValueDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="source" position="2" activation="ENABLE" formula="SCSDPC_SOURCE([.initValue],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="status" position="4" activation="ENABLE" formula="SCSDPC_STATUS([.source],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="userField1" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="userField2" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="soediff" position="1" activation="ENABLE" formula="TIMEDIFF([dac.dumpdate],[dac.equipmentDate])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="value2" position="6" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],[dac.acqValue],[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="alarmSynthesis" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dciPOW-Forbi_443311" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="initValue" position="0" activation="ENABLE" formula="SCSDPC_DCIINIT([&lt;alias&gt;ScadaSoft.dpcTrigger],[.initValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="label" >
+<ScalarValue value="Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="pointName" >
+<ScalarValue value="dciPOW-Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="validity" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="value" position="7" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],MOD([dac.acqValue],4),[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueDate" position="6" activation="ENABLE" formula="SCSDPC_DATE([.source],IF([.soediff]=0,[dac.acqDate],[dac.equipmentDate]),[dfo.forcedDate])" >
+<ScalarValue value="25/06/2018 13:44:03.019"/>
+</AttributDescription>
+<AttributDescription attrId="class_id" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group1" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group2" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="opDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="opSource" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="operStatus" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="previousStatus" position="3" activation="ENABLE" formula="SCSDPC_EQPSYNTH([.status])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="previousValidity" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValue" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValueDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="source" position="1" activation="ENABLE" formula="SCSDPC_SOURCE([.initValue],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="status" position="2" activation="ENABLE" formula="SCSDPC_STATUS([.source],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="userField1" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="userField2" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="soediff" position="5" activation="ENABLE" formula="TIMEDIFF([dac.dumpdate],[dac.equipmentDate])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="value2" position="4" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],[dac.acqValue],[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="alarmSynthesis" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dciPOW-Forbi_443351" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="initValue" position="0" activation="ENABLE" formula="SCSDPC_DCIINIT([&lt;alias&gt;ScadaSoft.dpcTrigger],[.initValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="label" >
+<ScalarValue value="Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="pointName" >
+<ScalarValue value="dciPOW-Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="validity" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="value" position="7" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],MOD([dac.acqValue],4),[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueDate" position="3" activation="ENABLE" formula="SCSDPC_DATE([.source],IF([.soediff]=0,[dac.acqDate],[dac.equipmentDate]),[dfo.forcedDate])" >
+<ScalarValue value="25/06/2018 13:44:03.019"/>
+</AttributDescription>
+<AttributDescription attrId="class_id" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group1" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group2" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="opDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="opSource" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="operStatus" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="previousStatus" position="6" activation="ENABLE" formula="SCSDPC_EQPSYNTH([.status])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="previousValidity" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValue" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValueDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="source" position="1" activation="ENABLE" formula="SCSDPC_SOURCE([.initValue],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="status" position="4" activation="ENABLE" formula="SCSDPC_STATUS([.source],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="userField1" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="userField2" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="soediff" position="2" activation="ENABLE" formula="TIMEDIFF([dac.dumpdate],[dac.equipmentDate])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="value2" position="5" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],[dac.acqValue],[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="alarmSynthesis" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dciPOW-Forbi_443860" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="initValue" position="0" activation="ENABLE" formula="SCSDPC_DCIINIT([&lt;alias&gt;ScadaSoft.dpcTrigger],[.initValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="label" >
+<ScalarValue value="Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="pointName" >
+<ScalarValue value="dciPOW-Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="validity" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="value" position="4" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],MOD([dac.acqValue],4),[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueDate" position="6" activation="ENABLE" formula="SCSDPC_DATE([.source],IF([.soediff]=0,[dac.acqDate],[dac.equipmentDate]),[dfo.forcedDate])" >
+<ScalarValue value="25/06/2018 13:44:03.019"/>
+</AttributDescription>
+<AttributDescription attrId="class_id" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group1" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group2" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="opDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="opSource" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="operStatus" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="previousStatus" position="3" activation="ENABLE" formula="SCSDPC_EQPSYNTH([.status])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="previousValidity" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValue" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValueDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="source" position="1" activation="ENABLE" formula="SCSDPC_SOURCE([.initValue],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="status" position="2" activation="ENABLE" formula="SCSDPC_STATUS([.source],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="userField1" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="userField2" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="soediff" position="5" activation="ENABLE" formula="TIMEDIFF([dac.dumpdate],[dac.equipmentDate])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="value2" position="7" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],[dac.acqValue],[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="alarmSynthesis" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dciPOW-Forbi_443880" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="initValue" position="0" activation="ENABLE" formula="SCSDPC_DCIINIT([&lt;alias&gt;ScadaSoft.dpcTrigger],[.initValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="label" >
+<ScalarValue value="Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="pointName" >
+<ScalarValue value="dciPOW-Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="validity" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="value" position="3" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],MOD([dac.acqValue],4),[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueDate" position="7" activation="ENABLE" formula="SCSDPC_DATE([.source],IF([.soediff]=0,[dac.acqDate],[dac.equipmentDate]),[dfo.forcedDate])" >
+<ScalarValue value="25/06/2018 13:44:03.019"/>
+</AttributDescription>
+<AttributDescription attrId="class_id" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group1" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group2" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="opDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="opSource" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="operStatus" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="previousStatus" position="5" activation="ENABLE" formula="SCSDPC_EQPSYNTH([.status])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="previousValidity" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValue" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValueDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="source" position="1" activation="ENABLE" formula="SCSDPC_SOURCE([.initValue],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="status" position="2" activation="ENABLE" formula="SCSDPC_STATUS([.source],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="userField1" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="userField2" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="soediff" position="4" activation="ENABLE" formula="TIMEDIFF([dac.dumpdate],[dac.equipmentDate])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="value2" position="6" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],[dac.acqValue],[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="alarmSynthesis" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dciPOW-Forbi_443900" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="initValue" position="0" activation="ENABLE" formula="SCSDPC_DCIINIT([&lt;alias&gt;ScadaSoft.dpcTrigger],[.initValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="label" >
+<ScalarValue value="Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="pointName" >
+<ScalarValue value="dciPOW-Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="validity" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="value" position="4" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],MOD([dac.acqValue],4),[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueDate" position="6" activation="ENABLE" formula="SCSDPC_DATE([.source],IF([.soediff]=0,[dac.acqDate],[dac.equipmentDate]),[dfo.forcedDate])" >
+<ScalarValue value="25/06/2018 13:44:03.019"/>
+</AttributDescription>
+<AttributDescription attrId="class_id" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group1" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group2" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="opDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="opSource" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="operStatus" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="previousStatus" position="3" activation="ENABLE" formula="SCSDPC_EQPSYNTH([.status])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="previousValidity" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValue" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValueDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="source" position="1" activation="ENABLE" formula="SCSDPC_SOURCE([.initValue],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="status" position="2" activation="ENABLE" formula="SCSDPC_STATUS([.source],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="userField1" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="userField2" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="soediff" position="5" activation="ENABLE" formula="TIMEDIFF([dac.dumpdate],[dac.equipmentDate])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="value2" position="7" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],[dac.acqValue],[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="alarmSynthesis" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dciPOW-Forbi_443920" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="initValue" position="0" activation="ENABLE" formula="SCSDPC_DCIINIT([&lt;alias&gt;ScadaSoft.dpcTrigger],[.initValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="label" >
+<ScalarValue value="Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="pointName" >
+<ScalarValue value="dciPOW-Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="validity" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="value" position="4" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],MOD([dac.acqValue],4),[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueDate" position="6" activation="ENABLE" formula="SCSDPC_DATE([.source],IF([.soediff]=0,[dac.acqDate],[dac.equipmentDate]),[dfo.forcedDate])" >
+<ScalarValue value="25/06/2018 13:44:03.019"/>
+</AttributDescription>
+<AttributDescription attrId="class_id" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group1" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group2" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="opDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="opSource" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="operStatus" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="previousStatus" position="3" activation="ENABLE" formula="SCSDPC_EQPSYNTH([.status])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="previousValidity" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValue" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValueDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="source" position="1" activation="ENABLE" formula="SCSDPC_SOURCE([.initValue],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="status" position="2" activation="ENABLE" formula="SCSDPC_STATUS([.source],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="userField1" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="userField2" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="soediff" position="5" activation="ENABLE" formula="TIMEDIFF([dac.dumpdate],[dac.equipmentDate])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="value2" position="7" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],[dac.acqValue],[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="alarmSynthesis" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dciPOW-Forbi_443940" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="initValue" position="0" activation="ENABLE" formula="SCSDPC_DCIINIT([&lt;alias&gt;ScadaSoft.dpcTrigger],[.initValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="label" >
+<ScalarValue value="Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="pointName" >
+<ScalarValue value="dciPOW-Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="validity" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="value" position="3" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],MOD([dac.acqValue],4),[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueDate" position="7" activation="ENABLE" formula="SCSDPC_DATE([.source],IF([.soediff]=0,[dac.acqDate],[dac.equipmentDate]),[dfo.forcedDate])" >
+<ScalarValue value="25/06/2018 13:44:03.019"/>
+</AttributDescription>
+<AttributDescription attrId="class_id" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group1" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group2" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="opDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="opSource" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="operStatus" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="previousStatus" position="5" activation="ENABLE" formula="SCSDPC_EQPSYNTH([.status])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="previousValidity" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValue" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValueDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="source" position="1" activation="ENABLE" formula="SCSDPC_SOURCE([.initValue],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="status" position="2" activation="ENABLE" formula="SCSDPC_STATUS([.source],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="userField1" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="userField2" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="soediff" position="4" activation="ENABLE" formula="TIMEDIFF([dac.dumpdate],[dac.equipmentDate])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="value2" position="6" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],[dac.acqValue],[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="alarmSynthesis" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dciPOW-Forbi_443960" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="initValue" position="0" activation="ENABLE" formula="SCSDPC_DCIINIT([&lt;alias&gt;ScadaSoft.dpcTrigger],[.initValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="label" >
+<ScalarValue value="Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="pointName" >
+<ScalarValue value="dciPOW-Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="validity" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="value" position="4" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],MOD([dac.acqValue],4),[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueDate" position="6" activation="ENABLE" formula="SCSDPC_DATE([.source],IF([.soediff]=0,[dac.acqDate],[dac.equipmentDate]),[dfo.forcedDate])" >
+<ScalarValue value="25/06/2018 13:44:03.019"/>
+</AttributDescription>
+<AttributDescription attrId="class_id" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group1" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group2" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="opDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="opSource" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="operStatus" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="previousStatus" position="3" activation="ENABLE" formula="SCSDPC_EQPSYNTH([.status])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="previousValidity" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValue" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValueDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="source" position="1" activation="ENABLE" formula="SCSDPC_SOURCE([.initValue],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="status" position="2" activation="ENABLE" formula="SCSDPC_STATUS([.source],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="userField1" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="userField2" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="soediff" position="5" activation="ENABLE" formula="TIMEDIFF([dac.dumpdate],[dac.equipmentDate])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="value2" position="7" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],[dac.acqValue],[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="alarmSynthesis" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dciPOW-Forbi_443980" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="initValue" position="0" activation="ENABLE" formula="SCSDPC_DCIINIT([&lt;alias&gt;ScadaSoft.dpcTrigger],[.initValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="label" >
+<ScalarValue value="Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="pointName" >
+<ScalarValue value="dciPOW-Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="validity" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="value" position="7" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],MOD([dac.acqValue],4),[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueDate" position="6" activation="ENABLE" formula="SCSDPC_DATE([.source],IF([.soediff]=0,[dac.acqDate],[dac.equipmentDate]),[dfo.forcedDate])" >
+<ScalarValue value="25/06/2018 13:44:03.019"/>
+</AttributDescription>
+<AttributDescription attrId="class_id" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group1" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group2" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="opDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="opSource" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="operStatus" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="previousStatus" position="4" activation="ENABLE" formula="SCSDPC_EQPSYNTH([.status])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="previousValidity" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValue" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValueDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="source" position="1" activation="ENABLE" formula="SCSDPC_SOURCE([.initValue],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="status" position="2" activation="ENABLE" formula="SCSDPC_STATUS([.source],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="userField1" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="userField2" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="soediff" position="5" activation="ENABLE" formula="TIMEDIFF([dac.dumpdate],[dac.equipmentDate])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="value2" position="3" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],[dac.acqValue],[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="alarmSynthesis" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dciPOW-Forbi_444000" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="initValue" position="0" activation="ENABLE" formula="SCSDPC_DCIINIT([&lt;alias&gt;ScadaSoft.dpcTrigger],[.initValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="label" >
+<ScalarValue value="Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="pointName" >
+<ScalarValue value="dciPOW-Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="validity" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="value" position="3" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],MOD([dac.acqValue],4),[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueDate" position="7" activation="ENABLE" formula="SCSDPC_DATE([.source],IF([.soediff]=0,[dac.acqDate],[dac.equipmentDate]),[dfo.forcedDate])" >
+<ScalarValue value="25/06/2018 13:44:03.019"/>
+</AttributDescription>
+<AttributDescription attrId="class_id" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group1" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group2" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="opDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="opSource" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="operStatus" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="previousStatus" position="5" activation="ENABLE" formula="SCSDPC_EQPSYNTH([.status])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="previousValidity" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValue" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValueDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="source" position="1" activation="ENABLE" formula="SCSDPC_SOURCE([.initValue],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="status" position="2" activation="ENABLE" formula="SCSDPC_STATUS([.source],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="userField1" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="userField2" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="soediff" position="4" activation="ENABLE" formula="TIMEDIFF([dac.dumpdate],[dac.equipmentDate])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="value2" position="6" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],[dac.acqValue],[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="alarmSynthesis" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dciPOW-Forbi_444020" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="initValue" position="0" activation="ENABLE" formula="SCSDPC_DCIINIT([&lt;alias&gt;ScadaSoft.dpcTrigger],[.initValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="label" >
+<ScalarValue value="Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="pointName" >
+<ScalarValue value="dciPOW-Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="validity" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="value" position="7" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],MOD([dac.acqValue],4),[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueDate" position="3" activation="ENABLE" formula="SCSDPC_DATE([.source],IF([.soediff]=0,[dac.acqDate],[dac.equipmentDate]),[dfo.forcedDate])" >
+<ScalarValue value="25/06/2018 13:44:03.019"/>
+</AttributDescription>
+<AttributDescription attrId="class_id" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group1" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group2" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="opDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="opSource" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="operStatus" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="previousStatus" position="5" activation="ENABLE" formula="SCSDPC_EQPSYNTH([.status])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="previousValidity" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValue" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValueDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="source" position="2" activation="ENABLE" formula="SCSDPC_SOURCE([.initValue],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="status" position="4" activation="ENABLE" formula="SCSDPC_STATUS([.source],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="userField1" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="userField2" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="soediff" position="1" activation="ENABLE" formula="TIMEDIFF([dac.dumpdate],[dac.equipmentDate])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="value2" position="6" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],[dac.acqValue],[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="alarmSynthesis" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dciPOW-Forbi_444040" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="initValue" position="0" activation="ENABLE" formula="SCSDPC_DCIINIT([&lt;alias&gt;ScadaSoft.dpcTrigger],[.initValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="label" >
+<ScalarValue value="Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="pointName" >
+<ScalarValue value="dciPOW-Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="validity" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="value" position="7" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],MOD([dac.acqValue],4),[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueDate" position="3" activation="ENABLE" formula="SCSDPC_DATE([.source],IF([.soediff]=0,[dac.acqDate],[dac.equipmentDate]),[dfo.forcedDate])" >
+<ScalarValue value="25/06/2018 13:44:03.019"/>
+</AttributDescription>
+<AttributDescription attrId="class_id" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group1" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group2" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="opDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="opSource" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="operStatus" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="previousStatus" position="6" activation="ENABLE" formula="SCSDPC_EQPSYNTH([.status])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="previousValidity" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValue" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValueDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="source" position="2" activation="ENABLE" formula="SCSDPC_SOURCE([.initValue],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="status" position="4" activation="ENABLE" formula="SCSDPC_STATUS([.source],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="userField1" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="userField2" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="soediff" position="1" activation="ENABLE" formula="TIMEDIFF([dac.dumpdate],[dac.equipmentDate])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="value2" position="5" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],[dac.acqValue],[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="alarmSynthesis" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dciPOW-Forbi_444060" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="initValue" position="0" activation="ENABLE" formula="SCSDPC_DCIINIT([&lt;alias&gt;ScadaSoft.dpcTrigger],[.initValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="label" >
+<ScalarValue value="Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="pointName" >
+<ScalarValue value="dciPOW-Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="validity" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="value" position="3" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],MOD([dac.acqValue],4),[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueDate" position="7" activation="ENABLE" formula="SCSDPC_DATE([.source],IF([.soediff]=0,[dac.acqDate],[dac.equipmentDate]),[dfo.forcedDate])" >
+<ScalarValue value="25/06/2018 13:44:03.019"/>
+</AttributDescription>
+<AttributDescription attrId="class_id" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group1" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group2" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="opDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="opSource" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="operStatus" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="previousStatus" position="5" activation="ENABLE" formula="SCSDPC_EQPSYNTH([.status])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="previousValidity" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValue" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValueDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="source" position="1" activation="ENABLE" formula="SCSDPC_SOURCE([.initValue],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="status" position="2" activation="ENABLE" formula="SCSDPC_STATUS([.source],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="userField1" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="userField2" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="soediff" position="4" activation="ENABLE" formula="TIMEDIFF([dac.dumpdate],[dac.equipmentDate])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="value2" position="6" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],[dac.acqValue],[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="alarmSynthesis" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dciPOW-Forbi_444238" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="initValue" position="0" activation="ENABLE" formula="SCSDPC_DCIINIT([&lt;alias&gt;ScadaSoft.dpcTrigger],[.initValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="label" >
+<ScalarValue value="Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="pointName" >
+<ScalarValue value="dciPOW-Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="validity" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="value" position="4" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],MOD([dac.acqValue],4),[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueDate" position="6" activation="ENABLE" formula="SCSDPC_DATE([.source],IF([.soediff]=0,[dac.acqDate],[dac.equipmentDate]),[dfo.forcedDate])" >
+<ScalarValue value="25/06/2018 13:44:03.019"/>
+</AttributDescription>
+<AttributDescription attrId="class_id" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group1" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group2" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="opDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="opSource" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="operStatus" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="previousStatus" position="3" activation="ENABLE" formula="SCSDPC_EQPSYNTH([.status])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="previousValidity" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValue" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValueDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="source" position="1" activation="ENABLE" formula="SCSDPC_SOURCE([.initValue],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="status" position="2" activation="ENABLE" formula="SCSDPC_STATUS([.source],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="userField1" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="userField2" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="soediff" position="5" activation="ENABLE" formula="TIMEDIFF([dac.dumpdate],[dac.equipmentDate])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="value2" position="7" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],[dac.acqValue],[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="alarmSynthesis" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dciPOW-Forbi_444296" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="initValue" position="0" activation="ENABLE" formula="SCSDPC_DCIINIT([&lt;alias&gt;ScadaSoft.dpcTrigger],[.initValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="label" >
+<ScalarValue value="Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="pointName" >
+<ScalarValue value="dciPOW-Forbid"/>
+</AttributDescription>
+<AttributDescription attrId="validity" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="value" position="4" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],MOD([dac.acqValue],4),[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueDate" position="6" activation="ENABLE" formula="SCSDPC_DATE([.source],IF([.soediff]=0,[dac.acqDate],[dac.equipmentDate]),[dfo.forcedDate])" >
+<ScalarValue value="25/06/2018 13:44:03.019"/>
+</AttributDescription>
+<AttributDescription attrId="class_id" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group1" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="group2" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="opDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="opSource" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="operStatus" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="previousStatus" position="3" activation="ENABLE" formula="SCSDPC_EQPSYNTH([.status])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="previousValidity" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValue" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="previousValueDate" >
+<ScalarValue value="01/01/2001 00:00:00.000"/>
+</AttributDescription>
+<AttributDescription attrId="source" position="1" activation="ENABLE" formula="SCSDPC_SOURCE([.initValue],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="status" position="2" activation="ENABLE" formula="SCSDPC_STATUS([.source],[dac.acqStatus],[dfo.forcedStatus])" >
+<ScalarValue value="1024"/>
+</AttributDescription>
+<AttributDescription attrId="userField1" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="userField2" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="soediff" position="5" activation="ENABLE" formula="TIMEDIFF([dac.dumpdate],[dac.equipmentDate])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="value2" position="7" activation="ENABLE" formula="SCSDPC_DCIVALUE([.source],[.status],[dac.acqValue],[dfo.forcedValue])" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="alarmSynthesis" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+</Instance>

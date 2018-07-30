@@ -1,0 +1,83 @@
+<InstanceDescription alias="sio_alias" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="execStatus" >
+<ScalarValue value="3"/>
+</AttributDescription>
+<AttributDescription attrId="initCond1ST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCond1GL" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondGL" position="1" activation="ENABLE" formula="IF([.returnCondST]AND [.returnCond],1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="source" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="status" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="previousStatus" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="value" >
+<VectorValue>
+<ScalarValue value="00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"/><ScalarValue value="00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"/>
+</VectorValue>
+</AttributDescription>
+<AttributDescription attrId="previousValue" >
+<VectorValue>
+<ScalarValue value="00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"/><ScalarValue value="00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"/>
+</VectorValue>
+</AttributDescription>
+<AttributDescription attrId="initCondTO" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCond2ST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCond2GL" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondGL" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="opDate" >
+<ScalarValue value="01/01/2000 01:01:01.000"/>
+</AttributDescription>
+<AttributDescription attrId="opSource" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="initCond" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondFormat" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="label" >
+<ScalarValue value="sio_label"/>
+</AttributDescription>
+<AttributDescription attrId="returnCond" position="0" activation="ENABLE" formula="IF((([.out_value]=0)AND ([^:dciPOW-Forbid.value]=0))OR(([.out_value]=1)AND ([^:dciPOW-Forbid.value]=1))OR(([.out_value]=2)AND ([^:dciPOW-Forbid.value]=2))OR(([.out_value]=3)AND ([^:dciPOW-Forbid.value]=3)),1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondFormat" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondTO" >
+<ScalarValue value="10"/>
+</AttributDescription>
+<AttributDescription attrId="valueLength" >
+<ScalarValue value="256"/>
+</AttributDescription>
+<AttributDescription attrId="veCoord" >
+<ScalarValue value=",sio_ev,"/>
+</AttributDescription>
+<AttributDescription attrId="out_value" >
+<ScalarValue value="0"/>
+</AttributDescription>
+</Context>
+</InstanceDescription>

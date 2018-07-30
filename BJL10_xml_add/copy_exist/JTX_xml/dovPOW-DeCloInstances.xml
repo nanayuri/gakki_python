@@ -1,0 +1,1854 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE Instance SYSTEM "dtd/dbkinstance.dtd" >
+<Instance classId="dovPOW-DeClo">
+<InstanceDescription alias="dovPOW-DeClo_574721" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="returnCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondGL" position="2" activation="ENABLE" formula="IF([.returnCondST]AND [.returnCond],1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondGL" position="3" activation="ENABLE" formula="IF([.initCondST]AND [.initCond],1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCond" position="0" activation="ENABLE" formula="IF(([^:^.hdvflag]=[^:^:^:^:BMF:PMSS0001:FEP_A:aciFEP-RamUsage:aal.hdvFlag])AND ([^:^.loc_rem]=1)AND ([^:^.Clo_Interlock]=0)AND ([^:^.scrn_sta]=0)AND ([^:^.pow_ptw]=0),1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCondFormat" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondTO" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCond" position="1" activation="ENABLE" formula="IF([^:^:dciPOW-SelCtrl.value]=1,1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondFormat" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondTO" >
+<ScalarValue value="10"/>
+</AttributDescription>
+<AttributDescription attrId="veCoord" >
+<ScalarValue value=",deoJTXPOWLV__0001-SelCtrl,4096"/>
+</AttributDescription>
+<AttributDescription attrId="initCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dovPOW-DeClo_574976" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="returnCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondGL" position="3" activation="ENABLE" formula="IF([.returnCondST]AND [.returnCond],1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondGL" position="1" activation="ENABLE" formula="IF([.initCondST]AND [.initCond],1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCond" position="0" activation="ENABLE" formula="IF(([^:^.hdvflag]=[^:^:^:^:BMF:PMSS0001:FEP_A:aciFEP-RamUsage:aal.hdvFlag])AND ([^:^.loc_rem]=1)AND ([^:^.Clo_Interlock]=0)AND ([^:^.scrn_sta]=0)AND ([^:^.pow_ptw]=0),1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCondFormat" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondTO" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCond" position="2" activation="ENABLE" formula="IF([^:^:dciPOW-SelCtrl.value]=1,1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondFormat" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondTO" >
+<ScalarValue value="10"/>
+</AttributDescription>
+<AttributDescription attrId="veCoord" >
+<ScalarValue value=",deoJTXPOWLV__0002-SelCtrl,4096"/>
+</AttributDescription>
+<AttributDescription attrId="initCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dovPOW-DeClo_575231" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="returnCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondGL" position="3" activation="ENABLE" formula="IF([.returnCondST]AND [.returnCond],1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondGL" position="1" activation="ENABLE" formula="IF([.initCondST]AND [.initCond],1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCond" position="0" activation="ENABLE" formula="IF(([^:^.hdvflag]=[^:^:^:^:BMF:PMSS0001:FEP_A:aciFEP-RamUsage:aal.hdvFlag])AND ([^:^.loc_rem]=1)AND ([^:^.Clo_Interlock]=0)AND ([^:^.scrn_sta]=0)AND ([^:^.pow_ptw]=0),1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCondFormat" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondTO" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCond" position="2" activation="ENABLE" formula="IF([^:^:dciPOW-SelCtrl.value]=1,1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondFormat" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondTO" >
+<ScalarValue value="10"/>
+</AttributDescription>
+<AttributDescription attrId="veCoord" >
+<ScalarValue value=",deoJTXPOWLV__0003-SelCtrl,4096"/>
+</AttributDescription>
+<AttributDescription attrId="initCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dovPOW-DeClo_575486" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="returnCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondGL" position="3" activation="ENABLE" formula="IF([.returnCondST]AND [.returnCond],1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondGL" position="2" activation="ENABLE" formula="IF([.initCondST]AND [.initCond],1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCond" position="0" activation="ENABLE" formula="IF(([^:^.hdvflag]=[^:^:^:^:BMF:PMSS0001:FEP_A:aciFEP-RamUsage:aal.hdvFlag])AND ([^:^.loc_rem]=1)AND ([^:^.Clo_Interlock]=0)AND ([^:^.scrn_sta]=0)AND ([^:^.pow_ptw]=0),1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCondFormat" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondTO" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCond" position="1" activation="ENABLE" formula="IF([^:^:dciPOW-SelCtrl.value]=1,1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondFormat" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondTO" >
+<ScalarValue value="10"/>
+</AttributDescription>
+<AttributDescription attrId="veCoord" >
+<ScalarValue value=",deoJTXPOWLV__0004-SelCtrl,4096"/>
+</AttributDescription>
+<AttributDescription attrId="initCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dovPOW-DeClo_575726" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="returnCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondGL" position="3" activation="ENABLE" formula="IF([.returnCondST]AND [.returnCond],1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondGL" position="1" activation="ENABLE" formula="IF([.initCondST]AND [.initCond],1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCond" position="0" activation="ENABLE" formula="IF(([^:^.hdvflag]=[^:^:^:^:BMF:PMSS0001:FEP_A:aciFEP-RamUsage:aal.hdvFlag])AND ([^:^.loc_rem]=1)AND ([^:^.Clo_Interlock]=0)AND ([^:^.scrn_sta]=0)AND ([^:^.pow_ptw]=0),1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCondFormat" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondTO" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCond" position="2" activation="ENABLE" formula="IF([^:^:dciPOW-SelCtrl.value]=1,1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondFormat" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondTO" >
+<ScalarValue value="10"/>
+</AttributDescription>
+<AttributDescription attrId="veCoord" >
+<ScalarValue value=",deoJTXPOWLVB_0001-SelCtrl,4096"/>
+</AttributDescription>
+<AttributDescription attrId="initCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dovPOW-DeClo_575847" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="returnCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondGL" position="2" activation="ENABLE" formula="IF([.returnCondST]AND [.returnCond],1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondGL" position="3" activation="ENABLE" formula="IF([.initCondST]AND [.initCond],1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCond" position="0" activation="ENABLE" formula="IF(([^:^.hdvflag]=[^:^:^:^:BMF:PMSS0001:FEP_A:aciFEP-RamUsage:aal.hdvFlag])AND ([^:^.loc_rem]=1)AND ([^:^.Clo_Interlock]=0)AND ([^:^.scrn_sta]=0)AND ([^:^.pow_ptw]=0),1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCondFormat" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondTO" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCond" position="1" activation="ENABLE" formula="IF([^:^:dciPOW-SelCtrl.value]=1,1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondFormat" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondTO" >
+<ScalarValue value="10"/>
+</AttributDescription>
+<AttributDescription attrId="veCoord" >
+<ScalarValue value=",deoJTXPOWLVP_0001-SelCtrl,4096"/>
+</AttributDescription>
+<AttributDescription attrId="initCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dovPOW-DeClo_575902" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="returnCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondGL" position="3" activation="ENABLE" formula="IF([.returnCondST]AND [.returnCond],1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondGL" position="1" activation="ENABLE" formula="IF([.initCondST]AND [.initCond],1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCond" position="0" activation="ENABLE" formula="IF(([^:^.hdvflag]=[^:^:^:^:BMF:PMSS0001:FEP_A:aciFEP-RamUsage:aal.hdvFlag])AND ([^:^.loc_rem]=1)AND ([^:^.Clo_Interlock]=0)AND ([^:^.scrn_sta]=0)AND ([^:^.pow_ptw]=0),1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCondFormat" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondTO" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCond" position="2" activation="ENABLE" formula="IF([^:^:dciPOW-SelCtrl.value]=1,1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondFormat" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondTO" >
+<ScalarValue value="10"/>
+</AttributDescription>
+<AttributDescription attrId="veCoord" >
+<ScalarValue value=",deoJTXPOWLVP_0002-SelCtrl,4096"/>
+</AttributDescription>
+<AttributDescription attrId="initCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dovPOW-DeClo_575957" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="returnCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondGL" position="3" activation="ENABLE" formula="IF([.returnCondST]AND [.returnCond],1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondGL" position="1" activation="ENABLE" formula="IF([.initCondST]AND [.initCond],1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCond" position="0" activation="ENABLE" formula="IF(([^:^.hdvflag]=[^:^:^:^:BMF:PMSS0001:FEP_A:aciFEP-RamUsage:aal.hdvFlag])AND ([^:^.loc_rem]=1)AND ([^:^.Clo_Interlock]=0)AND ([^:^.scrn_sta]=0)AND ([^:^.pow_ptw]=0),1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCondFormat" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondTO" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCond" position="2" activation="ENABLE" formula="IF([^:^:dciPOW-SelCtrl.value]=1,1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondFormat" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondTO" >
+<ScalarValue value="10"/>
+</AttributDescription>
+<AttributDescription attrId="veCoord" >
+<ScalarValue value=",deoJTXPOWLVP_0003-SelCtrl,4096"/>
+</AttributDescription>
+<AttributDescription attrId="initCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dovPOW-DeClo_576012" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="returnCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondGL" position="2" activation="ENABLE" formula="IF([.returnCondST]AND [.returnCond],1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondGL" position="3" activation="ENABLE" formula="IF([.initCondST]AND [.initCond],1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCond" position="0" activation="ENABLE" formula="IF(([^:^.hdvflag]=[^:^:^:^:BMF:PMSS0001:FEP_A:aciFEP-RamUsage:aal.hdvFlag])AND ([^:^.loc_rem]=1)AND ([^:^.Clo_Interlock]=0)AND ([^:^.scrn_sta]=0)AND ([^:^.pow_ptw]=0),1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCondFormat" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondTO" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCond" position="1" activation="ENABLE" formula="IF([^:^:dciPOW-SelCtrl.value]=1,1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondFormat" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondTO" >
+<ScalarValue value="10"/>
+</AttributDescription>
+<AttributDescription attrId="veCoord" >
+<ScalarValue value=",deoJTXPOWLVP_0004-SelCtrl,4096"/>
+</AttributDescription>
+<AttributDescription attrId="initCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dovPOW-DeClo_576052" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="returnCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondGL" position="3" activation="ENABLE" formula="IF([.returnCondST]AND [.returnCond],1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondGL" position="1" activation="ENABLE" formula="IF([.initCondST]AND [.initCond],1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCond" position="0" activation="ENABLE" formula="IF(([^:^.hdvflag]=[^:^:^:^:BMF:PMSS0001:FEP_A:aciFEP-RamUsage:aal.hdvFlag])AND ([^:^.loc_rem]=1)AND ([^:^.Clo_Interlock]=0)AND ([^:^.scrn_sta]=0)AND ([^:^.pow_ptw]=0),1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCondFormat" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondTO" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCond" position="2" activation="ENABLE" formula="IF([^:^:dciPOW-SelCtrl.value]=1,1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondFormat" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondTO" >
+<ScalarValue value="10"/>
+</AttributDescription>
+<AttributDescription attrId="veCoord" >
+<ScalarValue value=",deoJTXPOWLVD_0001-SelCtrl,4096"/>
+</AttributDescription>
+<AttributDescription attrId="initCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dovPOW-DeClo_576092" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="returnCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondGL" position="3" activation="ENABLE" formula="IF([.returnCondST]AND [.returnCond],1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondGL" position="1" activation="ENABLE" formula="IF([.initCondST]AND [.initCond],1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCond" position="0" activation="ENABLE" formula="IF(([^:^.hdvflag]=[^:^:^:^:BMF:PMSS0001:FEP_A:aciFEP-RamUsage:aal.hdvFlag])AND ([^:^.loc_rem]=1)AND ([^:^.Clo_Interlock]=0)AND ([^:^.scrn_sta]=0)AND ([^:^.pow_ptw]=0),1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCondFormat" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondTO" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCond" position="2" activation="ENABLE" formula="IF([^:^:dciPOW-SelCtrl.value]=1,1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondFormat" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondTO" >
+<ScalarValue value="10"/>
+</AttributDescription>
+<AttributDescription attrId="veCoord" >
+<ScalarValue value=",deoJTXPOWLVD_0002-SelCtrl,4096"/>
+</AttributDescription>
+<AttributDescription attrId="initCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dovPOW-DeClo_576132" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="returnCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondGL" position="3" activation="ENABLE" formula="IF([.returnCondST]AND [.returnCond],1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondGL" position="1" activation="ENABLE" formula="IF([.initCondST]AND [.initCond],1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCond" position="0" activation="ENABLE" formula="IF(([^:^.hdvflag]=[^:^:^:^:BMF:PMSS0001:FEP_A:aciFEP-RamUsage:aal.hdvFlag])AND ([^:^.loc_rem]=1)AND ([^:^.Clo_Interlock]=0)AND ([^:^.scrn_sta]=0)AND ([^:^.pow_ptw]=0),1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCondFormat" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondTO" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCond" position="2" activation="ENABLE" formula="IF([^:^:dciPOW-SelCtrl.value]=1,1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondFormat" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondTO" >
+<ScalarValue value="10"/>
+</AttributDescription>
+<AttributDescription attrId="veCoord" >
+<ScalarValue value=",deoJTXPOWLVD_0003-SelCtrl,4096"/>
+</AttributDescription>
+<AttributDescription attrId="initCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dovPOW-DeClo_576172" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="returnCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondGL" position="3" activation="ENABLE" formula="IF([.returnCondST]AND [.returnCond],1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondGL" position="1" activation="ENABLE" formula="IF([.initCondST]AND [.initCond],1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCond" position="0" activation="ENABLE" formula="IF(([^:^.hdvflag]=[^:^:^:^:BMF:PMSS0001:FEP_A:aciFEP-RamUsage:aal.hdvFlag])AND ([^:^.loc_rem]=1)AND ([^:^.Clo_Interlock]=0)AND ([^:^.scrn_sta]=0)AND ([^:^.pow_ptw]=0),1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCondFormat" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondTO" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCond" position="2" activation="ENABLE" formula="IF([^:^:dciPOW-SelCtrl.value]=1,1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondFormat" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondTO" >
+<ScalarValue value="10"/>
+</AttributDescription>
+<AttributDescription attrId="veCoord" >
+<ScalarValue value=",deoJTXPOWLVD_0004-SelCtrl,4096"/>
+</AttributDescription>
+<AttributDescription attrId="initCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dovPOW-DeClo_576212" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="returnCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondGL" position="3" activation="ENABLE" formula="IF([.returnCondST]AND [.returnCond],1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondGL" position="1" activation="ENABLE" formula="IF([.initCondST]AND [.initCond],1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCond" position="0" activation="ENABLE" formula="IF(([^:^.hdvflag]=[^:^:^:^:BMF:PMSS0001:FEP_A:aciFEP-RamUsage:aal.hdvFlag])AND ([^:^.loc_rem]=1)AND ([^:^.Clo_Interlock]=0)AND ([^:^.scrn_sta]=0)AND ([^:^.pow_ptw]=0),1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCondFormat" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondTO" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCond" position="2" activation="ENABLE" formula="IF([^:^:dciPOW-SelCtrl.value]=1,1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondFormat" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondTO" >
+<ScalarValue value="10"/>
+</AttributDescription>
+<AttributDescription attrId="veCoord" >
+<ScalarValue value=",deoJTXPOWLVD_0005-SelCtrl,4096"/>
+</AttributDescription>
+<AttributDescription attrId="initCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dovPOW-DeClo_576252" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="returnCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondGL" position="3" activation="ENABLE" formula="IF([.returnCondST]AND [.returnCond],1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondGL" position="2" activation="ENABLE" formula="IF([.initCondST]AND [.initCond],1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCond" position="0" activation="ENABLE" formula="IF(([^:^.hdvflag]=[^:^:^:^:BMF:PMSS0001:FEP_A:aciFEP-RamUsage:aal.hdvFlag])AND ([^:^.loc_rem]=1)AND ([^:^.Clo_Interlock]=0)AND ([^:^.scrn_sta]=0)AND ([^:^.pow_ptw]=0),1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCondFormat" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondTO" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCond" position="1" activation="ENABLE" formula="IF([^:^:dciPOW-SelCtrl.value]=1,1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondFormat" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondTO" >
+<ScalarValue value="10"/>
+</AttributDescription>
+<AttributDescription attrId="veCoord" >
+<ScalarValue value=",deoJTXPOWLVD_0006-SelCtrl,4096"/>
+</AttributDescription>
+<AttributDescription attrId="initCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dovPOW-DeClo_576352" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="returnCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondGL" position="2" activation="ENABLE" formula="IF([.returnCondST]AND [.returnCond],1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondGL" position="3" activation="ENABLE" formula="IF([.initCondST]AND [.initCond],1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCond" position="0" activation="ENABLE" formula="IF(([^:^.hdvflag]=[^:^:^:^:BMF:PMSS0001:FEP_A:aciFEP-RamUsage:aal.hdvFlag])AND ([^:^.loc_rem]=1)AND ([^:^.Clo_Interlock]=0)AND ([^:^.scrn_sta]=0)AND ([^:^.pow_ptw]=0),1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCondFormat" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondTO" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCond" position="1" activation="ENABLE" formula="IF([^:^:dciPOW-SelCtrl.value]=1,1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondFormat" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondTO" >
+<ScalarValue value="10"/>
+</AttributDescription>
+<AttributDescription attrId="veCoord" >
+<ScalarValue value=",deoJTXPOWFJD_0001-SelCtrl,4096"/>
+</AttributDescription>
+<AttributDescription attrId="initCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dovPOW-DeClo_576398" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="returnCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondGL" position="2" activation="ENABLE" formula="IF([.returnCondST]AND [.returnCond],1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondGL" position="3" activation="ENABLE" formula="IF([.initCondST]AND [.initCond],1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCond" position="0" activation="ENABLE" formula="IF(([^:^.hdvflag]=[^:^:^:^:BMF:PMSS0001:FEP_A:aciFEP-RamUsage:aal.hdvFlag])AND ([^:^.loc_rem]=1)AND ([^:^.Clo_Interlock]=0)AND ([^:^.scrn_sta]=0)AND ([^:^.pow_ptw]=0),1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCondFormat" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondTO" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCond" position="1" activation="ENABLE" formula="IF([^:^:dciPOW-SelCtrl.value]=1,1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondFormat" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondTO" >
+<ScalarValue value="10"/>
+</AttributDescription>
+<AttributDescription attrId="veCoord" >
+<ScalarValue value=",deoJTXPOWFJD_0002-SelCtrl,4096"/>
+</AttributDescription>
+<AttributDescription attrId="initCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dovPOW-DeClo_576453" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="returnCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondGL" position="3" activation="ENABLE" formula="IF([.returnCondST]AND [.returnCond],1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondGL" position="1" activation="ENABLE" formula="IF([.initCondST]AND [.initCond],1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCond" position="0" activation="ENABLE" formula="IF(([^:^.hdvflag]=[^:^:^:^:BMF:PMSS0001:FEP_A:aciFEP-RamUsage:aal.hdvFlag])AND ([^:^.loc_rem]=1)AND ([^:^.Clo_Interlock]=0)AND ([^:^.scrn_sta]=0)AND ([^:^.pow_ptw]=0),1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCondFormat" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondTO" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCond" position="2" activation="ENABLE" formula="IF([^:^:dciPOW-SelCtrl.value]=1,1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondFormat" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondTO" >
+<ScalarValue value="10"/>
+</AttributDescription>
+<AttributDescription attrId="veCoord" >
+<ScalarValue value=",deoJTXPOWLVD20001-SelCtrl,4096"/>
+</AttributDescription>
+<AttributDescription attrId="initCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dovPOW-DeClo_576508" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="returnCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondGL" position="3" activation="ENABLE" formula="IF([.returnCondST]AND [.returnCond],1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondGL" position="1" activation="ENABLE" formula="IF([.initCondST]AND [.initCond],1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCond" position="0" activation="ENABLE" formula="IF(([^:^.hdvflag]=[^:^:^:^:BMF:PMSS0001:FEP_A:aciFEP-RamUsage:aal.hdvFlag])AND ([^:^.loc_rem]=1)AND ([^:^.Clo_Interlock]=0)AND ([^:^.scrn_sta]=0)AND ([^:^.pow_ptw]=0),1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCondFormat" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondTO" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCond" position="2" activation="ENABLE" formula="IF([^:^:dciPOW-SelCtrl.value]=1,1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondFormat" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondTO" >
+<ScalarValue value="10"/>
+</AttributDescription>
+<AttributDescription attrId="veCoord" >
+<ScalarValue value=",deoJTXPOWLVD20002-SelCtrl,4096"/>
+</AttributDescription>
+<AttributDescription attrId="initCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dovPOW-DeClo_576656" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="returnCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondGL" position="3" activation="ENABLE" formula="IF([.returnCondST]AND [.returnCond],1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondGL" position="1" activation="ENABLE" formula="IF([.initCondST]AND [.initCond],1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCond" position="0" activation="ENABLE" formula="IF(([^:^.hdvflag]=[^:^:^:^:BMF:PMSS0001:FEP_A:aciFEP-RamUsage:aal.hdvFlag])AND ([^:^.loc_rem]=1)AND ([^:^.Clo_Interlock]=0)AND ([^:^.scrn_sta]=0)AND ([^:^.pow_ptw]=0),1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCondFormat" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondTO" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCond" position="2" activation="ENABLE" formula="IF([^:^:dciPOW-SelCtrl.value]=1,1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondFormat" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondTO" >
+<ScalarValue value="10"/>
+</AttributDescription>
+<AttributDescription attrId="veCoord" >
+<ScalarValue value=",deoJTXPOWZZ__0001-SelCtrl,4096"/>
+</AttributDescription>
+<AttributDescription attrId="initCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dovPOW-DeClo_576807" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="returnCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondGL" position="2" activation="ENABLE" formula="IF([.returnCondST]AND [.returnCond],1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondGL" position="3" activation="ENABLE" formula="IF([.initCondST]AND [.initCond],1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCond" position="0" activation="ENABLE" formula="IF(([^:^.hdvflag]=[^:^:^:^:BMF:PMSS0001:FEP_A:aciFEP-RamUsage:aal.hdvFlag])AND ([^:^.loc_rem]=1)AND ([^:^.Clo_Interlock]=0)AND ([^:^.scrn_sta]=0)AND ([^:^.pow_ptw]=0),1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCondFormat" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondTO" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCond" position="1" activation="ENABLE" formula="IF([^:^:dciPOW-SelCtrl.value]=1,1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondFormat" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondTO" >
+<ScalarValue value="10"/>
+</AttributDescription>
+<AttributDescription attrId="veCoord" >
+<ScalarValue value=",deoJTXPOWZZ__0002-SelCtrl,4096"/>
+</AttributDescription>
+<AttributDescription attrId="initCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dovPOW-DeClo_576876" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="returnCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondGL" position="2" activation="ENABLE" formula="IF([.returnCondST]AND [.returnCond],1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondGL" position="3" activation="ENABLE" formula="IF([.initCondST]AND [.initCond],1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCond" position="0" activation="ENABLE" formula="IF(([^:^.hdvflag]=[^:^:^:^:BMF:PMSS0001:FEP_A:aciFEP-RamUsage:aal.hdvFlag])AND ([^:^.loc_rem]=1)AND ([^:^.Clo_Interlock]=0)AND ([^:^.scrn_sta]=0)AND ([^:^.pow_ptw]=0),1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCondFormat" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondTO" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCond" position="1" activation="ENABLE" formula="IF([^:^:dciPOW-SelCtrl.value]=1,1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondFormat" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondTO" >
+<ScalarValue value="10"/>
+</AttributDescription>
+<AttributDescription attrId="veCoord" >
+<ScalarValue value=",deoJTXPOWHVI20001-SelCtrl,4096"/>
+</AttributDescription>
+<AttributDescription attrId="initCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dovPOW-DeClo_577072" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="returnCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondGL" position="3" activation="ENABLE" formula="IF([.returnCondST]AND [.returnCond],1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondGL" position="1" activation="ENABLE" formula="IF([.initCondST]AND [.initCond],1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCond" position="0" activation="ENABLE" formula="IF(([^:^.hdvflag]=[^:^:^:^:BMF:PMSS0001:FEP_A:aciFEP-RamUsage:aal.hdvFlag])AND ([^:^.loc_rem]=1)AND ([^:^.Clo_Interlock]=0)AND ([^:^.scrn_sta]=0)AND ([^:^.pow_ptw]=0),1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCondFormat" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondTO" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCond" position="2" activation="ENABLE" formula="IF([^:^:dciPOW-SelCtrl.value]=1,1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondFormat" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondTO" >
+<ScalarValue value="10"/>
+</AttributDescription>
+<AttributDescription attrId="veCoord" >
+<ScalarValue value=",deoJTXPOWHVI20002-SelCtrl,4096"/>
+</AttributDescription>
+<AttributDescription attrId="initCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dovPOW-DeClo_577268" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="returnCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondGL" position="3" activation="ENABLE" formula="IF([.returnCondST]AND [.returnCond],1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondGL" position="1" activation="ENABLE" formula="IF([.initCondST]AND [.initCond],1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCond" position="0" activation="ENABLE" formula="IF(([^:^.hdvflag]=[^:^:^:^:BMF:PMSS0001:FEP_A:aciFEP-RamUsage:aal.hdvFlag])AND ([^:^.loc_rem]=1)AND ([^:^.Clo_Interlock]=0)AND ([^:^.scrn_sta]=0)AND ([^:^.pow_ptw]=0),1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCondFormat" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondTO" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCond" position="2" activation="ENABLE" formula="IF([^:^:dciPOW-SelCtrl.value]=1,1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondFormat" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondTO" >
+<ScalarValue value="10"/>
+</AttributDescription>
+<AttributDescription attrId="veCoord" >
+<ScalarValue value=",deoJTXPOWHVI20003-SelCtrl,4096"/>
+</AttributDescription>
+<AttributDescription attrId="initCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dovPOW-DeClo_577464" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="returnCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondGL" position="3" activation="ENABLE" formula="IF([.returnCondST]AND [.returnCond],1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondGL" position="1" activation="ENABLE" formula="IF([.initCondST]AND [.initCond],1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCond" position="0" activation="ENABLE" formula="IF(([^:^.hdvflag]=[^:^:^:^:BMF:PMSS0001:FEP_A:aciFEP-RamUsage:aal.hdvFlag])AND ([^:^.loc_rem]=1)AND ([^:^.Clo_Interlock]=0)AND ([^:^.scrn_sta]=0)AND ([^:^.pow_ptw]=0),1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCondFormat" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondTO" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCond" position="2" activation="ENABLE" formula="IF([^:^:dciPOW-SelCtrl.value]=1,1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondFormat" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondTO" >
+<ScalarValue value="10"/>
+</AttributDescription>
+<AttributDescription attrId="veCoord" >
+<ScalarValue value=",deoJTXPOWHVI20004-SelCtrl,4096"/>
+</AttributDescription>
+<AttributDescription attrId="initCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dovPOW-DeClo_577741" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="returnCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondGL" position="2" activation="ENABLE" formula="IF([.returnCondST]AND [.returnCond],1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondGL" position="3" activation="ENABLE" formula="IF([.initCondST]AND [.initCond],1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCond" position="0" activation="ENABLE" formula="IF(([^:^.hdvflag]=[^:^:^:^:BMF:PMSS0001:FEP_A:aciFEP-RamUsage:aal.hdvFlag])AND ([^:^.loc_rem]=1)AND ([^:^.Clo_Interlock]=0)AND ([^:^.scrn_sta]=0)AND ([^:^.pow_ptw]=0),1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCondFormat" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondTO" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCond" position="1" activation="ENABLE" formula="IF([^:^:dciPOW-SelCtrl.value]=1,1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondFormat" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondTO" >
+<ScalarValue value="10"/>
+</AttributDescription>
+<AttributDescription attrId="veCoord" >
+<ScalarValue value=",deoJTXPOWHVP_0001-SelCtrl,4096"/>
+</AttributDescription>
+<AttributDescription attrId="initCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dovPOW-DeClo_577898" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="returnCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondGL" position="3" activation="ENABLE" formula="IF([.returnCondST]AND [.returnCond],1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondGL" position="2" activation="ENABLE" formula="IF([.initCondST]AND [.initCond],1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCond" position="0" activation="ENABLE" formula="IF(([^:^.hdvflag]=[^:^:^:^:BMF:PMSS0001:FEP_A:aciFEP-RamUsage:aal.hdvFlag])AND ([^:^.loc_rem]=1)AND ([^:^.Clo_Interlock]=0)AND ([^:^.scrn_sta]=0)AND ([^:^.pow_ptw]=0),1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCondFormat" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondTO" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCond" position="1" activation="ENABLE" formula="IF([^:^:dciPOW-SelCtrl.value]=1,1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondFormat" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondTO" >
+<ScalarValue value="10"/>
+</AttributDescription>
+<AttributDescription attrId="veCoord" >
+<ScalarValue value=",deoJTXPOWHVP_0002-SelCtrl,4096"/>
+</AttributDescription>
+<AttributDescription attrId="initCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dovPOW-DeClo_578073" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="returnCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondGL" position="3" activation="ENABLE" formula="IF([.returnCondST]AND [.returnCond],1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondGL" position="1" activation="ENABLE" formula="IF([.initCondST]AND [.initCond],1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCond" position="0" activation="ENABLE" formula="IF(([^:^.hdvflag]=[^:^:^:^:BMF:PMSS0001:FEP_A:aciFEP-RamUsage:aal.hdvFlag])AND ([^:^.loc_rem]=1)AND ([^:^.Clo_Interlock]=0)AND ([^:^.scrn_sta]=0)AND ([^:^.pow_ptw]=0),1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCondFormat" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondTO" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCond" position="2" activation="ENABLE" formula="IF([^:^:dciPOW-SelCtrl.value]=1,1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondFormat" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondTO" >
+<ScalarValue value="10"/>
+</AttributDescription>
+<AttributDescription attrId="veCoord" >
+<ScalarValue value=",deoJTXPOWHVZ_0001-SelCtrl,4096"/>
+</AttributDescription>
+<AttributDescription attrId="initCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dovPOW-DeClo_578248" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="returnCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondGL" position="2" activation="ENABLE" formula="IF([.returnCondST]AND [.returnCond],1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondGL" position="3" activation="ENABLE" formula="IF([.initCondST]AND [.initCond],1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCond" position="0" activation="ENABLE" formula="IF(([^:^.hdvflag]=[^:^:^:^:BMF:PMSS0001:FEP_A:aciFEP-RamUsage:aal.hdvFlag])AND ([^:^.loc_rem]=1)AND ([^:^.Clo_Interlock]=0)AND ([^:^.scrn_sta]=0)AND ([^:^.pow_ptw]=0),1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCondFormat" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondTO" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCond" position="1" activation="ENABLE" formula="IF([^:^:dciPOW-SelCtrl.value]=1,1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondFormat" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondTO" >
+<ScalarValue value="10"/>
+</AttributDescription>
+<AttributDescription attrId="veCoord" >
+<ScalarValue value=",deoJTXPOWHVZ_0002-SelCtrl,4096"/>
+</AttributDescription>
+<AttributDescription attrId="initCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dovPOW-DeClo_578404" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="returnCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondGL" position="3" activation="ENABLE" formula="IF([.returnCondST]AND [.returnCond],1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondGL" position="2" activation="ENABLE" formula="IF([.initCondST]AND [.initCond],1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCond" position="0" activation="ENABLE" formula="IF(([^:^.hdvflag]=[^:^:^:^:BMF:PMSS0001:FEP_A:aciFEP-RamUsage:aal.hdvFlag])AND ([^:^.loc_rem]=1)AND ([^:^.Clo_Interlock]=0)AND ([^:^.scrn_sta]=0)AND ([^:^.pow_ptw]=0),1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCondFormat" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondTO" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCond" position="1" activation="ENABLE" formula="IF([^:^:dciPOW-SelCtrl.value]=1,1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondFormat" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondTO" >
+<ScalarValue value="10"/>
+</AttributDescription>
+<AttributDescription attrId="veCoord" >
+<ScalarValue value=",deoJTXPOWHVM20001-SelCtrl,4096"/>
+</AttributDescription>
+<AttributDescription attrId="initCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dovPOW-DeClo_578498" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="returnCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondGL" position="3" activation="ENABLE" formula="IF([.returnCondST]AND [.returnCond],1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondGL" position="2" activation="ENABLE" formula="IF([.initCondST]AND [.initCond],1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCond" position="0" activation="ENABLE" formula="IF(([^:^.hdvflag]=[^:^:^:^:BMF:PMSS0001:FEP_A:aciFEP-RamUsage:aal.hdvFlag])AND ([^:^.loc_rem]=1)AND ([^:^.Clo_Interlock]=0)AND ([^:^.scrn_sta]=0)AND ([^:^.pow_ptw]=0),1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCondFormat" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondTO" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCond" position="1" activation="ENABLE" formula="IF([^:^:dciPOW-SelCtrl.value]=1,1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondFormat" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondTO" >
+<ScalarValue value="10"/>
+</AttributDescription>
+<AttributDescription attrId="veCoord" >
+<ScalarValue value=",deoJTXPOWTSW_0001-SelCtrl,4096"/>
+</AttributDescription>
+<AttributDescription attrId="initCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dovPOW-DeClo_578605" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="returnCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondGL" position="3" activation="ENABLE" formula="IF([.returnCondST]AND [.returnCond],1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondGL" position="1" activation="ENABLE" formula="IF([.initCondST]AND [.initCond],1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCond" position="0" activation="ENABLE" formula="IF(([^:^.hdvflag]=[^:^:^:^:BMF:PMSS0001:FEP_A:aciFEP-RamUsage:aal.hdvFlag])AND ([^:^.loc_rem]=1)AND ([^:^.Clo_Interlock]=0)AND ([^:^.scrn_sta]=0)AND ([^:^.pow_ptw]=0),1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCondFormat" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondTO" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCond" position="2" activation="ENABLE" formula="IF([^:^:dciPOW-SelCtrl.value]=1,1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondFormat" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondTO" >
+<ScalarValue value="10"/>
+</AttributDescription>
+<AttributDescription attrId="veCoord" >
+<ScalarValue value=",deoJTXPOWPVI20001-SelCtrl,4096"/>
+</AttributDescription>
+<AttributDescription attrId="initCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dovPOW-DeClo_578712" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="returnCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondGL" position="3" activation="ENABLE" formula="IF([.returnCondST]AND [.returnCond],1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondGL" position="1" activation="ENABLE" formula="IF([.initCondST]AND [.initCond],1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCond" position="0" activation="ENABLE" formula="IF(([^:^.hdvflag]=[^:^:^:^:BMF:PMSS0001:FEP_A:aciFEP-RamUsage:aal.hdvFlag])AND ([^:^.loc_rem]=1)AND ([^:^.Clo_Interlock]=0)AND ([^:^.scrn_sta]=0)AND ([^:^.pow_ptw]=0),1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCondFormat" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondTO" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCond" position="2" activation="ENABLE" formula="IF([^:^:dciPOW-SelCtrl.value]=1,1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondFormat" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondTO" >
+<ScalarValue value="10"/>
+</AttributDescription>
+<AttributDescription attrId="veCoord" >
+<ScalarValue value=",deoJTXPOWPVI20002-SelCtrl,4096"/>
+</AttributDescription>
+<AttributDescription attrId="initCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dovPOW-DeClo_578731" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="returnCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondGL" position="3" activation="ENABLE" formula="IF([.returnCondST]AND [.returnCond],1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondGL" position="2" activation="ENABLE" formula="IF([.initCondST]AND [.initCond],1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCond" position="0" activation="ENABLE" formula="IF(([^:^.hdvflag]=[^:^:^:^:BMF:PMSS0001:FEP_A:aciFEP-RamUsage:aal.hdvFlag])AND ([^:^.loc_rem]=1)AND ([^:^.Clo_Interlock]=0)AND ([^:^.scrn_sta]=0)AND ([^:^.pow_ptw]=0),1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCondFormat" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondTO" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCond" position="1" activation="ENABLE" formula="IF([^:^:dciPOW-SelCtrl.value]=1,1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondFormat" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondTO" >
+<ScalarValue value="10"/>
+</AttributDescription>
+<AttributDescription attrId="veCoord" >
+<ScalarValue value=",deoJTXPOWPVB_0001-SelCtrl,4096"/>
+</AttributDescription>
+<AttributDescription attrId="initCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dovPOW-DeClo_578796" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="returnCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondGL" position="2" activation="ENABLE" formula="IF([.returnCondST]AND [.returnCond],1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondGL" position="3" activation="ENABLE" formula="IF([.initCondST]AND [.initCond],1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCond" position="0" activation="ENABLE" formula="IF(([^:^.hdvflag]=[^:^:^:^:BMF:PMSS0001:FEP_A:aciFEP-RamUsage:aal.hdvFlag])AND ([^:^.loc_rem]=1)AND ([^:^.Clo_Interlock]=0)AND ([^:^.scrn_sta]=0)AND ([^:^.pow_ptw]=0),1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCondFormat" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondTO" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCond" position="1" activation="ENABLE" formula="IF([^:^:dciPOW-SelCtrl.value]=1,1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondFormat" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondTO" >
+<ScalarValue value="10"/>
+</AttributDescription>
+<AttributDescription attrId="veCoord" >
+<ScalarValue value=",deoJTXPOW4C5C0001-SelCtrl,4096"/>
+</AttributDescription>
+<AttributDescription attrId="initCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dovPOW-DeClo_578840" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="returnCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondGL" position="3" activation="ENABLE" formula="IF([.returnCondST]AND [.returnCond],1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondGL" position="1" activation="ENABLE" formula="IF([.initCondST]AND [.initCond],1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCond" position="0" activation="ENABLE" formula="IF(([^:^.hdvflag]=[^:^:^:^:BMF:PMSS0001:FEP_A:aciFEP-RamUsage:aal.hdvFlag])AND ([^:^.loc_rem]=1)AND ([^:^.Clo_Interlock]=0)AND ([^:^.scrn_sta]=0)AND ([^:^.pow_ptw]=0),1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCondFormat" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondTO" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCond" position="2" activation="ENABLE" formula="IF([^:^:dciPOW-SelCtrl.value]=1,1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondFormat" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondTO" >
+<ScalarValue value="10"/>
+</AttributDescription>
+<AttributDescription attrId="veCoord" >
+<ScalarValue value=",deoJTXPOW4C5C0002-SelCtrl,4096"/>
+</AttributDescription>
+<AttributDescription attrId="initCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dovPOW-DeClo_578884" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="returnCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondGL" position="3" activation="ENABLE" formula="IF([.returnCondST]AND [.returnCond],1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondGL" position="2" activation="ENABLE" formula="IF([.initCondST]AND [.initCond],1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCond" position="0" activation="ENABLE" formula="IF(([^:^.hdvflag]=[^:^:^:^:BMF:PMSS0001:FEP_A:aciFEP-RamUsage:aal.hdvFlag])AND ([^:^.loc_rem]=1)AND ([^:^.Clo_Interlock]=0)AND ([^:^.scrn_sta]=0)AND ([^:^.pow_ptw]=0),1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCondFormat" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondTO" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCond" position="1" activation="ENABLE" formula="IF([^:^:dciPOW-SelCtrl.value]=1,1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondFormat" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondTO" >
+<ScalarValue value="10"/>
+</AttributDescription>
+<AttributDescription attrId="veCoord" >
+<ScalarValue value=",deoJTXPOW6C1_0001-SelCtrl,4096"/>
+</AttributDescription>
+<AttributDescription attrId="initCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dovPOW-DeClo_580242" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="returnCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondGL" position="3" activation="ENABLE" formula="IF([.returnCondST]AND [.returnCond],1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondGL" position="1" activation="ENABLE" formula="IF([.initCondST]AND [.initCond],1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCond" position="0" activation="ENABLE" formula="IF(([^:^.hdvflag]=[^:^:^:^:BMF:PMSS0001:FEP_A:aciFEP-RamUsage:aal.hdvFlag])AND ([^:^.loc_rem]=1)AND ([^:^.Clo_Interlock]=0)AND ([^:^.scrn_sta]=0)AND ([^:^.pow_ptw]=0),1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCondFormat" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondTO" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCond" position="2" activation="ENABLE" formula="IF([^:^:dciPOW-SelCtrl.value]=1,1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondFormat" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondTO" >
+<ScalarValue value="10"/>
+</AttributDescription>
+<AttributDescription attrId="veCoord" >
+<ScalarValue value=",deoJTXPOWSW3_0001-SelCtrl,4096"/>
+</AttributDescription>
+<AttributDescription attrId="initCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dovPOW-DeClo_580289" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="returnCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondGL" position="3" activation="ENABLE" formula="IF([.returnCondST]AND [.returnCond],1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondGL" position="1" activation="ENABLE" formula="IF([.initCondST]AND [.initCond],1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCond" position="0" activation="ENABLE" formula="IF(([^:^.hdvflag]=[^:^:^:^:BMF:PMSS0001:FEP_A:aciFEP-RamUsage:aal.hdvFlag])AND ([^:^.loc_rem]=1)AND ([^:^.Clo_Interlock]=0)AND ([^:^.scrn_sta]=0)AND ([^:^.pow_ptw]=0),1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCondFormat" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondTO" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCond" position="2" activation="ENABLE" formula="IF([^:^:dciPOW-SelCtrl.value]=1,1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondFormat" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondTO" >
+<ScalarValue value="10"/>
+</AttributDescription>
+<AttributDescription attrId="veCoord" >
+<ScalarValue value=",deoJTXPOWSW3_0002-SelCtrl,4096"/>
+</AttributDescription>
+<AttributDescription attrId="initCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dovPOW-DeClo_580336" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="returnCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondGL" position="3" activation="ENABLE" formula="IF([.returnCondST]AND [.returnCond],1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondGL" position="1" activation="ENABLE" formula="IF([.initCondST]AND [.initCond],1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCond" position="0" activation="ENABLE" formula="IF(([^:^.hdvflag]=[^:^:^:^:BMF:PMSS0001:FEP_A:aciFEP-RamUsage:aal.hdvFlag])AND ([^:^.loc_rem]=1)AND ([^:^.Clo_Interlock]=0)AND ([^:^.scrn_sta]=0)AND ([^:^.pow_ptw]=0),1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCondFormat" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondTO" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCond" position="2" activation="ENABLE" formula="IF([^:^:dciPOW-SelCtrl.value]=1,1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondFormat" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondTO" >
+<ScalarValue value="10"/>
+</AttributDescription>
+<AttributDescription attrId="veCoord" >
+<ScalarValue value=",deoJTXPOWSW3_0003-SelCtrl,4096"/>
+</AttributDescription>
+<AttributDescription attrId="initCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dovPOW-DeClo_580383" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="returnCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondGL" position="3" activation="ENABLE" formula="IF([.returnCondST]AND [.returnCond],1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondGL" position="1" activation="ENABLE" formula="IF([.initCondST]AND [.initCond],1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCond" position="0" activation="ENABLE" formula="IF(([^:^.hdvflag]=[^:^:^:^:BMF:PMSS0001:FEP_A:aciFEP-RamUsage:aal.hdvFlag])AND ([^:^.loc_rem]=1)AND ([^:^.Clo_Interlock]=0)AND ([^:^.scrn_sta]=0)AND ([^:^.pow_ptw]=0),1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCondFormat" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondTO" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCond" position="2" activation="ENABLE" formula="IF([^:^:dciPOW-SelCtrl.value]=1,1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondFormat" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondTO" >
+<ScalarValue value="10"/>
+</AttributDescription>
+<AttributDescription attrId="veCoord" >
+<ScalarValue value=",deoJTXPOWSW3_0004-SelCtrl,4096"/>
+</AttributDescription>
+<AttributDescription attrId="initCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dovPOW-DeClo_580430" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="returnCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondGL" position="3" activation="ENABLE" formula="IF([.returnCondST]AND [.returnCond],1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondGL" position="1" activation="ENABLE" formula="IF([.initCondST]AND [.initCond],1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCond" position="0" activation="ENABLE" formula="IF(([^:^.hdvflag]=[^:^:^:^:BMF:PMSS0001:FEP_A:aciFEP-RamUsage:aal.hdvFlag])AND ([^:^.loc_rem]=1)AND ([^:^.Clo_Interlock]=0)AND ([^:^.scrn_sta]=0)AND ([^:^.pow_ptw]=0),1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCondFormat" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondTO" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCond" position="2" activation="ENABLE" formula="IF([^:^:dciPOW-SelCtrl.value]=1,1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondFormat" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondTO" >
+<ScalarValue value="10"/>
+</AttributDescription>
+<AttributDescription attrId="veCoord" >
+<ScalarValue value=",deoJTXPOWSW3_0005-SelCtrl,4096"/>
+</AttributDescription>
+<AttributDescription attrId="initCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dovPOW-DeClo_580477" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="returnCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondGL" position="3" activation="ENABLE" formula="IF([.returnCondST]AND [.returnCond],1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondGL" position="1" activation="ENABLE" formula="IF([.initCondST]AND [.initCond],1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCond" position="0" activation="ENABLE" formula="IF(([^:^.hdvflag]=[^:^:^:^:BMF:PMSS0001:FEP_A:aciFEP-RamUsage:aal.hdvFlag])AND ([^:^.loc_rem]=1)AND ([^:^.Clo_Interlock]=0)AND ([^:^.scrn_sta]=0)AND ([^:^.pow_ptw]=0),1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCondFormat" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondTO" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCond" position="2" activation="ENABLE" formula="IF([^:^:dciPOW-SelCtrl.value]=1,1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondFormat" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondTO" >
+<ScalarValue value="10"/>
+</AttributDescription>
+<AttributDescription attrId="veCoord" >
+<ScalarValue value=",deoJTXPOWSW3_0006-SelCtrl,4096"/>
+</AttributDescription>
+<AttributDescription attrId="initCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dovPOW-DeClo_580524" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="returnCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondGL" position="3" activation="ENABLE" formula="IF([.returnCondST]AND [.returnCond],1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondGL" position="1" activation="ENABLE" formula="IF([.initCondST]AND [.initCond],1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCond" position="0" activation="ENABLE" formula="IF(([^:^.hdvflag]=[^:^:^:^:BMF:PMSS0001:FEP_A:aciFEP-RamUsage:aal.hdvFlag])AND ([^:^.loc_rem]=1)AND ([^:^.Clo_Interlock]=0)AND ([^:^.scrn_sta]=0)AND ([^:^.pow_ptw]=0),1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCondFormat" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondTO" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCond" position="2" activation="ENABLE" formula="IF([^:^:dciPOW-SelCtrl.value]=1,1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondFormat" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondTO" >
+<ScalarValue value="10"/>
+</AttributDescription>
+<AttributDescription attrId="veCoord" >
+<ScalarValue value=",deoJTXPOWSW3_0007-SelCtrl,4096"/>
+</AttributDescription>
+<AttributDescription attrId="initCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dovPOW-DeClo_580571" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="returnCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondGL" position="3" activation="ENABLE" formula="IF([.returnCondST]AND [.returnCond],1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondGL" position="2" activation="ENABLE" formula="IF([.initCondST]AND [.initCond],1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCond" position="0" activation="ENABLE" formula="IF(([^:^.hdvflag]=[^:^:^:^:BMF:PMSS0001:FEP_A:aciFEP-RamUsage:aal.hdvFlag])AND ([^:^.loc_rem]=1)AND ([^:^.Clo_Interlock]=0)AND ([^:^.scrn_sta]=0)AND ([^:^.pow_ptw]=0),1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCondFormat" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondTO" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCond" position="1" activation="ENABLE" formula="IF([^:^:dciPOW-SelCtrl.value]=1,1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondFormat" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondTO" >
+<ScalarValue value="10"/>
+</AttributDescription>
+<AttributDescription attrId="veCoord" >
+<ScalarValue value=",deoJTXPOWSW3_0008-SelCtrl,4096"/>
+</AttributDescription>
+<AttributDescription attrId="initCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dovPOW-DeClo_580618" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="returnCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondGL" position="3" activation="ENABLE" formula="IF([.returnCondST]AND [.returnCond],1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondGL" position="1" activation="ENABLE" formula="IF([.initCondST]AND [.initCond],1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCond" position="0" activation="ENABLE" formula="IF(([^:^.hdvflag]=[^:^:^:^:BMF:PMSS0001:FEP_A:aciFEP-RamUsage:aal.hdvFlag])AND ([^:^.loc_rem]=1)AND ([^:^.Clo_Interlock]=0)AND ([^:^.scrn_sta]=0)AND ([^:^.pow_ptw]=0),1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCondFormat" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondTO" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCond" position="2" activation="ENABLE" formula="IF([^:^:dciPOW-SelCtrl.value]=1,1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondFormat" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondTO" >
+<ScalarValue value="10"/>
+</AttributDescription>
+<AttributDescription attrId="veCoord" >
+<ScalarValue value=",deoJTXPOWSW3_0009-SelCtrl,4096"/>
+</AttributDescription>
+<AttributDescription attrId="initCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dovPOW-DeClo_580665" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="returnCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondGL" position="3" activation="ENABLE" formula="IF([.returnCondST]AND [.returnCond],1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondGL" position="1" activation="ENABLE" formula="IF([.initCondST]AND [.initCond],1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCond" position="0" activation="ENABLE" formula="IF(([^:^.hdvflag]=[^:^:^:^:BMF:PMSS0001:FEP_A:aciFEP-RamUsage:aal.hdvFlag])AND ([^:^.loc_rem]=1)AND ([^:^.Clo_Interlock]=0)AND ([^:^.scrn_sta]=0)AND ([^:^.pow_ptw]=0),1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCondFormat" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondTO" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCond" position="2" activation="ENABLE" formula="IF([^:^:dciPOW-SelCtrl.value]=1,1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondFormat" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondTO" >
+<ScalarValue value="10"/>
+</AttributDescription>
+<AttributDescription attrId="veCoord" >
+<ScalarValue value=",deoJTXPOWSW3_0010-SelCtrl,4096"/>
+</AttributDescription>
+<AttributDescription attrId="initCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dovPOW-DeClo_580712" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="returnCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondGL" position="2" activation="ENABLE" formula="IF([.returnCondST]AND [.returnCond],1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondGL" position="3" activation="ENABLE" formula="IF([.initCondST]AND [.initCond],1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCond" position="0" activation="ENABLE" formula="IF(([^:^.hdvflag]=[^:^:^:^:BMF:PMSS0001:FEP_A:aciFEP-RamUsage:aal.hdvFlag])AND ([^:^.loc_rem]=1)AND ([^:^.Clo_Interlock]=0)AND ([^:^.scrn_sta]=0)AND ([^:^.pow_ptw]=0),1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCondFormat" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondTO" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCond" position="1" activation="ENABLE" formula="IF([^:^:dciPOW-SelCtrl.value]=1,1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondFormat" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondTO" >
+<ScalarValue value="10"/>
+</AttributDescription>
+<AttributDescription attrId="veCoord" >
+<ScalarValue value=",deoJTXPOWSW3_0011-SelCtrl,4096"/>
+</AttributDescription>
+<AttributDescription attrId="initCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dovPOW-DeClo_580759" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="returnCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondGL" position="3" activation="ENABLE" formula="IF([.returnCondST]AND [.returnCond],1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondGL" position="1" activation="ENABLE" formula="IF([.initCondST]AND [.initCond],1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCond" position="0" activation="ENABLE" formula="IF(([^:^.hdvflag]=[^:^:^:^:BMF:PMSS0001:FEP_A:aciFEP-RamUsage:aal.hdvFlag])AND ([^:^.loc_rem]=1)AND ([^:^.Clo_Interlock]=0)AND ([^:^.scrn_sta]=0)AND ([^:^.pow_ptw]=0),1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCondFormat" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondTO" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCond" position="2" activation="ENABLE" formula="IF([^:^:dciPOW-SelCtrl.value]=1,1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondFormat" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondTO" >
+<ScalarValue value="10"/>
+</AttributDescription>
+<AttributDescription attrId="veCoord" >
+<ScalarValue value=",deoJTXPOWSW3_0012-SelCtrl,4096"/>
+</AttributDescription>
+<AttributDescription attrId="initCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dovPOW-DeClo_580806" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="returnCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondGL" position="3" activation="ENABLE" formula="IF([.returnCondST]AND [.returnCond],1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondGL" position="1" activation="ENABLE" formula="IF([.initCondST]AND [.initCond],1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCond" position="0" activation="ENABLE" formula="IF(([^:^.hdvflag]=[^:^:^:^:BMF:PMSS0001:FEP_A:aciFEP-RamUsage:aal.hdvFlag])AND ([^:^.loc_rem]=1)AND ([^:^.Clo_Interlock]=0)AND ([^:^.scrn_sta]=0)AND ([^:^.pow_ptw]=0),1,0)" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="initCondFormat" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="initCondTO" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCond" position="2" activation="ENABLE" formula="IF([^:^:dciPOW-SelCtrl.value]=1,1,0)" >
+<ScalarValue value="1"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondFormat" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="returnCondTO" >
+<ScalarValue value="10"/>
+</AttributDescription>
+<AttributDescription attrId="veCoord" >
+<ScalarValue value=",deoJTXPOWSW3_0013-SelCtrl,4096"/>
+</AttributDescription>
+<AttributDescription attrId="initCondST" >
+<ScalarValue value="1"/>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+</Instance>

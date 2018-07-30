@@ -1,0 +1,958 @@
+#Autogen by vbCalc. Date: 2018-07-23 10:03:29
+
+
+# Equipment : ZXN-HOM
+DEIV= 000/001/00027/4/000001;1; 4; ; ; 0; , , ; # ZXN-HOM-Link1
+DEIV= 000/001/00027/5/000001;2; 4; ; ; 0; , , ; # ZXN-HOM-Link2
+DEIV= 000/002/00027/4/000001;3; 4; ; ; 0; , , ; # ZXN-HOM-Link3
+DEIV= 000/002/00027/5/000001;4; 4; ; ; 0; , , ; # ZXN-HOM-Link4
+DEIV= $ComStatus-00027/4+5;; 4; ; ; 0; , , ;   # ZXN-HOM-Comm Status
+DEIV= $InfStatus-00208/4+5;; 4; ; ; 0; , , ;   # ZXN-HOM-INF Status
+DEOV= $SetComStatus-00208-1; ZXN-HOM CommStatus-SET; 4; ; ; 0; , , ; # Set Communication Status
+# Pseudo DEIV external variables 
+DEIV= $GetLnk-ZXN-1; deiZXN_ALnkSts; 4; ; ; 0; , , ; # GET FEP LINK 1 
+DEIV= $GetLnk-ZXN-2; deiZXN_BLnkSts; 4; ; ; 0; , , ; # GET FEP LINK 2 
+DEIV= $GetSpy-ZXN; deiZXNSpySts; 4; ; ; 0; , , ; # GET SPY FEP 
+DEIV= $ValidRTUlnk-ZXN-1; deiZXN_AValidSts; 4; ; ; 0; , , ; # FEP Valid 1 
+DEIV= $ValidRTUlnk-ZXN-2; deiZXN_BValidSts; 4; ; ; 0; , , ; # FEP Valid 2 
+DEIV= $GetState-ZXN; deiZXNComSts; 4; ; ; 0; , , ; # GET FEP STA 
+# Pseudo DEOV external variables 
+DEOV= $SetState-ZXN; deoZXNSTA-SET; 4; ; ; 0; , , ; # SET STATE 
+DEOV= $SetSpy-ZXN; deoZXNSpy-SET; 4; ; ; 0; , , ; # SET SPY 
+DEOV= $SetLnk-ZXN-1; deoZXN_ALnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 1
+DEOV= $SetLnk-ZXN-2; deoZXN_BLnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 2 
+DEOV= $Reset-ZXN-1; deoZXN_AResetCmd; 4; ; ; 0; , , ; # RESET FEP 1 
+DEOV= $Reset-ZXN-2; deoZXN_BResetCmd; 4; ; ; 0; , , ; # RESET FEP 2 
+DEOV= $Download-ZXN-1; deoZXN_ADownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 1 
+DEOV= $Download-ZXN-2; deoZXN_BDownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 2 
+# Pseudo SEOV external variables 
+SEOV= $SetCustomCmd-ZXN; seoZXNCUSTCMD; 512; ; ; 0; , , ; # DACCOMFEP Custom Cmd 
+
+
+
+# Equipment : ZXN-PSCADA
+DEIV= 000/001/00029/4/000001;1; 4; ; ; 0; , , ; # ZXN-PSCADA-Link1
+DEIV= 000/001/00029/5/000001;2; 4; ; ; 0; , , ; # ZXN-PSCADA-Link2
+DEIV= 000/002/00029/4/000001;3; 4; ; ; 0; , , ; # ZXN-PSCADA-Link3
+DEIV= 000/002/00029/5/000001;4; 4; ; ; 0; , , ; # ZXN-PSCADA-Link4
+DEIV= $ComStatus-00029/4+5;; 4; ; ; 0; , , ;   # ZXN-PSCADA-Comm Status
+DEIV= $InfStatus-00160/4+5;; 4; ; ; 0; , , ;   # ZXN-PSCADA-INF Status
+DEOV= $SetComStatus-00160-1; ZXN-PSCADA CommStatus-SET; 4; ; ; 0; , , ; # Set Communication Status
+# Pseudo DEIV external variables 
+DEIV= $GetLnk-ZXN-1; deiZXN_ALnkSts; 4; ; ; 0; , , ; # GET FEP LINK 1 
+DEIV= $GetLnk-ZXN-2; deiZXN_BLnkSts; 4; ; ; 0; , , ; # GET FEP LINK 2 
+DEIV= $GetSpy-ZXN; deiZXNSpySts; 4; ; ; 0; , , ; # GET SPY FEP 
+DEIV= $ValidRTUlnk-ZXN-1; deiZXN_AValidSts; 4; ; ; 0; , , ; # FEP Valid 1 
+DEIV= $ValidRTUlnk-ZXN-2; deiZXN_BValidSts; 4; ; ; 0; , , ; # FEP Valid 2 
+DEIV= $GetState-ZXN; deiZXNComSts; 4; ; ; 0; , , ; # GET FEP STA 
+# Pseudo DEOV external variables 
+DEOV= $SetState-ZXN; deoZXNSTA-SET; 4; ; ; 0; , , ; # SET STATE 
+DEOV= $SetSpy-ZXN; deoZXNSpy-SET; 4; ; ; 0; , , ; # SET SPY 
+DEOV= $SetLnk-ZXN-1; deoZXN_ALnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 1
+DEOV= $SetLnk-ZXN-2; deoZXN_BLnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 2 
+DEOV= $Reset-ZXN-1; deoZXN_AResetCmd; 4; ; ; 0; , , ; # RESET FEP 1 
+DEOV= $Reset-ZXN-2; deoZXN_BResetCmd; 4; ; ; 0; , , ; # RESET FEP 2 
+DEOV= $Download-ZXN-1; deoZXN_ADownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 1 
+DEOV= $Download-ZXN-2; deoZXN_BDownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 2 
+# Pseudo SEOV external variables 
+SEOV= $SetCustomCmd-ZXN; seoZXNCUSTCMD; 512; ; ; 0; , , ; # DACCOMFEP Custom Cmd 
+
+
+
+# Equipment : ZXN-BAS
+DEIV= 000/001/00031/4/000001;1; 4; ; ; 0; , , ; # ZXN-BAS-Link1
+DEIV= 000/001/00031/5/000001;2; 4; ; ; 0; , , ; # ZXN-BAS-Link2
+DEIV= 000/002/00031/4/000001;3; 4; ; ; 0; , , ; # ZXN-BAS-Link3
+DEIV= 000/002/00031/5/000001;4; 4; ; ; 0; , , ; # ZXN-BAS-Link4
+DEIV= $ComStatus-00031/4+5;; 4; ; ; 0; , , ;   # ZXN-BAS-Comm Status
+DEIV= $InfStatus-00123/4+5;; 4; ; ; 0; , , ;   # ZXN-BAS-INF Status
+DEOV= $SetComStatus-00123-1; ZXN-BAS CommStatus-SET; 4; ; ; 0; , , ; # Set Communication Status
+# Pseudo DEIV external variables 
+DEIV= $GetLnk-ZXN-1; deiZXN_ALnkSts; 4; ; ; 0; , , ; # GET FEP LINK 1 
+DEIV= $GetLnk-ZXN-2; deiZXN_BLnkSts; 4; ; ; 0; , , ; # GET FEP LINK 2 
+DEIV= $GetSpy-ZXN; deiZXNSpySts; 4; ; ; 0; , , ; # GET SPY FEP 
+DEIV= $ValidRTUlnk-ZXN-1; deiZXN_AValidSts; 4; ; ; 0; , , ; # FEP Valid 1 
+DEIV= $ValidRTUlnk-ZXN-2; deiZXN_BValidSts; 4; ; ; 0; , , ; # FEP Valid 2 
+DEIV= $GetState-ZXN; deiZXNComSts; 4; ; ; 0; , , ; # GET FEP STA 
+# Pseudo DEOV external variables 
+DEOV= $SetState-ZXN; deoZXNSTA-SET; 4; ; ; 0; , , ; # SET STATE 
+DEOV= $SetSpy-ZXN; deoZXNSpy-SET; 4; ; ; 0; , , ; # SET SPY 
+DEOV= $SetLnk-ZXN-1; deoZXN_ALnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 1
+DEOV= $SetLnk-ZXN-2; deoZXN_BLnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 2 
+DEOV= $Reset-ZXN-1; deoZXN_AResetCmd; 4; ; ; 0; , , ; # RESET FEP 1 
+DEOV= $Reset-ZXN-2; deoZXN_BResetCmd; 4; ; ; 0; , , ; # RESET FEP 2 
+DEOV= $Download-ZXN-1; deoZXN_ADownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 1 
+DEOV= $Download-ZXN-2; deoZXN_BDownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 2 
+# Pseudo SEOV external variables 
+SEOV= $SetCustomCmd-ZXN; seoZXNCUSTCMD; 512; ; ; 0; , , ; # DACCOMFEP Custom Cmd 
+
+
+
+# Equipment : ZXN-FAS
+DEIV= 000/001/00033/4/000001;1; 4; ; ; 0; , , ; # ZXN-FAS-Link1
+DEIV= 000/001/00033/5/000001;2; 4; ; ; 0; , , ; # ZXN-FAS-Link2
+DEIV= 000/002/00033/4/000001;3; 4; ; ; 0; , , ; # ZXN-FAS-Link3
+DEIV= 000/002/00033/5/000001;4; 4; ; ; 0; , , ; # ZXN-FAS-Link4
+DEIV= $ComStatus-00033/4+5;; 4; ; ; 0; , , ;   # ZXN-FAS-Comm Status
+DEIV= $InfStatus-00032/4+5;; 4; ; ; 0; , , ;   # ZXN-FAS-INF Status
+DEOV= $SetComStatus-00032-1; ZXN-FAS CommStatus-SET; 4; ; ; 0; , , ; # Set Communication Status
+# Pseudo DEIV external variables 
+DEIV= $GetLnk-ZXN-1; deiZXN_ALnkSts; 4; ; ; 0; , , ; # GET FEP LINK 1 
+DEIV= $GetLnk-ZXN-2; deiZXN_BLnkSts; 4; ; ; 0; , , ; # GET FEP LINK 2 
+DEIV= $GetSpy-ZXN; deiZXNSpySts; 4; ; ; 0; , , ; # GET SPY FEP 
+DEIV= $ValidRTUlnk-ZXN-1; deiZXN_AValidSts; 4; ; ; 0; , , ; # FEP Valid 1 
+DEIV= $ValidRTUlnk-ZXN-2; deiZXN_BValidSts; 4; ; ; 0; , , ; # FEP Valid 2 
+DEIV= $GetState-ZXN; deiZXNComSts; 4; ; ; 0; , , ; # GET FEP STA 
+# Pseudo DEOV external variables 
+DEOV= $SetState-ZXN; deoZXNSTA-SET; 4; ; ; 0; , , ; # SET STATE 
+DEOV= $SetSpy-ZXN; deoZXNSpy-SET; 4; ; ; 0; , , ; # SET SPY 
+DEOV= $SetLnk-ZXN-1; deoZXN_ALnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 1
+DEOV= $SetLnk-ZXN-2; deoZXN_BLnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 2 
+DEOV= $Reset-ZXN-1; deoZXN_AResetCmd; 4; ; ; 0; , , ; # RESET FEP 1 
+DEOV= $Reset-ZXN-2; deoZXN_BResetCmd; 4; ; ; 0; , , ; # RESET FEP 2 
+DEOV= $Download-ZXN-1; deoZXN_ADownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 1 
+DEOV= $Download-ZXN-2; deoZXN_BDownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 2 
+# Pseudo SEOV external variables 
+SEOV= $SetCustomCmd-ZXN; seoZXNCUSTCMD; 512; ; ; 0; , , ; # DACCOMFEP Custom Cmd 
+
+
+
+# Equipment : ZXN-PSD
+DEIV= 000/001/00035/4/000001;1; 4; ; ; 0; , , ; # ZXN-PSD-Link1
+DEIV= 000/001/00035/5/000001;2; 4; ; ; 0; , , ; # ZXN-PSD-Link2
+DEIV= 000/002/00035/4/000001;3; 4; ; ; 0; , , ; # ZXN-PSD-Link3
+DEIV= 000/002/00035/5/000001;4; 4; ; ; 0; , , ; # ZXN-PSD-Link4
+DEIV= $ComStatus-00035/4+5;; 4; ; ; 0; , , ;   # ZXN-PSD-Comm Status
+DEIV= $InfStatus-00033/4+5;; 4; ; ; 0; , , ;   # ZXN-PSD-INF Status
+DEOV= $SetComStatus-00033-1; ZXN-PSD CommStatus-SET; 4; ; ; 0; , , ; # Set Communication Status
+# Pseudo DEIV external variables 
+DEIV= $GetLnk-ZXN-1; deiZXN_ALnkSts; 4; ; ; 0; , , ; # GET FEP LINK 1 
+DEIV= $GetLnk-ZXN-2; deiZXN_BLnkSts; 4; ; ; 0; , , ; # GET FEP LINK 2 
+DEIV= $GetSpy-ZXN; deiZXNSpySts; 4; ; ; 0; , , ; # GET SPY FEP 
+DEIV= $ValidRTUlnk-ZXN-1; deiZXN_AValidSts; 4; ; ; 0; , , ; # FEP Valid 1 
+DEIV= $ValidRTUlnk-ZXN-2; deiZXN_BValidSts; 4; ; ; 0; , , ; # FEP Valid 2 
+DEIV= $GetState-ZXN; deiZXNComSts; 4; ; ; 0; , , ; # GET FEP STA 
+# Pseudo DEOV external variables 
+DEOV= $SetState-ZXN; deoZXNSTA-SET; 4; ; ; 0; , , ; # SET STATE 
+DEOV= $SetSpy-ZXN; deoZXNSpy-SET; 4; ; ; 0; , , ; # SET SPY 
+DEOV= $SetLnk-ZXN-1; deoZXN_ALnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 1
+DEOV= $SetLnk-ZXN-2; deoZXN_BLnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 2 
+DEOV= $Reset-ZXN-1; deoZXN_AResetCmd; 4; ; ; 0; , , ; # RESET FEP 1 
+DEOV= $Reset-ZXN-2; deoZXN_BResetCmd; 4; ; ; 0; , , ; # RESET FEP 2 
+DEOV= $Download-ZXN-1; deoZXN_ADownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 1 
+DEOV= $Download-ZXN-2; deoZXN_BDownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 2 
+# Pseudo SEOV external variables 
+SEOV= $SetCustomCmd-ZXN; seoZXNCUSTCMD; 512; ; ; 0; , , ; # DACCOMFEP Custom Cmd 
+
+
+
+# Equipment : ZXN-AFC
+DEIV= 000/001/00037/4/000001;1; 4; ; ; 0; , , ; # ZXN-AFC-Link1
+DEIV= 000/001/00037/5/000001;2; 4; ; ; 0; , , ; # ZXN-AFC-Link2
+DEIV= 000/002/00037/4/000001;3; 4; ; ; 0; , , ; # ZXN-AFC-Link3
+DEIV= 000/002/00037/5/000001;4; 4; ; ; 0; , , ; # ZXN-AFC-Link4
+DEIV= $ComStatus-00037/4+5;; 4; ; ; 0; , , ;   # ZXN-AFC-Comm Status
+DEIV= $InfStatus-00034/4+5;; 4; ; ; 0; , , ;   # ZXN-AFC-INF Status
+DEOV= $SetComStatus-00034-1; ZXN-AFC CommStatus-SET; 4; ; ; 0; , , ; # Set Communication Status
+# Pseudo DEIV external variables 
+DEIV= $GetLnk-ZXN-1; deiZXN_ALnkSts; 4; ; ; 0; , , ; # GET FEP LINK 1 
+DEIV= $GetLnk-ZXN-2; deiZXN_BLnkSts; 4; ; ; 0; , , ; # GET FEP LINK 2 
+DEIV= $GetSpy-ZXN; deiZXNSpySts; 4; ; ; 0; , , ; # GET SPY FEP 
+DEIV= $ValidRTUlnk-ZXN-1; deiZXN_AValidSts; 4; ; ; 0; , , ; # FEP Valid 1 
+DEIV= $ValidRTUlnk-ZXN-2; deiZXN_BValidSts; 4; ; ; 0; , , ; # FEP Valid 2 
+DEIV= $GetState-ZXN; deiZXNComSts; 4; ; ; 0; , , ; # GET FEP STA 
+# Pseudo DEOV external variables 
+DEOV= $SetState-ZXN; deoZXNSTA-SET; 4; ; ; 0; , , ; # SET STATE 
+DEOV= $SetSpy-ZXN; deoZXNSpy-SET; 4; ; ; 0; , , ; # SET SPY 
+DEOV= $SetLnk-ZXN-1; deoZXN_ALnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 1
+DEOV= $SetLnk-ZXN-2; deoZXN_BLnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 2 
+DEOV= $Reset-ZXN-1; deoZXN_AResetCmd; 4; ; ; 0; , , ; # RESET FEP 1 
+DEOV= $Reset-ZXN-2; deoZXN_BResetCmd; 4; ; ; 0; , , ; # RESET FEP 2 
+DEOV= $Download-ZXN-1; deoZXN_ADownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 1 
+DEOV= $Download-ZXN-2; deoZXN_BDownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 2 
+# Pseudo SEOV external variables 
+SEOV= $SetCustomCmd-ZXN; seoZXNCUSTCMD; 512; ; ; 0; , , ; # DACCOMFEP Custom Cmd 
+
+
+
+# Equipment : ZXN-DTS
+DEIV= 000/001/00039/4/000001;1; 4; ; ; 0; , , ; # ZXN-DTS-Link1
+DEIV= 000/001/00039/5/000001;2; 4; ; ; 0; , , ; # ZXN-DTS-Link2
+DEIV= 000/002/00039/4/000001;3; 4; ; ; 0; , , ; # ZXN-DTS-Link3
+DEIV= 000/002/00039/5/000001;4; 4; ; ; 0; , , ; # ZXN-DTS-Link4
+DEIV= $ComStatus-00039/4+5;; 4; ; ; 0; , , ;   # ZXN-DTS-Comm Status
+DEIV= $InfStatus-00035/4+5;; 4; ; ; 0; , , ;   # ZXN-DTS-INF Status
+DEOV= $SetComStatus-00035-1; ZXN-DTS CommStatus-SET; 4; ; ; 0; , , ; # Set Communication Status
+# Pseudo DEIV external variables 
+DEIV= $GetLnk-ZXN-1; deiZXN_ALnkSts; 4; ; ; 0; , , ; # GET FEP LINK 1 
+DEIV= $GetLnk-ZXN-2; deiZXN_BLnkSts; 4; ; ; 0; , , ; # GET FEP LINK 2 
+DEIV= $GetSpy-ZXN; deiZXNSpySts; 4; ; ; 0; , , ; # GET SPY FEP 
+DEIV= $ValidRTUlnk-ZXN-1; deiZXN_AValidSts; 4; ; ; 0; , , ; # FEP Valid 1 
+DEIV= $ValidRTUlnk-ZXN-2; deiZXN_BValidSts; 4; ; ; 0; , , ; # FEP Valid 2 
+DEIV= $GetState-ZXN; deiZXNComSts; 4; ; ; 0; , , ; # GET FEP STA 
+# Pseudo DEOV external variables 
+DEOV= $SetState-ZXN; deoZXNSTA-SET; 4; ; ; 0; , , ; # SET STATE 
+DEOV= $SetSpy-ZXN; deoZXNSpy-SET; 4; ; ; 0; , , ; # SET SPY 
+DEOV= $SetLnk-ZXN-1; deoZXN_ALnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 1
+DEOV= $SetLnk-ZXN-2; deoZXN_BLnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 2 
+DEOV= $Reset-ZXN-1; deoZXN_AResetCmd; 4; ; ; 0; , , ; # RESET FEP 1 
+DEOV= $Reset-ZXN-2; deoZXN_BResetCmd; 4; ; ; 0; , , ; # RESET FEP 2 
+DEOV= $Download-ZXN-1; deoZXN_ADownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 1 
+DEOV= $Download-ZXN-2; deoZXN_BDownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 2 
+# Pseudo SEOV external variables 
+SEOV= $SetCustomCmd-ZXN; seoZXNCUSTCMD; 512; ; ; 0; , , ; # DACCOMFEP Custom Cmd 
+
+
+
+# Equipment : ZXN-ACS01
+DEIV= 000/001/00041/4/000001;1; 4; ; ; 0; , , ; # ZXN-ACS01-Link1
+DEIV= 000/001/00041/5/000001;2; 4; ; ; 0; , , ; # ZXN-ACS01-Link2
+DEIV= 000/002/00041/4/000001;3; 4; ; ; 0; , , ; # ZXN-ACS01-Link3
+DEIV= 000/002/00041/5/000001;4; 4; ; ; 0; , , ; # ZXN-ACS01-Link4
+DEIV= $ComStatus-00041/4+5;; 4; ; ; 0; , , ;   # ZXN-ACS01-Comm Status
+DEIV= $InfStatus-00036/4+5;; 4; ; ; 0; , , ;   # ZXN-ACS01-INF Status
+DEOV= $SetComStatus-00036-1; ZXN-ACS01 CommStatus-SET; 4; ; ; 0; , , ; # Set Communication Status
+# Pseudo DEIV external variables 
+DEIV= $GetLnk-ZXN-1; deiZXN_ALnkSts; 4; ; ; 0; , , ; # GET FEP LINK 1 
+DEIV= $GetLnk-ZXN-2; deiZXN_BLnkSts; 4; ; ; 0; , , ; # GET FEP LINK 2 
+DEIV= $GetSpy-ZXN; deiZXNSpySts; 4; ; ; 0; , , ; # GET SPY FEP 
+DEIV= $ValidRTUlnk-ZXN-1; deiZXN_AValidSts; 4; ; ; 0; , , ; # FEP Valid 1 
+DEIV= $ValidRTUlnk-ZXN-2; deiZXN_BValidSts; 4; ; ; 0; , , ; # FEP Valid 2 
+DEIV= $GetState-ZXN; deiZXNComSts; 4; ; ; 0; , , ; # GET FEP STA 
+# Pseudo DEOV external variables 
+DEOV= $SetState-ZXN; deoZXNSTA-SET; 4; ; ; 0; , , ; # SET STATE 
+DEOV= $SetSpy-ZXN; deoZXNSpy-SET; 4; ; ; 0; , , ; # SET SPY 
+DEOV= $SetLnk-ZXN-1; deoZXN_ALnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 1
+DEOV= $SetLnk-ZXN-2; deoZXN_BLnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 2 
+DEOV= $Reset-ZXN-1; deoZXN_AResetCmd; 4; ; ; 0; , , ; # RESET FEP 1 
+DEOV= $Reset-ZXN-2; deoZXN_BResetCmd; 4; ; ; 0; , , ; # RESET FEP 2 
+DEOV= $Download-ZXN-1; deoZXN_ADownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 1 
+DEOV= $Download-ZXN-2; deoZXN_BDownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 2 
+# Pseudo SEOV external variables 
+SEOV= $SetCustomCmd-ZXN; seoZXNCUSTCMD; 512; ; ; 0; , , ; # DACCOMFEP Custom Cmd 
+
+
+
+# Equipment : ZXN-ACS02
+DEIV= 000/001/00041/4/000001;1; 4; ; ; 0; , , ; # ZXN-ACS02-Link1
+DEIV= 000/001/00041/5/000001;2; 4; ; ; 0; , , ; # ZXN-ACS02-Link2
+DEIV= 000/002/00041/4/000001;3; 4; ; ; 0; , , ; # ZXN-ACS02-Link3
+DEIV= 000/002/00041/5/000001;4; 4; ; ; 0; , , ; # ZXN-ACS02-Link4
+DEIV= $ComStatus-00041/4+5;; 4; ; ; 0; , , ;   # ZXN-ACS02-Comm Status
+DEIV= $InfStatus-00037/4+5;; 4; ; ; 0; , , ;   # ZXN-ACS02-INF Status
+DEOV= $SetComStatus-00037-1; ZXN-ACS02 CommStatus-SET; 4; ; ; 0; , , ; # Set Communication Status
+# Pseudo DEIV external variables 
+DEIV= $GetLnk-ZXN-1; deiZXN_ALnkSts; 4; ; ; 0; , , ; # GET FEP LINK 1 
+DEIV= $GetLnk-ZXN-2; deiZXN_BLnkSts; 4; ; ; 0; , , ; # GET FEP LINK 2 
+DEIV= $GetSpy-ZXN; deiZXNSpySts; 4; ; ; 0; , , ; # GET SPY FEP 
+DEIV= $ValidRTUlnk-ZXN-1; deiZXN_AValidSts; 4; ; ; 0; , , ; # FEP Valid 1 
+DEIV= $ValidRTUlnk-ZXN-2; deiZXN_BValidSts; 4; ; ; 0; , , ; # FEP Valid 2 
+DEIV= $GetState-ZXN; deiZXNComSts; 4; ; ; 0; , , ; # GET FEP STA 
+# Pseudo DEOV external variables 
+DEOV= $SetState-ZXN; deoZXNSTA-SET; 4; ; ; 0; , , ; # SET STATE 
+DEOV= $SetSpy-ZXN; deoZXNSpy-SET; 4; ; ; 0; , , ; # SET SPY 
+DEOV= $SetLnk-ZXN-1; deoZXN_ALnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 1
+DEOV= $SetLnk-ZXN-2; deoZXN_BLnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 2 
+DEOV= $Reset-ZXN-1; deoZXN_AResetCmd; 4; ; ; 0; , , ; # RESET FEP 1 
+DEOV= $Reset-ZXN-2; deoZXN_BResetCmd; 4; ; ; 0; , , ; # RESET FEP 2 
+DEOV= $Download-ZXN-1; deoZXN_ADownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 1 
+DEOV= $Download-ZXN-2; deoZXN_BDownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 2 
+# Pseudo SEOV external variables 
+SEOV= $SetCustomCmd-ZXN; seoZXNCUSTCMD; 512; ; ; 0; , , ; # DACCOMFEP Custom Cmd 
+
+
+
+# Equipment : ZXN-ACS03
+DEIV= 000/001/00041/4/000001;1; 4; ; ; 0; , , ; # ZXN-ACS03-Link1
+DEIV= 000/001/00041/5/000001;2; 4; ; ; 0; , , ; # ZXN-ACS03-Link2
+DEIV= 000/002/00041/4/000001;3; 4; ; ; 0; , , ; # ZXN-ACS03-Link3
+DEIV= 000/002/00041/5/000001;4; 4; ; ; 0; , , ; # ZXN-ACS03-Link4
+DEIV= $ComStatus-00041/4+5;; 4; ; ; 0; , , ;   # ZXN-ACS03-Comm Status
+DEIV= $InfStatus-00038/4+5;; 4; ; ; 0; , , ;   # ZXN-ACS03-INF Status
+DEOV= $SetComStatus-00038-1; ZXN-ACS03 CommStatus-SET; 4; ; ; 0; , , ; # Set Communication Status
+# Pseudo DEIV external variables 
+DEIV= $GetLnk-ZXN-1; deiZXN_ALnkSts; 4; ; ; 0; , , ; # GET FEP LINK 1 
+DEIV= $GetLnk-ZXN-2; deiZXN_BLnkSts; 4; ; ; 0; , , ; # GET FEP LINK 2 
+DEIV= $GetSpy-ZXN; deiZXNSpySts; 4; ; ; 0; , , ; # GET SPY FEP 
+DEIV= $ValidRTUlnk-ZXN-1; deiZXN_AValidSts; 4; ; ; 0; , , ; # FEP Valid 1 
+DEIV= $ValidRTUlnk-ZXN-2; deiZXN_BValidSts; 4; ; ; 0; , , ; # FEP Valid 2 
+DEIV= $GetState-ZXN; deiZXNComSts; 4; ; ; 0; , , ; # GET FEP STA 
+# Pseudo DEOV external variables 
+DEOV= $SetState-ZXN; deoZXNSTA-SET; 4; ; ; 0; , , ; # SET STATE 
+DEOV= $SetSpy-ZXN; deoZXNSpy-SET; 4; ; ; 0; , , ; # SET SPY 
+DEOV= $SetLnk-ZXN-1; deoZXN_ALnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 1
+DEOV= $SetLnk-ZXN-2; deoZXN_BLnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 2 
+DEOV= $Reset-ZXN-1; deoZXN_AResetCmd; 4; ; ; 0; , , ; # RESET FEP 1 
+DEOV= $Reset-ZXN-2; deoZXN_BResetCmd; 4; ; ; 0; , , ; # RESET FEP 2 
+DEOV= $Download-ZXN-1; deoZXN_ADownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 1 
+DEOV= $Download-ZXN-2; deoZXN_BDownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 2 
+# Pseudo SEOV external variables 
+SEOV= $SetCustomCmd-ZXN; seoZXNCUSTCMD; 512; ; ; 0; , , ; # DACCOMFEP Custom Cmd 
+
+
+
+# Equipment : ZXN-PA
+DEIV= 000/001/00043/4/000001;1; 4; ; ; 0; , , ; # ZXN-PA-Link1
+DEIV= 000/001/00043/5/000001;2; 4; ; ; 0; , , ; # ZXN-PA-Link2
+DEIV= 000/002/00043/4/000001;3; 4; ; ; 0; , , ; # ZXN-PA-Link3
+DEIV= 000/002/00043/5/000001;4; 4; ; ; 0; , , ; # ZXN-PA-Link4
+DEIV= $ComStatus-00043/4+5;; 4; ; ; 0; , , ;   # ZXN-PA-Comm Status
+DEIV= $InfStatus-00048/4+5;; 4; ; ; 0; , , ;   # ZXN-PA-INF Status
+DEOV= $SetComStatus-00048-1; ZXN-PA CommStatus-SET; 4; ; ; 0; , , ; # Set Communication Status
+# Pseudo DEIV external variables 
+DEIV= $GetLnk-ZXN-1; deiZXN_ALnkSts; 4; ; ; 0; , , ; # GET FEP LINK 1 
+DEIV= $GetLnk-ZXN-2; deiZXN_BLnkSts; 4; ; ; 0; , , ; # GET FEP LINK 2 
+DEIV= $GetSpy-ZXN; deiZXNSpySts; 4; ; ; 0; , , ; # GET SPY FEP 
+DEIV= $ValidRTUlnk-ZXN-1; deiZXN_AValidSts; 4; ; ; 0; , , ; # FEP Valid 1 
+DEIV= $ValidRTUlnk-ZXN-2; deiZXN_BValidSts; 4; ; ; 0; , , ; # FEP Valid 2 
+DEIV= $GetState-ZXN; deiZXNComSts; 4; ; ; 0; , , ; # GET FEP STA 
+# Pseudo DEOV external variables 
+DEOV= $SetState-ZXN; deoZXNSTA-SET; 4; ; ; 0; , , ; # SET STATE 
+DEOV= $SetSpy-ZXN; deoZXNSpy-SET; 4; ; ; 0; , , ; # SET SPY 
+DEOV= $SetLnk-ZXN-1; deoZXN_ALnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 1
+DEOV= $SetLnk-ZXN-2; deoZXN_BLnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 2 
+DEOV= $Reset-ZXN-1; deoZXN_AResetCmd; 4; ; ; 0; , , ; # RESET FEP 1 
+DEOV= $Reset-ZXN-2; deoZXN_BResetCmd; 4; ; ; 0; , , ; # RESET FEP 2 
+DEOV= $Download-ZXN-1; deoZXN_ADownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 1 
+DEOV= $Download-ZXN-2; deoZXN_BDownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 2 
+# Pseudo SEOV external variables 
+SEOV= $SetCustomCmd-ZXN; seoZXNCUSTCMD; 512; ; ; 0; , , ; # DACCOMFEP Custom Cmd 
+
+
+
+# Equipment : ZXN-PIS
+DEIV= 000/001/00045/4/000001;1; 4; ; ; 0; , , ; # ZXN-PIS-Link1
+DEIV= 000/001/00045/5/000001;2; 4; ; ; 0; , , ; # ZXN-PIS-Link2
+DEIV= 000/002/00045/4/000001;3; 4; ; ; 0; , , ; # ZXN-PIS-Link3
+DEIV= 000/002/00045/5/000001;4; 4; ; ; 0; , , ; # ZXN-PIS-Link4
+DEIV= $ComStatus-00045/4+5;; 4; ; ; 0; , , ;   # ZXN-PIS-Comm Status
+DEIV= $InfStatus-00049/4+5;; 4; ; ; 0; , , ;   # ZXN-PIS-INF Status
+DEOV= $SetComStatus-00049-1; ZXN-PIS CommStatus-SET; 4; ; ; 0; , , ; # Set Communication Status
+# Pseudo DEIV external variables 
+DEIV= $GetLnk-ZXN-1; deiZXN_ALnkSts; 4; ; ; 0; , , ; # GET FEP LINK 1 
+DEIV= $GetLnk-ZXN-2; deiZXN_BLnkSts; 4; ; ; 0; , , ; # GET FEP LINK 2 
+DEIV= $GetSpy-ZXN; deiZXNSpySts; 4; ; ; 0; , , ; # GET SPY FEP 
+DEIV= $ValidRTUlnk-ZXN-1; deiZXN_AValidSts; 4; ; ; 0; , , ; # FEP Valid 1 
+DEIV= $ValidRTUlnk-ZXN-2; deiZXN_BValidSts; 4; ; ; 0; , , ; # FEP Valid 2 
+DEIV= $GetState-ZXN; deiZXNComSts; 4; ; ; 0; , , ; # GET FEP STA 
+# Pseudo DEOV external variables 
+DEOV= $SetState-ZXN; deoZXNSTA-SET; 4; ; ; 0; , , ; # SET STATE 
+DEOV= $SetSpy-ZXN; deoZXNSpy-SET; 4; ; ; 0; , , ; # SET SPY 
+DEOV= $SetLnk-ZXN-1; deoZXN_ALnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 1
+DEOV= $SetLnk-ZXN-2; deoZXN_BLnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 2 
+DEOV= $Reset-ZXN-1; deoZXN_AResetCmd; 4; ; ; 0; , , ; # RESET FEP 1 
+DEOV= $Reset-ZXN-2; deoZXN_BResetCmd; 4; ; ; 0; , , ; # RESET FEP 2 
+DEOV= $Download-ZXN-1; deoZXN_ADownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 1 
+DEOV= $Download-ZXN-2; deoZXN_BDownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 2 
+# Pseudo SEOV external variables 
+SEOV= $SetCustomCmd-ZXN; seoZXNCUSTCMD; 512; ; ; 0; , , ; # DACCOMFEP Custom Cmd 
+
+
+
+# Equipment : ZXN-CCTV
+DEIV= 000/001/00047/4/000001;1; 4; ; ; 0; , , ; # ZXN-CCTV-Link1
+DEIV= 000/001/00047/5/000001;2; 4; ; ; 0; , , ; # ZXN-CCTV-Link2
+DEIV= 000/002/00047/4/000001;3; 4; ; ; 0; , , ; # ZXN-CCTV-Link3
+DEIV= 000/002/00047/5/000001;4; 4; ; ; 0; , , ; # ZXN-CCTV-Link4
+DEIV= $ComStatus-00047/4+5;; 4; ; ; 0; , , ;   # ZXN-CCTV-Comm Status
+DEIV= $InfStatus-00050/4+5;; 4; ; ; 0; , , ;   # ZXN-CCTV-INF Status
+DEOV= $SetComStatus-00050-1; ZXN-CCTV CommStatus-SET; 4; ; ; 0; , , ; # Set Communication Status
+# Pseudo DEIV external variables 
+DEIV= $GetLnk-ZXN-1; deiZXN_ALnkSts; 4; ; ; 0; , , ; # GET FEP LINK 1 
+DEIV= $GetLnk-ZXN-2; deiZXN_BLnkSts; 4; ; ; 0; , , ; # GET FEP LINK 2 
+DEIV= $GetSpy-ZXN; deiZXNSpySts; 4; ; ; 0; , , ; # GET SPY FEP 
+DEIV= $ValidRTUlnk-ZXN-1; deiZXN_AValidSts; 4; ; ; 0; , , ; # FEP Valid 1 
+DEIV= $ValidRTUlnk-ZXN-2; deiZXN_BValidSts; 4; ; ; 0; , , ; # FEP Valid 2 
+DEIV= $GetState-ZXN; deiZXNComSts; 4; ; ; 0; , , ; # GET FEP STA 
+# Pseudo DEOV external variables 
+DEOV= $SetState-ZXN; deoZXNSTA-SET; 4; ; ; 0; , , ; # SET STATE 
+DEOV= $SetSpy-ZXN; deoZXNSpy-SET; 4; ; ; 0; , , ; # SET SPY 
+DEOV= $SetLnk-ZXN-1; deoZXN_ALnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 1
+DEOV= $SetLnk-ZXN-2; deoZXN_BLnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 2 
+DEOV= $Reset-ZXN-1; deoZXN_AResetCmd; 4; ; ; 0; , , ; # RESET FEP 1 
+DEOV= $Reset-ZXN-2; deoZXN_BResetCmd; 4; ; ; 0; , , ; # RESET FEP 2 
+DEOV= $Download-ZXN-1; deoZXN_ADownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 1 
+DEOV= $Download-ZXN-2; deoZXN_BDownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 2 
+# Pseudo SEOV external variables 
+SEOV= $SetCustomCmd-ZXN; seoZXNCUSTCMD; 512; ; ; 0; , , ; # DACCOMFEP Custom Cmd 
+
+
+
+# Equipment : ZXN-ALM
+DEIV= 000/001/00049/4/000001;1; 4; ; ; 0; , , ; # ZXN-ALM-Link1
+DEIV= 000/001/00049/5/000001;2; 4; ; ; 0; , , ; # ZXN-ALM-Link2
+DEIV= 000/002/00049/4/000001;3; 4; ; ; 0; , , ; # ZXN-ALM-Link3
+DEIV= 000/002/00049/5/000001;4; 4; ; ; 0; , , ; # ZXN-ALM-Link4
+DEIV= $ComStatus-00049/4+5;; 4; ; ; 0; , , ;   # ZXN-ALM-Comm Status
+DEIV= $InfStatus-00051/4+5;; 4; ; ; 0; , , ;   # ZXN-ALM-INF Status
+DEOV= $SetComStatus-00051-1; ZXN-ALM CommStatus-SET; 4; ; ; 0; , , ; # Set Communication Status
+# Pseudo DEIV external variables 
+DEIV= $GetLnk-ZXN-1; deiZXN_ALnkSts; 4; ; ; 0; , , ; # GET FEP LINK 1 
+DEIV= $GetLnk-ZXN-2; deiZXN_BLnkSts; 4; ; ; 0; , , ; # GET FEP LINK 2 
+DEIV= $GetSpy-ZXN; deiZXNSpySts; 4; ; ; 0; , , ; # GET SPY FEP 
+DEIV= $ValidRTUlnk-ZXN-1; deiZXN_AValidSts; 4; ; ; 0; , , ; # FEP Valid 1 
+DEIV= $ValidRTUlnk-ZXN-2; deiZXN_BValidSts; 4; ; ; 0; , , ; # FEP Valid 2 
+DEIV= $GetState-ZXN; deiZXNComSts; 4; ; ; 0; , , ; # GET FEP STA 
+# Pseudo DEOV external variables 
+DEOV= $SetState-ZXN; deoZXNSTA-SET; 4; ; ; 0; , , ; # SET STATE 
+DEOV= $SetSpy-ZXN; deoZXNSpy-SET; 4; ; ; 0; , , ; # SET SPY 
+DEOV= $SetLnk-ZXN-1; deoZXN_ALnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 1
+DEOV= $SetLnk-ZXN-2; deoZXN_BLnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 2 
+DEOV= $Reset-ZXN-1; deoZXN_AResetCmd; 4; ; ; 0; , , ; # RESET FEP 1 
+DEOV= $Reset-ZXN-2; deoZXN_BResetCmd; 4; ; ; 0; , , ; # RESET FEP 2 
+DEOV= $Download-ZXN-1; deoZXN_ADownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 1 
+DEOV= $Download-ZXN-2; deoZXN_BDownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 2 
+# Pseudo SEOV external variables 
+SEOV= $SetCustomCmd-ZXN; seoZXNCUSTCMD; 512; ; ; 0; , , ; # DACCOMFEP Custom Cmd 
+
+
+
+# Equipment : ZXN-FG01
+DEIV= 000/001/00145/4/000001;1; 4; ; ; 0; , , ; # ZXN-FG01-Link1
+DEIV= 000/001/00145/5/000001;2; 4; ; ; 0; , , ; # ZXN-FG01-Link2
+DEIV= 000/002/00145/4/000001;3; 4; ; ; 0; , , ; # ZXN-FG01-Link3
+DEIV= 000/002/00145/5/000001;4; 4; ; ; 0; , , ; # ZXN-FG01-Link4
+DEIV= $ComStatus-00145/4+5;; 4; ; ; 0; , , ;   # ZXN-FG01-Comm Status
+DEIV= $InfStatus-00096/4+5;; 4; ; ; 0; , , ;   # ZXN-FG01-INF Status
+DEOV= $SetComStatus-00096-1; ZXN-FG01 CommStatus-SET; 4; ; ; 0; , , ; # Set Communication Status
+# Pseudo DEIV external variables 
+DEIV= $GetLnk-ZXN-1; deiZXN_ALnkSts; 4; ; ; 0; , , ; # GET FEP LINK 1 
+DEIV= $GetLnk-ZXN-2; deiZXN_BLnkSts; 4; ; ; 0; , , ; # GET FEP LINK 2 
+DEIV= $GetSpy-ZXN; deiZXNSpySts; 4; ; ; 0; , , ; # GET SPY FEP 
+DEIV= $ValidRTUlnk-ZXN-1; deiZXN_AValidSts; 4; ; ; 0; , , ; # FEP Valid 1 
+DEIV= $ValidRTUlnk-ZXN-2; deiZXN_BValidSts; 4; ; ; 0; , , ; # FEP Valid 2 
+DEIV= $GetState-ZXN; deiZXNComSts; 4; ; ; 0; , , ; # GET FEP STA 
+# Pseudo DEOV external variables 
+DEOV= $SetState-ZXN; deoZXNSTA-SET; 4; ; ; 0; , , ; # SET STATE 
+DEOV= $SetSpy-ZXN; deoZXNSpy-SET; 4; ; ; 0; , , ; # SET SPY 
+DEOV= $SetLnk-ZXN-1; deoZXN_ALnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 1
+DEOV= $SetLnk-ZXN-2; deoZXN_BLnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 2 
+DEOV= $Reset-ZXN-1; deoZXN_AResetCmd; 4; ; ; 0; , , ; # RESET FEP 1 
+DEOV= $Reset-ZXN-2; deoZXN_BResetCmd; 4; ; ; 0; , , ; # RESET FEP 2 
+DEOV= $Download-ZXN-1; deoZXN_ADownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 1 
+DEOV= $Download-ZXN-2; deoZXN_BDownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 2 
+# Pseudo SEOV external variables 
+SEOV= $SetCustomCmd-ZXN; seoZXNCUSTCMD; 512; ; ; 0; , , ; # DACCOMFEP Custom Cmd 
+
+
+
+# Equipment : ZXN-FG02
+DEIV= 000/001/00147/4/000001;1; 4; ; ; 0; , , ; # ZXN-FG02-Link1
+DEIV= 000/001/00147/5/000001;2; 4; ; ; 0; , , ; # ZXN-FG02-Link2
+DEIV= 000/002/00147/4/000001;3; 4; ; ; 0; , , ; # ZXN-FG02-Link3
+DEIV= 000/002/00147/5/000001;4; 4; ; ; 0; , , ; # ZXN-FG02-Link4
+DEIV= $ComStatus-00147/4+5;; 4; ; ; 0; , , ;   # ZXN-FG02-Comm Status
+DEIV= $InfStatus-00097/4+5;; 4; ; ; 0; , , ;   # ZXN-FG02-INF Status
+DEOV= $SetComStatus-00097-1; ZXN-FG02 CommStatus-SET; 4; ; ; 0; , , ; # Set Communication Status
+# Pseudo DEIV external variables 
+DEIV= $GetLnk-ZXN-1; deiZXN_ALnkSts; 4; ; ; 0; , , ; # GET FEP LINK 1 
+DEIV= $GetLnk-ZXN-2; deiZXN_BLnkSts; 4; ; ; 0; , , ; # GET FEP LINK 2 
+DEIV= $GetSpy-ZXN; deiZXNSpySts; 4; ; ; 0; , , ; # GET SPY FEP 
+DEIV= $ValidRTUlnk-ZXN-1; deiZXN_AValidSts; 4; ; ; 0; , , ; # FEP Valid 1 
+DEIV= $ValidRTUlnk-ZXN-2; deiZXN_BValidSts; 4; ; ; 0; , , ; # FEP Valid 2 
+DEIV= $GetState-ZXN; deiZXNComSts; 4; ; ; 0; , , ; # GET FEP STA 
+# Pseudo DEOV external variables 
+DEOV= $SetState-ZXN; deoZXNSTA-SET; 4; ; ; 0; , , ; # SET STATE 
+DEOV= $SetSpy-ZXN; deoZXNSpy-SET; 4; ; ; 0; , , ; # SET SPY 
+DEOV= $SetLnk-ZXN-1; deoZXN_ALnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 1
+DEOV= $SetLnk-ZXN-2; deoZXN_BLnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 2 
+DEOV= $Reset-ZXN-1; deoZXN_AResetCmd; 4; ; ; 0; , , ; # RESET FEP 1 
+DEOV= $Reset-ZXN-2; deoZXN_BResetCmd; 4; ; ; 0; , , ; # RESET FEP 2 
+DEOV= $Download-ZXN-1; deoZXN_ADownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 1 
+DEOV= $Download-ZXN-2; deoZXN_BDownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 2 
+# Pseudo SEOV external variables 
+SEOV= $SetCustomCmd-ZXN; seoZXNCUSTCMD; 512; ; ; 0; , , ; # DACCOMFEP Custom Cmd 
+
+
+
+# Equipment : ZXN-UPS
+DEIV= 000/001/00165/4/000001;1; 4; ; ; 0; , , ; # ZXN-UPS-Link1
+DEIV= 000/001/00165/5/000001;2; 4; ; ; 0; , , ; # ZXN-UPS-Link2
+DEIV= 000/002/00165/4/000001;3; 4; ; ; 0; , , ; # ZXN-UPS-Link3
+DEIV= 000/002/00165/5/000001;4; 4; ; ; 0; , , ; # ZXN-UPS-Link4
+DEIV= $ComStatus-00165/4+5;; 4; ; ; 0; , , ;   # ZXN-UPS-Comm Status
+DEIV= $InfStatus-00112/4+5;; 4; ; ; 0; , , ;   # ZXN-UPS-INF Status
+DEOV= $SetComStatus-00112-1; ZXN-UPS CommStatus-SET; 4; ; ; 0; , , ; # Set Communication Status
+# Pseudo DEIV external variables 
+DEIV= $GetLnk-ZXN-1; deiZXN_ALnkSts; 4; ; ; 0; , , ; # GET FEP LINK 1 
+DEIV= $GetLnk-ZXN-2; deiZXN_BLnkSts; 4; ; ; 0; , , ; # GET FEP LINK 2 
+DEIV= $GetSpy-ZXN; deiZXNSpySts; 4; ; ; 0; , , ; # GET SPY FEP 
+DEIV= $ValidRTUlnk-ZXN-1; deiZXN_AValidSts; 4; ; ; 0; , , ; # FEP Valid 1 
+DEIV= $ValidRTUlnk-ZXN-2; deiZXN_BValidSts; 4; ; ; 0; , , ; # FEP Valid 2 
+DEIV= $GetState-ZXN; deiZXNComSts; 4; ; ; 0; , , ; # GET FEP STA 
+# Pseudo DEOV external variables 
+DEOV= $SetState-ZXN; deoZXNSTA-SET; 4; ; ; 0; , , ; # SET STATE 
+DEOV= $SetSpy-ZXN; deoZXNSpy-SET; 4; ; ; 0; , , ; # SET SPY 
+DEOV= $SetLnk-ZXN-1; deoZXN_ALnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 1
+DEOV= $SetLnk-ZXN-2; deoZXN_BLnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 2 
+DEOV= $Reset-ZXN-1; deoZXN_AResetCmd; 4; ; ; 0; , , ; # RESET FEP 1 
+DEOV= $Reset-ZXN-2; deoZXN_BResetCmd; 4; ; ; 0; , , ; # RESET FEP 2 
+DEOV= $Download-ZXN-1; deoZXN_ADownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 1 
+DEOV= $Download-ZXN-2; deoZXN_BDownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 2 
+# Pseudo SEOV external variables 
+SEOV= $SetCustomCmd-ZXN; seoZXNCUSTCMD; 512; ; ; 0; , , ; # DACCOMFEP Custom Cmd 
+
+
+
+# Equipment : ZXN-ASD01
+DEIV= 000/001/00105/4/000001;1; 4; ; ; 0; , , ; # ZXN-ASD01-Link1
+DEIV= 000/001/00105/5/000001;2; 4; ; ; 0; , , ; # ZXN-ASD01-Link2
+DEIV= 000/002/00105/4/000001;3; 4; ; ; 0; , , ; # ZXN-ASD01-Link3
+DEIV= 000/002/00105/5/000001;4; 4; ; ; 0; , , ; # ZXN-ASD01-Link4
+DEIV= $ComStatus-00105/4+5;; 4; ; ; 0; , , ;   # ZXN-ASD01-Comm Status
+DEIV= $InfStatus-00064/4+5;; 4; ; ; 0; , , ;   # ZXN-ASD01-INF Status
+DEOV= $SetComStatus-00064-1; ZXN-ASD01 CommStatus-SET; 4; ; ; 0; , , ; # Set Communication Status
+# Pseudo DEIV external variables 
+DEIV= $GetLnk-ZXN-1; deiZXN_ALnkSts; 4; ; ; 0; , , ; # GET FEP LINK 1 
+DEIV= $GetLnk-ZXN-2; deiZXN_BLnkSts; 4; ; ; 0; , , ; # GET FEP LINK 2 
+DEIV= $GetSpy-ZXN; deiZXNSpySts; 4; ; ; 0; , , ; # GET SPY FEP 
+DEIV= $ValidRTUlnk-ZXN-1; deiZXN_AValidSts; 4; ; ; 0; , , ; # FEP Valid 1 
+DEIV= $ValidRTUlnk-ZXN-2; deiZXN_BValidSts; 4; ; ; 0; , , ; # FEP Valid 2 
+DEIV= $GetState-ZXN; deiZXNComSts; 4; ; ; 0; , , ; # GET FEP STA 
+# Pseudo DEOV external variables 
+DEOV= $SetState-ZXN; deoZXNSTA-SET; 4; ; ; 0; , , ; # SET STATE 
+DEOV= $SetSpy-ZXN; deoZXNSpy-SET; 4; ; ; 0; , , ; # SET SPY 
+DEOV= $SetLnk-ZXN-1; deoZXN_ALnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 1
+DEOV= $SetLnk-ZXN-2; deoZXN_BLnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 2 
+DEOV= $Reset-ZXN-1; deoZXN_AResetCmd; 4; ; ; 0; , , ; # RESET FEP 1 
+DEOV= $Reset-ZXN-2; deoZXN_BResetCmd; 4; ; ; 0; , , ; # RESET FEP 2 
+DEOV= $Download-ZXN-1; deoZXN_ADownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 1 
+DEOV= $Download-ZXN-2; deoZXN_BDownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 2 
+# Pseudo SEOV external variables 
+SEOV= $SetCustomCmd-ZXN; seoZXNCUSTCMD; 512; ; ; 0; , , ; # DACCOMFEP Custom Cmd 
+
+
+
+# Equipment : ZXN-ASD02
+DEIV= 000/001/00107/4/000001;1; 4; ; ; 0; , , ; # ZXN-ASD02-Link1
+DEIV= 000/001/00107/5/000001;2; 4; ; ; 0; , , ; # ZXN-ASD02-Link2
+DEIV= 000/002/00107/4/000001;3; 4; ; ; 0; , , ; # ZXN-ASD02-Link3
+DEIV= 000/002/00107/5/000001;4; 4; ; ; 0; , , ; # ZXN-ASD02-Link4
+DEIV= $ComStatus-00107/4+5;; 4; ; ; 0; , , ;   # ZXN-ASD02-Comm Status
+DEIV= $InfStatus-00065/4+5;; 4; ; ; 0; , , ;   # ZXN-ASD02-INF Status
+DEOV= $SetComStatus-00065-1; ZXN-ASD02 CommStatus-SET; 4; ; ; 0; , , ; # Set Communication Status
+# Pseudo DEIV external variables 
+DEIV= $GetLnk-ZXN-1; deiZXN_ALnkSts; 4; ; ; 0; , , ; # GET FEP LINK 1 
+DEIV= $GetLnk-ZXN-2; deiZXN_BLnkSts; 4; ; ; 0; , , ; # GET FEP LINK 2 
+DEIV= $GetSpy-ZXN; deiZXNSpySts; 4; ; ; 0; , , ; # GET SPY FEP 
+DEIV= $ValidRTUlnk-ZXN-1; deiZXN_AValidSts; 4; ; ; 0; , , ; # FEP Valid 1 
+DEIV= $ValidRTUlnk-ZXN-2; deiZXN_BValidSts; 4; ; ; 0; , , ; # FEP Valid 2 
+DEIV= $GetState-ZXN; deiZXNComSts; 4; ; ; 0; , , ; # GET FEP STA 
+# Pseudo DEOV external variables 
+DEOV= $SetState-ZXN; deoZXNSTA-SET; 4; ; ; 0; , , ; # SET STATE 
+DEOV= $SetSpy-ZXN; deoZXNSpy-SET; 4; ; ; 0; , , ; # SET SPY 
+DEOV= $SetLnk-ZXN-1; deoZXN_ALnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 1
+DEOV= $SetLnk-ZXN-2; deoZXN_BLnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 2 
+DEOV= $Reset-ZXN-1; deoZXN_AResetCmd; 4; ; ; 0; , , ; # RESET FEP 1 
+DEOV= $Reset-ZXN-2; deoZXN_BResetCmd; 4; ; ; 0; , , ; # RESET FEP 2 
+DEOV= $Download-ZXN-1; deoZXN_ADownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 1 
+DEOV= $Download-ZXN-2; deoZXN_BDownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 2 
+# Pseudo SEOV external variables 
+SEOV= $SetCustomCmd-ZXN; seoZXNCUSTCMD; 512; ; ; 0; , , ; # DACCOMFEP Custom Cmd 
+
+
+
+# Equipment : ZXN-ASD03
+DEIV= 000/001/00109/4/000001;1; 4; ; ; 0; , , ; # ZXN-ASD03-Link1
+DEIV= 000/001/00109/5/000001;2; 4; ; ; 0; , , ; # ZXN-ASD03-Link2
+DEIV= 000/002/00109/4/000001;3; 4; ; ; 0; , , ; # ZXN-ASD03-Link3
+DEIV= 000/002/00109/5/000001;4; 4; ; ; 0; , , ; # ZXN-ASD03-Link4
+DEIV= $ComStatus-00109/4+5;; 4; ; ; 0; , , ;   # ZXN-ASD03-Comm Status
+DEIV= $InfStatus-00066/4+5;; 4; ; ; 0; , , ;   # ZXN-ASD03-INF Status
+DEOV= $SetComStatus-00066-1; ZXN-ASD03 CommStatus-SET; 4; ; ; 0; , , ; # Set Communication Status
+# Pseudo DEIV external variables 
+DEIV= $GetLnk-ZXN-1; deiZXN_ALnkSts; 4; ; ; 0; , , ; # GET FEP LINK 1 
+DEIV= $GetLnk-ZXN-2; deiZXN_BLnkSts; 4; ; ; 0; , , ; # GET FEP LINK 2 
+DEIV= $GetSpy-ZXN; deiZXNSpySts; 4; ; ; 0; , , ; # GET SPY FEP 
+DEIV= $ValidRTUlnk-ZXN-1; deiZXN_AValidSts; 4; ; ; 0; , , ; # FEP Valid 1 
+DEIV= $ValidRTUlnk-ZXN-2; deiZXN_BValidSts; 4; ; ; 0; , , ; # FEP Valid 2 
+DEIV= $GetState-ZXN; deiZXNComSts; 4; ; ; 0; , , ; # GET FEP STA 
+# Pseudo DEOV external variables 
+DEOV= $SetState-ZXN; deoZXNSTA-SET; 4; ; ; 0; , , ; # SET STATE 
+DEOV= $SetSpy-ZXN; deoZXNSpy-SET; 4; ; ; 0; , , ; # SET SPY 
+DEOV= $SetLnk-ZXN-1; deoZXN_ALnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 1
+DEOV= $SetLnk-ZXN-2; deoZXN_BLnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 2 
+DEOV= $Reset-ZXN-1; deoZXN_AResetCmd; 4; ; ; 0; , , ; # RESET FEP 1 
+DEOV= $Reset-ZXN-2; deoZXN_BResetCmd; 4; ; ; 0; , , ; # RESET FEP 2 
+DEOV= $Download-ZXN-1; deoZXN_ADownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 1 
+DEOV= $Download-ZXN-2; deoZXN_BDownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 2 
+# Pseudo SEOV external variables 
+SEOV= $SetCustomCmd-ZXN; seoZXNCUSTCMD; 512; ; ; 0; , , ; # DACCOMFEP Custom Cmd 
+
+
+
+# Equipment : ZXN-ASD04
+DEIV= 000/001/00111/4/000001;1; 4; ; ; 0; , , ; # ZXN-ASD04-Link1
+DEIV= 000/001/00111/5/000001;2; 4; ; ; 0; , , ; # ZXN-ASD04-Link2
+DEIV= 000/002/00111/4/000001;3; 4; ; ; 0; , , ; # ZXN-ASD04-Link3
+DEIV= 000/002/00111/5/000001;4; 4; ; ; 0; , , ; # ZXN-ASD04-Link4
+DEIV= $ComStatus-00111/4+5;; 4; ; ; 0; , , ;   # ZXN-ASD04-Comm Status
+DEIV= $InfStatus-00067/4+5;; 4; ; ; 0; , , ;   # ZXN-ASD04-INF Status
+DEOV= $SetComStatus-00067-1; ZXN-ASD04 CommStatus-SET; 4; ; ; 0; , , ; # Set Communication Status
+# Pseudo DEIV external variables 
+DEIV= $GetLnk-ZXN-1; deiZXN_ALnkSts; 4; ; ; 0; , , ; # GET FEP LINK 1 
+DEIV= $GetLnk-ZXN-2; deiZXN_BLnkSts; 4; ; ; 0; , , ; # GET FEP LINK 2 
+DEIV= $GetSpy-ZXN; deiZXNSpySts; 4; ; ; 0; , , ; # GET SPY FEP 
+DEIV= $ValidRTUlnk-ZXN-1; deiZXN_AValidSts; 4; ; ; 0; , , ; # FEP Valid 1 
+DEIV= $ValidRTUlnk-ZXN-2; deiZXN_BValidSts; 4; ; ; 0; , , ; # FEP Valid 2 
+DEIV= $GetState-ZXN; deiZXNComSts; 4; ; ; 0; , , ; # GET FEP STA 
+# Pseudo DEOV external variables 
+DEOV= $SetState-ZXN; deoZXNSTA-SET; 4; ; ; 0; , , ; # SET STATE 
+DEOV= $SetSpy-ZXN; deoZXNSpy-SET; 4; ; ; 0; , , ; # SET SPY 
+DEOV= $SetLnk-ZXN-1; deoZXN_ALnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 1
+DEOV= $SetLnk-ZXN-2; deoZXN_BLnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 2 
+DEOV= $Reset-ZXN-1; deoZXN_AResetCmd; 4; ; ; 0; , , ; # RESET FEP 1 
+DEOV= $Reset-ZXN-2; deoZXN_BResetCmd; 4; ; ; 0; , , ; # RESET FEP 2 
+DEOV= $Download-ZXN-1; deoZXN_ADownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 1 
+DEOV= $Download-ZXN-2; deoZXN_BDownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 2 
+# Pseudo SEOV external variables 
+SEOV= $SetCustomCmd-ZXN; seoZXNCUSTCMD; 512; ; ; 0; , , ; # DACCOMFEP Custom Cmd 
+
+
+
+# Equipment : ZXN-ASD05
+DEIV= 000/001/00113/4/000001;1; 4; ; ; 0; , , ; # ZXN-ASD05-Link1
+DEIV= 000/001/00113/5/000001;2; 4; ; ; 0; , , ; # ZXN-ASD05-Link2
+DEIV= 000/002/00113/4/000001;3; 4; ; ; 0; , , ; # ZXN-ASD05-Link3
+DEIV= 000/002/00113/5/000001;4; 4; ; ; 0; , , ; # ZXN-ASD05-Link4
+DEIV= $ComStatus-00113/4+5;; 4; ; ; 0; , , ;   # ZXN-ASD05-Comm Status
+DEIV= $InfStatus-00068/4+5;; 4; ; ; 0; , , ;   # ZXN-ASD05-INF Status
+DEOV= $SetComStatus-00068-1; ZXN-ASD05 CommStatus-SET; 4; ; ; 0; , , ; # Set Communication Status
+# Pseudo DEIV external variables 
+DEIV= $GetLnk-ZXN-1; deiZXN_ALnkSts; 4; ; ; 0; , , ; # GET FEP LINK 1 
+DEIV= $GetLnk-ZXN-2; deiZXN_BLnkSts; 4; ; ; 0; , , ; # GET FEP LINK 2 
+DEIV= $GetSpy-ZXN; deiZXNSpySts; 4; ; ; 0; , , ; # GET SPY FEP 
+DEIV= $ValidRTUlnk-ZXN-1; deiZXN_AValidSts; 4; ; ; 0; , , ; # FEP Valid 1 
+DEIV= $ValidRTUlnk-ZXN-2; deiZXN_BValidSts; 4; ; ; 0; , , ; # FEP Valid 2 
+DEIV= $GetState-ZXN; deiZXNComSts; 4; ; ; 0; , , ; # GET FEP STA 
+# Pseudo DEOV external variables 
+DEOV= $SetState-ZXN; deoZXNSTA-SET; 4; ; ; 0; , , ; # SET STATE 
+DEOV= $SetSpy-ZXN; deoZXNSpy-SET; 4; ; ; 0; , , ; # SET SPY 
+DEOV= $SetLnk-ZXN-1; deoZXN_ALnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 1
+DEOV= $SetLnk-ZXN-2; deoZXN_BLnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 2 
+DEOV= $Reset-ZXN-1; deoZXN_AResetCmd; 4; ; ; 0; , , ; # RESET FEP 1 
+DEOV= $Reset-ZXN-2; deoZXN_BResetCmd; 4; ; ; 0; , , ; # RESET FEP 2 
+DEOV= $Download-ZXN-1; deoZXN_ADownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 1 
+DEOV= $Download-ZXN-2; deoZXN_BDownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 2 
+# Pseudo SEOV external variables 
+SEOV= $SetCustomCmd-ZXN; seoZXNCUSTCMD; 512; ; ; 0; , , ; # DACCOMFEP Custom Cmd 
+
+
+
+# Equipment : ZXN-ASD06
+DEIV= 000/001/00115/4/000001;1; 4; ; ; 0; , , ; # ZXN-ASD06-Link1
+DEIV= 000/001/00115/5/000001;2; 4; ; ; 0; , , ; # ZXN-ASD06-Link2
+DEIV= 000/002/00115/4/000001;3; 4; ; ; 0; , , ; # ZXN-ASD06-Link3
+DEIV= 000/002/00115/5/000001;4; 4; ; ; 0; , , ; # ZXN-ASD06-Link4
+DEIV= $ComStatus-00115/4+5;; 4; ; ; 0; , , ;   # ZXN-ASD06-Comm Status
+DEIV= $InfStatus-00069/4+5;; 4; ; ; 0; , , ;   # ZXN-ASD06-INF Status
+DEOV= $SetComStatus-00069-1; ZXN-ASD06 CommStatus-SET; 4; ; ; 0; , , ; # Set Communication Status
+# Pseudo DEIV external variables 
+DEIV= $GetLnk-ZXN-1; deiZXN_ALnkSts; 4; ; ; 0; , , ; # GET FEP LINK 1 
+DEIV= $GetLnk-ZXN-2; deiZXN_BLnkSts; 4; ; ; 0; , , ; # GET FEP LINK 2 
+DEIV= $GetSpy-ZXN; deiZXNSpySts; 4; ; ; 0; , , ; # GET SPY FEP 
+DEIV= $ValidRTUlnk-ZXN-1; deiZXN_AValidSts; 4; ; ; 0; , , ; # FEP Valid 1 
+DEIV= $ValidRTUlnk-ZXN-2; deiZXN_BValidSts; 4; ; ; 0; , , ; # FEP Valid 2 
+DEIV= $GetState-ZXN; deiZXNComSts; 4; ; ; 0; , , ; # GET FEP STA 
+# Pseudo DEOV external variables 
+DEOV= $SetState-ZXN; deoZXNSTA-SET; 4; ; ; 0; , , ; # SET STATE 
+DEOV= $SetSpy-ZXN; deoZXNSpy-SET; 4; ; ; 0; , , ; # SET SPY 
+DEOV= $SetLnk-ZXN-1; deoZXN_ALnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 1
+DEOV= $SetLnk-ZXN-2; deoZXN_BLnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 2 
+DEOV= $Reset-ZXN-1; deoZXN_AResetCmd; 4; ; ; 0; , , ; # RESET FEP 1 
+DEOV= $Reset-ZXN-2; deoZXN_BResetCmd; 4; ; ; 0; , , ; # RESET FEP 2 
+DEOV= $Download-ZXN-1; deoZXN_ADownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 1 
+DEOV= $Download-ZXN-2; deoZXN_BDownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 2 
+# Pseudo SEOV external variables 
+SEOV= $SetCustomCmd-ZXN; seoZXNCUSTCMD; 512; ; ; 0; , , ; # DACCOMFEP Custom Cmd 
+
+
+
+# Equipment : ZXN-ASD07
+DEIV= 000/001/00117/4/000001;1; 4; ; ; 0; , , ; # ZXN-ASD07-Link1
+DEIV= 000/001/00117/5/000001;2; 4; ; ; 0; , , ; # ZXN-ASD07-Link2
+DEIV= 000/002/00117/4/000001;3; 4; ; ; 0; , , ; # ZXN-ASD07-Link3
+DEIV= 000/002/00117/5/000001;4; 4; ; ; 0; , , ; # ZXN-ASD07-Link4
+DEIV= $ComStatus-00117/4+5;; 4; ; ; 0; , , ;   # ZXN-ASD07-Comm Status
+DEIV= $InfStatus-00070/4+5;; 4; ; ; 0; , , ;   # ZXN-ASD07-INF Status
+DEOV= $SetComStatus-00070-1; ZXN-ASD07 CommStatus-SET; 4; ; ; 0; , , ; # Set Communication Status
+# Pseudo DEIV external variables 
+DEIV= $GetLnk-ZXN-1; deiZXN_ALnkSts; 4; ; ; 0; , , ; # GET FEP LINK 1 
+DEIV= $GetLnk-ZXN-2; deiZXN_BLnkSts; 4; ; ; 0; , , ; # GET FEP LINK 2 
+DEIV= $GetSpy-ZXN; deiZXNSpySts; 4; ; ; 0; , , ; # GET SPY FEP 
+DEIV= $ValidRTUlnk-ZXN-1; deiZXN_AValidSts; 4; ; ; 0; , , ; # FEP Valid 1 
+DEIV= $ValidRTUlnk-ZXN-2; deiZXN_BValidSts; 4; ; ; 0; , , ; # FEP Valid 2 
+DEIV= $GetState-ZXN; deiZXNComSts; 4; ; ; 0; , , ; # GET FEP STA 
+# Pseudo DEOV external variables 
+DEOV= $SetState-ZXN; deoZXNSTA-SET; 4; ; ; 0; , , ; # SET STATE 
+DEOV= $SetSpy-ZXN; deoZXNSpy-SET; 4; ; ; 0; , , ; # SET SPY 
+DEOV= $SetLnk-ZXN-1; deoZXN_ALnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 1
+DEOV= $SetLnk-ZXN-2; deoZXN_BLnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 2 
+DEOV= $Reset-ZXN-1; deoZXN_AResetCmd; 4; ; ; 0; , , ; # RESET FEP 1 
+DEOV= $Reset-ZXN-2; deoZXN_BResetCmd; 4; ; ; 0; , , ; # RESET FEP 2 
+DEOV= $Download-ZXN-1; deoZXN_ADownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 1 
+DEOV= $Download-ZXN-2; deoZXN_BDownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 2 
+# Pseudo SEOV external variables 
+SEOV= $SetCustomCmd-ZXN; seoZXNCUSTCMD; 512; ; ; 0; , , ; # DACCOMFEP Custom Cmd 
+
+
+
+# Equipment : ZXN-ASD08
+DEIV= 000/001/00119/4/000001;1; 4; ; ; 0; , , ; # ZXN-ASD08-Link1
+DEIV= 000/001/00119/5/000001;2; 4; ; ; 0; , , ; # ZXN-ASD08-Link2
+DEIV= 000/002/00119/4/000001;3; 4; ; ; 0; , , ; # ZXN-ASD08-Link3
+DEIV= 000/002/00119/5/000001;4; 4; ; ; 0; , , ; # ZXN-ASD08-Link4
+DEIV= $ComStatus-00119/4+5;; 4; ; ; 0; , , ;   # ZXN-ASD08-Comm Status
+DEIV= $InfStatus-00071/4+5;; 4; ; ; 0; , , ;   # ZXN-ASD08-INF Status
+DEOV= $SetComStatus-00071-1; ZXN-ASD08 CommStatus-SET; 4; ; ; 0; , , ; # Set Communication Status
+# Pseudo DEIV external variables 
+DEIV= $GetLnk-ZXN-1; deiZXN_ALnkSts; 4; ; ; 0; , , ; # GET FEP LINK 1 
+DEIV= $GetLnk-ZXN-2; deiZXN_BLnkSts; 4; ; ; 0; , , ; # GET FEP LINK 2 
+DEIV= $GetSpy-ZXN; deiZXNSpySts; 4; ; ; 0; , , ; # GET SPY FEP 
+DEIV= $ValidRTUlnk-ZXN-1; deiZXN_AValidSts; 4; ; ; 0; , , ; # FEP Valid 1 
+DEIV= $ValidRTUlnk-ZXN-2; deiZXN_BValidSts; 4; ; ; 0; , , ; # FEP Valid 2 
+DEIV= $GetState-ZXN; deiZXNComSts; 4; ; ; 0; , , ; # GET FEP STA 
+# Pseudo DEOV external variables 
+DEOV= $SetState-ZXN; deoZXNSTA-SET; 4; ; ; 0; , , ; # SET STATE 
+DEOV= $SetSpy-ZXN; deoZXNSpy-SET; 4; ; ; 0; , , ; # SET SPY 
+DEOV= $SetLnk-ZXN-1; deoZXN_ALnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 1
+DEOV= $SetLnk-ZXN-2; deoZXN_BLnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 2 
+DEOV= $Reset-ZXN-1; deoZXN_AResetCmd; 4; ; ; 0; , , ; # RESET FEP 1 
+DEOV= $Reset-ZXN-2; deoZXN_BResetCmd; 4; ; ; 0; , , ; # RESET FEP 2 
+DEOV= $Download-ZXN-1; deoZXN_ADownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 1 
+DEOV= $Download-ZXN-2; deoZXN_BDownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 2 
+# Pseudo SEOV external variables 
+SEOV= $SetCustomCmd-ZXN; seoZXNCUSTCMD; 512; ; ; 0; , , ; # DACCOMFEP Custom Cmd 
+
+
+
+# Equipment : ZXN-ASD09
+DEIV= 000/001/00121/4/000001;1; 4; ; ; 0; , , ; # ZXN-ASD09-Link1
+DEIV= 000/001/00121/5/000001;2; 4; ; ; 0; , , ; # ZXN-ASD09-Link2
+DEIV= 000/002/00121/4/000001;3; 4; ; ; 0; , , ; # ZXN-ASD09-Link3
+DEIV= 000/002/00121/5/000001;4; 4; ; ; 0; , , ; # ZXN-ASD09-Link4
+DEIV= $ComStatus-00121/4+5;; 4; ; ; 0; , , ;   # ZXN-ASD09-Comm Status
+DEIV= $InfStatus-00072/4+5;; 4; ; ; 0; , , ;   # ZXN-ASD09-INF Status
+DEOV= $SetComStatus-00072-1; ZXN-ASD09 CommStatus-SET; 4; ; ; 0; , , ; # Set Communication Status
+# Pseudo DEIV external variables 
+DEIV= $GetLnk-ZXN-1; deiZXN_ALnkSts; 4; ; ; 0; , , ; # GET FEP LINK 1 
+DEIV= $GetLnk-ZXN-2; deiZXN_BLnkSts; 4; ; ; 0; , , ; # GET FEP LINK 2 
+DEIV= $GetSpy-ZXN; deiZXNSpySts; 4; ; ; 0; , , ; # GET SPY FEP 
+DEIV= $ValidRTUlnk-ZXN-1; deiZXN_AValidSts; 4; ; ; 0; , , ; # FEP Valid 1 
+DEIV= $ValidRTUlnk-ZXN-2; deiZXN_BValidSts; 4; ; ; 0; , , ; # FEP Valid 2 
+DEIV= $GetState-ZXN; deiZXNComSts; 4; ; ; 0; , , ; # GET FEP STA 
+# Pseudo DEOV external variables 
+DEOV= $SetState-ZXN; deoZXNSTA-SET; 4; ; ; 0; , , ; # SET STATE 
+DEOV= $SetSpy-ZXN; deoZXNSpy-SET; 4; ; ; 0; , , ; # SET SPY 
+DEOV= $SetLnk-ZXN-1; deoZXN_ALnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 1
+DEOV= $SetLnk-ZXN-2; deoZXN_BLnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 2 
+DEOV= $Reset-ZXN-1; deoZXN_AResetCmd; 4; ; ; 0; , , ; # RESET FEP 1 
+DEOV= $Reset-ZXN-2; deoZXN_BResetCmd; 4; ; ; 0; , , ; # RESET FEP 2 
+DEOV= $Download-ZXN-1; deoZXN_ADownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 1 
+DEOV= $Download-ZXN-2; deoZXN_BDownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 2 
+# Pseudo SEOV external variables 
+SEOV= $SetCustomCmd-ZXN; seoZXNCUSTCMD; 512; ; ; 0; , , ; # DACCOMFEP Custom Cmd 
+
+
+
+# Equipment : ZXN-ASD10
+DEIV= 000/001/00123/4/000001;1; 4; ; ; 0; , , ; # ZXN-ASD10-Link1
+DEIV= 000/001/00123/5/000001;2; 4; ; ; 0; , , ; # ZXN-ASD10-Link2
+DEIV= 000/002/00123/4/000001;3; 4; ; ; 0; , , ; # ZXN-ASD10-Link3
+DEIV= 000/002/00123/5/000001;4; 4; ; ; 0; , , ; # ZXN-ASD10-Link4
+DEIV= $ComStatus-00123/4+5;; 4; ; ; 0; , , ;   # ZXN-ASD10-Comm Status
+DEIV= $InfStatus-00073/4+5;; 4; ; ; 0; , , ;   # ZXN-ASD10-INF Status
+DEOV= $SetComStatus-00073-1; ZXN-ASD10 CommStatus-SET; 4; ; ; 0; , , ; # Set Communication Status
+# Pseudo DEIV external variables 
+DEIV= $GetLnk-ZXN-1; deiZXN_ALnkSts; 4; ; ; 0; , , ; # GET FEP LINK 1 
+DEIV= $GetLnk-ZXN-2; deiZXN_BLnkSts; 4; ; ; 0; , , ; # GET FEP LINK 2 
+DEIV= $GetSpy-ZXN; deiZXNSpySts; 4; ; ; 0; , , ; # GET SPY FEP 
+DEIV= $ValidRTUlnk-ZXN-1; deiZXN_AValidSts; 4; ; ; 0; , , ; # FEP Valid 1 
+DEIV= $ValidRTUlnk-ZXN-2; deiZXN_BValidSts; 4; ; ; 0; , , ; # FEP Valid 2 
+DEIV= $GetState-ZXN; deiZXNComSts; 4; ; ; 0; , , ; # GET FEP STA 
+# Pseudo DEOV external variables 
+DEOV= $SetState-ZXN; deoZXNSTA-SET; 4; ; ; 0; , , ; # SET STATE 
+DEOV= $SetSpy-ZXN; deoZXNSpy-SET; 4; ; ; 0; , , ; # SET SPY 
+DEOV= $SetLnk-ZXN-1; deoZXN_ALnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 1
+DEOV= $SetLnk-ZXN-2; deoZXN_BLnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 2 
+DEOV= $Reset-ZXN-1; deoZXN_AResetCmd; 4; ; ; 0; , , ; # RESET FEP 1 
+DEOV= $Reset-ZXN-2; deoZXN_BResetCmd; 4; ; ; 0; , , ; # RESET FEP 2 
+DEOV= $Download-ZXN-1; deoZXN_ADownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 1 
+DEOV= $Download-ZXN-2; deoZXN_BDownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 2 
+# Pseudo SEOV external variables 
+SEOV= $SetCustomCmd-ZXN; seoZXNCUSTCMD; 512; ; ; 0; , , ; # DACCOMFEP Custom Cmd 
+
+
+
+# Equipment : ZXN-ASD11
+DEIV= 000/001/00125/4/000001;1; 4; ; ; 0; , , ; # ZXN-ASD11-Link1
+DEIV= 000/001/00125/5/000001;2; 4; ; ; 0; , , ; # ZXN-ASD11-Link2
+DEIV= 000/002/00125/4/000001;3; 4; ; ; 0; , , ; # ZXN-ASD11-Link3
+DEIV= 000/002/00125/5/000001;4; 4; ; ; 0; , , ; # ZXN-ASD11-Link4
+DEIV= $ComStatus-00125/4+5;; 4; ; ; 0; , , ;   # ZXN-ASD11-Comm Status
+DEIV= $InfStatus-00074/4+5;; 4; ; ; 0; , , ;   # ZXN-ASD11-INF Status
+DEOV= $SetComStatus-00074-1; ZXN-ASD11 CommStatus-SET; 4; ; ; 0; , , ; # Set Communication Status
+# Pseudo DEIV external variables 
+DEIV= $GetLnk-ZXN-1; deiZXN_ALnkSts; 4; ; ; 0; , , ; # GET FEP LINK 1 
+DEIV= $GetLnk-ZXN-2; deiZXN_BLnkSts; 4; ; ; 0; , , ; # GET FEP LINK 2 
+DEIV= $GetSpy-ZXN; deiZXNSpySts; 4; ; ; 0; , , ; # GET SPY FEP 
+DEIV= $ValidRTUlnk-ZXN-1; deiZXN_AValidSts; 4; ; ; 0; , , ; # FEP Valid 1 
+DEIV= $ValidRTUlnk-ZXN-2; deiZXN_BValidSts; 4; ; ; 0; , , ; # FEP Valid 2 
+DEIV= $GetState-ZXN; deiZXNComSts; 4; ; ; 0; , , ; # GET FEP STA 
+# Pseudo DEOV external variables 
+DEOV= $SetState-ZXN; deoZXNSTA-SET; 4; ; ; 0; , , ; # SET STATE 
+DEOV= $SetSpy-ZXN; deoZXNSpy-SET; 4; ; ; 0; , , ; # SET SPY 
+DEOV= $SetLnk-ZXN-1; deoZXN_ALnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 1
+DEOV= $SetLnk-ZXN-2; deoZXN_BLnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 2 
+DEOV= $Reset-ZXN-1; deoZXN_AResetCmd; 4; ; ; 0; , , ; # RESET FEP 1 
+DEOV= $Reset-ZXN-2; deoZXN_BResetCmd; 4; ; ; 0; , , ; # RESET FEP 2 
+DEOV= $Download-ZXN-1; deoZXN_ADownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 1 
+DEOV= $Download-ZXN-2; deoZXN_BDownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 2 
+# Pseudo SEOV external variables 
+SEOV= $SetCustomCmd-ZXN; seoZXNCUSTCMD; 512; ; ; 0; , , ; # DACCOMFEP Custom Cmd 
+
+
+
+# Equipment : ZXN-ASD12
+DEIV= 000/001/00127/4/000001;1; 4; ; ; 0; , , ; # ZXN-ASD12-Link1
+DEIV= 000/001/00127/5/000001;2; 4; ; ; 0; , , ; # ZXN-ASD12-Link2
+DEIV= 000/002/00127/4/000001;3; 4; ; ; 0; , , ; # ZXN-ASD12-Link3
+DEIV= 000/002/00127/5/000001;4; 4; ; ; 0; , , ; # ZXN-ASD12-Link4
+DEIV= $ComStatus-00127/4+5;; 4; ; ; 0; , , ;   # ZXN-ASD12-Comm Status
+DEIV= $InfStatus-00075/4+5;; 4; ; ; 0; , , ;   # ZXN-ASD12-INF Status
+DEOV= $SetComStatus-00075-1; ZXN-ASD12 CommStatus-SET; 4; ; ; 0; , , ; # Set Communication Status
+# Pseudo DEIV external variables 
+DEIV= $GetLnk-ZXN-1; deiZXN_ALnkSts; 4; ; ; 0; , , ; # GET FEP LINK 1 
+DEIV= $GetLnk-ZXN-2; deiZXN_BLnkSts; 4; ; ; 0; , , ; # GET FEP LINK 2 
+DEIV= $GetSpy-ZXN; deiZXNSpySts; 4; ; ; 0; , , ; # GET SPY FEP 
+DEIV= $ValidRTUlnk-ZXN-1; deiZXN_AValidSts; 4; ; ; 0; , , ; # FEP Valid 1 
+DEIV= $ValidRTUlnk-ZXN-2; deiZXN_BValidSts; 4; ; ; 0; , , ; # FEP Valid 2 
+DEIV= $GetState-ZXN; deiZXNComSts; 4; ; ; 0; , , ; # GET FEP STA 
+# Pseudo DEOV external variables 
+DEOV= $SetState-ZXN; deoZXNSTA-SET; 4; ; ; 0; , , ; # SET STATE 
+DEOV= $SetSpy-ZXN; deoZXNSpy-SET; 4; ; ; 0; , , ; # SET SPY 
+DEOV= $SetLnk-ZXN-1; deoZXN_ALnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 1
+DEOV= $SetLnk-ZXN-2; deoZXN_BLnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 2 
+DEOV= $Reset-ZXN-1; deoZXN_AResetCmd; 4; ; ; 0; , , ; # RESET FEP 1 
+DEOV= $Reset-ZXN-2; deoZXN_BResetCmd; 4; ; ; 0; , , ; # RESET FEP 2 
+DEOV= $Download-ZXN-1; deoZXN_ADownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 1 
+DEOV= $Download-ZXN-2; deoZXN_BDownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 2 
+# Pseudo SEOV external variables 
+SEOV= $SetCustomCmd-ZXN; seoZXNCUSTCMD; 512; ; ; 0; , , ; # DACCOMFEP Custom Cmd 
+
+
+
+# Equipment : ZXN-ASD13
+DEIV= 000/001/00129/4/000001;1; 4; ; ; 0; , , ; # ZXN-ASD13-Link1
+DEIV= 000/001/00129/5/000001;2; 4; ; ; 0; , , ; # ZXN-ASD13-Link2
+DEIV= 000/002/00129/4/000001;3; 4; ; ; 0; , , ; # ZXN-ASD13-Link3
+DEIV= 000/002/00129/5/000001;4; 4; ; ; 0; , , ; # ZXN-ASD13-Link4
+DEIV= $ComStatus-00129/4+5;; 4; ; ; 0; , , ;   # ZXN-ASD13-Comm Status
+DEIV= $InfStatus-00076/4+5;; 4; ; ; 0; , , ;   # ZXN-ASD13-INF Status
+DEOV= $SetComStatus-00076-1; ZXN-ASD13 CommStatus-SET; 4; ; ; 0; , , ; # Set Communication Status
+# Pseudo DEIV external variables 
+DEIV= $GetLnk-ZXN-1; deiZXN_ALnkSts; 4; ; ; 0; , , ; # GET FEP LINK 1 
+DEIV= $GetLnk-ZXN-2; deiZXN_BLnkSts; 4; ; ; 0; , , ; # GET FEP LINK 2 
+DEIV= $GetSpy-ZXN; deiZXNSpySts; 4; ; ; 0; , , ; # GET SPY FEP 
+DEIV= $ValidRTUlnk-ZXN-1; deiZXN_AValidSts; 4; ; ; 0; , , ; # FEP Valid 1 
+DEIV= $ValidRTUlnk-ZXN-2; deiZXN_BValidSts; 4; ; ; 0; , , ; # FEP Valid 2 
+DEIV= $GetState-ZXN; deiZXNComSts; 4; ; ; 0; , , ; # GET FEP STA 
+# Pseudo DEOV external variables 
+DEOV= $SetState-ZXN; deoZXNSTA-SET; 4; ; ; 0; , , ; # SET STATE 
+DEOV= $SetSpy-ZXN; deoZXNSpy-SET; 4; ; ; 0; , , ; # SET SPY 
+DEOV= $SetLnk-ZXN-1; deoZXN_ALnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 1
+DEOV= $SetLnk-ZXN-2; deoZXN_BLnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 2 
+DEOV= $Reset-ZXN-1; deoZXN_AResetCmd; 4; ; ; 0; , , ; # RESET FEP 1 
+DEOV= $Reset-ZXN-2; deoZXN_BResetCmd; 4; ; ; 0; , , ; # RESET FEP 2 
+DEOV= $Download-ZXN-1; deoZXN_ADownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 1 
+DEOV= $Download-ZXN-2; deoZXN_BDownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 2 
+# Pseudo SEOV external variables 
+SEOV= $SetCustomCmd-ZXN; seoZXNCUSTCMD; 512; ; ; 0; , , ; # DACCOMFEP Custom Cmd 
+
+
+
+# Equipment : ZXN-ASD14
+DEIV= 000/001/00131/4/000001;1; 4; ; ; 0; , , ; # ZXN-ASD14-Link1
+DEIV= 000/001/00131/5/000001;2; 4; ; ; 0; , , ; # ZXN-ASD14-Link2
+DEIV= 000/002/00131/4/000001;3; 4; ; ; 0; , , ; # ZXN-ASD14-Link3
+DEIV= 000/002/00131/5/000001;4; 4; ; ; 0; , , ; # ZXN-ASD14-Link4
+DEIV= $ComStatus-00131/4+5;; 4; ; ; 0; , , ;   # ZXN-ASD14-Comm Status
+DEIV= $InfStatus-00077/4+5;; 4; ; ; 0; , , ;   # ZXN-ASD14-INF Status
+DEOV= $SetComStatus-00077-1; ZXN-ASD14 CommStatus-SET; 4; ; ; 0; , , ; # Set Communication Status
+# Pseudo DEIV external variables 
+DEIV= $GetLnk-ZXN-1; deiZXN_ALnkSts; 4; ; ; 0; , , ; # GET FEP LINK 1 
+DEIV= $GetLnk-ZXN-2; deiZXN_BLnkSts; 4; ; ; 0; , , ; # GET FEP LINK 2 
+DEIV= $GetSpy-ZXN; deiZXNSpySts; 4; ; ; 0; , , ; # GET SPY FEP 
+DEIV= $ValidRTUlnk-ZXN-1; deiZXN_AValidSts; 4; ; ; 0; , , ; # FEP Valid 1 
+DEIV= $ValidRTUlnk-ZXN-2; deiZXN_BValidSts; 4; ; ; 0; , , ; # FEP Valid 2 
+DEIV= $GetState-ZXN; deiZXNComSts; 4; ; ; 0; , , ; # GET FEP STA 
+# Pseudo DEOV external variables 
+DEOV= $SetState-ZXN; deoZXNSTA-SET; 4; ; ; 0; , , ; # SET STATE 
+DEOV= $SetSpy-ZXN; deoZXNSpy-SET; 4; ; ; 0; , , ; # SET SPY 
+DEOV= $SetLnk-ZXN-1; deoZXN_ALnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 1
+DEOV= $SetLnk-ZXN-2; deoZXN_BLnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 2 
+DEOV= $Reset-ZXN-1; deoZXN_AResetCmd; 4; ; ; 0; , , ; # RESET FEP 1 
+DEOV= $Reset-ZXN-2; deoZXN_BResetCmd; 4; ; ; 0; , , ; # RESET FEP 2 
+DEOV= $Download-ZXN-1; deoZXN_ADownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 1 
+DEOV= $Download-ZXN-2; deoZXN_BDownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 2 
+# Pseudo SEOV external variables 
+SEOV= $SetCustomCmd-ZXN; seoZXNCUSTCMD; 512; ; ; 0; , , ; # DACCOMFEP Custom Cmd 
+
+
+
+# Equipment : ZXN-ASD15
+DEIV= 000/001/00133/4/000001;1; 4; ; ; 0; , , ; # ZXN-ASD15-Link1
+DEIV= 000/001/00133/5/000001;2; 4; ; ; 0; , , ; # ZXN-ASD15-Link2
+DEIV= 000/002/00133/4/000001;3; 4; ; ; 0; , , ; # ZXN-ASD15-Link3
+DEIV= 000/002/00133/5/000001;4; 4; ; ; 0; , , ; # ZXN-ASD15-Link4
+DEIV= $ComStatus-00133/4+5;; 4; ; ; 0; , , ;   # ZXN-ASD15-Comm Status
+DEIV= $InfStatus-00078/4+5;; 4; ; ; 0; , , ;   # ZXN-ASD15-INF Status
+DEOV= $SetComStatus-00078-1; ZXN-ASD15 CommStatus-SET; 4; ; ; 0; , , ; # Set Communication Status
+# Pseudo DEIV external variables 
+DEIV= $GetLnk-ZXN-1; deiZXN_ALnkSts; 4; ; ; 0; , , ; # GET FEP LINK 1 
+DEIV= $GetLnk-ZXN-2; deiZXN_BLnkSts; 4; ; ; 0; , , ; # GET FEP LINK 2 
+DEIV= $GetSpy-ZXN; deiZXNSpySts; 4; ; ; 0; , , ; # GET SPY FEP 
+DEIV= $ValidRTUlnk-ZXN-1; deiZXN_AValidSts; 4; ; ; 0; , , ; # FEP Valid 1 
+DEIV= $ValidRTUlnk-ZXN-2; deiZXN_BValidSts; 4; ; ; 0; , , ; # FEP Valid 2 
+DEIV= $GetState-ZXN; deiZXNComSts; 4; ; ; 0; , , ; # GET FEP STA 
+# Pseudo DEOV external variables 
+DEOV= $SetState-ZXN; deoZXNSTA-SET; 4; ; ; 0; , , ; # SET STATE 
+DEOV= $SetSpy-ZXN; deoZXNSpy-SET; 4; ; ; 0; , , ; # SET SPY 
+DEOV= $SetLnk-ZXN-1; deoZXN_ALnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 1
+DEOV= $SetLnk-ZXN-2; deoZXN_BLnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 2 
+DEOV= $Reset-ZXN-1; deoZXN_AResetCmd; 4; ; ; 0; , , ; # RESET FEP 1 
+DEOV= $Reset-ZXN-2; deoZXN_BResetCmd; 4; ; ; 0; , , ; # RESET FEP 2 
+DEOV= $Download-ZXN-1; deoZXN_ADownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 1 
+DEOV= $Download-ZXN-2; deoZXN_BDownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 2 
+# Pseudo SEOV external variables 
+SEOV= $SetCustomCmd-ZXN; seoZXNCUSTCMD; 512; ; ; 0; , , ; # DACCOMFEP Custom Cmd 
+
+
+
+# Equipment : ZXN-CLK
+DEIV= 000/001/00051/4/000001;1; 4; ; ; 0; , , ; # ZXN-CLK-Link1
+DEIV= 000/001/00051/5/000001;2; 4; ; ; 0; , , ; # ZXN-CLK-Link2
+DEIV= 000/002/00051/4/000001;3; 4; ; ; 0; , , ; # ZXN-CLK-Link3
+DEIV= 000/002/00051/5/000001;4; 4; ; ; 0; , , ; # ZXN-CLK-Link4
+DEIV= $ComStatus-00051/4+5;; 4; ; ; 0; , , ;   # ZXN-CLK-Comm Status
+DEIV= $InfStatus-00052/4+5;; 4; ; ; 0; , , ;   # ZXN-CLK-INF Status
+DEOV= $SetComStatus-00052-1; ZXN-CLK CommStatus-SET; 4; ; ; 0; , , ; # Set Communication Status
+# Pseudo DEIV external variables 
+DEIV= $GetLnk-ZXN-1; deiZXN_ALnkSts; 4; ; ; 0; , , ; # GET FEP LINK 1 
+DEIV= $GetLnk-ZXN-2; deiZXN_BLnkSts; 4; ; ; 0; , , ; # GET FEP LINK 2 
+DEIV= $GetSpy-ZXN; deiZXNSpySts; 4; ; ; 0; , , ; # GET SPY FEP 
+DEIV= $ValidRTUlnk-ZXN-1; deiZXN_AValidSts; 4; ; ; 0; , , ; # FEP Valid 1 
+DEIV= $ValidRTUlnk-ZXN-2; deiZXN_BValidSts; 4; ; ; 0; , , ; # FEP Valid 2 
+DEIV= $GetState-ZXN; deiZXNComSts; 4; ; ; 0; , , ; # GET FEP STA 
+# Pseudo DEOV external variables 
+DEOV= $SetState-ZXN; deoZXNSTA-SET; 4; ; ; 0; , , ; # SET STATE 
+DEOV= $SetSpy-ZXN; deoZXNSpy-SET; 4; ; ; 0; , , ; # SET SPY 
+DEOV= $SetLnk-ZXN-1; deoZXN_ALnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 1
+DEOV= $SetLnk-ZXN-2; deoZXN_BLnkCmd; 4; ; ; 0; , , ; # SET FEP LINK 2 
+DEOV= $Reset-ZXN-1; deoZXN_AResetCmd; 4; ; ; 0; , , ; # RESET FEP 1 
+DEOV= $Reset-ZXN-2; deoZXN_BResetCmd; 4; ; ; 0; , , ; # RESET FEP 2 
+DEOV= $Download-ZXN-1; deoZXN_ADownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 1 
+DEOV= $Download-ZXN-2; deoZXN_BDownloadCmd; 4; ; ; 0; , , ; # DOWNLOAD FEP 2 
+# Pseudo SEOV external variables 
+SEOV= $SetCustomCmd-ZXN; seoZXNCUSTCMD; 512; ; ; 0; , , ; # DACCOMFEP Custom Cmd 
+

@@ -1,0 +1,39 @@
+<InstanceDescription alias="dal_alias" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="ackAutomaton" >
+<ScalarValue value="AckHdv"/>
+</AttributDescription>
+<AttributDescription attrId="alClass" >
+<ScalarValue value="ala_type"/>
+</AttributDescription>
+<AttributDescription attrId="dssEventType" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="valueAlarmVector" position="1" activation="ENABLE" formula="SCS_ALARM_DI(IF([.hdvFlag],[^.value],[^.value]),0,{.valueAutomaton},{.ackAutomaton},{^:dac.equipmentDate},{^:dac.acqDate},2,DPC_EXASTATUS([^.status],[^:dfo.forcedStatus]))" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+<AttributDescription attrId="valueAutomaton" >
+<ScalarValue value="DIBasic2StateLog"/>
+</AttributDescription>
+<AttributDescription attrId="theme" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="hdvFlag" position="0" activation="ENABLE" formula="[^:^.hdvflag]" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueTable" >
+<StructVectorValue>
+<StructFieldValue><ScalarValue value="bit0_value"/><ScalarValue value="bit0_label"/><ScalarValue value="bit0_state"/><ScalarValue value="bit0_severity"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="bit1_value"/><ScalarValue value="bit1_label"/><ScalarValue value="bit1_state"/><ScalarValue value="bit1_severity"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="bit2_value"/><ScalarValue value="bit2_label"/><ScalarValue value="bit2_state"/><ScalarValue value="bit2_severity"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="bit3_value"/><ScalarValue value="bit3_label"/><ScalarValue value="bit3_state"/><ScalarValue value="bit3_severity"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="bit4_value"/><ScalarValue value="bit0_label"/><ScalarValue value="bit0_state"/><ScalarValue value="bit0_severity"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="bit5_value"/><ScalarValue value="bit1_label"/><ScalarValue value="bit1_state"/><ScalarValue value="bit1_severity"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="bit6_value"/><ScalarValue value="bit2_label"/><ScalarValue value="bit2_state"/><ScalarValue value="bit2_severity"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="bit7_value"/><ScalarValue value="bit3_label"/><ScalarValue value="bit3_state"/><ScalarValue value="bit3_severity"/><ScalarValue value="0"/></StructFieldValue>
+</StructVectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>

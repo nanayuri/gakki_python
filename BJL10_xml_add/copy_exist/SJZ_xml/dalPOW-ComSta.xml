@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE Class SYSTEM "dtd/dbkclass.dtd">
+<Class period_MT="0" period_ST="0" name="dalPOW-ComSta" numAttributes="8" numInstances="136" numPeriod_MT="0" numPeriod_ST="0">
+<ClassDescription>
+<AttributeDescription attrType="STATIC" name="theme" replicated="0">
+<Scalar valueType="INT32" size="4"/>
+<ScalarDefaultValue defaultValue="0"/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="hdvFlag" replicated="0">
+<Scalar valueType="INT32" size="4"/>
+<ScalarDefaultValue defaultValue="0"/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="ackAutomaton" replicated="0">
+<Scalar valueType="CHARN" size="81"/>
+<ScalarDefaultValue defaultValue="AckHdv"/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="alClass" replicated="0">
+<Scalar valueType="CHARN" size="65"/>
+<ScalarDefaultValue defaultValue="alaPOWComBrk"/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="dssEventType" replicated="0">
+<Scalar valueType="CHARN" size="21"/>
+<ScalarDefaultValue defaultValue=""/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="valueAlarmVector" replicated="0">
+<Vector numElements="6">
+<Scalar valueType="INT32" size="4"/>
+</Vector>
+<VectorDefaultValue>
+<ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="0"/>
+</VectorDefaultValue>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="valueAutomaton" replicated="0">
+<Scalar valueType="CHARN" size="81"/>
+<ScalarDefaultValue defaultValue="DIBasic2StateLog"/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="valueTable" replicated="0">
+<StructVector numElementsList="8" numElementsStruct="5">
+<StructFieldDescription name="value">
+<Scalar valueType="INT32" size="4"/>
+</StructFieldDescription>
+<StructFieldDescription name="label">
+<Scalar valueType="CHARN" size="21"/>
+</StructFieldDescription>
+<StructFieldDescription name="state">
+<Scalar valueType="CHARN" size="5"/>
+</StructFieldDescription>
+<StructFieldDescription name="severity">
+<Scalar valueType="UINT32" size="4"/>
+</StructFieldDescription>
+<StructFieldDescription name="format">
+<Scalar valueType="UINT32" size="4"/>
+</StructFieldDescription>
+</StructVector>
+<StructVectorDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="Abnormal"/><ScalarDefaultValue defaultValue="A"/><ScalarDefaultValue defaultValue="1"/><ScalarDefaultValue defaultValue="0"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="1"/><ScalarDefaultValue defaultValue="Normal"/><ScalarDefaultValue defaultValue="N"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="0"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="4"/><ScalarDefaultValue defaultValue="Abnormal"/><ScalarDefaultValue defaultValue="A"/><ScalarDefaultValue defaultValue="1"/><ScalarDefaultValue defaultValue="0"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="5"/><ScalarDefaultValue defaultValue="Normal"/><ScalarDefaultValue defaultValue="N"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="0"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue=""/><ScalarDefaultValue defaultValue=""/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="0"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue=""/><ScalarDefaultValue defaultValue=""/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="0"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue=""/><ScalarDefaultValue defaultValue=""/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="0"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue=""/><ScalarDefaultValue defaultValue=""/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="0"/></StructFieldDefaultValue>
+</StructVectorDefaultValue>
+</AttributeDescription>
+</ClassDescription>
+</Class>

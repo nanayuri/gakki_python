@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE Class SYSTEM "dtd/dbkclass.dtd">
+<Class period_MT="0" period_ST="0" name="eqNLDG" numAttributes="36" numInstances="1" numPeriod_MT="0" numPeriod_ST="0">
+<ClassDescription>
+<AttributeDescription attrType="STATIC" name="alarmSynthesis" replicated="0">
+<Vector numElements="4">
+<Scalar valueType="UINT32" size="4"/>
+</Vector>
+<VectorDefaultValue>
+<ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="0"/>
+</VectorDefaultValue>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="validSynthesis" replicated="0">
+<Scalar valueType="INT32" size="4"/>
+<ScalarDefaultValue defaultValue="0"/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="forcedSynthesis" replicated="0">
+<Scalar valueType="INT32" size="4"/>
+<ScalarDefaultValue defaultValue="0"/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="inhibSynthesis" replicated="0">
+<Scalar valueType="INT32" size="4"/>
+<ScalarDefaultValue defaultValue="0"/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="label" replicated="0">
+<Scalar valueType="CHARN" size="65"/>
+<ScalarDefaultValue defaultValue=""/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="geographicalCat" replicated="0">
+<Scalar valueType="UINT32" size="4"/>
+<ScalarDefaultValue defaultValue="0"/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="inhibStatus" replicated="0">
+<Scalar valueType="UINT32" size="4"/>
+<ScalarDefaultValue defaultValue="1"/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="tag1Label" replicated="0">
+<Scalar valueType="CHARN" size="65"/>
+<ScalarDefaultValue defaultValue=""/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="tag2Label" replicated="0">
+<Scalar valueType="CHARN" size="17"/>
+<ScalarDefaultValue defaultValue=""/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="tagStatus" replicated="0">
+<Scalar valueType="INT32" size="4"/>
+<ScalarDefaultValue defaultValue="1"/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="functionalCat" replicated="0">
+<Scalar valueType="INT32" size="4"/>
+<ScalarDefaultValue defaultValue="3"/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="name" replicated="0">
+<Scalar valueType="CHARN" size="33"/>
+<ScalarDefaultValue defaultValue="HVI_"/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="reserved" replicated="0">
+<Scalar valueType="BOOLEAN" size="1"/>
+<ScalarDefaultValue defaultValue="0"/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="shortLabel" replicated="0">
+<Scalar valueType="CHARN" size="65"/>
+<ScalarDefaultValue defaultValue="HV__"/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="shortName" replicated="0">
+<Scalar valueType="CHARN" size="9"/>
+<ScalarDefaultValue defaultValue=""/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="mmiSchematic" replicated="0">
+<Scalar valueType="CHARN" size="129"/>
+<ScalarDefaultValue defaultValue=""/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="grdsta" replicated="0">
+<Scalar valueType="INT32" size="4"/>
+<ScalarDefaultValue defaultValue="0"/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="hdvflag" replicated="0">
+<Scalar valueType="INT32" size="4"/>
+<ScalarDefaultValue defaultValue="0"/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="loc_rem" replicated="0">
+<Scalar valueType="INT32" size="4"/>
+<ScalarDefaultValue defaultValue="0"/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="openclose" replicated="0">
+<Scalar valueType="INT32" size="4"/>
+<ScalarDefaultValue defaultValue="0"/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="pow_ptw" replicated="0">
+<Scalar valueType="INT32" size="4"/>
+<ScalarDefaultValue defaultValue="0"/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="EquipmentCat" replicated="0">
+<Scalar valueType="UINT32" size="4"/>
+<ScalarDefaultValue defaultValue="1"/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="Swt_alm" replicated="0">
+<Scalar valueType="INT32" size="4"/>
+<ScalarDefaultValue defaultValue="0"/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="Swt_alert" replicated="0">
+<Scalar valueType="INT32" size="4"/>
+<ScalarDefaultValue defaultValue="0"/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="swt_point" replicated="0">
+<Scalar valueType="CHARN" size="65"/>
+<ScalarDefaultValue defaultValue="dciPOW-SwtPosOpn"/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="scrn_sta" replicated="0">
+<Scalar valueType="INT32" size="4"/>
+<ScalarDefaultValue defaultValue="0"/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="Clo_Interlock" replicated="0">
+<Scalar valueType="INT32" size="4"/>
+<ScalarDefaultValue defaultValue="0"/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="Opn_Interlock" replicated="0">
+<Scalar valueType="INT32" size="4"/>
+<ScalarDefaultValue defaultValue="0"/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="prevopenclose" replicated="0">
+<Scalar valueType="INT32" size="4"/>
+<ScalarDefaultValue defaultValue="0"/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="ovrsig" replicated="0">
+<Scalar valueType="INT32" size="4"/>
+<ScalarDefaultValue defaultValue="0"/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="truckpos" replicated="0">
+<Scalar valueType="INT32" size="4"/>
+<ScalarDefaultValue defaultValue="0"/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="Sig_Reset" replicated="0">
+<Scalar valueType="INT32" size="4"/>
+<ScalarDefaultValue defaultValue="0"/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="hdvrequest" replicated="0">
+<Scalar valueType="INT32" size="4"/>
+<ScalarDefaultValue defaultValue="0"/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="prevHdvRequest" replicated="0">
+<Scalar valueType="INT32" size="4"/>
+<ScalarDefaultValue defaultValue="0"/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="powIscs" replicated="0">
+<Scalar valueType="INT32" size="4"/>
+<ScalarDefaultValue defaultValue="0"/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="prevAlarmSynthesis" replicated="0">
+<Vector numElements="4">
+<Scalar valueType="INT32" size="4"/>
+</Vector>
+<VectorDefaultValue>
+<ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="0"/>
+</VectorDefaultValue>
+</AttributeDescription>
+</ClassDescription>
+</Class>

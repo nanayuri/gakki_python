@@ -1,0 +1,1954 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE Instance SYSTEM "dtd/dbkinstance.dtd" >
+<Instance classId="dalPOW-CtrlScrn">
+<InstanceDescription alias="dalPOW-CtrlS_502720" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="theme" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="ackAutomaton" >
+<ScalarValue value="AckHdv"/>
+</AttributDescription>
+<AttributDescription attrId="alClass" >
+<ScalarValue value="alaPOWCanclScrn"/>
+</AttributDescription>
+<AttributDescription attrId="dssEventType" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="valueAlarmVector" position="1" activation="ENABLE" formula="SCS_ALARM_DI(IF([.hdvFlag],[^.value],[^.value]),0,{.valueAutomaton},{.ackAutomaton},{^:dac.equipmentDate},{^:dac.acqDate},2,DPC_EXASTATUS([^.status],[^:dfo.forcedStatus]))" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+<AttributDescription attrId="valueAutomaton" >
+<ScalarValue value="DIBasic2StateLog"/>
+</AttributDescription>
+<AttributDescription attrId="hdvFlag" position="0" activation="ENABLE" formula="[^:^.hdvflag]" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueTable" >
+<StructVectorValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="1"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="4"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="5"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+</StructVectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dalPOW-CtrlS_502764" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="theme" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="ackAutomaton" >
+<ScalarValue value="AckHdv"/>
+</AttributDescription>
+<AttributDescription attrId="alClass" >
+<ScalarValue value="alaPOWCanclScrn"/>
+</AttributDescription>
+<AttributDescription attrId="dssEventType" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="valueAlarmVector" position="1" activation="ENABLE" formula="SCS_ALARM_DI(IF([.hdvFlag],[^.value],[^.value]),0,{.valueAutomaton},{.ackAutomaton},{^:dac.equipmentDate},{^:dac.acqDate},2,DPC_EXASTATUS([^.status],[^:dfo.forcedStatus]))" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+<AttributDescription attrId="valueAutomaton" >
+<ScalarValue value="DIBasic2StateLog"/>
+</AttributDescription>
+<AttributDescription attrId="hdvFlag" position="0" activation="ENABLE" formula="[^:^.hdvflag]" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueTable" >
+<StructVectorValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="1"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="4"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="5"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+</StructVectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dalPOW-CtrlS_502808" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="theme" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="ackAutomaton" >
+<ScalarValue value="AckHdv"/>
+</AttributDescription>
+<AttributDescription attrId="alClass" >
+<ScalarValue value="alaPOWCanclScrn"/>
+</AttributDescription>
+<AttributDescription attrId="dssEventType" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="valueAlarmVector" position="1" activation="ENABLE" formula="SCS_ALARM_DI(IF([.hdvFlag],[^.value],[^.value]),0,{.valueAutomaton},{.ackAutomaton},{^:dac.equipmentDate},{^:dac.acqDate},2,DPC_EXASTATUS([^.status],[^:dfo.forcedStatus]))" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+<AttributDescription attrId="valueAutomaton" >
+<ScalarValue value="DIBasic2StateLog"/>
+</AttributDescription>
+<AttributDescription attrId="hdvFlag" position="0" activation="ENABLE" formula="[^:^.hdvflag]" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueTable" >
+<StructVectorValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="1"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="4"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="5"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+</StructVectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dalPOW-CtrlS_503082" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="theme" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="ackAutomaton" >
+<ScalarValue value="AckHdv"/>
+</AttributDescription>
+<AttributDescription attrId="alClass" >
+<ScalarValue value="alaPOWCanclScrn"/>
+</AttributDescription>
+<AttributDescription attrId="dssEventType" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="valueAlarmVector" position="1" activation="ENABLE" formula="SCS_ALARM_DI(IF([.hdvFlag],[^.value],[^.value]),0,{.valueAutomaton},{.ackAutomaton},{^:dac.equipmentDate},{^:dac.acqDate},2,DPC_EXASTATUS([^.status],[^:dfo.forcedStatus]))" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+<AttributDescription attrId="valueAutomaton" >
+<ScalarValue value="DIBasic2StateLog"/>
+</AttributDescription>
+<AttributDescription attrId="hdvFlag" position="0" activation="ENABLE" formula="[^:^.hdvflag]" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueTable" >
+<StructVectorValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="1"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="4"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="5"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+</StructVectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dalPOW-CtrlS_503128" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="theme" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="ackAutomaton" >
+<ScalarValue value="AckHdv"/>
+</AttributDescription>
+<AttributDescription attrId="alClass" >
+<ScalarValue value="alaPOWCanclScrn"/>
+</AttributDescription>
+<AttributDescription attrId="dssEventType" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="valueAlarmVector" position="1" activation="ENABLE" formula="SCS_ALARM_DI(IF([.hdvFlag],[^.value],[^.value]),0,{.valueAutomaton},{.ackAutomaton},{^:dac.equipmentDate},{^:dac.acqDate},2,DPC_EXASTATUS([^.status],[^:dfo.forcedStatus]))" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+<AttributDescription attrId="valueAutomaton" >
+<ScalarValue value="DIBasic2StateLog"/>
+</AttributDescription>
+<AttributDescription attrId="hdvFlag" position="0" activation="ENABLE" formula="[^:^.hdvflag]" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueTable" >
+<StructVectorValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="1"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="4"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="5"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+</StructVectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dalPOW-CtrlS_503400" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="theme" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="ackAutomaton" >
+<ScalarValue value="AckHdv"/>
+</AttributDescription>
+<AttributDescription attrId="alClass" >
+<ScalarValue value="alaPOWCanclScrn"/>
+</AttributDescription>
+<AttributDescription attrId="dssEventType" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="valueAlarmVector" position="1" activation="ENABLE" formula="SCS_ALARM_DI(IF([.hdvFlag],[^.value],[^.value]),0,{.valueAutomaton},{.ackAutomaton},{^:dac.equipmentDate},{^:dac.acqDate},2,DPC_EXASTATUS([^.status],[^:dfo.forcedStatus]))" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+<AttributDescription attrId="valueAutomaton" >
+<ScalarValue value="DIBasic2StateLog"/>
+</AttributDescription>
+<AttributDescription attrId="hdvFlag" position="0" activation="ENABLE" formula="[^:^.hdvflag]" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueTable" >
+<StructVectorValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="1"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="4"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="5"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+</StructVectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dalPOW-CtrlS_503596" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="theme" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="ackAutomaton" >
+<ScalarValue value="AckHdv"/>
+</AttributDescription>
+<AttributDescription attrId="alClass" >
+<ScalarValue value="alaPOWCanclScrn"/>
+</AttributDescription>
+<AttributDescription attrId="dssEventType" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="valueAlarmVector" position="1" activation="ENABLE" formula="SCS_ALARM_DI(IF([.hdvFlag],[^.value],[^.value]),0,{.valueAutomaton},{.ackAutomaton},{^:dac.equipmentDate},{^:dac.acqDate},2,DPC_EXASTATUS([^.status],[^:dfo.forcedStatus]))" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+<AttributDescription attrId="valueAutomaton" >
+<ScalarValue value="DIBasic2StateLog"/>
+</AttributDescription>
+<AttributDescription attrId="hdvFlag" position="0" activation="ENABLE" formula="[^:^.hdvflag]" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueTable" >
+<StructVectorValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="1"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="4"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="5"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+</StructVectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dalPOW-CtrlS_503792" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="theme" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="ackAutomaton" >
+<ScalarValue value="AckHdv"/>
+</AttributDescription>
+<AttributDescription attrId="alClass" >
+<ScalarValue value="alaPOWCanclScrn"/>
+</AttributDescription>
+<AttributDescription attrId="dssEventType" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="valueAlarmVector" position="1" activation="ENABLE" formula="SCS_ALARM_DI(IF([.hdvFlag],[^.value],[^.value]),0,{.valueAutomaton},{.ackAutomaton},{^:dac.equipmentDate},{^:dac.acqDate},2,DPC_EXASTATUS([^.status],[^:dfo.forcedStatus]))" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+<AttributDescription attrId="valueAutomaton" >
+<ScalarValue value="DIBasic2StateLog"/>
+</AttributDescription>
+<AttributDescription attrId="hdvFlag" position="0" activation="ENABLE" formula="[^:^.hdvflag]" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueTable" >
+<StructVectorValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="1"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="4"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="5"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+</StructVectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dalPOW-CtrlS_503988" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="theme" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="ackAutomaton" >
+<ScalarValue value="AckHdv"/>
+</AttributDescription>
+<AttributDescription attrId="alClass" >
+<ScalarValue value="alaPOWCanclScrn"/>
+</AttributDescription>
+<AttributDescription attrId="dssEventType" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="valueAlarmVector" position="1" activation="ENABLE" formula="SCS_ALARM_DI(IF([.hdvFlag],[^.value],[^.value]),0,{.valueAutomaton},{.ackAutomaton},{^:dac.equipmentDate},{^:dac.acqDate},2,DPC_EXASTATUS([^.status],[^:dfo.forcedStatus]))" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+<AttributDescription attrId="valueAutomaton" >
+<ScalarValue value="DIBasic2StateLog"/>
+</AttributDescription>
+<AttributDescription attrId="hdvFlag" position="0" activation="ENABLE" formula="[^:^.hdvflag]" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueTable" >
+<StructVectorValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="1"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="4"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="5"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+</StructVectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dalPOW-CtrlS_504122" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="theme" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="ackAutomaton" >
+<ScalarValue value="AckHdv"/>
+</AttributDescription>
+<AttributDescription attrId="alClass" >
+<ScalarValue value="alaPOWCanclScrn"/>
+</AttributDescription>
+<AttributDescription attrId="dssEventType" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="valueAlarmVector" position="1" activation="ENABLE" formula="SCS_ALARM_DI(IF([.hdvFlag],[^.value],[^.value]),0,{.valueAutomaton},{.ackAutomaton},{^:dac.equipmentDate},{^:dac.acqDate},2,DPC_EXASTATUS([^.status],[^:dfo.forcedStatus]))" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+<AttributDescription attrId="valueAutomaton" >
+<ScalarValue value="DIBasic2StateLog"/>
+</AttributDescription>
+<AttributDescription attrId="hdvFlag" position="0" activation="ENABLE" formula="[^:^.hdvflag]" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueTable" >
+<StructVectorValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="1"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="4"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="5"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+</StructVectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dalPOW-CtrlS_504265" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="theme" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="ackAutomaton" >
+<ScalarValue value="AckHdv"/>
+</AttributDescription>
+<AttributDescription attrId="alClass" >
+<ScalarValue value="alaPOWCanclScrn"/>
+</AttributDescription>
+<AttributDescription attrId="dssEventType" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="valueAlarmVector" position="1" activation="ENABLE" formula="SCS_ALARM_DI(IF([.hdvFlag],[^.value],[^.value]),0,{.valueAutomaton},{.ackAutomaton},{^:dac.equipmentDate},{^:dac.acqDate},2,DPC_EXASTATUS([^.status],[^:dfo.forcedStatus]))" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+<AttributDescription attrId="valueAutomaton" >
+<ScalarValue value="DIBasic2StateLog"/>
+</AttributDescription>
+<AttributDescription attrId="hdvFlag" position="0" activation="ENABLE" formula="[^:^.hdvflag]" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueTable" >
+<StructVectorValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="1"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="4"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="5"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+</StructVectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dalPOW-CtrlS_504422" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="theme" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="ackAutomaton" >
+<ScalarValue value="AckHdv"/>
+</AttributDescription>
+<AttributDescription attrId="alClass" >
+<ScalarValue value="alaPOWCanclScrn"/>
+</AttributDescription>
+<AttributDescription attrId="dssEventType" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="valueAlarmVector" position="1" activation="ENABLE" formula="SCS_ALARM_DI(IF([.hdvFlag],[^.value],[^.value]),0,{.valueAutomaton},{.ackAutomaton},{^:dac.equipmentDate},{^:dac.acqDate},2,DPC_EXASTATUS([^.status],[^:dfo.forcedStatus]))" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+<AttributDescription attrId="valueAutomaton" >
+<ScalarValue value="DIBasic2StateLog"/>
+</AttributDescription>
+<AttributDescription attrId="hdvFlag" position="0" activation="ENABLE" formula="[^:^.hdvflag]" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueTable" >
+<StructVectorValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="1"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="4"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="5"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+</StructVectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dalPOW-CtrlS_504597" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="theme" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="ackAutomaton" >
+<ScalarValue value="AckHdv"/>
+</AttributDescription>
+<AttributDescription attrId="alClass" >
+<ScalarValue value="alaPOWCanclScrn"/>
+</AttributDescription>
+<AttributDescription attrId="dssEventType" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="valueAlarmVector" position="1" activation="ENABLE" formula="SCS_ALARM_DI(IF([.hdvFlag],[^.value],[^.value]),0,{.valueAutomaton},{.ackAutomaton},{^:dac.equipmentDate},{^:dac.acqDate},2,DPC_EXASTATUS([^.status],[^:dfo.forcedStatus]))" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+<AttributDescription attrId="valueAutomaton" >
+<ScalarValue value="DIBasic2StateLog"/>
+</AttributDescription>
+<AttributDescription attrId="hdvFlag" position="0" activation="ENABLE" formula="[^:^.hdvflag]" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueTable" >
+<StructVectorValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="1"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="4"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="5"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+</StructVectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dalPOW-CtrlS_504772" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="theme" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="ackAutomaton" >
+<ScalarValue value="AckHdv"/>
+</AttributDescription>
+<AttributDescription attrId="alClass" >
+<ScalarValue value="alaPOWCanclScrn"/>
+</AttributDescription>
+<AttributDescription attrId="dssEventType" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="valueAlarmVector" position="1" activation="ENABLE" formula="SCS_ALARM_DI(IF([.hdvFlag],[^.value],[^.value]),0,{.valueAutomaton},{.ackAutomaton},{^:dac.equipmentDate},{^:dac.acqDate},2,DPC_EXASTATUS([^.status],[^:dfo.forcedStatus]))" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+<AttributDescription attrId="valueAutomaton" >
+<ScalarValue value="DIBasic2StateLog"/>
+</AttributDescription>
+<AttributDescription attrId="hdvFlag" position="0" activation="ENABLE" formula="[^:^.hdvflag]" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueTable" >
+<StructVectorValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="1"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="4"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="5"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+</StructVectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dalPOW-CtrlS_504995" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="theme" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="ackAutomaton" >
+<ScalarValue value="AckHdv"/>
+</AttributDescription>
+<AttributDescription attrId="alClass" >
+<ScalarValue value="alaPOWCanclScrn"/>
+</AttributDescription>
+<AttributDescription attrId="dssEventType" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="valueAlarmVector" position="1" activation="ENABLE" formula="SCS_ALARM_DI(IF([.hdvFlag],[^.value],[^.value]),0,{.valueAutomaton},{.ackAutomaton},{^:dac.equipmentDate},{^:dac.acqDate},2,DPC_EXASTATUS([^.status],[^:dfo.forcedStatus]))" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+<AttributDescription attrId="valueAutomaton" >
+<ScalarValue value="DIBasic2StateLog"/>
+</AttributDescription>
+<AttributDescription attrId="hdvFlag" position="0" activation="ENABLE" formula="[^:^.hdvflag]" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueTable" >
+<StructVectorValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="1"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="4"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="5"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+</StructVectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dalPOW-CtrlS_505250" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="theme" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="ackAutomaton" >
+<ScalarValue value="AckHdv"/>
+</AttributDescription>
+<AttributDescription attrId="alClass" >
+<ScalarValue value="alaPOWCanclScrn"/>
+</AttributDescription>
+<AttributDescription attrId="dssEventType" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="valueAlarmVector" position="1" activation="ENABLE" formula="SCS_ALARM_DI(IF([.hdvFlag],[^.value],[^.value]),0,{.valueAutomaton},{.ackAutomaton},{^:dac.equipmentDate},{^:dac.acqDate},2,DPC_EXASTATUS([^.status],[^:dfo.forcedStatus]))" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+<AttributDescription attrId="valueAutomaton" >
+<ScalarValue value="DIBasic2StateLog"/>
+</AttributDescription>
+<AttributDescription attrId="hdvFlag" position="0" activation="ENABLE" formula="[^:^.hdvflag]" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueTable" >
+<StructVectorValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="1"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="4"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="5"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+</StructVectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dalPOW-CtrlS_505516" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="theme" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="ackAutomaton" >
+<ScalarValue value="AckHdv"/>
+</AttributDescription>
+<AttributDescription attrId="alClass" >
+<ScalarValue value="alaPOWCanclScrn"/>
+</AttributDescription>
+<AttributDescription attrId="dssEventType" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="valueAlarmVector" position="1" activation="ENABLE" formula="SCS_ALARM_DI(IF([.hdvFlag],[^.value],[^.value]),0,{.valueAutomaton},{.ackAutomaton},{^:dac.equipmentDate},{^:dac.acqDate},2,DPC_EXASTATUS([^.status],[^:dfo.forcedStatus]))" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+<AttributDescription attrId="valueAutomaton" >
+<ScalarValue value="DIBasic2StateLog"/>
+</AttributDescription>
+<AttributDescription attrId="hdvFlag" position="0" activation="ENABLE" formula="[^:^.hdvflag]" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueTable" >
+<StructVectorValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="1"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="4"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="5"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+</StructVectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dalPOW-CtrlS_505801" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="theme" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="ackAutomaton" >
+<ScalarValue value="AckHdv"/>
+</AttributDescription>
+<AttributDescription attrId="alClass" >
+<ScalarValue value="alaPOWCanclScrn"/>
+</AttributDescription>
+<AttributDescription attrId="dssEventType" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="valueAlarmVector" position="1" activation="ENABLE" formula="SCS_ALARM_DI(IF([.hdvFlag],[^.value],[^.value]),0,{.valueAutomaton},{.ackAutomaton},{^:dac.equipmentDate},{^:dac.acqDate},2,DPC_EXASTATUS([^.status],[^:dfo.forcedStatus]))" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+<AttributDescription attrId="valueAutomaton" >
+<ScalarValue value="DIBasic2StateLog"/>
+</AttributDescription>
+<AttributDescription attrId="hdvFlag" position="0" activation="ENABLE" formula="[^:^.hdvflag]" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueTable" >
+<StructVectorValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="1"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="4"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="5"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+</StructVectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dalPOW-CtrlS_506082" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="theme" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="ackAutomaton" >
+<ScalarValue value="AckHdv"/>
+</AttributDescription>
+<AttributDescription attrId="alClass" >
+<ScalarValue value="alaPOWCanclScrn"/>
+</AttributDescription>
+<AttributDescription attrId="dssEventType" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="valueAlarmVector" position="1" activation="ENABLE" formula="SCS_ALARM_DI(IF([.hdvFlag],[^.value],[^.value]),0,{.valueAutomaton},{.ackAutomaton},{^:dac.equipmentDate},{^:dac.acqDate},2,DPC_EXASTATUS([^.status],[^:dfo.forcedStatus]))" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+<AttributDescription attrId="valueAutomaton" >
+<ScalarValue value="DIBasic2StateLog"/>
+</AttributDescription>
+<AttributDescription attrId="hdvFlag" position="0" activation="ENABLE" formula="[^:^.hdvflag]" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueTable" >
+<StructVectorValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="1"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="4"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="5"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+</StructVectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dalPOW-CtrlS_506213" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="theme" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="ackAutomaton" >
+<ScalarValue value="AckHdv"/>
+</AttributDescription>
+<AttributDescription attrId="alClass" >
+<ScalarValue value="alaPOWCanclScrn"/>
+</AttributDescription>
+<AttributDescription attrId="dssEventType" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="valueAlarmVector" position="1" activation="ENABLE" formula="SCS_ALARM_DI(IF([.hdvFlag],[^.value],[^.value]),0,{.valueAutomaton},{.ackAutomaton},{^:dac.equipmentDate},{^:dac.acqDate},2,DPC_EXASTATUS([^.status],[^:dfo.forcedStatus]))" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+<AttributDescription attrId="valueAutomaton" >
+<ScalarValue value="DIBasic2StateLog"/>
+</AttributDescription>
+<AttributDescription attrId="hdvFlag" position="0" activation="ENABLE" formula="[^:^.hdvflag]" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueTable" >
+<StructVectorValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="1"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="4"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="5"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+</StructVectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dalPOW-CtrlS_506265" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="theme" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="ackAutomaton" >
+<ScalarValue value="AckHdv"/>
+</AttributDescription>
+<AttributDescription attrId="alClass" >
+<ScalarValue value="alaPOWCanclScrn"/>
+</AttributDescription>
+<AttributDescription attrId="dssEventType" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="valueAlarmVector" position="1" activation="ENABLE" formula="SCS_ALARM_DI(IF([.hdvFlag],[^.value],[^.value]),0,{.valueAutomaton},{.ackAutomaton},{^:dac.equipmentDate},{^:dac.acqDate},2,DPC_EXASTATUS([^.status],[^:dfo.forcedStatus]))" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+<AttributDescription attrId="valueAutomaton" >
+<ScalarValue value="DIBasic2StateLog"/>
+</AttributDescription>
+<AttributDescription attrId="hdvFlag" position="0" activation="ENABLE" formula="[^:^.hdvflag]" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueTable" >
+<StructVectorValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="1"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="4"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="5"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+</StructVectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dalPOW-CtrlS_506311" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="theme" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="ackAutomaton" >
+<ScalarValue value="AckHdv"/>
+</AttributDescription>
+<AttributDescription attrId="alClass" >
+<ScalarValue value="alaPOWCanclScrn"/>
+</AttributDescription>
+<AttributDescription attrId="dssEventType" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="valueAlarmVector" position="1" activation="ENABLE" formula="SCS_ALARM_DI(IF([.hdvFlag],[^.value],[^.value]),0,{.valueAutomaton},{.ackAutomaton},{^:dac.equipmentDate},{^:dac.acqDate},2,DPC_EXASTATUS([^.status],[^:dfo.forcedStatus]))" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+<AttributDescription attrId="valueAutomaton" >
+<ScalarValue value="DIBasic2StateLog"/>
+</AttributDescription>
+<AttributDescription attrId="hdvFlag" position="0" activation="ENABLE" formula="[^:^.hdvflag]" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueTable" >
+<StructVectorValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="1"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="4"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="5"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+</StructVectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dalPOW-CtrlS_506351" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="theme" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="ackAutomaton" >
+<ScalarValue value="AckHdv"/>
+</AttributDescription>
+<AttributDescription attrId="alClass" >
+<ScalarValue value="alaPOWCanclScrn"/>
+</AttributDescription>
+<AttributDescription attrId="dssEventType" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="valueAlarmVector" position="1" activation="ENABLE" formula="SCS_ALARM_DI(IF([.hdvFlag],[^.value],[^.value]),0,{.valueAutomaton},{.ackAutomaton},{^:dac.equipmentDate},{^:dac.acqDate},2,DPC_EXASTATUS([^.status],[^:dfo.forcedStatus]))" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+<AttributDescription attrId="valueAutomaton" >
+<ScalarValue value="DIBasic2StateLog"/>
+</AttributDescription>
+<AttributDescription attrId="hdvFlag" position="0" activation="ENABLE" formula="[^:^.hdvflag]" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueTable" >
+<StructVectorValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="1"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="4"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="5"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+</StructVectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dalPOW-CtrlS_506391" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="theme" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="ackAutomaton" >
+<ScalarValue value="AckHdv"/>
+</AttributDescription>
+<AttributDescription attrId="alClass" >
+<ScalarValue value="alaPOWCanclScrn"/>
+</AttributDescription>
+<AttributDescription attrId="dssEventType" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="valueAlarmVector" position="1" activation="ENABLE" formula="SCS_ALARM_DI(IF([.hdvFlag],[^.value],[^.value]),0,{.valueAutomaton},{.ackAutomaton},{^:dac.equipmentDate},{^:dac.acqDate},2,DPC_EXASTATUS([^.status],[^:dfo.forcedStatus]))" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+<AttributDescription attrId="valueAutomaton" >
+<ScalarValue value="DIBasic2StateLog"/>
+</AttributDescription>
+<AttributDescription attrId="hdvFlag" position="0" activation="ENABLE" formula="[^:^.hdvflag]" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueTable" >
+<StructVectorValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="1"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="4"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="5"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+</StructVectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dalPOW-CtrlS_506431" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="theme" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="ackAutomaton" >
+<ScalarValue value="AckHdv"/>
+</AttributDescription>
+<AttributDescription attrId="alClass" >
+<ScalarValue value="alaPOWCanclScrn"/>
+</AttributDescription>
+<AttributDescription attrId="dssEventType" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="valueAlarmVector" position="1" activation="ENABLE" formula="SCS_ALARM_DI(IF([.hdvFlag],[^.value],[^.value]),0,{.valueAutomaton},{.ackAutomaton},{^:dac.equipmentDate},{^:dac.acqDate},2,DPC_EXASTATUS([^.status],[^:dfo.forcedStatus]))" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+<AttributDescription attrId="valueAutomaton" >
+<ScalarValue value="DIBasic2StateLog"/>
+</AttributDescription>
+<AttributDescription attrId="hdvFlag" position="0" activation="ENABLE" formula="[^:^.hdvflag]" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueTable" >
+<StructVectorValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="1"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="4"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="5"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+</StructVectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dalPOW-CtrlS_506477" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="theme" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="ackAutomaton" >
+<ScalarValue value="AckHdv"/>
+</AttributDescription>
+<AttributDescription attrId="alClass" >
+<ScalarValue value="alaPOWCanclScrn"/>
+</AttributDescription>
+<AttributDescription attrId="dssEventType" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="valueAlarmVector" position="1" activation="ENABLE" formula="SCS_ALARM_DI(IF([.hdvFlag],[^.value],[^.value]),0,{.valueAutomaton},{.ackAutomaton},{^:dac.equipmentDate},{^:dac.acqDate},2,DPC_EXASTATUS([^.status],[^:dfo.forcedStatus]))" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+<AttributDescription attrId="valueAutomaton" >
+<ScalarValue value="DIBasic2StateLog"/>
+</AttributDescription>
+<AttributDescription attrId="hdvFlag" position="0" activation="ENABLE" formula="[^:^.hdvflag]" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueTable" >
+<StructVectorValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="1"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="4"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="5"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+</StructVectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dalPOW-CtrlS_506532" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="theme" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="ackAutomaton" >
+<ScalarValue value="AckHdv"/>
+</AttributDescription>
+<AttributDescription attrId="alClass" >
+<ScalarValue value="alaPOWCanclScrn"/>
+</AttributDescription>
+<AttributDescription attrId="dssEventType" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="valueAlarmVector" position="1" activation="ENABLE" formula="SCS_ALARM_DI(IF([.hdvFlag],[^.value],[^.value]),0,{.valueAutomaton},{.ackAutomaton},{^:dac.equipmentDate},{^:dac.acqDate},2,DPC_EXASTATUS([^.status],[^:dfo.forcedStatus]))" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+<AttributDescription attrId="valueAutomaton" >
+<ScalarValue value="DIBasic2StateLog"/>
+</AttributDescription>
+<AttributDescription attrId="hdvFlag" position="0" activation="ENABLE" formula="[^:^.hdvflag]" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueTable" >
+<StructVectorValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="1"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="4"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="5"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+</StructVectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dalPOW-CtrlS_506603" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="theme" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="ackAutomaton" >
+<ScalarValue value="AckHdv"/>
+</AttributDescription>
+<AttributDescription attrId="alClass" >
+<ScalarValue value="alaPOWCanclScrn"/>
+</AttributDescription>
+<AttributDescription attrId="dssEventType" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="valueAlarmVector" position="1" activation="ENABLE" formula="SCS_ALARM_DI(IF([.hdvFlag],[^.value],[^.value]),0,{.valueAutomaton},{.ackAutomaton},{^:dac.equipmentDate},{^:dac.acqDate},2,DPC_EXASTATUS([^.status],[^:dfo.forcedStatus]))" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+<AttributDescription attrId="valueAutomaton" >
+<ScalarValue value="DIBasic2StateLog"/>
+</AttributDescription>
+<AttributDescription attrId="hdvFlag" position="0" activation="ENABLE" formula="[^:^.hdvflag]" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueTable" >
+<StructVectorValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="1"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="4"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="5"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+</StructVectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dalPOW-CtrlS_506669" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="theme" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="ackAutomaton" >
+<ScalarValue value="AckHdv"/>
+</AttributDescription>
+<AttributDescription attrId="alClass" >
+<ScalarValue value="alaPOWCanclScrn"/>
+</AttributDescription>
+<AttributDescription attrId="dssEventType" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="valueAlarmVector" position="1" activation="ENABLE" formula="SCS_ALARM_DI(IF([.hdvFlag],[^.value],[^.value]),0,{.valueAutomaton},{.ackAutomaton},{^:dac.equipmentDate},{^:dac.acqDate},2,DPC_EXASTATUS([^.status],[^:dfo.forcedStatus]))" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+<AttributDescription attrId="valueAutomaton" >
+<ScalarValue value="DIBasic2StateLog"/>
+</AttributDescription>
+<AttributDescription attrId="hdvFlag" position="0" activation="ENABLE" formula="[^:^.hdvflag]" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueTable" >
+<StructVectorValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="1"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="4"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="5"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+</StructVectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dalPOW-CtrlS_506733" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="theme" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="ackAutomaton" >
+<ScalarValue value="AckHdv"/>
+</AttributDescription>
+<AttributDescription attrId="alClass" >
+<ScalarValue value="alaPOWCanclScrn"/>
+</AttributDescription>
+<AttributDescription attrId="dssEventType" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="valueAlarmVector" position="1" activation="ENABLE" formula="SCS_ALARM_DI(IF([.hdvFlag],[^.value],[^.value]),0,{.valueAutomaton},{.ackAutomaton},{^:dac.equipmentDate},{^:dac.acqDate},2,DPC_EXASTATUS([^.status],[^:dfo.forcedStatus]))" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+<AttributDescription attrId="valueAutomaton" >
+<ScalarValue value="DIBasic2StateLog"/>
+</AttributDescription>
+<AttributDescription attrId="hdvFlag" position="0" activation="ENABLE" formula="[^:^.hdvflag]" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueTable" >
+<StructVectorValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="1"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="4"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="5"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+</StructVectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dalPOW-CtrlS_506797" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="theme" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="ackAutomaton" >
+<ScalarValue value="AckHdv"/>
+</AttributDescription>
+<AttributDescription attrId="alClass" >
+<ScalarValue value="alaPOWCanclScrn"/>
+</AttributDescription>
+<AttributDescription attrId="dssEventType" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="valueAlarmVector" position="1" activation="ENABLE" formula="SCS_ALARM_DI(IF([.hdvFlag],[^.value],[^.value]),0,{.valueAutomaton},{.ackAutomaton},{^:dac.equipmentDate},{^:dac.acqDate},2,DPC_EXASTATUS([^.status],[^:dfo.forcedStatus]))" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+<AttributDescription attrId="valueAutomaton" >
+<ScalarValue value="DIBasic2StateLog"/>
+</AttributDescription>
+<AttributDescription attrId="hdvFlag" position="0" activation="ENABLE" formula="[^:^.hdvflag]" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueTable" >
+<StructVectorValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="1"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="4"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="5"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+</StructVectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dalPOW-CtrlS_506925" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="theme" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="ackAutomaton" >
+<ScalarValue value="AckHdv"/>
+</AttributDescription>
+<AttributDescription attrId="alClass" >
+<ScalarValue value="alaPOWCanclScrn"/>
+</AttributDescription>
+<AttributDescription attrId="dssEventType" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="valueAlarmVector" position="1" activation="ENABLE" formula="SCS_ALARM_DI(IF([.hdvFlag],[^.value],[^.value]),0,{.valueAutomaton},{.ackAutomaton},{^:dac.equipmentDate},{^:dac.acqDate},2,DPC_EXASTATUS([^.status],[^:dfo.forcedStatus]))" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+<AttributDescription attrId="valueAutomaton" >
+<ScalarValue value="DIBasic2StateLog"/>
+</AttributDescription>
+<AttributDescription attrId="hdvFlag" position="0" activation="ENABLE" formula="[^:^.hdvflag]" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueTable" >
+<StructVectorValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="1"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="4"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="5"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+</StructVectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dalPOW-CtrlS_506946" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="theme" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="ackAutomaton" >
+<ScalarValue value="AckHdv"/>
+</AttributDescription>
+<AttributDescription attrId="alClass" >
+<ScalarValue value="alaPOWCanclScrn"/>
+</AttributDescription>
+<AttributDescription attrId="dssEventType" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="valueAlarmVector" position="1" activation="ENABLE" formula="SCS_ALARM_DI(IF([.hdvFlag],[^.value],[^.value]),0,{.valueAutomaton},{.ackAutomaton},{^:dac.equipmentDate},{^:dac.acqDate},2,DPC_EXASTATUS([^.status],[^:dfo.forcedStatus]))" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+<AttributDescription attrId="valueAutomaton" >
+<ScalarValue value="DIBasic2StateLog"/>
+</AttributDescription>
+<AttributDescription attrId="hdvFlag" position="0" activation="ENABLE" formula="[^:^.hdvflag]" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueTable" >
+<StructVectorValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="1"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="4"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="5"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+</StructVectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dalPOW-CtrlS_507062" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="theme" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="ackAutomaton" >
+<ScalarValue value="AckHdv"/>
+</AttributDescription>
+<AttributDescription attrId="alClass" >
+<ScalarValue value="alaPOWCanclScrn"/>
+</AttributDescription>
+<AttributDescription attrId="dssEventType" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="valueAlarmVector" position="1" activation="ENABLE" formula="SCS_ALARM_DI(IF([.hdvFlag],[^.value],[^.value]),0,{.valueAutomaton},{.ackAutomaton},{^:dac.equipmentDate},{^:dac.acqDate},2,DPC_EXASTATUS([^.status],[^:dfo.forcedStatus]))" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+<AttributDescription attrId="valueAutomaton" >
+<ScalarValue value="DIBasic2StateLog"/>
+</AttributDescription>
+<AttributDescription attrId="hdvFlag" position="0" activation="ENABLE" formula="[^:^.hdvflag]" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueTable" >
+<StructVectorValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="1"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="4"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="5"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+</StructVectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dalPOW-CtrlS_509032" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="theme" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="ackAutomaton" >
+<ScalarValue value="AckHdv"/>
+</AttributDescription>
+<AttributDescription attrId="alClass" >
+<ScalarValue value="alaPOWCanclScrn"/>
+</AttributDescription>
+<AttributDescription attrId="dssEventType" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="valueAlarmVector" position="1" activation="ENABLE" formula="SCS_ALARM_DI(IF([.hdvFlag],[^.value],[^.value]),0,{.valueAutomaton},{.ackAutomaton},{^:dac.equipmentDate},{^:dac.acqDate},2,DPC_EXASTATUS([^.status],[^:dfo.forcedStatus]))" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+<AttributDescription attrId="valueAutomaton" >
+<ScalarValue value="DIBasic2StateLog"/>
+</AttributDescription>
+<AttributDescription attrId="hdvFlag" position="0" activation="ENABLE" formula="[^:^.hdvflag]" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueTable" >
+<StructVectorValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="1"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="4"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="5"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+</StructVectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dalPOW-CtrlS_509079" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="theme" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="ackAutomaton" >
+<ScalarValue value="AckHdv"/>
+</AttributDescription>
+<AttributDescription attrId="alClass" >
+<ScalarValue value="alaPOWCanclScrn"/>
+</AttributDescription>
+<AttributDescription attrId="dssEventType" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="valueAlarmVector" position="1" activation="ENABLE" formula="SCS_ALARM_DI(IF([.hdvFlag],[^.value],[^.value]),0,{.valueAutomaton},{.ackAutomaton},{^:dac.equipmentDate},{^:dac.acqDate},2,DPC_EXASTATUS([^.status],[^:dfo.forcedStatus]))" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+<AttributDescription attrId="valueAutomaton" >
+<ScalarValue value="DIBasic2StateLog"/>
+</AttributDescription>
+<AttributDescription attrId="hdvFlag" position="0" activation="ENABLE" formula="[^:^.hdvflag]" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueTable" >
+<StructVectorValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="1"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="4"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="5"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+</StructVectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dalPOW-CtrlS_509126" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="theme" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="ackAutomaton" >
+<ScalarValue value="AckHdv"/>
+</AttributDescription>
+<AttributDescription attrId="alClass" >
+<ScalarValue value="alaPOWCanclScrn"/>
+</AttributDescription>
+<AttributDescription attrId="dssEventType" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="valueAlarmVector" position="1" activation="ENABLE" formula="SCS_ALARM_DI(IF([.hdvFlag],[^.value],[^.value]),0,{.valueAutomaton},{.ackAutomaton},{^:dac.equipmentDate},{^:dac.acqDate},2,DPC_EXASTATUS([^.status],[^:dfo.forcedStatus]))" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+<AttributDescription attrId="valueAutomaton" >
+<ScalarValue value="DIBasic2StateLog"/>
+</AttributDescription>
+<AttributDescription attrId="hdvFlag" position="0" activation="ENABLE" formula="[^:^.hdvflag]" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueTable" >
+<StructVectorValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="1"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="4"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="5"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+</StructVectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dalPOW-CtrlS_509173" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="theme" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="ackAutomaton" >
+<ScalarValue value="AckHdv"/>
+</AttributDescription>
+<AttributDescription attrId="alClass" >
+<ScalarValue value="alaPOWCanclScrn"/>
+</AttributDescription>
+<AttributDescription attrId="dssEventType" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="valueAlarmVector" position="1" activation="ENABLE" formula="SCS_ALARM_DI(IF([.hdvFlag],[^.value],[^.value]),0,{.valueAutomaton},{.ackAutomaton},{^:dac.equipmentDate},{^:dac.acqDate},2,DPC_EXASTATUS([^.status],[^:dfo.forcedStatus]))" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+<AttributDescription attrId="valueAutomaton" >
+<ScalarValue value="DIBasic2StateLog"/>
+</AttributDescription>
+<AttributDescription attrId="hdvFlag" position="0" activation="ENABLE" formula="[^:^.hdvflag]" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueTable" >
+<StructVectorValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="1"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="4"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="5"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+</StructVectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dalPOW-CtrlS_509220" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="theme" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="ackAutomaton" >
+<ScalarValue value="AckHdv"/>
+</AttributDescription>
+<AttributDescription attrId="alClass" >
+<ScalarValue value="alaPOWCanclScrn"/>
+</AttributDescription>
+<AttributDescription attrId="dssEventType" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="valueAlarmVector" position="1" activation="ENABLE" formula="SCS_ALARM_DI(IF([.hdvFlag],[^.value],[^.value]),0,{.valueAutomaton},{.ackAutomaton},{^:dac.equipmentDate},{^:dac.acqDate},2,DPC_EXASTATUS([^.status],[^:dfo.forcedStatus]))" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+<AttributDescription attrId="valueAutomaton" >
+<ScalarValue value="DIBasic2StateLog"/>
+</AttributDescription>
+<AttributDescription attrId="hdvFlag" position="0" activation="ENABLE" formula="[^:^.hdvflag]" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueTable" >
+<StructVectorValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="1"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="4"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="5"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+</StructVectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dalPOW-CtrlS_509267" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="theme" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="ackAutomaton" >
+<ScalarValue value="AckHdv"/>
+</AttributDescription>
+<AttributDescription attrId="alClass" >
+<ScalarValue value="alaPOWCanclScrn"/>
+</AttributDescription>
+<AttributDescription attrId="dssEventType" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="valueAlarmVector" position="1" activation="ENABLE" formula="SCS_ALARM_DI(IF([.hdvFlag],[^.value],[^.value]),0,{.valueAutomaton},{.ackAutomaton},{^:dac.equipmentDate},{^:dac.acqDate},2,DPC_EXASTATUS([^.status],[^:dfo.forcedStatus]))" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+<AttributDescription attrId="valueAutomaton" >
+<ScalarValue value="DIBasic2StateLog"/>
+</AttributDescription>
+<AttributDescription attrId="hdvFlag" position="0" activation="ENABLE" formula="[^:^.hdvflag]" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueTable" >
+<StructVectorValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="1"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="4"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="5"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+</StructVectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dalPOW-CtrlS_509314" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="theme" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="ackAutomaton" >
+<ScalarValue value="AckHdv"/>
+</AttributDescription>
+<AttributDescription attrId="alClass" >
+<ScalarValue value="alaPOWCanclScrn"/>
+</AttributDescription>
+<AttributDescription attrId="dssEventType" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="valueAlarmVector" position="1" activation="ENABLE" formula="SCS_ALARM_DI(IF([.hdvFlag],[^.value],[^.value]),0,{.valueAutomaton},{.ackAutomaton},{^:dac.equipmentDate},{^:dac.acqDate},2,DPC_EXASTATUS([^.status],[^:dfo.forcedStatus]))" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+<AttributDescription attrId="valueAutomaton" >
+<ScalarValue value="DIBasic2StateLog"/>
+</AttributDescription>
+<AttributDescription attrId="hdvFlag" position="0" activation="ENABLE" formula="[^:^.hdvflag]" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueTable" >
+<StructVectorValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="1"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="4"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="5"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+</StructVectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dalPOW-CtrlS_509361" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="theme" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="ackAutomaton" >
+<ScalarValue value="AckHdv"/>
+</AttributDescription>
+<AttributDescription attrId="alClass" >
+<ScalarValue value="alaPOWCanclScrn"/>
+</AttributDescription>
+<AttributDescription attrId="dssEventType" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="valueAlarmVector" position="1" activation="ENABLE" formula="SCS_ALARM_DI(IF([.hdvFlag],[^.value],[^.value]),0,{.valueAutomaton},{.ackAutomaton},{^:dac.equipmentDate},{^:dac.acqDate},2,DPC_EXASTATUS([^.status],[^:dfo.forcedStatus]))" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+<AttributDescription attrId="valueAutomaton" >
+<ScalarValue value="DIBasic2StateLog"/>
+</AttributDescription>
+<AttributDescription attrId="hdvFlag" position="0" activation="ENABLE" formula="[^:^.hdvflag]" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueTable" >
+<StructVectorValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="1"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="4"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="5"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+</StructVectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dalPOW-CtrlS_509408" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="theme" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="ackAutomaton" >
+<ScalarValue value="AckHdv"/>
+</AttributDescription>
+<AttributDescription attrId="alClass" >
+<ScalarValue value="alaPOWCanclScrn"/>
+</AttributDescription>
+<AttributDescription attrId="dssEventType" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="valueAlarmVector" position="1" activation="ENABLE" formula="SCS_ALARM_DI(IF([.hdvFlag],[^.value],[^.value]),0,{.valueAutomaton},{.ackAutomaton},{^:dac.equipmentDate},{^:dac.acqDate},2,DPC_EXASTATUS([^.status],[^:dfo.forcedStatus]))" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+<AttributDescription attrId="valueAutomaton" >
+<ScalarValue value="DIBasic2StateLog"/>
+</AttributDescription>
+<AttributDescription attrId="hdvFlag" position="0" activation="ENABLE" formula="[^:^.hdvflag]" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueTable" >
+<StructVectorValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="1"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="4"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="5"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+</StructVectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dalPOW-CtrlS_509455" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="theme" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="ackAutomaton" >
+<ScalarValue value="AckHdv"/>
+</AttributDescription>
+<AttributDescription attrId="alClass" >
+<ScalarValue value="alaPOWCanclScrn"/>
+</AttributDescription>
+<AttributDescription attrId="dssEventType" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="valueAlarmVector" position="1" activation="ENABLE" formula="SCS_ALARM_DI(IF([.hdvFlag],[^.value],[^.value]),0,{.valueAutomaton},{.ackAutomaton},{^:dac.equipmentDate},{^:dac.acqDate},2,DPC_EXASTATUS([^.status],[^:dfo.forcedStatus]))" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+<AttributDescription attrId="valueAutomaton" >
+<ScalarValue value="DIBasic2StateLog"/>
+</AttributDescription>
+<AttributDescription attrId="hdvFlag" position="0" activation="ENABLE" formula="[^:^.hdvflag]" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueTable" >
+<StructVectorValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="1"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="4"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="5"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+</StructVectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dalPOW-CtrlS_509502" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="theme" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="ackAutomaton" >
+<ScalarValue value="AckHdv"/>
+</AttributDescription>
+<AttributDescription attrId="alClass" >
+<ScalarValue value="alaPOWCanclScrn"/>
+</AttributDescription>
+<AttributDescription attrId="dssEventType" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="valueAlarmVector" position="1" activation="ENABLE" formula="SCS_ALARM_DI(IF([.hdvFlag],[^.value],[^.value]),0,{.valueAutomaton},{.ackAutomaton},{^:dac.equipmentDate},{^:dac.acqDate},2,DPC_EXASTATUS([^.status],[^:dfo.forcedStatus]))" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+<AttributDescription attrId="valueAutomaton" >
+<ScalarValue value="DIBasic2StateLog"/>
+</AttributDescription>
+<AttributDescription attrId="hdvFlag" position="0" activation="ENABLE" formula="[^:^.hdvflag]" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueTable" >
+<StructVectorValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="1"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="4"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="5"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+</StructVectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dalPOW-CtrlS_509549" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="theme" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="ackAutomaton" >
+<ScalarValue value="AckHdv"/>
+</AttributDescription>
+<AttributDescription attrId="alClass" >
+<ScalarValue value="alaPOWCanclScrn"/>
+</AttributDescription>
+<AttributDescription attrId="dssEventType" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="valueAlarmVector" position="1" activation="ENABLE" formula="SCS_ALARM_DI(IF([.hdvFlag],[^.value],[^.value]),0,{.valueAutomaton},{.ackAutomaton},{^:dac.equipmentDate},{^:dac.acqDate},2,DPC_EXASTATUS([^.status],[^:dfo.forcedStatus]))" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+<AttributDescription attrId="valueAutomaton" >
+<ScalarValue value="DIBasic2StateLog"/>
+</AttributDescription>
+<AttributDescription attrId="hdvFlag" position="0" activation="ENABLE" formula="[^:^.hdvflag]" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueTable" >
+<StructVectorValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="1"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="4"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="5"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+</StructVectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dalPOW-CtrlS_509596" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="theme" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="ackAutomaton" >
+<ScalarValue value="AckHdv"/>
+</AttributDescription>
+<AttributDescription attrId="alClass" >
+<ScalarValue value="alaPOWCanclScrn"/>
+</AttributDescription>
+<AttributDescription attrId="dssEventType" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="valueAlarmVector" position="1" activation="ENABLE" formula="SCS_ALARM_DI(IF([.hdvFlag],[^.value],[^.value]),0,{.valueAutomaton},{.ackAutomaton},{^:dac.equipmentDate},{^:dac.acqDate},2,DPC_EXASTATUS([^.status],[^:dfo.forcedStatus]))" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+<AttributDescription attrId="valueAutomaton" >
+<ScalarValue value="DIBasic2StateLog"/>
+</AttributDescription>
+<AttributDescription attrId="hdvFlag" position="0" activation="ENABLE" formula="[^:^.hdvflag]" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueTable" >
+<StructVectorValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="1"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="4"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="5"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+</StructVectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dalPOW-CtrlS_509643" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="theme" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="ackAutomaton" >
+<ScalarValue value="AckHdv"/>
+</AttributDescription>
+<AttributDescription attrId="alClass" >
+<ScalarValue value="alaPOWCanclScrn"/>
+</AttributDescription>
+<AttributDescription attrId="dssEventType" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="valueAlarmVector" position="1" activation="ENABLE" formula="SCS_ALARM_DI(IF([.hdvFlag],[^.value],[^.value]),0,{.valueAutomaton},{.ackAutomaton},{^:dac.equipmentDate},{^:dac.acqDate},2,DPC_EXASTATUS([^.status],[^:dfo.forcedStatus]))" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+<AttributDescription attrId="valueAutomaton" >
+<ScalarValue value="DIBasic2StateLog"/>
+</AttributDescription>
+<AttributDescription attrId="hdvFlag" position="0" activation="ENABLE" formula="[^:^.hdvflag]" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueTable" >
+<StructVectorValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="1"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="4"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="5"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+</StructVectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dalPOW-CtrlS_510110" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="theme" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="ackAutomaton" >
+<ScalarValue value="AckHdv"/>
+</AttributDescription>
+<AttributDescription attrId="alClass" >
+<ScalarValue value="alaPOWCanclScrn"/>
+</AttributDescription>
+<AttributDescription attrId="dssEventType" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="valueAlarmVector" position="1" activation="ENABLE" formula="SCS_ALARM_DI(IF([.hdvFlag],[^.value],[^.value]),0,{.valueAutomaton},{.ackAutomaton},{^:dac.equipmentDate},{^:dac.acqDate},2,DPC_EXASTATUS([^.status],[^:dfo.forcedStatus]))" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+<AttributDescription attrId="valueAutomaton" >
+<ScalarValue value="DIBasic2StateLog"/>
+</AttributDescription>
+<AttributDescription attrId="hdvFlag" position="0" activation="ENABLE" formula="[^:^.hdvflag]" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueTable" >
+<StructVectorValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="1"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="4"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="5"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+</StructVectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+<InstanceDescription alias="dalPOW-CtrlS_510261" calculation="OPTIMISED">
+<Context contextId="0">
+<AttributDescription attrId="theme" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="ackAutomaton" >
+<ScalarValue value="AckHdv"/>
+</AttributDescription>
+<AttributDescription attrId="alClass" >
+<ScalarValue value="alaPOWCanclScrn"/>
+</AttributDescription>
+<AttributDescription attrId="dssEventType" >
+<ScalarValue value=""/>
+</AttributDescription>
+<AttributDescription attrId="valueAlarmVector" position="1" activation="ENABLE" formula="SCS_ALARM_DI(IF([.hdvFlag],[^.value],[^.value]),0,{.valueAutomaton},{.ackAutomaton},{^:dac.equipmentDate},{^:dac.acqDate},2,DPC_EXASTATUS([^.status],[^:dfo.forcedStatus]))" >
+<VectorValue>
+<ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/><ScalarValue value="0"/>
+</VectorValue>
+</AttributDescription>
+<AttributDescription attrId="valueAutomaton" >
+<ScalarValue value="DIBasic2StateLog"/>
+</AttributDescription>
+<AttributDescription attrId="hdvFlag" position="0" activation="ENABLE" formula="[^:^.hdvflag]" >
+<ScalarValue value="0"/>
+</AttributDescription>
+<AttributDescription attrId="valueTable" >
+<StructVectorValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="1"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="4"/><ScalarValue value="Release"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="5"/><ScalarValue value="Screen2"/><ScalarValue value="N"/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+<StructFieldValue><ScalarValue value="0"/><ScalarValue value=""/><ScalarValue value=""/><ScalarValue value="0"/><ScalarValue value="0"/></StructFieldValue>
+</StructVectorValue>
+</AttributDescription>
+</Context>
+</InstanceDescription>
+</Instance>

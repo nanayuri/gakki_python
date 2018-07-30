@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE Class SYSTEM "dtd/dbkclass.dtd">
+<Class period_MT="0" period_ST="0" name="dacPOW-CtrlScrn" numAttributes="7" numInstances="57" numPeriod_MT="0" numPeriod_ST="0">
+<ClassDescription>
+<AttributeDescription attrType="STATIC" name="acqValue" replicated="0">
+<Scalar valueType="INT32" size="4"/>
+<ScalarDefaultValue defaultValue="0"/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="period" replicated="0">
+<Scalar valueType="INT32" size="4"/>
+<ScalarDefaultValue defaultValue="0"/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="acqDate" replicated="0">
+<Scalar valueType="DATE" size="16"/>
+<ScalarDefaultValue defaultValue="01/01/2001 00:00:00.000"/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="acqStatus" replicated="0">
+<Scalar valueType="INT32" size="4"/>
+<ScalarDefaultValue defaultValue="1"/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="equipmentDate" replicated="0">
+<Scalar valueType="DATE" size="16"/>
+<ScalarDefaultValue defaultValue="01/01/2001 00:00:00.000"/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="veTable" replicated="0">
+<StructVector numElementsList="4" numElementsStruct="5">
+<StructFieldDescription name="vepole">
+<Scalar valueType="CHARN" size="33"/>
+</StructFieldDescription>
+<StructFieldDescription name="vename">
+<Scalar valueType="CHARN" size="65"/>
+</StructFieldDescription>
+<StructFieldDescription name="value">
+<Scalar valueType="INT32" size="4"/>
+</StructFieldDescription>
+<StructFieldDescription name="date">
+<Scalar valueType="DATE" size="16"/>
+</StructFieldDescription>
+<StructFieldDescription name="status">
+<Scalar valueType="INT32" size="4"/>
+</StructFieldDescription>
+</StructVector>
+<StructVectorDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue=""/><ScalarDefaultValue defaultValue=""/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="01/01/1970 08:00:00.000"/><ScalarDefaultValue defaultValue="0"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue=""/><ScalarDefaultValue defaultValue=""/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="01/01/1970 08:00:00.000"/><ScalarDefaultValue defaultValue="0"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue=""/><ScalarDefaultValue defaultValue=""/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="01/01/1970 08:00:00.000"/><ScalarDefaultValue defaultValue="0"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue=""/><ScalarDefaultValue defaultValue=""/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="01/01/1970 08:00:00.000"/><ScalarDefaultValue defaultValue="0"/></StructFieldDefaultValue>
+</StructVectorDefaultValue>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="dumpdate" replicated="0">
+<Scalar valueType="DATE" size="16"/>
+<ScalarDefaultValue defaultValue="01/01/1970 08:00:00.000"/>
+</AttributeDescription>
+</ClassDescription>
+</Class>

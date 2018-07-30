@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE Class SYSTEM "dtd/dbkclass.dtd">
+<Class period_MT="0" period_ST="0" name="dalPOW-PowIscs" numAttributes="8" numInstances="59" numPeriod_MT="0" numPeriod_ST="0">
+<ClassDescription>
+<AttributeDescription attrType="STATIC" name="theme" replicated="0">
+<Scalar valueType="INT32" size="4"/>
+<ScalarDefaultValue defaultValue="0"/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="ackAutomaton" replicated="0">
+<Scalar valueType="CHARN" size="81"/>
+<ScalarDefaultValue defaultValue="AckHdv"/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="alClass" replicated="0">
+<Scalar valueType="CHARN" size="65"/>
+<ScalarDefaultValue defaultValue="alaPOWhdv"/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="dssEventType" replicated="0">
+<Scalar valueType="CHARN" size="21"/>
+<ScalarDefaultValue defaultValue=""/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="valueAlarmVector" replicated="0">
+<Vector numElements="6">
+<Scalar valueType="INT32" size="4"/>
+</Vector>
+<VectorDefaultValue>
+<ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="0"/>
+</VectorDefaultValue>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="valueAutomaton" replicated="0">
+<Scalar valueType="CHARN" size="81"/>
+<ScalarDefaultValue defaultValue="DIBasic2StateLog"/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="hdvFlag" replicated="0">
+<Scalar valueType="INT32" size="4"/>
+<ScalarDefaultValue defaultValue="0"/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="valueTable" replicated="0">
+<StructVector numElementsList="64" numElementsStruct="5">
+<StructFieldDescription name="value">
+<Scalar valueType="INT32" size="4"/>
+</StructFieldDescription>
+<StructFieldDescription name="label">
+<Scalar valueType="CHARN" size="21"/>
+</StructFieldDescription>
+<StructFieldDescription name="state">
+<Scalar valueType="CHARN" size="5"/>
+</StructFieldDescription>
+<StructFieldDescription name="severity">
+<Scalar valueType="UINT32" size="4"/>
+</StructFieldDescription>
+<StructFieldDescription name="format">
+<Scalar valueType="UINT32" size="4"/>
+</StructFieldDescription>
+</StructVector>
+<StructVectorDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="4098"/><ScalarDefaultValue defaultValue="hdvmess1"/><ScalarDefaultValue defaultValue="N"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="2"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="4096"/><ScalarDefaultValue defaultValue="hdvmess2"/><ScalarDefaultValue defaultValue="N"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="2"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="4354"/><ScalarDefaultValue defaultValue="hdvmess3"/><ScalarDefaultValue defaultValue="N"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="2"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="4352"/><ScalarDefaultValue defaultValue="hdvmess4"/><ScalarDefaultValue defaultValue="N"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="2"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="4610"/><ScalarDefaultValue defaultValue="hdvmess5"/><ScalarDefaultValue defaultValue="N"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="2"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="4608"/><ScalarDefaultValue defaultValue="hdvmess6"/><ScalarDefaultValue defaultValue="N"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="2"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="4866"/><ScalarDefaultValue defaultValue="hdvmess7"/><ScalarDefaultValue defaultValue="N"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="2"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="4864"/><ScalarDefaultValue defaultValue="hdvmess8"/><ScalarDefaultValue defaultValue="N"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="2"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="5122"/><ScalarDefaultValue defaultValue="hdvmess9"/><ScalarDefaultValue defaultValue="N"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="2"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="5120"/><ScalarDefaultValue defaultValue="hdvmess10"/><ScalarDefaultValue defaultValue="N"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="2"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="5378"/><ScalarDefaultValue defaultValue="hdvmess11"/><ScalarDefaultValue defaultValue="N"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="2"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="5376"/><ScalarDefaultValue defaultValue="hdvmess12"/><ScalarDefaultValue defaultValue="N"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="2"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="5634"/><ScalarDefaultValue defaultValue="hdvmess13"/><ScalarDefaultValue defaultValue="N"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="2"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="5632"/><ScalarDefaultValue defaultValue="hdvmess14"/><ScalarDefaultValue defaultValue="N"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="2"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="5890"/><ScalarDefaultValue defaultValue="hdvmess15"/><ScalarDefaultValue defaultValue="N"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="2"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="5888"/><ScalarDefaultValue defaultValue="hdvmess16"/><ScalarDefaultValue defaultValue="N"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="2"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="8193"/><ScalarDefaultValue defaultValue="hdvmess17"/><ScalarDefaultValue defaultValue="N"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="2"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="8224"/><ScalarDefaultValue defaultValue="hdvmess18"/><ScalarDefaultValue defaultValue="N"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="2"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="8449"/><ScalarDefaultValue defaultValue="hdvmess19"/><ScalarDefaultValue defaultValue="N"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="2"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="8480"/><ScalarDefaultValue defaultValue="hdvmess20"/><ScalarDefaultValue defaultValue="N"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="2"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="8705"/><ScalarDefaultValue defaultValue="hdvmess21"/><ScalarDefaultValue defaultValue="N"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="2"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="8720"/><ScalarDefaultValue defaultValue="hdvmess22"/><ScalarDefaultValue defaultValue="N"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="2"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="8961"/><ScalarDefaultValue defaultValue="hdvmess23"/><ScalarDefaultValue defaultValue="N"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="2"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="8976"/><ScalarDefaultValue defaultValue="hdvmess24"/><ScalarDefaultValue defaultValue="N"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="2"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="9217"/><ScalarDefaultValue defaultValue="hdvmess25"/><ScalarDefaultValue defaultValue="N"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="2"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="9248"/><ScalarDefaultValue defaultValue="hdvmess26"/><ScalarDefaultValue defaultValue="N"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="2"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="9473"/><ScalarDefaultValue defaultValue="hdvmess27"/><ScalarDefaultValue defaultValue="N"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="2"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="9488"/><ScalarDefaultValue defaultValue="hdvmess28"/><ScalarDefaultValue defaultValue="N"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="2"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="9729"/><ScalarDefaultValue defaultValue="hdvmess29"/><ScalarDefaultValue defaultValue="N"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="2"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="9760"/><ScalarDefaultValue defaultValue="hdvmess30"/><ScalarDefaultValue defaultValue="N"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="2"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="9985"/><ScalarDefaultValue defaultValue="hdvmess31"/><ScalarDefaultValue defaultValue="N"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="2"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="10000"/><ScalarDefaultValue defaultValue="hdvmess32"/><ScalarDefaultValue defaultValue="N"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="2"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="10240"/><ScalarDefaultValue defaultValue="hdvmess33"/><ScalarDefaultValue defaultValue="N"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="2"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="10496"/><ScalarDefaultValue defaultValue="hdvmess34"/><ScalarDefaultValue defaultValue="N"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="2"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="1"/><ScalarDefaultValue defaultValue="hdvmess35"/><ScalarDefaultValue defaultValue="N"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="2"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="18"/><ScalarDefaultValue defaultValue="hdvmess36"/><ScalarDefaultValue defaultValue="N"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="2"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="257"/><ScalarDefaultValue defaultValue="hdvmess37"/><ScalarDefaultValue defaultValue="N"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="2"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="274"/><ScalarDefaultValue defaultValue="hdvmess38"/><ScalarDefaultValue defaultValue="N"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="2"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="513"/><ScalarDefaultValue defaultValue="hdvmess39"/><ScalarDefaultValue defaultValue="N"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="2"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="546"/><ScalarDefaultValue defaultValue="hdvmess40"/><ScalarDefaultValue defaultValue="N"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="2"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="769"/><ScalarDefaultValue defaultValue="hdvmess41"/><ScalarDefaultValue defaultValue="N"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="2"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="802"/><ScalarDefaultValue defaultValue="hdvmess42"/><ScalarDefaultValue defaultValue="N"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="2"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="1025"/><ScalarDefaultValue defaultValue="hdvmess43"/><ScalarDefaultValue defaultValue="N"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="2"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="1042"/><ScalarDefaultValue defaultValue="hdvmess44"/><ScalarDefaultValue defaultValue="N"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="2"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="1281"/><ScalarDefaultValue defaultValue="hdvmess45"/><ScalarDefaultValue defaultValue="N"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="2"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="1314"/><ScalarDefaultValue defaultValue="hdvmess46"/><ScalarDefaultValue defaultValue="N"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="2"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="1537"/><ScalarDefaultValue defaultValue="hdvmess47"/><ScalarDefaultValue defaultValue="N"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="2"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="1554"/><ScalarDefaultValue defaultValue="hdvmess48"/><ScalarDefaultValue defaultValue="N"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="2"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="1793"/><ScalarDefaultValue defaultValue="hdvmess49"/><ScalarDefaultValue defaultValue="N"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="2"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="1826"/><ScalarDefaultValue defaultValue="hdvmess50"/><ScalarDefaultValue defaultValue="N"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="2"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="2050"/><ScalarDefaultValue defaultValue="hdvmess51"/><ScalarDefaultValue defaultValue="N"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="2"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="2306"/><ScalarDefaultValue defaultValue="hdvmess52"/><ScalarDefaultValue defaultValue="N"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="2"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="2560"/><ScalarDefaultValue defaultValue="hdvmess53"/><ScalarDefaultValue defaultValue="A"/><ScalarDefaultValue defaultValue="4"/><ScalarDefaultValue defaultValue="2"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="3072"/><ScalarDefaultValue defaultValue="hdvmess54"/><ScalarDefaultValue defaultValue="N"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="2"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="2816"/><ScalarDefaultValue defaultValue="hdvmess55"/><ScalarDefaultValue defaultValue="N"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="2"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="11010"/><ScalarDefaultValue defaultValue="hdvmess56"/><ScalarDefaultValue defaultValue="N"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="2"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="11266"/><ScalarDefaultValue defaultValue="hdvmess57"/><ScalarDefaultValue defaultValue="N"/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="2"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue=""/><ScalarDefaultValue defaultValue=""/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="2"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue=""/><ScalarDefaultValue defaultValue=""/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="0"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue=""/><ScalarDefaultValue defaultValue=""/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="0"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue=""/><ScalarDefaultValue defaultValue=""/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="0"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue=""/><ScalarDefaultValue defaultValue=""/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="0"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue=""/><ScalarDefaultValue defaultValue=""/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="0"/></StructFieldDefaultValue>
+<StructFieldDefaultValue><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue=""/><ScalarDefaultValue defaultValue=""/><ScalarDefaultValue defaultValue="0"/><ScalarDefaultValue defaultValue="0"/></StructFieldDefaultValue>
+</StructVectorDefaultValue>
+</AttributeDescription>
+</ClassDescription>
+</Class>

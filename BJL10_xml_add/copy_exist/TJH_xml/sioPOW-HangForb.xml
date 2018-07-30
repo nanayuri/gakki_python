@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE Class SYSTEM "dtd/dbkclass.dtd">
+<Class period_MT="0" period_ST="0" name="sioPOW-HangForb" numAttributes="25" numInstances="71" numPeriod_MT="0" numPeriod_ST="0">
+<ClassDescription>
+<AttributeDescription attrType="STATIC" name="execStatus" replicated="0">
+<Scalar valueType="INT32" size="4"/>
+<ScalarDefaultValue defaultValue="0"/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="initCond1ST" replicated="0">
+<Scalar valueType="BOOLEAN" size="1"/>
+<ScalarDefaultValue defaultValue="1"/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="initCond1GL" replicated="0">
+<Scalar valueType="BOOLEAN" size="1"/>
+<ScalarDefaultValue defaultValue="1"/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="returnCondST" replicated="0">
+<Scalar valueType="BOOLEAN" size="1"/>
+<ScalarDefaultValue defaultValue="1"/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="returnCondGL" replicated="0">
+<Scalar valueType="BOOLEAN" size="1"/>
+<ScalarDefaultValue defaultValue="1"/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="source" replicated="0">
+<Scalar valueType="CHARN" size="9"/>
+<ScalarDefaultValue defaultValue="0"/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="status" replicated="0">
+<Scalar valueType="INT32" size="4"/>
+<ScalarDefaultValue defaultValue="1"/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="previousStatus" replicated="0">
+<Scalar valueType="INT32" size="4"/>
+<ScalarDefaultValue defaultValue="0"/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="value" replicated="0">
+<Vector numElements="2">
+<Scalar valueType="BITFIELD" size="256"/>
+</Vector>
+<VectorDefaultValue>
+<ScalarDefaultValue defaultValue="00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"/><ScalarDefaultValue defaultValue="00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"/>
+</VectorDefaultValue>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="previousValue" replicated="0">
+<Vector numElements="2">
+<Scalar valueType="BITFIELD" size="256"/>
+</Vector>
+<VectorDefaultValue>
+<ScalarDefaultValue defaultValue="00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"/><ScalarDefaultValue defaultValue="00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"/>
+</VectorDefaultValue>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="initCondTO" replicated="0">
+<Scalar valueType="INT32" size="4"/>
+<ScalarDefaultValue defaultValue="0"/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="initCond2ST" replicated="0">
+<Scalar valueType="INT32" size="4"/>
+<ScalarDefaultValue defaultValue="1"/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="initCond2GL" replicated="0">
+<Scalar valueType="BOOLEAN" size="1"/>
+<ScalarDefaultValue defaultValue="1"/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="initCondGL" replicated="0">
+<Scalar valueType="BOOLEAN" size="1"/>
+<ScalarDefaultValue defaultValue="1"/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="opDate" replicated="0">
+<Scalar valueType="DATE" size="16"/>
+<ScalarDefaultValue defaultValue="01/01/2000 01:01:01.000"/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="opSource" replicated="0">
+<Scalar valueType="CHARN" size="9"/>
+<ScalarDefaultValue defaultValue=""/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="initCond" replicated="0">
+<Scalar valueType="BOOLEAN" size="1"/>
+<ScalarDefaultValue defaultValue="1"/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="initCondFormat" replicated="0">
+<Scalar valueType="INT32" size="4"/>
+<ScalarDefaultValue defaultValue="0"/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="label" replicated="0">
+<Scalar valueType="CHARN" size="65"/>
+<ScalarDefaultValue defaultValue="Hang Forbid"/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="returnCond" replicated="0">
+<Scalar valueType="BOOLEAN" size="1"/>
+<ScalarDefaultValue defaultValue="0"/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="returnCondFormat" replicated="0">
+<Scalar valueType="INT32" size="4"/>
+<ScalarDefaultValue defaultValue="0"/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="returnCondTO" replicated="0">
+<Scalar valueType="INT32" size="4"/>
+<ScalarDefaultValue defaultValue="10"/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="valueLength" replicated="0">
+<Scalar valueType="INT32" size="4"/>
+<ScalarDefaultValue defaultValue="256"/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="veCoord" replicated="0">
+<Scalar valueType="CHARN" size="65"/>
+<ScalarDefaultValue defaultValue=""/>
+</AttributeDescription>
+<AttributeDescription attrType="STATIC" name="out_value" replicated="0">
+<Scalar valueType="INT32" size="4"/>
+<ScalarDefaultValue defaultValue="0"/>
+</AttributeDescription>
+</ClassDescription>
+</Class>
