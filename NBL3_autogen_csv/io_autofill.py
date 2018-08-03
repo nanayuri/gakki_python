@@ -15,6 +15,7 @@ from bidict._exc import ValueDuplicationError
 import shutil
 import filecmp
 import time
+import Levenshtein
 
 ev_name_dict = {
     'DI': 'dei',
@@ -245,6 +246,31 @@ class ExcValue:
     def wb(self):
         return self.wb
 
+    def get_header(self, keyword):
+        list_header = []
+        name_list = ['Station_Code', 'System', '(Sub)System', 'Eqpt_Code', 'Eqpt_Descript', 'Equipment_Location',
+                     'Eqpt_Identifier', 'Attribute_Description', 'v0_label(', 'v1_label(', 'v2_label(', 'v3_label(', 'v4_label(', 'v5_label(', 'v6_label(', 'v7_label(', 'v0s',
+                     'v1s', 'v2s', 'v3s', 'v4s', 'v5s', 'v6s', 'v7s', 'v0ic', 'v1ic', 'v2ic', 'v3ic', 'v0rc', 'v1rc',
+                     'v2rc', 'v3rc', 'RCond_TO', 'HMI_Order', 'Individual_identifier', 'DC_Data_Type', 'unit', 'out_range_low',
+                     'out_range_high', 'CFG_Equipment_Class', 'CFG_Element_Name', 'CFG_Data_Type', 'IV_Point_Name',
+                     'CFG_EQPT_ID', 'CFG_EQPT_ALIAS', 'DB_Comment', 'EV_Name', 'EV_Type', 'Jittorfactor',
+                     'Transformation_Function\n', 'Jittor_Factor', 'Transformation_Function', 'varInvalid1', 'ev_ID', 'ev_ADDRESS', 'swc_id',
+                     'table_id', 'start_byte', 'start_bit', 'FEP_addr_size']
+        for i in range(1, int(self.file.max_column) + 1):
+            list_header.append(self.file.cell(2, i).value)
+        dict_num_header = {self.file.cell(2, i).value: i for i in range(1, self.file.max_column + 1)}
+        dict_tar = {x: find_closest(x, list_header) for x in name_list}
+        dict_header = {x: dict_num_header[dict_tar[x]] for x in name_list}
+        print(dict_tar)
+        return int(dict_header[keyword])
+
+
+def find_closest(word, list1):
+    list3 = [list1[x].upper() for x in range(0, len(list1)) if list1[x] is not None]
+    list2 = [Levenshtein.ratio(word.upper(), str(each)) for each in list3]
+    dict1 = {list2[x]: list1[x] for x in range(len(list1)) if list1[x] is not None }
+    return dict1[max(dict1)]
+
 
 def fill_list():
     out_path = cur_path + '\\Output_List'
@@ -306,7 +332,7 @@ def fill_list():
         for row_num in range(3, max_row_num + 1):
             Station_Code1 = io_list.value(row_num, list_dict[list_name_dict['Station_Code']] + 1)
             Station_Code = station_dict[Station_Code1]
-            System = io_list.value(row_num, list_dict[list_name_dict['System']] + 1)
+            System = io_list.value(row_num, io_list.get_header('System'))
             Eqpt_Code = io_list.value(row_num, list_dict[list_name_dict['Eqpt_Code']] + 1)
             Eqpt_Desc = io_list.value(row_num, list_dict[list_name_dict['Eqpt_Desc']] + 1)
             Eqpt_Identifier = io_list.value(row_num, list_dict[list_name_dict['Eqpt_Identifier']] + 1)
