@@ -29,7 +29,7 @@ class CountList:
     def counter(self, index):
         return self.count[index]
 
-    def append(self, value):
+    def append(self, value: object) -> object:
         a = len(self.values)
         self.values.append(value)
         self.count[a] = 0
@@ -72,7 +72,7 @@ class CountList(list):
     def counter(self, key):
         return self.count[key]
 
-    def append(self, value):
+    def append(self, value: object) -> object:
         self.count.append(0)
         super().append(value)
 
