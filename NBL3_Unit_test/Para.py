@@ -1,0 +1,5 @@
+hostname = '192.168.1.41'
+username = 'nbl3'
+password = 'nbl3iscs'
+port = '22'
+package_version = 'OCCB_A1TEMP3_181109'

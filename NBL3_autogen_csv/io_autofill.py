@@ -16,6 +16,42 @@ import shutil
 import filecmp
 import time
 import Levenshtein
+import logging
+
+
+# 创建Logger
+logger = logging.getLogger()
+logger.setLevel(logging.DEBUG)
+
+# 终端Handler
+consoleHandler = logging.StreamHandler()
+consoleHandler.setLevel(logging.DEBUG)
+
+# 文件Handler
+fileHandler = logging.FileHandler('log.log', mode='w', encoding='UTF-8')
+fileHandler.setLevel(logging.NOTSET)
+
+# Formatter
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+consoleHandler.setFormatter(formatter)
+fileHandler.setFormatter(formatter)
+
+# 添加到Logger中
+logger.addHandler(consoleHandler)
+logger.addHandler(fileHandler)
+
+'''
+logger = logging.getLogger('sample')
+logger.setLevel(logging.NOTSET)
+fh = logging.FileHandler("spam.log")
+ch = logging.StreamHandler()
+ch.setLevel(logging.NOTSET)
+formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+ch.setFormatter(formatter)
+fh.setFormatter(formatter)
+logger.addHandler(ch)
+logger.addHandler(fh)
+'''
 
 ev_name_dict = {
     'DI': 'dei',
@@ -111,7 +147,7 @@ fep_com_sta_dict = {
 station_dict = {
     '高塘桥站': 'GTQ',
     '句章路站': 'JZL',
-    '鄞州客运总站 ': 'YZC',
+    '鄞州客运总站': 'YZC',
     '南部商务区站': 'SBD',
     '鄞州区政府站': 'YZG',
     '四明中路站': 'SMZ',
@@ -212,39 +248,43 @@ sys_dict['PIS'] = 'PIS'
 # Define Common Parameters
 cur_path = os.getcwd()
 class_path = cur_path + '\\Class'
+old_class_path = cur_path + '\\Old_Class'
 list_path = cur_path + '\\List'
 alm_folder = cur_path + '\\mapping_file\\'
 server_alm_po = '\\\\192.168.1.200\\d\\NBL3_ALMPO\\alm_cn.po'
+cur_class_csv_path = cur_path + '\\Class_csv\\'
+old_class_csv_path = cur_path + '\\Old_class_csv\\'
+com_class_fileout_path = cur_path + '\\Compare_Class_Result\\'
 
 
 class ExcValue:
     def __init__(self, file, io_type):
         self.wb = openpyxl.load_workbook(file, data_only=True)
         if io_type == 'class':
-            self.file = openpyxl.load_workbook(file, data_only=True)['CLASS']
+            self.sheet = self.wb['CLASS']
         elif io_type == 'list':
-            self.file = openpyxl.load_workbook(file, data_only=True)['IO List']
+            self.sheet = self.wb['IO List']
 
     def value(self, x, y):
-        return self.file.cell(row=x, column=y).value
+        return self.sheet.cell(row=x, column=y).value
 
     def getvalue(self, x, y):
-        return self.file[str(x) + str(y)].value
+        return self.sheet[str(x) + str(y)].value
 
     def cell(self, x, y):
-        return self.file.cell(row=x, column=y)
+        return self.sheet.cell(row=x, column=y)
 
     def write_value(self, x, y, val):
-        self.file.cell(row=x, column=y).value = val
+        self.sheet.cell(row=x, column=y).value = val
 
     def get_col_num(self):
-        return self.file.columns
+        return self.sheet.columns
 
     def max_row(self):
-        return self.file.max_row
+        return self.sheet.max_row
 
-    def wb(self):
-        return self.wb
+    def save(self, file_name):
+        self.wb.save(file_name)
 
     def get_header(self, keyword):
         list_header = []
@@ -256,12 +296,12 @@ class ExcValue:
                      'CFG_EQPT_ID', 'CFG_EQPT_ALIAS', 'DB_Comment', 'EV_Name', 'EV_Type', 'Jittorfactor',
                      'Transformation_Function\n', 'Jittor_Factor', 'Transformation_Function', 'varInvalid1', 'ev_ID', 'ev_ADDRESS', 'swc_id',
                      'table_id', 'start_byte', 'start_bit', 'FEP_addr_size']
-        for i in range(1, int(self.file.max_column) + 1):
-            list_header.append(self.file.cell(2, i).value)
-        dict_num_header = {self.file.cell(2, i).value: i for i in range(1, self.file.max_column + 1)}
+        for i in range(1, int(self.sheet.max_column) + 1):
+            list_header.append(self.sheet.cell(2, i).value)
+        dict_num_header = {self.sheet.cell(2, i).value: i for i in range(1, self.sheet.max_column + 1)}
         dict_tar = {x: find_closest(x, list_header) for x in name_list}
         dict_header = {x: dict_num_header[dict_tar[x]] for x in name_list}
-        print(dict_tar)
+        # print(dict_tar)
         return int(dict_header[keyword])
 
 
@@ -270,6 +310,20 @@ def find_closest(word, list1):
     list2 = [Levenshtein.ratio(word.upper(), str(each)) for each in list3]
     dict1 = {list2[x]: list1[x] for x in range(len(list1)) if list1[x] is not None }
     return dict1[max(dict1)]
+
+
+def check_none_value(content):
+    if content is not None:
+        return content
+    else:
+        return ''
+
+
+def check_delete_cell(cell, value):
+    if cell.font.strike is True:
+        return ''
+    else:
+        return value
 
 
 def fill_list():
@@ -293,15 +347,39 @@ def fill_list():
     class_list_eqptype = {}
     class_list_deadband = {}
     class_list_scaling = {}
+    class_list_v = {}
+    class_list_vs = {}
     for row_num in range(3, max_row_num + 1):
         Eqpt_Code = io_class.value(row_num, class_dict[list_name_dict['Eqpt_Code']] + 1)
         Attribute_Description = io_class.value(row_num, class_dict[list_name_dict['Attribute_Description']] + 1)
         DC_Data_Type = io_class.value(row_num, class_dict[list_name_dict['DC_Data_Type']] + 1)
         point_name = io_class.value(row_num, class_dict[list_name_dict['IV_Point_Name']] + 1)
         CFG_Element_Name = io_class.value(row_num, class_dict[list_name_dict['CFG_Element_Name']] + 1)
-        Deadband = io_class.value(row_num, class_dict[list_name_dict['Deadband']] + 1)
-        Scaling = io_class.value(row_num, class_dict[list_name_dict['Scaling']] + 1)
+        Deadband = check_delete_cell(io_class.cell(row_num, class_dict[list_name_dict['Deadband']] + 1), io_class.value(row_num, class_dict[list_name_dict['Deadband']] + 1))
+        Scaling = check_delete_cell(io_class.cell(row_num, class_dict[list_name_dict['Scaling']] + 1), io_class.value(row_num, class_dict[list_name_dict['Scaling']] + 1))
         Eqp_num_str = Eqpt_Code + Attribute_Description + DC_Data_Type
+        if io_class.cell(row_num, class_dict[list_name_dict['v0']] + 1).fill.fgColor.rgb == 'FFFF0000' and io_class.cell(row_num, class_dict[list_name_dict['v0']] + 1).font.strike is True:
+            v0c = ''
+        else:
+            v0c = check_none_value(io_class.value(row_num, class_dict[list_name_dict['v0']] + 1))
+        v1c = check_none_value(io_class.value(row_num, class_dict[list_name_dict['v1']] + 1))
+        v2c = check_none_value(io_class.value(row_num, class_dict[list_name_dict['v2']] + 1))
+        v3c = check_none_value(io_class.value(row_num, class_dict[list_name_dict['v3']] + 1))
+        v4c = check_none_value(io_class.value(row_num, class_dict[list_name_dict['v4']] + 1))
+        v5c = check_none_value(io_class.value(row_num, class_dict[list_name_dict['v5']] + 1))
+        v6c = check_none_value(io_class.value(row_num, class_dict[list_name_dict['v6']] + 1))
+        v7c = check_none_value(io_class.value(row_num, class_dict[list_name_dict['v7']] + 1))
+        hmi_o = check_none_value(io_class.value(row_num, class_dict[list_name_dict['HMI_Order']] + 1))
+        v0sc = check_none_value(io_class.value(row_num, class_dict[list_name_dict['v0s']] + 1))
+        v1sc = check_none_value(io_class.value(row_num, class_dict[list_name_dict['v1s']] + 1))
+        v2sc = check_none_value(io_class.value(row_num, class_dict[list_name_dict['v2s']] + 1))
+        v3sc = check_none_value(io_class.value(row_num, class_dict[list_name_dict['v3s']] + 1))
+        v4sc = check_none_value(io_class.value(row_num, class_dict[list_name_dict['v4s']] + 1))
+        v5sc = check_none_value(io_class.value(row_num, class_dict[list_name_dict['v5s']] + 1))
+        v6sc = check_none_value(io_class.value(row_num, class_dict[list_name_dict['v6s']] + 1))
+        v7sc = check_none_value(io_class.value(row_num, class_dict[list_name_dict['v7s']] + 1))
+        vc_list = [v0c, v1c, v2c, v3c, v4c, v5c, v6c, v7c, hmi_o]
+        vsc_list = [v0sc, v1sc, v2sc, v3sc, v4sc, v5sc, v6sc, v7sc]
         if Eqp_num_str not in class_list_ptname.keys():
             class_list_ptname[Eqp_num_str] = point_name
         if Eqp_num_str not in class_list_eqptype.keys():
@@ -310,349 +388,398 @@ def fill_list():
             class_list_deadband[Eqp_num_str] = Deadband
         if Eqp_num_str not in class_list_scaling.keys():
             class_list_scaling[Eqp_num_str] = Scaling
+        if Eqp_num_str not in class_list_v.keys():
+            class_list_v[Eqp_num_str] = vc_list
+        if Eqp_num_str not in class_list_vs.keys():
+            class_list_vs[Eqp_num_str] = vsc_list
+        # print(class_list_v, class_list_vs)
+
     io_list_list = os.listdir(list_path)
     for each_file in io_list_list:
-        file_name = list_path + '\\' + each_file
-        # file_save_name = each_file[0:-5] + '_cfg.xlsx'
-        file_save_path = out_path + '\\' + each_file
-        io_list = ExcValue(file_name, 'list')
-        '''
-        wb = openpyxl.load_workbook(file_name, data_only=True)
-        ws = wb['IO List']
-        '''
-        list_dict = {}
-        i = 0
-        for each in io_list.get_col_num():
-            list_dict[each[1].value] = i
-            i += 1
-        list_eqp_num = {}
-        max_row_num = io_list.max_row()
-        while io_list.value(max_row_num, 9) is None:
-            max_row_num -= 1
-        for row_num in range(3, max_row_num + 1):
-            Station_Code1 = io_list.value(row_num, list_dict[list_name_dict['Station_Code']] + 1)
-            Station_Code = station_dict[Station_Code1]
-            System = io_list.value(row_num, io_list.get_header('System'))
-            Eqpt_Code = io_list.value(row_num, list_dict[list_name_dict['Eqpt_Code']] + 1)
-            Eqpt_Desc = io_list.value(row_num, list_dict[list_name_dict['Eqpt_Desc']] + 1)
-            Eqpt_Identifier = io_list.value(row_num, list_dict[list_name_dict['Eqpt_Identifier']] + 1)
-            Attribute_Description = io_list.value(row_num, list_dict[list_name_dict['Attribute_Description']] + 1)
-            DC_Data_Type = io_list.value(row_num, list_dict[list_name_dict['DC_Data_Type']] + 1)
-            Deadband = io_list.value(row_num, class_dict[list_name_dict['Deadband']] + 1)
-            Scaling = io_list.value(row_num, class_dict[list_name_dict['Scaling']] + 1)
-            swc_id = "%(a)03d" % {'a': int(io_list.value(row_num, class_dict[list_name_dict['swc_id']] + 1))}
-            swc_id1 = io_list.value(row_num, class_dict[list_name_dict['swc_id']] + 1)
-            table_id = "%(a)03d" % {
-                'a': int(io_list.value(row_num, class_dict[list_name_dict['table_id']] + 1))}
-            start_byte = "%(a)05d" % {
-                'a': int(io_list.value(row_num, class_dict[list_name_dict['start_byte']] + 1))}
-            start_bit = io_list.value(row_num, class_dict[list_name_dict['start_bit']] + 1)
-            FEP_addr_size = "%(a)06d" % {
-                'a': int(io_list.value(row_num, class_dict[list_name_dict['FEP_addr_size']] + 1))}
-            Eqp_num_str = Eqpt_Code + Attribute_Description + DC_Data_Type
-            if Eqp_num_str not in list_eqp_num.keys():
-                list_eqp_num[Eqp_num_str] = 1
-            else:
-                list_eqp_num[Eqp_num_str] += 1
-            eqp_num = "%(a)04d" % {'a': list_eqp_num[Eqp_num_str]}
-            # print(list_dict[list_name_dict['Eqpt_Code']])
-            # print(row_num, ws.cell(row=row_num, column=list_dict[list_name_dict['Eqpt_Code']]).value)
-            try:
+        try:
+            file_name = list_path + '\\' + each_file
+            # file_save_name = each_file[0:-5] + '_cfg.xlsx'
+            file_save_path = out_path + '\\' + each_file
+            io_list = ExcValue(file_name, 'list')
+            '''
+            wb = openpyxl.load_workbook(file_name, data_only=True)
+            ws = wb['IO List']
+            '''
+            list_dict = {}
+            i = 0
+            for each in io_list.get_col_num():
+                list_dict[each[1].value] = i
+                i += 1
+            list_eqp_num = {}
+            max_row_num = io_list.max_row()
+            while io_list.value(max_row_num, 9) is None:
+                max_row_num -= 1
+            for row_num in range(3, max_row_num + 1):
+                # print('正在处理第' + str(row_num) + '行')
+                #delete_cell = io_list.cell(row_num, list_dict[list_name_dict['Eqpt_Code']] + 1)
+                #if delete_cell.font.strike is True:
+                Station_Code1 = io_list.value(row_num, list_dict[list_name_dict['Station_Code']] + 1)
+                Station_Code = station_dict[Station_Code1]
+                System = io_list.value(row_num, io_list.get_header('System'))
+                Eqpt_Code = io_list.value(row_num, list_dict[list_name_dict['Eqpt_Code']] + 1)
+                Eqpt_Desc = io_list.value(row_num, list_dict[list_name_dict['Eqpt_Desc']] + 1)
+                Eqpt_Identifier = io_list.value(row_num, list_dict[list_name_dict['Eqpt_Identifier']] + 1)
+                Attribute_Description = io_list.value(row_num, list_dict[list_name_dict['Attribute_Description']] + 1)
+                DC_Data_Type = io_list.value(row_num, list_dict[list_name_dict['DC_Data_Type']] + 1)
+                # Deadband = io_list.value(row_num, class_dict[list_name_dict['Deadband']] + 1)
+                Deadband = check_delete_cell(io_list.cell(row_num, class_dict[list_name_dict['Deadband']] + 1), io_list.value(row_num, class_dict[list_name_dict['Deadband']] + 1))
+                Scaling = check_delete_cell(io_list.cell(row_num, class_dict[list_name_dict['Scaling']] + 1), io_list.value(row_num, class_dict[list_name_dict['Scaling']] + 1))
+                swc_id = "%(a)03d" % {'a': int(io_list.value(row_num, class_dict[list_name_dict['swc_id']] + 1))}
+                swc_id1 = io_list.value(row_num, class_dict[list_name_dict['swc_id']] + 1)
+                table_id = "%(a)03d" % {
+                    'a': int(io_list.value(row_num, class_dict[list_name_dict['table_id']] + 1))}
+                start_byte = "%(a)05d" % {
+                    'a': int(io_list.value(row_num, class_dict[list_name_dict['start_byte']] + 1))}
+                start_bit = io_list.value(row_num, class_dict[list_name_dict['start_bit']] + 1)
+                FEP_addr_size = "%(a)06d" % {
+                    'a': int(io_list.value(row_num, class_dict[list_name_dict['FEP_addr_size']] + 1))}
+                Eqp_num_str = Eqpt_Code + Attribute_Description + DC_Data_Type
                 delete_cell = io_list.cell(row_num, list_dict[list_name_dict['Eqpt_Code']] + 1)
-                if delete_cell.fill.fgColor.rgb == 'FFFF0000' and delete_cell.font.strike is True:
-                    io_list.write_value(row_num, list_dict[list_name_dict['DB_Comment']] + 1, 'DELETE')
+
+                if Eqp_num_str not in list_eqp_num.keys():
+                    list_eqp_num[Eqp_num_str] = 1
                 else:
-                    io_list.write_value(row_num, list_dict[list_name_dict['DB_Comment']] + 1, '')
-                    io_list.write_value(row_num, list_dict[list_name_dict['CFG_Equipment_Class']] + 1,
-                                        System + '_' + Eqpt_Code)
-                    io_list.write_value(row_num, list_dict[list_name_dict['CFG_Element_Name']] + 1,
-                                        class_list_eqptype.setdefault(
-                                            Eqp_num_str, '#N/A'))
-                    io_list.write_value(row_num, list_dict[list_name_dict['CFG_Data_Type']] + 1, DC_Data_Type)
-                    io_list.write_value(row_num, list_dict[list_name_dict[
-                        'CFG_EQPT_ID']] + 1, ':R:A:' + Station_Code + ':' + System + ':' + Eqpt_Code + str(eqp_num))
-                    io_list.write_value(row_num, list_dict[list_name_dict[
-                        'CFG_EQPT_ALIAS']] + 1, '<alias>' + Station_Code + System + Eqpt_Code + str(eqp_num))
-                    io_list.write_value(row_num, list_dict[list_name_dict[
-                        'EV_Type']] + 1, ev_type_dict[DC_Data_Type[0:2]])
-                    io_list.write_value(row_num, list_dict[list_name_dict[
-                        'IV_Point_Name']] + 1, class_list_ptname.setdefault(Eqp_num_str, '#N/A'))
-                    # print(Eqp_num_str)
-                    io_list.write_value(row_num, list_dict[list_name_dict[
-                        'ev_ADDRESS']] + 1, str(swc_id) + '/' + str(table_id) + '/' + str(start_byte) + '/' + str(
-                        start_bit) + '/' + str(FEP_addr_size))
-                if io_list.value(row_num, list_dict[list_name_dict['IV_Point_Name']] + 1) is None:
-                    io_list.write_value(row_num, list_dict[list_name_dict[
-                        'EV_Name']] + 1, ev_name_dict[
-                                            DC_Data_Type[0:2]] + Station_Code + System + Eqpt_Code + str(
-                        eqp_num) + '-' + 'None' + str(row_num))
-                else:
-                    if io_list.value(row_num, list_dict[list_name_dict['IV_Point_Name']] + 1) != '#N/A':
+                    list_eqp_num[Eqp_num_str] += 1
+                eqp_num = "%(a)04d" % {'a': list_eqp_num[Eqp_num_str]}
+
+                # print(list_dict[list_name_dict['Eqpt_Code']])
+                # print(row_num, ws.cell(row=row_num, column=list_dict[list_name_dict['Eqpt_Code']]).value)
+                try:
+                    # delete_cell = io_list.cell(row_num, list_dict[list_name_dict['Eqpt_Code']] + 1)
+                    if delete_cell.font.strike is True:
+                        io_list.write_value(row_num, list_dict[list_name_dict['DB_Comment']] + 1, 'DELETE')
+                        io_list.write_value(row_num, list_dict[list_name_dict[
+                            'CFG_EQPT_ID']] + 1, ':R:A:' + Station_Code + ':' + System + ':' + Eqpt_Code + str(eqp_num))
+                        io_list.write_value(row_num, list_dict[list_name_dict[
+                            'CFG_EQPT_ALIAS']] + 1, '<alias>' + Station_Code + System + Eqpt_Code + str(eqp_num))
+                    else:
+                        io_list.write_value(row_num, list_dict[list_name_dict['DB_Comment']] + 1, '')
+                        io_list.write_value(row_num, list_dict[list_name_dict['CFG_Equipment_Class']] + 1,
+                                            System + '_' + Eqpt_Code)
+                        io_list.write_value(row_num, list_dict[list_name_dict['CFG_Element_Name']] + 1,
+                                            class_list_eqptype.setdefault(
+                                                Eqp_num_str, '#N/A'))
+                        io_list.write_value(row_num, list_dict[list_name_dict['CFG_Data_Type']] + 1, DC_Data_Type)
+                        io_list.write_value(row_num, list_dict[list_name_dict[
+                            'CFG_EQPT_ID']] + 1, ':R:A:' + Station_Code + ':' + System + ':' + Eqpt_Code + str(eqp_num))
+                        io_list.write_value(row_num, list_dict[list_name_dict[
+                            'CFG_EQPT_ALIAS']] + 1, '<alias>' + Station_Code + System + Eqpt_Code + str(eqp_num))
+                        io_list.write_value(row_num, list_dict[list_name_dict[
+                            'EV_Type']] + 1, ev_type_dict[DC_Data_Type[0:2]])
+                        io_list.write_value(row_num, list_dict[list_name_dict[
+                            'IV_Point_Name']] + 1, class_list_ptname.setdefault(Eqp_num_str, '#N/A'))
+                        # print(Eqp_num_str)
+                        io_list.write_value(row_num, list_dict[list_name_dict[
+                            'ev_ADDRESS']] + 1, str(swc_id) + '/' + str(table_id) + '/' + str(start_byte) + '/' + str(
+                            start_bit) + '/' + str(FEP_addr_size))
+                    if io_list.value(row_num, list_dict[list_name_dict['IV_Point_Name']] + 1) is None:
                         io_list.write_value(row_num, list_dict[list_name_dict[
                             'EV_Name']] + 1, ev_name_dict[
                                                 DC_Data_Type[0:2]] + Station_Code + System + Eqpt_Code + str(
-                            eqp_num) + '-' + str(
-                            io_list.value(row_num, list_dict[list_name_dict['IV_Point_Name']] + 1)).split(
-                            '-')[1])
+                            eqp_num) + '-' + 'None' + str(row_num))
                     else:
-                        io_list.write_value(row_num, list_dict[list_name_dict[
-                            'EV_Name']] + 1, '#N/A')
-                io_list.write_value(row_num, list_dict[list_name_dict[
-                    'ev_ID']] + 1, ':R:A:POLE_' + Station_Code + ':FEP:' + System + ':' + io_list.value(row_num,
-                                                                                                        list_dict[
-                                                                                                            list_name_dict[
-                                                                                                                'EV_Name']] + 1))
+                        if io_list.value(row_num, list_dict[list_name_dict['IV_Point_Name']] + 1) != '#N/A':
+                            io_list.write_value(row_num, list_dict[list_name_dict[
+                                'EV_Name']] + 1, ev_name_dict[
+                                                    DC_Data_Type[0:2]] + Station_Code + System + Eqpt_Code + str(
+                                eqp_num) + '-' + str(
+                                io_list.value(row_num, list_dict[list_name_dict['IV_Point_Name']] + 1)).split(
+                                '-')[1])
+                        else:
+                            io_list.write_value(row_num, list_dict[list_name_dict[
+                                'EV_Name']] + 1, '#N/A')
+                    io_list.write_value(row_num, list_dict[list_name_dict[
+                        'ev_ID']] + 1, ':R:A:POLE_' + Station_Code + ':FEP:' + System + ':' + io_list.value(row_num,
+                                                                                                            list_dict[
+                                                                                                                list_name_dict[
+                                                                                                                    'EV_Name']] + 1))
 
-                if DC_Data_Type[1] == 'I':
-                    io_list.write_value(row_num, list_dict[list_name_dict[
-                        'varInvalid']] + 1, 'dei' + Station_Code + 'SYSFEP' + fep_com_state(swc_id1) + '-COM')
-                if Deadband is not None:
-                    io_list.write_value(row_num, list_dict[list_name_dict[
-                        'Jittor_Factor']] + 1, Deadband)
-                elif class_list_deadband.setdefault(Eqp_num_str, '#N/A') is not None and class_list_deadband.setdefault(
-                        Eqp_num_str, '#N/A') != '#N/A':
-                    io_list.write_value(row_num, list_dict[list_name_dict[
-                        'Jittor_Factor']] + 1, class_list_deadband.setdefault(Eqp_num_str, '#N/A'))
-                if Scaling is not None:
-                    if type(Scaling) == int:
+                    if DC_Data_Type[1] == 'I':
                         io_list.write_value(row_num, list_dict[list_name_dict[
-                            'Transformation_Function']] + 1, 'tfLIN ' + str(Scaling) + '.0 0.0')
-                    else:
+                            'varInvalid']] + 1, 'dei' + Station_Code + 'SYSFEP' + fep_com_state(swc_id1) + '-COM')
+                    if Deadband is not None:
                         io_list.write_value(row_num, list_dict[list_name_dict[
-                            'Transformation_Function']] + 1, 'tfLIN ' + str(Scaling) + ' 0.0')
-                elif class_list_scaling.setdefault(Eqp_num_str, '#N/A') is not None and class_list_scaling.setdefault(
-                        Eqp_num_str, '#N/A') != '#N/A':
-                    io_list.write_value(row_num, list_dict[list_name_dict[
-                        'Transformation_Function']] + 1, 'tfLIN ' + str(
-                        class_list_scaling.setdefault(Eqp_num_str, '#N/A')) + ' 0.0')
-            except AttributeError:
-                print(AttributeError)
-        a1, a2 = add_rev_reg(io_list.wb)
-        list_vis = 'V' + a1
-        cur_date = a2
-        str1 = str(re.match(r'(NB.*)(V.* )(\()(.*)(\))', each_file, re.M).group(2)).strip()
-        str2 = str(re.match(r'(NB.*)(V.* )(\()(.*)(\))', each_file, re.M).group(4)).strip()
-        io_list.wb.save(file_save_path.replace(str1, list_vis).replace(str2, cur_date))
-        io_list.wb.close()
+                            'Jittor_Factor']] + 1, Deadband)
+                    elif class_list_deadband.setdefault(Eqp_num_str, '#N/A') is not None and class_list_deadband.setdefault(
+                            Eqp_num_str, '#N/A') != '#N/A':
+                        io_list.write_value(row_num, list_dict[list_name_dict[
+                            'Jittor_Factor']] + 1, class_list_deadband.setdefault(Eqp_num_str, '#N/A'))
+                    if Scaling is not None:
+                        if type(Scaling) == int:
+                            io_list.write_value(row_num, list_dict[list_name_dict[
+                                'Transformation_Function']] + 1, 'tfLIN ' + str(Scaling) + '.0 0.0')
+                        elif type(Scaling) == float:
+                            io_list.write_value(row_num, list_dict[list_name_dict[
+                                'Transformation_Function']] + 1, 'tfLIN ' + str(Scaling) + ' 0.0')
+                    elif class_list_scaling.setdefault(Eqp_num_str, '#N/A') is not None and class_list_scaling.setdefault(
+                            Eqp_num_str, '#N/A') != '#N/A' and class_list_scaling.setdefault(Eqp_num_str, '#N/A') != '':
+                        io_list.write_value(row_num, list_dict[list_name_dict[
+                            'Transformation_Function']] + 1, 'tfLIN ' + str(
+                            class_list_scaling.setdefault(Eqp_num_str, '#N/A')) + ' 0.0')
+                        print(class_list_scaling.setdefault(Eqp_num_str, '#N/A'))
+                    '''
+                    # update bit definition in IO List aglin with IO Class
+                    io_list.write_value(row_num, list_dict[list_name_dict['v0']] + 1, class_list_v[Eqp_num_str][0])
+                    io_list.write_value(row_num, list_dict[list_name_dict['v1']] + 1, class_list_v[Eqp_num_str][1])
+                    io_list.write_value(row_num, list_dict[list_name_dict['v2']] + 1, class_list_v[Eqp_num_str][2])
+                    io_list.write_value(row_num, list_dict[list_name_dict['v3']] + 1, class_list_v[Eqp_num_str][3])
+                    io_list.write_value(row_num, list_dict[list_name_dict['v4']] + 1, class_list_v[Eqp_num_str][4])
+                    io_list.write_value(row_num, list_dict[list_name_dict['v5']] + 1, class_list_v[Eqp_num_str][5])
+                    io_list.write_value(row_num, list_dict[list_name_dict['v6']] + 1, class_list_v[Eqp_num_str][6])
+                    io_list.write_value(row_num, list_dict[list_name_dict['v7']] + 1, class_list_v[Eqp_num_str][7])
+                    io_list.write_value(row_num, list_dict[list_name_dict['HMI_Order']] + 1, class_list_v[Eqp_num_str][8])
+                    io_list.write_value(row_num, list_dict[list_name_dict['v0s']] + 1, class_list_vs[Eqp_num_str][0])
+                    io_list.write_value(row_num, list_dict[list_name_dict['v1s']] + 1, class_list_vs[Eqp_num_str][1])
+                    io_list.write_value(row_num, list_dict[list_name_dict['v2s']] + 1, class_list_vs[Eqp_num_str][2])
+                    io_list.write_value(row_num, list_dict[list_name_dict['v3s']] + 1, class_list_vs[Eqp_num_str][3])
+                    io_list.write_value(row_num, list_dict[list_name_dict['v4s']] + 1, class_list_vs[Eqp_num_str][4])
+                    io_list.write_value(row_num, list_dict[list_name_dict['v5s']] + 1, class_list_vs[Eqp_num_str][5])
+                    io_list.write_value(row_num, list_dict[list_name_dict['v6s']] + 1, class_list_vs[Eqp_num_str][6])
+                    io_list.write_value(row_num, list_dict[list_name_dict['v7s']] + 1, class_list_vs[Eqp_num_str][7])
+                    '''
+                except AttributeError:
+                    print(AttributeError)
+            a1, a2 = add_rev_reg(io_list.wb)
+            list_vis = 'V' + a1
+            cur_date = a2
+            str1 = str(re.match(r'(NB.*)(V.* )(\()(.*)(\))', each_file, re.M).group(2)).strip()
+            str2 = str(re.match(r'(NB.*)(V.* )(\()(.*)(\))', each_file, re.M).group(4)).strip()
+            io_list.wb.save(file_save_path.replace(str1, list_vis).replace(str2, cur_date))
+            io_list.wb.close()
+        except:
+            logger.exception("List: %s文件第%d行出现错误" % (str(each_file), row_num))
 
 
 def gen_csv():
-    list_out_path = cur_path + '\\Output_List'
-    out_path = cur_path + '\\Generated_csv'
-    alm_path = alm_folder + 'alm_cn.po'
-    alm_save_path = alm_folder + 'new_alm.csv'
-    io_list_list = os.listdir(list_out_path)
-    alm_dict = read_alm_po(alm_path)[0]
-    alm_content = read_alm_po(alm_path)[1]
-    for each_file in io_list_list:
-        file_name = list_out_path + '\\' + each_file
-        equipment_csv_out = each_file.replace('.xlsx', '_equipment.xlsx')
-        function_csv_out = each_file.replace('.xlsx', '_fcat.xlsx')
-        ev_csv_out = each_file.replace('.xlsx', '_ev.xlsx')
-        equipment_save_path = out_path + '\\' + equipment_csv_out
-        ev_save_path = out_path + '\\' + ev_csv_out
-        fct_save_path = out_path + '\\' + function_csv_out
-        eqpt_list = []
-        ev_list = []
-
-        wb = openpyxl.load_workbook(file_name, data_only=True)
-        ws = wb['IO List']
-        list_dict = {}
-        i = 0
-        for each in ws.columns:
-            list_dict[each[1].value] = i
-            i += 1
-        max_row_num = ws.max_row
-        while ws.cell(row=max_row_num, column=9).value is None:
-            max_row_num -= 1
-        eq_list1 = []
-        eq_list2 = []
-        eq_list3 = []
-        eq_list4 = []
-        ev_list1 = []
+    try:
+        list_out_path = cur_path + '\\Output_List'
+        out_path = cur_path + '\\Generated_csv'
+        alm_path = alm_folder + 'alm_cn.po'
+        alm_save_path = alm_folder + 'new_alm.csv'
+        io_list_list = os.listdir(list_out_path)
+        alm_dict = read_alm_po(alm_path)[0]
+        alm_content = read_alm_po(alm_path)[1]
         new_mapping_dict = bidict({})
-        pow_sub_dict = {
-            '35kV': ':R:A:Opm:Definition:Function:PSCADA-35',
-            '400V': ':R:A:Opm:Definition:Function:PSCADA-400',
-            '1500V': ':R:A:Opm:Definition:Function:PSCADA-1500'
-        }
-        pow_sub_list = []
-        for row_num in range(3, max_row_num + 1):
-            if ws.cell(row=row_num, column=list_dict[list_name_dict['DB_Comment']] + 1).value != 'DELETE':
-                eq_row_list = []
-                ev_row_list = []
-                sub_sys_list = []
-                Station_Code = ws.cell(row=row_num, column=list_dict[list_name_dict['Station_Code']] + 1).value
-                sub_sys = ws.cell(row=row_num, column=list_dict[list_name_dict['(Sub)System']] + 1).value
-                System = ws.cell(row=row_num, column=list_dict[list_name_dict['System']] + 1).value
-                Eqpt_Code = ws.cell(row=row_num, column=list_dict[list_name_dict['Eqpt_Code']] + 1).value
-                Eqpt_Desc = ws.cell(row=row_num, column=list_dict[list_name_dict['Eqpt_Desc']] + 1).value
-                if Eqpt_Desc not in alm_dict:
-                    tmp_res = word_length_chk(translation_to_pinyin(Eqpt_Desc))
-                    tmp_res, new_mapping_dict, alm_dict = insert_dup_value(new_mapping_dict, alm_dict,
-                                                                           Eqpt_Desc, tmp_res)
-                    Eqpt_Desc = tmp_res
-                else:
-                    Eqpt_Desc = alm_dict[Eqpt_Desc]
+        for each_file in io_list_list:
+            file_name = list_out_path + '\\' + each_file
+            equipment_csv_out = each_file.replace('.xlsx', '_equipment.xlsx')
+            function_csv_out = each_file.replace('.xlsx', '_fcat.xlsx')
+            ev_csv_out = each_file.replace('.xlsx', '_ev.xlsx')
+            equipment_save_path = out_path + '\\' + equipment_csv_out
+            ev_save_path = out_path + '\\' + ev_csv_out
+            fct_save_path = out_path + '\\' + function_csv_out
+            eqpt_list = []
+            ev_list = []
 
-                Eqpt_Identifier = ws.cell(row=row_num, column=list_dict[list_name_dict['Eqpt_Identifier']] + 1).value
-                Attribute_Description = ws.cell(row=row_num,
-                                                column=list_dict[list_name_dict['Attribute_Description']] + 1).value
-                DC_Data_Type = ws.cell(row=row_num, column=list_dict[list_name_dict['DC_Data_Type']] + 1).value
-                Deadband = ws.cell(row=row_num, column=list_dict[list_name_dict['Jittor_Factor']] + 1).value
-                Scaling = ws.cell(row=row_num, column=list_dict[list_name_dict['Transformation_Function']] + 1).value
-                FEP_addr_size = int(ws.cell(row=row_num, column=list_dict[list_name_dict['FEP_addr_size']] + 1).value)
-                Eqp_num_str = Eqpt_Code + Attribute_Description + DC_Data_Type
-                Eqpt_Location = ws.cell(row=row_num, column=list_dict[list_name_dict['Equipment_Location']] + 1).value
-                if Eqpt_Location is not None:
-                    if Eqpt_Location not in alm_dict:
-                        tmp_res = word_length_chk(translation_to_pinyin(Eqpt_Location))
+            io_list = ExcValue(file_name, 'list')
+
+            wb = openpyxl.load_workbook(file_name, data_only=True)
+            ws = wb['IO List']
+            list_dict = {}
+            i = 0
+            for each in ws.columns:
+                list_dict[each[1].value] = i
+                i += 1
+            max_row_num = ws.max_row
+            while ws.cell(row=max_row_num, column=9).value is None:
+                max_row_num -= 1
+            eq_list1 = []
+            eq_list2 = []
+            eq_list3 = []
+            eq_list4 = []
+            ev_list1 = []
+
+            pow_sub_dict = {
+                '35kV': ':R:A:Opm:Definition:Function:PSCADA-35',
+                '400V': ':R:A:Opm:Definition:Function:PSCADA-400',
+                '1500V': ':R:A:Opm:Definition:Function:PSCADA-1500'
+            }
+            pow_sub_list = []
+            for row_num in range(3, max_row_num + 1):
+                if ws.cell(row=row_num, column=list_dict[list_name_dict['DB_Comment']] + 1).value != 'DELETE':
+                    eq_row_list = []
+                    ev_row_list = []
+                    sub_sys_list = []
+                    Station_Code = ws.cell(row=row_num, column=list_dict[list_name_dict['Station_Code']] + 1).value
+                    sub_sys = ws.cell(row=row_num, column=list_dict[list_name_dict['(Sub)System']] + 1).value
+                    System = ws.cell(row=row_num, column=list_dict[list_name_dict['System']] + 1).value
+                    Eqpt_Code = ws.cell(row=row_num, column=list_dict[list_name_dict['Eqpt_Code']] + 1).value
+                    Eqpt_Desc = ws.cell(row=row_num, column=list_dict[list_name_dict['Eqpt_Desc']] + 1).value
+                    if Eqpt_Desc not in alm_dict:
+                        tmp_res = word_length_chk(translation_to_pinyin(Eqpt_Desc))
                         tmp_res, new_mapping_dict, alm_dict = insert_dup_value(new_mapping_dict, alm_dict,
-                                                                               Eqpt_Location, tmp_res)
-                        Eqpt_Location = tmp_res
+                                                                               Eqpt_Desc, tmp_res)
+                        Eqpt_Desc = tmp_res
                     else:
-                        Eqpt_Location = alm_dict[Eqpt_Location]
+                        Eqpt_Desc = alm_dict[Eqpt_Desc]
 
-                # Create Equipment Data to list eq_row_list
-                Eq_ID = ws.cell(row=row_num, column=list_dict[list_name_dict['CFG_EQPT_ID']] + 1).value
-                Eq_fct_ID = Eq_ID + ':link_fct_cat'
-                Eq_AGG = ws.cell(row=row_num, column=list_dict[list_name_dict['CFG_Equipment_Class']] + 1).value
-                Eq_Label = Eqpt_Identifier
-                if Eq_Label is not None:
-                    if Eq_Label not in alm_dict:
-                        tmp_res = word_length_chk(translation_to_pinyin(Eq_Label))
-                        tmp_res, new_mapping_dict, alm_dict = insert_dup_value(new_mapping_dict, alm_dict,
-                                                                               Eq_Label, tmp_res)
-                        Eq_Label = tmp_res
-                    else:
-                        Eq_Label = alm_dict[Eq_Label]
+                    Eqpt_Identifier = ws.cell(row=row_num, column=list_dict[list_name_dict['Eqpt_Identifier']] + 1).value
+                    Attribute_Description = ws.cell(row=row_num,
+                                                    column=list_dict[list_name_dict['Attribute_Description']] + 1).value
+                    DC_Data_Type = ws.cell(row=row_num, column=list_dict[list_name_dict['DC_Data_Type']] + 1).value
+                    Deadband = ws.cell(row=row_num, column=list_dict[list_name_dict['Jittor_Factor']] + 1).value
+                    Scaling = ws.cell(row=row_num, column=list_dict[list_name_dict['Transformation_Function']] + 1).value
+                    FEP_addr_size = int(ws.cell(row=row_num, column=list_dict[list_name_dict['FEP_addr_size']] + 1).value)
+                    Eqp_num_str = Eqpt_Code + Attribute_Description + DC_Data_Type
+                    Eqpt_Location = ws.cell(row=row_num, column=list_dict[list_name_dict['Equipment_Location']] + 1).value
+                    if Eqpt_Location is not None:
+                        if Eqpt_Location not in alm_dict:
+                            tmp_res = word_length_chk(translation_to_pinyin(Eqpt_Location))
+                            tmp_res, new_mapping_dict, alm_dict = insert_dup_value(new_mapping_dict, alm_dict,
+                                                                                   Eqpt_Location, tmp_res)
+                            Eqpt_Location = tmp_res
+                        else:
+                            Eqpt_Location = alm_dict[Eqpt_Location]
 
-                Eq_Link = str(
-                    ws.cell(row=row_num, column=list_dict[list_name_dict['CFG_Element_Name']] + 1).value) + ':' + Eq_AGG
-                Eq_Element = ws.cell(row=row_num, column=list_dict[list_name_dict['CFG_Element_Name']] + 1).value
-                Eq_Lk0 = ''
-                Eq_Lk1 = ''
-                Eq_Short = Eqpt_Desc
-                Eq_Loc = Eqpt_Location
-                for each in [Eq_ID, Eq_AGG, Eq_Label, Eq_Link, Eq_Element, Eq_Lk0, Eq_Lk1, Eq_Short,
-                             Eq_Loc]:
-                    eq_row_list.append(each)
-                if System == 'PSCADA':
-                    if str(sub_sys) not in pow_sub_dict:
-                        Eq_Sub = ':R:A:Opm:Definition:Function:POW'
-                    else:
-                        Eq_Sub = pow_sub_dict[str(sub_sys)]
-                    for each in [Eq_fct_ID, Eq_Sub]:
-                        sub_sys_list.append(each)
-                    if sub_sys_list not in pow_sub_list:
-                        pow_sub_list.append(sub_sys_list)
-                else:
-                    pow_sub_list = []
+                    # Create Equipment Data to list eq_row_list
+                    Eq_ID = ws.cell(row=row_num, column=list_dict[list_name_dict['CFG_EQPT_ID']] + 1).value
+                    Eq_fct_ID = Eq_ID + ':link_fct_cat'
+                    Eq_AGG = ws.cell(row=row_num, column=list_dict[list_name_dict['CFG_Equipment_Class']] + 1).value
+                    Eq_Label = Eqpt_Identifier
+                    if Eq_Label is not None:
+                        if str(Eq_Label) not in alm_dict:
+                            print(Eq_Label)
+                            tmp_res = word_length_chk(translation_to_pinyin(Eq_Label))
+                            tmp_res, new_mapping_dict, alm_dict = insert_dup_value(new_mapping_dict, alm_dict,
+                                                                                   Eq_Label, tmp_res)
+                            Eq_Label = tmp_res
+                        else:
+                            Eq_Label = alm_dict[str(Eq_Label)]
 
-                if row_num == 3:
-                    eq_list1.append(Eq_ID[0:8])
-                    eq_list1.append('')
-                    eq_list1.append(Eq_ID[5:8])
-                    eq_list1.append('')
-                    eq_list1.append('basicNode')
-                    eq_list1.append('')
-                    eq_list1.append('')
-                    eq_list1.append('')
-                    eq_list1.append('')
-                    eq_list2.append(Eq_ID[0:8] + ':link_geo_cat')
-                    eq_list2.append('')
-                    eq_list2.append('')
-                    eq_list2.append('')
-                    eq_list2.append('')
-                    eq_list2.append(':R:A:Opm:Definition:Location:' + Eq_ID[5:8])
-                    eq_list2.append('')
-                    eq_list2.append('')
-                    eq_list2.append('')
-                    eq_list3.append(':R:A:' + Eq_ID.split(':')[3] + ':' + Eq_ID.split(':')[4])
-                    eq_list3.append('')
-                    eq_list3.append(Eq_ID.split(':')[4])
-                    eq_list3.append('')
-                    eq_list3.append('basicNode')
-                    eq_list3.append('')
-                    eq_list3.append('')
-                    eq_list3.append('')
-                    eq_list3.append('')
-                    eq_list4.append(':R:A:' + Eq_ID.split(':')[3] + ':' + Eq_ID.split(':')[4] + ':link_fct_cat')
-                    eq_list4.append('')
-                    eq_list4.append('')
-                    eq_list4.append('')
-                    eq_list4.append('')
+                    Eq_Link = str(
+                        ws.cell(row=row_num, column=list_dict[list_name_dict['CFG_Element_Name']] + 1).value) + ':' + Eq_AGG
+                    Eq_Element = ws.cell(row=row_num, column=list_dict[list_name_dict['CFG_Element_Name']] + 1).value
+                    Eq_Lk0 = ''
+                    Eq_Lk1 = ''
+                    Eq_Short = Eqpt_Desc
+                    Eq_Loc = Eqpt_Location
+                    for each in [Eq_ID, Eq_AGG, Eq_Label, Eq_Link, Eq_Element, Eq_Lk0, Eq_Lk1, Eq_Short,
+                                 Eq_Loc]:
+                        eq_row_list.append(each)
                     if System == 'PSCADA':
-                        eq_list4.append(':R:A:Opm:Definition:Function:POW')
+                        if str(sub_sys) not in pow_sub_dict:
+                            Eq_Sub = ':R:A:Opm:Definition:Function:POW'
+                        else:
+                            Eq_Sub = pow_sub_dict[str(sub_sys)]
+                        for each in [Eq_fct_ID, Eq_Sub]:
+                            sub_sys_list.append(each)
+                        if sub_sys_list not in pow_sub_list:
+                            pow_sub_list.append(sub_sys_list)
                     else:
-                        eq_list4.append(':R:A:Opm:Definition:Function:' + Eq_ID.split(':')[4])
-                    eq_list4.append('')
-                    eq_list4.append('')
-                    eq_list4.append('')
-                    eqpt_list.append(eq_list1)
-                    eqpt_list.append(eq_list2)
-                    eqpt_list.append(eq_list3)
-                    eqpt_list.append(eq_list4)
-                    eqpt_list.append(eq_row_list)
-                else:
-                    if eq_row_list not in eqpt_list:
+                        pow_sub_list = []
+
+                    if row_num == 3:
+                        eq_list1.append(Eq_ID[0:8])
+                        eq_list1.append('')
+                        eq_list1.append(Eq_ID[5:8])
+                        eq_list1.append('')
+                        eq_list1.append('basicNode')
+                        eq_list1.append('')
+                        eq_list1.append('')
+                        eq_list1.append('')
+                        eq_list1.append('')
+                        eq_list2.append(Eq_ID[0:8] + ':link_geo_cat')
+                        eq_list2.append('')
+                        eq_list2.append('')
+                        eq_list2.append('')
+                        eq_list2.append('')
+                        eq_list2.append(':R:A:Opm:Definition:Location:' + Eq_ID[5:8])
+                        eq_list2.append('')
+                        eq_list2.append('')
+                        eq_list2.append('')
+                        eq_list3.append(':R:A:' + Eq_ID.split(':')[3] + ':' + Eq_ID.split(':')[4])
+                        eq_list3.append('')
+                        eq_list3.append(Eq_ID.split(':')[4])
+                        eq_list3.append('')
+                        eq_list3.append('basicNode')
+                        eq_list3.append('')
+                        eq_list3.append('')
+                        eq_list3.append('')
+                        eq_list3.append('')
+                        eq_list4.append(':R:A:' + Eq_ID.split(':')[3] + ':' + Eq_ID.split(':')[4] + ':link_fct_cat')
+                        eq_list4.append('')
+                        eq_list4.append('')
+                        eq_list4.append('')
+                        eq_list4.append('')
+                        if System == 'PSCADA':
+                            eq_list4.append(':R:A:Opm:Definition:Function:POW')
+                        else:
+                            eq_list4.append(':R:A:Opm:Definition:Function:' + Eq_ID.split(':')[4])
+                        eq_list4.append('')
+                        eq_list4.append('')
+                        eq_list4.append('')
+                        eqpt_list.append(eq_list1)
+                        eqpt_list.append(eq_list2)
+                        eqpt_list.append(eq_list3)
+                        eqpt_list.append(eq_list4)
                         eqpt_list.append(eq_row_list)
+                    else:
+                        if eq_row_list not in eqpt_list:
+                            eqpt_list.append(eq_row_list)
 
-                # create EV data to list ev_row_list
-                Ev_ID = ws.cell(row=row_num, column=list_dict[list_name_dict['ev_ID']] + 1).value
-                Ev_Name = ws.cell(row=row_num, column=list_dict[list_name_dict['EV_Name']] + 1).value
-                Ev_Address = ws.cell(row=row_num, column=list_dict[list_name_dict['ev_ADDRESS']] + 1).value
-                Ev_Type = ws.cell(row=row_num, column=list_dict[list_name_dict['EV_Type']] + 1).value
-                if FEP_addr_size <= 4 * 8:
-                    Ev_Length = '4'
-                elif FEP_addr_size <= 128 * 8:
-                    Ev_Length = '128'
-                elif FEP_addr_size <= 256 * 8:
-                    Ev_Length = '256'
-                elif FEP_addr_size <= 512 * 8:
-                    Ev_Length = '512'
-                Ev_Label = str(Eq_Label) + '-' + Eqpt_Desc
-                if Deadband is not None:
-                    Ev_deadband = Deadband
-                else:
-                    Ev_deadband = float('0.000')
-                Ev_Element = 'VE'
-                Ev_VarInvalid = ws.cell(row=row_num, column=list_dict[list_name_dict['varInvalid']] + 1).value
-                Ev_Scaling = ws.cell(row=row_num, column=list_dict[list_name_dict['Transformation_Function']] + 1).value
-                Ev_Sub = ''
-                Ev_Ref = ''
-                Ev_Link = ''
-                for each in [Ev_ID, Ev_Name, Ev_Address, Ev_Type, Ev_Length, Ev_deadband, Ev_Label, Ev_Element,
-                             Ev_VarInvalid, Ev_Scaling, Ev_Sub, Ev_Ref, Ev_Link]:
-                    ev_row_list.append(each)
-                if row_num == 3:
-                    ev_list1.append(Ev_ID.replace(Ev_Name, '')[0:-1])
-                    ev_list1.append(System)
-                    ev_list1.append('')
-                    ev_list1.append('')
-                    ev_list1.append('')
-                    ev_list1.append('')
-                    ev_list1.append('')
-                    ev_list1.append('GRP_VE')
-                    ev_list1.append('')
-                    ev_list1.append('')
-                    ev_list1.append('0')
-                    ev_list1.append('0')
-                    ev_list1.append('')
-                    ev_list.append(ev_list1)
-                    ev_list.append(ev_row_list)
-                else:
-                    ev_list.append(ev_row_list)
+                    # create EV data to list ev_row_list
+                    Ev_ID = ws.cell(row=row_num, column=list_dict[list_name_dict['ev_ID']] + 1).value
+                    Ev_Name = ws.cell(row=row_num, column=list_dict[list_name_dict['EV_Name']] + 1).value
+                    Ev_Address = ws.cell(row=row_num, column=list_dict[list_name_dict['ev_ADDRESS']] + 1).value
+                    Ev_Type = ws.cell(row=row_num, column=list_dict[list_name_dict['EV_Type']] + 1).value
+                    if FEP_addr_size <= 4 * 8:
+                        Ev_Length = '4'
+                    elif FEP_addr_size <= 128 * 8:
+                        Ev_Length = '128'
+                    elif FEP_addr_size <= 256 * 8:
+                        Ev_Length = '256'
+                    elif FEP_addr_size <= 512 * 8:
+                        Ev_Length = '512'
+                    Ev_Label = str(Eq_Label) + '-' + Eqpt_Desc
+                    if Deadband is not None:
+                        Ev_deadband = Deadband
+                    else:
+                        Ev_deadband = float('0.000')
+                    Ev_Element = 'VE'
+                    Ev_VarInvalid = ws.cell(row=row_num, column=list_dict[list_name_dict['varInvalid']] + 1).value
+                    Ev_Scaling = ws.cell(row=row_num, column=list_dict[list_name_dict['Transformation_Function']] + 1).value
+                    Ev_Sub = ''
+                    Ev_Ref = ''
+                    Ev_Link = ''
+                    for each in [Ev_ID, Ev_Name, Ev_Address, Ev_Type, Ev_Length, Ev_deadband, Ev_Label, Ev_Element,
+                                 Ev_VarInvalid, Ev_Scaling, Ev_Sub, Ev_Ref, Ev_Link]:
+                        ev_row_list.append(each)
+                    if row_num == 3:
+                        ev_list1.append(Ev_ID.replace(Ev_Name, '')[0:-1])
+                        ev_list1.append(System)
+                        ev_list1.append('')
+                        ev_list1.append('')
+                        ev_list1.append('')
+                        ev_list1.append('')
+                        ev_list1.append('')
+                        ev_list1.append('GRP_VE')
+                        ev_list1.append('')
+                        ev_list1.append('')
+                        ev_list1.append('0')
+                        ev_list1.append('0')
+                        ev_list1.append('')
+                        ev_list.append(ev_list1)
+                        ev_list.append(ev_row_list)
+                    else:
+                        ev_list.append(ev_row_list)
 
-        save_to_excel(eqpt_list, equipment_save_path)
-        save_ev_to_excel(ev_list, ev_save_path)
-        xlsx2csv(equipment_save_path)
-        xlsx2csv(ev_save_path)
+            save_to_excel(eqpt_list, equipment_save_path)
+            save_ev_to_excel(ev_list, ev_save_path)
+            xlsx2csv(equipment_save_path)
+            xlsx2csv(ev_save_path)
+
+            if len(pow_sub_list):
+                save_function_to_excel(pow_sub_list, fct_save_path)
+                xlsx2csv(fct_save_path)
         save_new_po_csv(new_mapping_dict, alm_save_path)
         save_new_po(alm_content, new_mapping_dict, alm_path.replace('.po', '_new.po'))
-        if len(pow_sub_list):
-            save_function_to_excel(pow_sub_list, fct_save_path)
-            xlsx2csv(fct_save_path)
+    except:
+        logger.exception("List: %s文件第%d行出现错误" % (str(each_file), row_num))
 
 
 def save_to_excel(data, file_name):
@@ -773,7 +900,15 @@ def translation_to_pinyin(str1):
         if type(str1) != type('abc'):
             str1 = str(str1)
         str1 = str1.strip().replace('℃', 'degree').replace('³', '3').replace('%', 'percent')
-        str1 = re.sub('\W*', '', str1)
+        str2 = ''
+        for each_str in str1:
+            if ord(each_str) in range(8543, 8571):
+                print(each_str)
+                each_str = chr(ord(each_str) - 8495)
+                str2 += each_str
+            else:
+                str2 += each_str
+        str1 = re.sub('\W*', '', str2)
     result_list = lazy_pinyin(str1)
     result = '&DB_'
     for each in result_list:
@@ -879,657 +1014,786 @@ def save_new_po(content, dict1, file_path):
 
 
 def gen_class_csv():
-    out_path = cur_path + '\\Class_csv'
-    alm_path = alm_folder + 'alm_cn.po'
-    alm_save_path = alm_folder + 'new_class_alm.csv'
-    Internal_without_pt_list = ['dciPOW-MAINT', 'dciPOW-INHIBIT', 'dciPOW-EARTH', 'dciBAS-HOSTAT']
-    Internal_without_ptdo_list = ['dioPOW-MAINT', 'dioPOW-INHIBIT', 'dioPOW-EARTH', 'dioBAS-HOSTAT']
-    csv_1_eq_path = out_path + '\\' + '1-Equipment.xlsx'
-    csv_2_pt_path = out_path + '\\' + '2-PointInstance.xlsx'
-    csv_3_xac_path = out_path + '\\' + '3-XAC.xlsx'
-    csv_3_xal_path = out_path + '\\' + '3-XAL.xlsx'
-    csv_3_xfo_path = out_path + '\\' + '3-XFO.xlsx'
-    csv_3_dov_path = out_path + '\\' + '3-dov.xlsx'
-    csv_4_dio_path = out_path + '\\' + '4-DioValueTable.xlsx'
-    csv_4_dal_path = out_path + '\\' + '4-DalValueTable.xlsx'
-    csv_4_dal10_path = out_path + '\\' + '4-Dal10ValueTable.xlsx'
-    csv_4_aal_path = out_path + '\\' + '4-AalValueTable.xlsx'
-    csv_4_aalvl_path = out_path + '\\' + '4-AalValueLimits.xlsx'
-    class_file_name = class_path + '\\' + os.listdir(class_path)[0]
-    aci_ce = 'SCS_FTOA([.value],"2",[.unit])'
-    ao_ce = 'Int2String(Byte2Int([.value],0,2))'
-    do_ce = 'Int2String(Byte2Int([.value],0,2))'
-    wb_class = openpyxl.load_workbook(class_file_name, data_only=True)
-    ws_class = wb_class['CLASS']
-    class_dict = {}
-    alm_dict = read_alm_po(alm_path)[0]
-    alm_content = read_alm_po(alm_path)[1]
-    i = 0
-    for each in ws_class.columns:
-        class_dict[each[1].value] = i
-        i += 1
-    max_row_num = ws_class.max_row
-    while ws_class.cell(row=max_row_num, column=9).value is None:
-        max_row_num -= 1
-    class_list_ptname = {}
-    class_list_eqptype = {}
-    class_list_deadband = {}
-    class_list_scaling = {}
-    new_mapping_dict = bidict({})
-    class_eq_list = []
-    class_pt_list = []
-    class_xac_list = []
-    class_xal_list = []
-    class_xfo_list = []
-    class_dov_list = []
-    class_dio_list = []
-    class_dal_list = []
-    class_dal10_list = []
-    class_aal_list = []
-    class_aal_vl_list = []
-    pt_type_dict = {}
-    pt_type_dict['AI'] = 'aci_cb_type'
-    pt_type_dict['DI1/SOE'] = 'dci_soe_type'
-    pt_type_dict['DI1'] = 'dci_cb_type'
-    pt_type_dict['DI2'] = 'dci_cb_type'
-    pt_type_dict['DI'] = 'dci_cb_type'
-    pt_type_dict['DO2'] = 'dio_type'
-    pt_type_dict['DO'] = 'dio_type'
-    pt_type_dict['DI_INT'] = 'dci_cb_type'
-    pt_type_dict['DO_INT'] = 'dio_type'
-    pt_type_dict['AO'] = 'aio_type'
-    pt_type_dict['SI'] = 'sci_cb_type'
-    pt_type_dict['SO'] = 'sio_type'
-    pt_type_dict['AI2'] = 'aci_cb_type'
-    pt_type_dict['DO1'] = 'dio_type'
+    try:
+        error_line = 0
+        out_path = cur_path + '\\Class_csv'
+        alm_path = alm_folder + 'alm_cn.po'
+        alm_save_path = alm_folder + 'new_class_alm.csv'
+        Internal_without_pt_list = ['dciPOW-MAINT', 'dciPOW-INHIBIT', 'dciPOW-EARTH', 'dciBAS-HOSTAT']
+        Internal_without_ptdo_list = ['dioPOW-MAINT', 'dioPOW-INHIBIT', 'dioPOW-EARTH', 'dioBAS-HOSTAT']
 
-    xac_type_dict = {}
-    xac_type_dict['AI'] = 'aac_type'
-    xac_type_dict['DI1/SOE'] = 'dac_soe_type'
-    xac_type_dict['DI1'] = 'dac_type'
-    xac_type_dict['DI2'] = 'dac_type'
-    xac_type_dict['DI'] = 'dac_type'
-    xac_type_dict['DI_INT'] = 'dac_type'
-    xac_type_dict['SI'] = 'sac_type'
-    xac_type_dict['AI2'] = 'aac_type'
-    xac_appendix_dict = {}
-    xac_appendix_dict['dci'] = 'dac'
-    xac_appendix_dict['aci'] = 'aac'
-    xac_appendix_dict['sci'] = 'sac'
-
-    xal_type_dict = {}
-    xal_type_dict['AI'] = 'aal_type'
-    xal_type_dict['AI2'] = 'aal_type'
-    xal_type_dict['DI1/SOE'] = 'dal_type'
-    xal_type_dict['DI1'] = 'dal_type'
-    xal_type_dict['DI2'] = 'dal_type'
-    xal_type_dict['DI'] = 'dal_type'
-    xal_type_dict['DI_INT'] = 'dal_10_type'
-    xal_appendix_dict = {}
-    xal_appendix_dict['dci'] = 'dal'
-    xal_appendix_dict['aci'] = 'aal'
-
-    for row_num in range(3, max_row_num + 1):
-        System = ws_class.cell(row=row_num, column=class_dict[list_name_dict['System']] + 1).value
-        Eqpt_Code = ws_class.cell(row=row_num, column=class_dict[list_name_dict['Eqpt_Code']] + 1).value
-        CE_SIG = str(ws_class.cell(row=row_num, column=class_dict[list_name_dict['CE_sig']] + 1).value)
-
-        DC_Data_Type = ws_class.cell(row=row_num, column=class_dict[list_name_dict['DC_Data_Type']] + 1).value
-        v0 = ws_class.cell(row=row_num, column=class_dict[list_name_dict['v0']] + 1).value
-        v1 = ws_class.cell(row=row_num, column=class_dict[list_name_dict['v1']] + 1).value
-        v2 = ws_class.cell(row=row_num, column=class_dict[list_name_dict['v2']] + 1).value
-        v3 = ws_class.cell(row=row_num, column=class_dict[list_name_dict['v3']] + 1).value
-        v4 = ws_class.cell(row=row_num, column=class_dict[list_name_dict['v4']] + 1).value
-        v5 = ws_class.cell(row=row_num, column=class_dict[list_name_dict['v5']] + 1).value
-        v6 = ws_class.cell(row=row_num, column=class_dict[list_name_dict['v6']] + 1).value
-        v7 = ws_class.cell(row=row_num, column=class_dict[list_name_dict['v7']] + 1).value
-
-        v0s = ws_class.cell(row=row_num, column=class_dict[list_name_dict['v0s']] + 1).value
-        v1s = ws_class.cell(row=row_num, column=class_dict[list_name_dict['v1s']] + 1).value
-        v2s = ws_class.cell(row=row_num, column=class_dict[list_name_dict['v2s']] + 1).value
-        v3s = ws_class.cell(row=row_num, column=class_dict[list_name_dict['v3s']] + 1).value
-        v4s = ws_class.cell(row=row_num, column=class_dict[list_name_dict['v4s']] + 1).value
-        v5s = ws_class.cell(row=row_num, column=class_dict[list_name_dict['v5s']] + 1).value
-        v6s = ws_class.cell(row=row_num, column=class_dict[list_name_dict['v6s']] + 1).value
-        v7s = ws_class.cell(row=row_num, column=class_dict[list_name_dict['v7s']] + 1).value
-
-        v0ic = ws_class.cell(row=row_num, column=class_dict[list_name_dict['v0ic']] + 1).value
-        v1ic = ws_class.cell(row=row_num, column=class_dict[list_name_dict['v1ic']] + 1).value
-        v2ic = ws_class.cell(row=row_num, column=class_dict[list_name_dict['v2ic']] + 1).value
-        v3ic = ws_class.cell(row=row_num, column=class_dict[list_name_dict['v3ic']] + 1).value
-        v0rc = ws_class.cell(row=row_num, column=class_dict[list_name_dict['v0rc']] + 1).value
-        v1rc = ws_class.cell(row=row_num, column=class_dict[list_name_dict['v1rc']] + 1).value
-        v2rc = ws_class.cell(row=row_num, column=class_dict[list_name_dict['v2rc']] + 1).value
-        v3rc = ws_class.cell(row=row_num, column=class_dict[list_name_dict['v3rc']] + 1).value
-        rcto = ws_class.cell(row=row_num, column=class_dict[list_name_dict['rcto']] + 1).value
-
-        point_name = ws_class.cell(row=row_num, column=class_dict[list_name_dict['IV_Point_Name']] + 1).value
-        CFG_Element_Name = ws_class.cell(row=row_num, column=class_dict[list_name_dict['CFG_Element_Name']] + 1).value
-        CFG_Equipment_Class = ws_class.cell(row=row_num,
-                                            column=class_dict[list_name_dict['CFG_Equipment_Class']] + 1).value
-        HMI_Order = ws_class.cell(row=row_num, column=class_dict[list_name_dict['HMI_Order']] + 1).value
-        Unit = ws_class.cell(row=row_num, column=class_dict[list_name_dict['unit']] + 1).value
-        if Unit is not None:
-            if Unit not in alm_dict:
-                tmp_res = '&DB'
-                tmp_res, new_mapping_dict, alm_dict = insert_dup_value(new_mapping_dict, alm_dict,
-                                                                       Unit, tmp_res)
-
-                Unit = tmp_res
+        class_file_name = class_path + '\\' + os.listdir(class_path)[0]
+        aci_ce = 'SCS_FTOA([.value],"2",[.unit])'
+        ao_ce = 'SCS_FTOA([.value],"0",[.unit])'
+        do_ce = 'Int2String(Byte2Int([.value],0,2))'
+        choose_res = input('是否生成上个版本的类表csv(请先确保Old_Class文件夹中有上个版本类表): y/n(直接回车默认为y)\n')
+        if choose_res == 'y' or choose_res == '':
+            error_code = old_class_check_exist()
+            if error_code == 1:
+                time.sleep(10)
+                exit("请检查文件!")
             else:
-                Unit = alm_dict[Unit]
+                old_class_file_name = old_class_path + '\\' + os.listdir(old_class_path)[0]
+                wb_class = openpyxl.load_workbook(old_class_file_name, data_only=True)
+                check_io('class', old_class_file_name, 'point_name')
+                check_io('class', old_class_file_name, 'point_prefix')
+                out_path = cur_path + '\\Old_class_csv'
+        else:
+            out_path = cur_path + '\\Class_csv'
+            wb_class = openpyxl.load_workbook(class_file_name, data_only=True)
+            check_io('class', class_file_name, 'point_name')
+            check_io('class', class_file_name, 'point_prefix')
+        ws_class = wb_class['CLASS']
+        csv_1_eq_path = out_path + '\\' + '1-Equipment.xlsx'
+        csv_2_pt_path = out_path + '\\' + '2-PointInstance.xlsx'
+        csv_3_xac_path = out_path + '\\' + '3-XAC.xlsx'
+        csv_3_xal_path = out_path + '\\' + '3-XAL.xlsx'
+        csv_3_xfo_path = out_path + '\\' + '3-XFO.xlsx'
+        csv_3_dov_path = out_path + '\\' + '3-dov.xlsx'
+        csv_4_dio_path = out_path + '\\' + '4-DioValueTable.xlsx'
+        csv_4_dal_path = out_path + '\\' + '4-DalValueTable.xlsx'
+        csv_4_dal10_path = out_path + '\\' + '4-Dal10ValueTable.xlsx'
+        csv_4_aal_path = out_path + '\\' + '4-AalValueTable.xlsx'
+        csv_4_aalvl_path = out_path + '\\' + '4-AalValueLimits.xlsx'
+        class_dict = {}
+        alm_dict = read_alm_po(alm_path)[0]
+        alm_content = read_alm_po(alm_path)[1]
+        i = 0
+        for each in ws_class.columns:
+            class_dict[each[1].value] = i
+            i += 1
+        max_row_num = ws_class.max_row
+        while ws_class.cell(row=max_row_num, column=9).value is None:
+            max_row_num -= 1
+        class_list_ptname = {}
+        class_list_eqptype = {}
+        class_list_deadband = {}
+        class_list_scaling = {}
+        new_mapping_dict = bidict({})
+        class_eq_list = []
+        class_pt_list = []
+        class_xac_list = []
+        class_xal_list = []
+        class_xfo_list = []
+        class_dov_list = []
+        class_dio_list = []
+        class_dal_list = []
+        class_dal10_list = []
+        class_aal_list = []
+        class_aal_vl_list = []
+        pt_type_dict = {}
+        pt_type_dict['AI'] = 'aci_cb_type'
+        pt_type_dict['DI1/SOE'] = 'dci_soe_type'
+        pt_type_dict['DI1'] = 'dci_cb_type'
+        pt_type_dict['DI2'] = 'dci_cb_type'
+        pt_type_dict['DI'] = 'dci_cb_type'
+        pt_type_dict['DO2'] = 'dio_type'
+        pt_type_dict['DO'] = 'dio_type'
+        pt_type_dict['DI_INT'] = 'dci_cb_type'
+        pt_type_dict['DO_INT'] = 'dio_type'
+        pt_type_dict['DI_RESP'] = 'dci_cb_type'
+        pt_type_dict['DO_RESP'] = 'dio_type'
+        pt_type_dict['AO_INT'] = 'aio_type'
+        pt_type_dict['AO'] = 'aio_type'
+        pt_type_dict['SI'] = 'sci_cb_type'
+        pt_type_dict['SO'] = 'sio_type'
+        pt_type_dict['AI2'] = 'aci_cb_type'
+        pt_type_dict['DO1'] = 'dio_type'
 
-        Deadband = ws_class.cell(row=row_num, column=class_dict[list_name_dict['Deadband']] + 1).value
-        Scaling = ws_class.cell(row=row_num, column=class_dict[list_name_dict['Scaling']] + 1).value
-        Eq_Id = ':R:A:' + System + ':' + Eqpt_Code
-        Pt_Id = Eq_Id + ':' + str(point_name)
+        xac_type_dict = {}
+        xac_type_dict['AI'] = 'aac_type'
+        xac_type_dict['DI1/SOE'] = 'dac_soe_type'
+        xac_type_dict['DI1'] = 'dac_type'
+        xac_type_dict['DI2'] = 'dac_type'
+        xac_type_dict['DI'] = 'dac_type'
+        xac_type_dict['DI_INT'] = 'dac_type'
+        xac_type_dict['DI_RESP'] = 'dac_type'
+        xac_type_dict['SI'] = 'sac_type'
+        xac_type_dict['AI2'] = 'aac_type'
+        xac_appendix_dict = {}
+        xac_appendix_dict['dci'] = 'dac'
+        xac_appendix_dict['aci'] = 'aac'
+        xac_appendix_dict['sci'] = 'sac'
 
-        # 4-DioValueTable
-        dio_table_dict = {0: '', 1: '', 2: '', 3: ''}
-        if DC_Data_Type[0:2] == 'DO':
-            dio_table_dict[0] = v0
-            dio_table_dict[1] = v1
-            dio_table_dict[2] = v2
-            dio_table_dict[3] = v3
-            vt_name = ':V_valueTable_'
-            for each in ['dovname', 'label', 'value']:
-                dio_each_list = []
-                if each == 'dovname':
-                    dio_ID = Pt_Id + vt_name + each
-                    dio_each_list.append(dio_ID)
-                    if DC_Data_Type[-3:] == 'INT' and point_name not in Internal_without_ptdo_list:
-                        for each_value in dio_table_dict.items():
-                            if each_value[1] is not None:
-                                dov_name = 'dovPOW-' + str(each_value[1])
-                                dio_each_list.append(dov_name)
-                        class_dio_list.append(dio_each_list)
-                    else:
-                        for each_value in dio_table_dict.items():
-                            if each_value[1] is not None:
-                                dov_name = 'dov' + sys_dict[System] + '-CTLVAL' + str(each_value[0])
-                                dio_each_list.append(dov_name)
-                        class_dio_list.append(dio_each_list)
-                elif each == 'label':
-                    dio_ID = Pt_Id + vt_name + each
-                    dio_each_list.append(dio_ID)
-                    for each_label in [v0, v1, v2, v3]:
-                        if each_label is not None:
-                            if each_label not in alm_dict:
-                                tmp_res = word_length10_chk(translation_to_pinyin(each_label))
-                                tmp_res, new_mapping_dict, alm_dict = insert_dup_value(new_mapping_dict, alm_dict,
-                                                                                       each_label, tmp_res)
-                                each_label = tmp_res
+        xal_type_dict = {}
+        xal_type_dict['AI'] = 'aal_type'
+        xal_type_dict['AI2'] = 'aal_type'
+        xal_type_dict['DI1/SOE'] = 'dal_type'
+        xal_type_dict['DI1'] = 'dal_type'
+        xal_type_dict['DI2'] = 'dal_type'
+        xal_type_dict['DI'] = 'dal_type'
+        xal_type_dict['DI_INT'] = 'dal_10_type'
+        xal_type_dict['DI_RESP'] = 'dal_10_type'
+        xal_appendix_dict = {}
+        xal_appendix_dict['dci'] = 'dal'
+        xal_appendix_dict['aci'] = 'aal'
 
+        for row_num in range(3, max_row_num + 1):
+            error_line = row_num
+            System = ws_class.cell(row=row_num, column=class_dict[list_name_dict['System']] + 1).value
+            Eqpt_Code = ws_class.cell(row=row_num, column=class_dict[list_name_dict['Eqpt_Code']] + 1).value
+            CE_SIG = str(ws_class.cell(row=row_num, column=class_dict[list_name_dict['CE_sig']] + 1).value)
+
+            DC_Data_Type = ws_class.cell(row=row_num, column=class_dict[list_name_dict['DC_Data_Type']] + 1).value
+            v0 = check_delete_cell(ws_class.cell(row=row_num, column=class_dict[list_name_dict['v0']] + 1), ws_class.cell(row=row_num, column=class_dict[list_name_dict['v0']] + 1).value)
+            v1 = check_delete_cell(ws_class.cell(row=row_num, column=class_dict[list_name_dict['v1']] + 1), ws_class.cell(row=row_num, column=class_dict[list_name_dict['v1']] + 1).value)
+            v2 = check_delete_cell(ws_class.cell(row=row_num, column=class_dict[list_name_dict['v2']] + 1), ws_class.cell(row=row_num, column=class_dict[list_name_dict['v2']] + 1).value)
+            v3 = check_delete_cell(ws_class.cell(row=row_num, column=class_dict[list_name_dict['v3']] + 1), ws_class.cell(row=row_num, column=class_dict[list_name_dict['v3']] + 1).value)
+            v4 = check_delete_cell(ws_class.cell(row=row_num, column=class_dict[list_name_dict['v4']] + 1), ws_class.cell(row=row_num, column=class_dict[list_name_dict['v4']] + 1).value)
+            v5 = check_delete_cell(ws_class.cell(row=row_num, column=class_dict[list_name_dict['v5']] + 1), ws_class.cell(row=row_num, column=class_dict[list_name_dict['v5']] + 1).value)
+            v6 = check_delete_cell(ws_class.cell(row=row_num, column=class_dict[list_name_dict['v6']] + 1), ws_class.cell(row=row_num, column=class_dict[list_name_dict['v6']] + 1).value)
+            v7 = check_delete_cell(ws_class.cell(row=row_num, column=class_dict[list_name_dict['v7']] + 1), ws_class.cell(row=row_num, column=class_dict[list_name_dict['v7']] + 1).value)
+
+            v0s = check_delete_cell(ws_class.cell(row=row_num, column=class_dict[list_name_dict['v0s']] + 1), ws_class.cell(row=row_num, column=class_dict[list_name_dict['v0s']] + 1).value)
+            v1s = check_delete_cell(ws_class.cell(row=row_num, column=class_dict[list_name_dict['v1s']] + 1), ws_class.cell(row=row_num, column=class_dict[list_name_dict['v1s']] + 1).value)
+            v2s = check_delete_cell(ws_class.cell(row=row_num, column=class_dict[list_name_dict['v2s']] + 1), ws_class.cell(row=row_num, column=class_dict[list_name_dict['v2s']] + 1).value)
+            v3s = check_delete_cell(ws_class.cell(row=row_num, column=class_dict[list_name_dict['v3s']] + 1), ws_class.cell(row=row_num, column=class_dict[list_name_dict['v3s']] + 1).value)
+            v4s = check_delete_cell(ws_class.cell(row=row_num, column=class_dict[list_name_dict['v4s']] + 1), ws_class.cell(row=row_num, column=class_dict[list_name_dict['v4s']] + 1).value)
+            v5s = check_delete_cell(ws_class.cell(row=row_num, column=class_dict[list_name_dict['v5s']] + 1), ws_class.cell(row=row_num, column=class_dict[list_name_dict['v5s']] + 1).value)
+            v6s = check_delete_cell(ws_class.cell(row=row_num, column=class_dict[list_name_dict['v6s']] + 1), ws_class.cell(row=row_num, column=class_dict[list_name_dict['v6s']] + 1).value)
+            v7s = check_delete_cell(ws_class.cell(row=row_num, column=class_dict[list_name_dict['v7s']] + 1), ws_class.cell(row=row_num, column=class_dict[list_name_dict['v7s']] + 1).value)
+            '''
+            v0s = ws_class.cell(row=row_num, column=class_dict[list_name_dict['v0s']] + 1).value
+            v1s = ws_class.cell(row=row_num, column=class_dict[list_name_dict['v1s']] + 1).value
+            v2s = ws_class.cell(row=row_num, column=class_dict[list_name_dict['v2s']] + 1).value
+            v3s = ws_class.cell(row=row_num, column=class_dict[list_name_dict['v3s']] + 1).value
+            v4s = ws_class.cell(row=row_num, column=class_dict[list_name_dict['v4s']] + 1).value
+            v5s = ws_class.cell(row=row_num, column=class_dict[list_name_dict['v5s']] + 1).value
+            v6s = ws_class.cell(row=row_num, column=class_dict[list_name_dict['v6s']] + 1).value
+            v7s = ws_class.cell(row=row_num, column=class_dict[list_name_dict['v7s']] + 1).value
+            '''
+
+            v0ic = ws_class.cell(row=row_num, column=class_dict[list_name_dict['v0ic']] + 1).value
+            v1ic = ws_class.cell(row=row_num, column=class_dict[list_name_dict['v1ic']] + 1).value
+            v2ic = ws_class.cell(row=row_num, column=class_dict[list_name_dict['v2ic']] + 1).value
+            v3ic = ws_class.cell(row=row_num, column=class_dict[list_name_dict['v3ic']] + 1).value
+            v0rc = ws_class.cell(row=row_num, column=class_dict[list_name_dict['v0rc']] + 1).value
+            v1rc = ws_class.cell(row=row_num, column=class_dict[list_name_dict['v1rc']] + 1).value
+            v2rc = ws_class.cell(row=row_num, column=class_dict[list_name_dict['v2rc']] + 1).value
+            v3rc = ws_class.cell(row=row_num, column=class_dict[list_name_dict['v3rc']] + 1).value
+            rcto = ws_class.cell(row=row_num, column=class_dict[list_name_dict['rcto']] + 1).value
+
+            point_name = ws_class.cell(row=row_num, column=class_dict[list_name_dict['IV_Point_Name']] + 1).value
+            CFG_Element_Name = ws_class.cell(row=row_num, column=class_dict[list_name_dict['CFG_Element_Name']] + 1).value
+            CFG_Equipment_Class = ws_class.cell(row=row_num,
+                                                column=class_dict[list_name_dict['CFG_Equipment_Class']] + 1).value
+            HMI_Order = ws_class.cell(row=row_num, column=class_dict[list_name_dict['HMI_Order']] + 1).value
+            Unit = ws_class.cell(row=row_num, column=class_dict[list_name_dict['unit']] + 1).value
+            if Unit is not None:
+                if Unit not in alm_dict:
+                    tmp_res = '&DB'
+                    tmp_res, new_mapping_dict, alm_dict = insert_dup_value(new_mapping_dict, alm_dict,
+                                                                           Unit, tmp_res)
+
+                    Unit = tmp_res
+                else:
+                    Unit = alm_dict[Unit]
+
+            Deadband = ws_class.cell(row=row_num, column=class_dict[list_name_dict['Deadband']] + 1).value
+            Scaling = ws_class.cell(row=row_num, column=class_dict[list_name_dict['Scaling']] + 1).value
+            Eq_Id = ':R:A:' + System + ':' + Eqpt_Code
+            Pt_Id = Eq_Id + ':' + str(point_name)
+
+            if ws_class.cell(row=row_num, column=class_dict[list_name_dict['Eqpt_Code']] + 1).fill.fgColor.rgb != 'FFFF0000' and ws_class.cell(row=row_num, column=class_dict[list_name_dict['Eqpt_Code']] + 1).font.strike is not True:
+                # 4-DioValueTable
+                dio_table_dict = {0: '', 1: '', 2: '', 3: '', 4: '', 5: '', 6: '', 7:''}
+                if DC_Data_Type[0:2] == 'DO':
+                    dio_table_dict[0] = v0
+                    dio_table_dict[1] = v1
+                    dio_table_dict[2] = v2
+                    dio_table_dict[3] = v3
+                    dio_table_dict[4] = v4
+                    dio_table_dict[5] = v5
+                    dio_table_dict[6] = v6
+                    dio_table_dict[7] = v7
+                    vt_name = ':V_valueTable_'
+                    for each in ['dovname', 'label', 'value']:
+                        dio_each_list = []
+                        if each == 'dovname':
+                            dio_ID = Pt_Id + vt_name + each
+                            dio_each_list.append(dio_ID)
+                            if DC_Data_Type[-4:] == 'RESP':
+                                for each_value in dio_table_dict.items():
+                                    if each_value[1] is not None:
+                                        dov_name = 'dovPOW-' + str(each_value[1])
+                                        dio_each_list.append(dov_name)
+                                class_dio_list.append(dio_each_list)
                             else:
-                                each_label = alm_dict[each_label]
-                            dio_each_list.append(each_label)
-                    class_dio_list.append(dio_each_list)
-                elif each == 'value':
-                    dio_ID = Pt_Id + vt_name + each
-                    dio_each_list.append(dio_ID)
-                    for each_value in dio_table_dict.items():
-                        if each_value[1] is not None:
-                            dio_each_list.append(each_value[0])
-                    class_dio_list.append(dio_each_list)
-        # 4-DalValueTable
-        dal_table_dict = {0: '', 1: '', 2: '', 3: '', 4: '', 5: '', 6: '', 7: ''}
-        dal_table_severity_dict = {0: '', 1: '', 2: '', 3: '', 4: '', 5: '', 6: '', 7: ''}
-        dal10_table_dict = {0: '', 1: '', 2: '', 3: ''}
-        if DC_Data_Type[0:2] == 'DI':
-            dal_vt_name = ':dal:V_valueTable_'
-            if DC_Data_Type[-3:] == 'INT' and point_name not in Internal_without_pt_list:
-                dal_table_dict = {0: '&DB_DESELECT_SUCCESS', 1: '&DB_DESELECT_FAIL', 2: '&DB_DESELECT_UNKNOWN',
-                                  3: '&DB_EXECUTE_SUCCESS', 4: '&DB_EXECUTE_FAIL', 5: '&DB_EXECUTE_UNKNOWN',
-                                  6: '&DB_SELECT_SUCCESS', 7: '&DB_SELECT_FAIL', 8: '&DB_SELECT_UNKNOWN',
-                                  9: '&DB_EQUIPMENT_INIT'}
-                dal_table_severity_dict = {0: '0', 1: '0', 2: '0',
-                                           3: '0', 4: '0', 5: '0',
-                                           6: '0', 7: '0', 8: '0', 9: '0'}
-                dal_table_value_dict = {0: '1', 1: '2', 2: '3',
-                                        3: '4', 4: '8', 5: '12',
-                                        6: '16', 7: '32', 8: '48', 9: '0'}
-                for each in ['format', 'label', 'severity', 'state', 'value']:
-                    dal_each_list = []
-                    if each == 'format':
-                        dal_ID = Pt_Id + dal_vt_name + each
-                        dal_each_list.append(dal_ID)
-                        for each_cat in dal_table_dict.items():
-                            if each_cat[1] is not None and each_cat[1] != '':
-                                if 'SOE' in DC_Data_Type:
-                                    dal_each_list.append(2)
-                                else:
-                                    dal_each_list.append(0)
+                                for each_value in dio_table_dict.items():
+                                    if each_value[1] is not None and each_value[1] != '':
+                                        dov_name = 'dov' + sys_dict[System] + '-CTLVAL' + str(each_value[0])
+                                        dio_each_list.append(dov_name)
+                                class_dio_list.append(dio_each_list)
 
-                    if each == 'label':
-                        dal_ID = Pt_Id + dal_vt_name + each
-                        dal_each_list.append(dal_ID)
-                        for each_cat in dal_table_dict.items():
-                            dal_label = each_cat[1]
-                            dal_each_list.append(dal_label)
-                    if each == 'severity':
-                        dal_ID = Pt_Id + dal_vt_name + each
-                        dal_each_list.append(dal_ID)
-                        for each_cat in dal_table_severity_dict.items():
-                            dal_sev = each_cat[1]
-                            if dal_sev is not None and each_cat[1] != '':
-                                dal_each_list.append(dal_sev)
+                        elif each == 'label':
+                            dio_ID = Pt_Id + vt_name + each
+                            dio_each_list.append(dio_ID)
+                            for each_label in [v0, v1, v2, v3, v4, v5, v6, v7]:
+                                if each_label is not None and each_label != '':
+                                    if each_label not in alm_dict:
+                                        tmp_res = word_length10_chk(translation_to_pinyin(each_label))
+                                        tmp_res, new_mapping_dict, alm_dict = insert_dup_value(new_mapping_dict, alm_dict,
+                                                                                               each_label, tmp_res)
+                                        each_label = tmp_res
 
-                    if each == 'state':
-                        dal_ID = Pt_Id + dal_vt_name + each
-                        dal_each_list.append(dal_ID)
-                        for each_cat in dal_table_severity_dict.items():
-                            dal_sev = each_cat[1]
-                            if dal_sev is not None and each_cat[1] != '':
-                                if int(dal_sev) != 0:
-                                    dal_each_list.append('A')
-                                else:
-                                    dal_each_list.append('N')
+                                    else:
+                                        each_label = alm_dict[each_label]
+                                    dio_each_list.append(each_label)
+                            class_dio_list.append(dio_each_list)
+                        elif each == 'value':
+                            dio_ID = Pt_Id + vt_name + each
+                            dio_each_list.append(dio_ID)
+                            for each_value in dio_table_dict.items():
+                                if each_value[1] is not None and each_value[1] != '':
+                                    dio_each_list.append(each_value[0])
+                            class_dio_list.append(dio_each_list)
+                        # print(class_dio_list)
+                        for each_list in class_dio_list:
+                            i = len(each_list)
+                            while 9 - i > 0:
+                                each_list.append('__ERASE__')
+                                i = len(each_list)
+                # 4-DalValueTable
+                dal_table_dict = {0: '', 1: '', 2: '', 3: '', 4: '', 5: '', 6: '', 7: ''}
+                dal_table_severity_dict = {0: '', 1: '', 2: '', 3: '', 4: '', 5: '', 6: '', 7: ''}
+                dal10_table_dict = {0: '', 1: '', 2: '', 3: ''}
+                if DC_Data_Type[0:2] == 'DI':
+                    dal_vt_name = ':dal:V_valueTable_'
+                    if DC_Data_Type[-4:] == 'RESP':
+                        dal_table_dict = {0: '&DB_DESELECT_SUCCESS', 1: '&DB_DESELECT_FAIL', 2: '&DB_DESELECT_UNKNOWN',
+                                          3: '&DB_EXECUTE_SUCCESS', 4: '&DB_EXECUTE_FAIL', 5: '&DB_EXECUTE_UNKNOWN',
+                                          6: '&DB_SELECT_SUCCESS', 7: '&DB_SELECT_FAIL', 8: '&DB_SELECT_UNKNOWN',
+                                          9: '&DB_EQUIPMENT_INIT'}
+                        dal_table_severity_dict = {0: '0', 1: '0', 2: '0',
+                                                   3: '0', 4: '0', 5: '0',
+                                                   6: '0', 7: '0', 8: '0', 9: '0'}
+                        dal_table_value_dict = {0: '1', 1: '2', 2: '3',
+                                                3: '4', 4: '8', 5: '12',
+                                                6: '16', 7: '32', 8: '48', 9: '0'}
+                        for each in ['format', 'label', 'severity', 'state', 'value']:
+                            dal_each_list = []
+                            if each == 'format':
+                                dal_ID = Pt_Id + dal_vt_name + each
+                                dal_each_list.append(dal_ID)
+                                for each_cat in dal_table_dict.items():
+                                    if each_cat[1] is not None and each_cat[1] != '':
+                                        if 'SOE' in DC_Data_Type:
+                                            dal_each_list.append(2)
+                                        else:
+                                            dal_each_list.append(0)
+                                    else:
+                                        dal_each_list.append('__ERASE__')
 
-                    if each == 'value':
-                        dal_ID = Pt_Id + dal_vt_name + each
-                        dal_each_list.append(dal_ID)
-                        for each_cat in dal_table_value_dict.items():
-                            dal_label = each_cat[1]
-                            if dal_label is not None and each_cat[1] != '':
-                                dal_each_list.append(each_cat[1])
-                    class_dal10_list.append(dal_each_list)
-            else:
-                dal_table_dict[0] = v0
-                dal_table_dict[1] = v1
-                dal_table_dict[2] = v2
-                dal_table_dict[3] = str(v3).replace(' ', '').replace('None', '')
-                dal_table_dict[4] = v4
-                dal_table_dict[5] = v5
-                dal_table_dict[6] = v6
-                dal_table_dict[7] = v7
-                dal_table_severity_dict[0] = v0s
-                dal_table_severity_dict[1] = v1s
-                dal_table_severity_dict[2] = v2s
-                dal_table_severity_dict[3] = str(v3s).replace(' ', '').replace('None', '')
-                dal_table_severity_dict[4] = v4s
-                dal_table_severity_dict[5] = v5s
-                dal_table_severity_dict[6] = v6s
-                dal_table_severity_dict[7] = v7s
+                            if each == 'label':
+                                dal_ID = Pt_Id + dal_vt_name + each
+                                dal_each_list.append(dal_ID)
+                                for each_cat in dal_table_dict.items():
+                                    dal_label = each_cat[1]
+                                    if dal_label != '':
+                                        dal_each_list.append(dal_label)
+                                    else:
+                                        dal_each_list.append('__ERASE__')
+                            if each == 'severity':
+                                dal_ID = Pt_Id + dal_vt_name + each
+                                dal_each_list.append(dal_ID)
+                                for each_cat in dal_table_severity_dict.items():
+                                    dal_sev = each_cat[1]
+                                    if dal_sev is not None and each_cat[1] != '':
+                                        dal_each_list.append(dal_sev)
 
-                for each in ['format', 'label', 'severity', 'state', 'value']:
-                    dal_each_list = []
-                    if each == 'format':
-                        dal_ID = Pt_Id + dal_vt_name + each
-                        dal_each_list.append(dal_ID)
-                        for each_cat in dal_table_dict.items():
-                            if each_cat[1] is not None and each_cat[1] != '':
-                                if 'SOE' in DC_Data_Type:
-                                    dal_each_list.append(2)
-                                else:
-                                    dal_each_list.append(0)
+                            if each == 'state':
+                                dal_ID = Pt_Id + dal_vt_name + each
+                                dal_each_list.append(dal_ID)
+                                for each_cat in dal_table_severity_dict.items():
+                                    dal_sev = each_cat[1]
+                                    if dal_sev is not None and each_cat[1] != '':
+                                        if int(dal_sev) != 0:
+                                            dal_each_list.append('A')
+                                        else:
+                                            dal_each_list.append('N')
 
-                    if each == 'label':
-                        dal_ID = Pt_Id + dal_vt_name + each
-                        dal_each_list.append(dal_ID)
-                        for each_cat in dal_table_dict.items():
-                            dal_label = each_cat[1]
-                            if dal_label is not None and each_cat[1] != '':
-                                # print(row_num)
-                                if dal_label not in alm_dict:
-                                    tmp_res = word_length10_chk(translation_to_pinyin(dal_label))
-                                    tmp_res, new_mapping_dict, alm_dict = insert_dup_value(new_mapping_dict, alm_dict,
-                                                                                           dal_label, tmp_res)
-                                    dal_label = tmp_res
-
-                                else:
-                                    dal_label = alm_dict[dal_label]
-                                dal_each_list.append(dal_label)
-                    if each == 'severity':
-                        dal_ID = Pt_Id + dal_vt_name + each
-                        dal_each_list.append(dal_ID)
-                        for each_cat in dal_table_severity_dict.items():
-                            dal_sev = each_cat[1]
-                            if dal_sev is not None and each_cat[1] != '':
-                                dal_each_list.append(dal_sev)
-
-                    if each == 'state':
-                        dal_ID = Pt_Id + dal_vt_name + each
-                        dal_each_list.append(dal_ID)
-                        for each_cat in dal_table_severity_dict.items():
-                            dal_sev = each_cat[1]
-                            if dal_sev is not None and each_cat[1] != '':
-                                if int(dal_sev) != 0:
-                                    dal_each_list.append('A')
-                                else:
-                                    dal_each_list.append('N')
-
-                    if each == 'value':
-                        dal_ID = Pt_Id + dal_vt_name + each
-                        dal_each_list.append(dal_ID)
-                        for each_cat in dal_table_dict.items():
-                            dal_label = each_cat[1]
-                            if dal_label is not None and each_cat[1] != '':
-                                dal_each_list.append(each_cat[0])
-
-                    class_dal_list.append(dal_each_list)
-
-        Attribute_Description = ws_class.cell(row=row_num,
-                                              column=class_dict[list_name_dict['Attribute_Description']] + 1).value
-        Attribute_Description = str(Attribute_Description).strip()
-        if Attribute_Description not in alm_dict:
-            tmp_res = word_length_chk(translation_to_pinyin(Attribute_Description))
-            tmp_res, new_mapping_dict, alm_dict = insert_dup_value(new_mapping_dict, alm_dict,
-                                                                   Attribute_Description, tmp_res)
-            Attribute_Description = tmp_res
-        else:
-            Attribute_Description = alm_dict[Attribute_Description]
-
-        Eqpt_Desc = ws_class.cell(row=row_num, column=class_dict[list_name_dict['Eqpt_Desc']] + 1).value
-        if Eqpt_Desc not in alm_dict:
-            tmp_res = word_length_chk32(translation_to_pinyin(Eqpt_Desc))
-            tmp_res, new_mapping_dict, alm_dict = insert_dup_value(new_mapping_dict, alm_dict,
-                                                                   Eqpt_Desc, tmp_res)
-            Eqpt_Desc = tmp_res
-        else:
-            Eqpt_Desc = alm_dict[Eqpt_Desc]
-        # 1-Equipments.csv
-        eq_list = []
-        if row_num == 3:
-            eq_list.append(':R:A:' + System)
-            eq_list.append('basicNode')
-            eq_list.append('')
-            eq_list.append('')
-            class_eq_list.append(eq_list)
-            eq_list = []
-        eq_list.append(Eq_Id)
-        eq_list.append(CFG_Element_Name)
-        eq_list.append(Eqpt_Desc)
-        # eq_list.append(CFG_Equipment_Class)
-        if eq_list not in class_eq_list:
-            class_eq_list.append(eq_list)
-        # 2-PointInstance.csv
-        pt_list = []
-        pt_list.append(Pt_Id)
-        pt_list.append(pt_type_dict[DC_Data_Type])
-        pt_list.append(Attribute_Description)
-        pt_list.append('')
-        pt_list.append(Unit)
-        pt_list.append('')
-        pt_list.append('')
-        pt_list.append('')
-        pt_list.append('')
-        pt_list.append('')
-        pt_list.append(HMI_Order)
-        if point_name[0:3] == 'aci':
-            pt_list.append(aci_ce)
-        elif point_name[0:3] == 'aio':
-            pt_list.append(ao_ce)
-        elif point_name[0:3] == 'dio' or point_name[0:3] == 'sio':
-            pt_list.append(do_ce)
-        else:
-            pt_list.append('')
-        if point_name[0:3] == 'dci':
-            if CE_SIG == '1':
-                pt_list.append('1')
-            elif CE_SIG == '2':
-                pt_list.append('2')
-            else:
-                pt_list.append('__ERASE__')
-        else:
-            pt_list.append('')
-        class_pt_list.append(pt_list)
-        # 3-XAC.csv
-        xac_list = []
-        if DC_Data_Type[1] == 'I':
-            xac_list.append(Pt_Id + ':' + str(xac_appendix_dict[point_name[0:3]]))
-            xac_list.append(xac_type_dict[DC_Data_Type])
-            if point_name[0] == 'd':
-                xac_list.append('1')
-            else:
-                xac_list.append('')
-            if xac_list not in class_xac_list:
-                class_xac_list.append(xac_list)
-        # 3-XAL.csv
-        xal_list = []
-        if DC_Data_Type[1] == 'I':
-            if DC_Data_Type[0] != 'S':
-                xal_list.append(Pt_Id + ':' + str(xal_appendix_dict[point_name[0:3]]))
-                if DC_Data_Type[-3:] == 'INT':
-                    if point_name not in Internal_without_pt_list:
-                        xal_list.append(xal_type_dict[DC_Data_Type])
+                            if each == 'value':
+                                dal_ID = Pt_Id + dal_vt_name + each
+                                dal_each_list.append(dal_ID)
+                                for each_cat in dal_table_value_dict.items():
+                                    dal_label = each_cat[1]
+                                    if dal_label is not None and each_cat[1] != '':
+                                        dal_each_list.append(each_cat[1])
+                            class_dal10_list.append(dal_each_list)
                     else:
-                        xal_list.append('dal_type')
+                        dal_table_dict[0] = v0
+                        dal_table_dict[1] = v1
+                        dal_table_dict[2] = v2
+                        dal_table_dict[3] = str(v3).replace(' ', '').replace('None', '')
+                        dal_table_dict[4] = v4
+                        dal_table_dict[5] = v5
+                        dal_table_dict[6] = v6
+                        dal_table_dict[7] = v7
+                        dal_table_severity_dict[0] = v0s
+                        dal_table_severity_dict[1] = v1s
+                        dal_table_severity_dict[2] = v2s
+                        dal_table_severity_dict[3] = str(v3s).replace(' ', '').replace('None', '')
+                        dal_table_severity_dict[4] = v4s
+                        dal_table_severity_dict[5] = v5s
+                        dal_table_severity_dict[6] = v6s
+                        dal_table_severity_dict[7] = v7s
+
+                        for each in ['format', 'label', 'severity', 'state', 'value']:
+                            dal_each_list = []
+                            if each == 'format':
+                                dal_ID = Pt_Id + dal_vt_name + each
+                                dal_each_list.append(dal_ID)
+                                for each_cat in dal_table_dict.items():
+                                    if each_cat[1] is not None and each_cat[1] != '':
+                                        if 'SOE' in DC_Data_Type:
+                                            dal_each_list.append(2)
+                                        else:
+                                            dal_each_list.append(0)
+                                    elif point_name != 'dciBAS-HOSTAT':
+                                        dal_each_list.append('__ERASE__')
+
+                            if each == 'label':
+                                dal_ID = Pt_Id + dal_vt_name + each
+                                dal_each_list.append(dal_ID)
+                                for each_cat in dal_table_dict.items():
+                                    dal_label = each_cat[1]
+                                    if dal_label is not None and each_cat[1] != '':
+                                        # print(row_num)
+                                        if dal_label not in alm_dict:
+                                            tmp_res = word_length10_chk(translation_to_pinyin(dal_label))
+                                            tmp_res, new_mapping_dict, alm_dict = insert_dup_value(new_mapping_dict, alm_dict,
+                                                                                                   dal_label, tmp_res)
+                                            dal_label = tmp_res
+
+                                        else:
+                                            dal_label = alm_dict[dal_label]
+                                        dal_each_list.append(dal_label)
+                                    elif point_name != 'dciBAS-HOSTAT':
+                                        dal_each_list.append('__ERASE__')
+                            if each == 'severity':
+                                dal_ID = Pt_Id + dal_vt_name + each
+                                dal_each_list.append(dal_ID)
+                                for each_cat in dal_table_severity_dict.items():
+                                    dal_sev = each_cat[1]
+                                    if dal_sev is not None and each_cat[1] != '':
+                                        dal_each_list.append(dal_sev)
+                                    elif point_name != 'dciBAS-HOSTAT':
+                                        dal_each_list.append('__ERASE__')
+
+                            if each == 'state':
+                                dal_ID = Pt_Id + dal_vt_name + each
+                                dal_each_list.append(dal_ID)
+                                for each_cat in dal_table_severity_dict.items():
+                                    dal_sev = each_cat[1]
+                                    if dal_sev is not None and each_cat[1] != '':
+                                        if int(dal_sev) != 0:
+                                            dal_each_list.append('A')
+                                        else:
+                                            dal_each_list.append('N')
+                                    elif point_name != 'dciBAS-HOSTAT':
+                                        dal_each_list.append('__ERASE__')
+
+                            if each == 'value':
+                                dal_ID = Pt_Id + dal_vt_name + each
+                                dal_each_list.append(dal_ID)
+                                for each_cat in dal_table_dict.items():
+                                    dal_label = each_cat[1]
+                                    if dal_label is not None and each_cat[1] != '':
+                                        dal_each_list.append(each_cat[0])
+                                    elif point_name != 'dciBAS-HOSTAT':
+                                        dal_each_list.append('__ERASE__')
+
+                            class_dal_list.append(dal_each_list)
+
+                Attribute_Description = ws_class.cell(row=row_num,
+                                                      column=class_dict[list_name_dict['Attribute_Description']] + 1).value
+                Attribute_Description = str(Attribute_Description).strip()
+                if Attribute_Description not in alm_dict:
+                    tmp_res = word_length_chk(translation_to_pinyin(Attribute_Description))
+                    tmp_res, new_mapping_dict, alm_dict = insert_dup_value(new_mapping_dict, alm_dict,
+                                                                           Attribute_Description, tmp_res)
+                    Attribute_Description = tmp_res
                 else:
-                    xal_list.append(xal_type_dict[DC_Data_Type])
-                xal_list.append('Ack')
-                if point_name[0] == 'd':
-                    xal_list.append('DIBasic2StateLog')
-                else:
-                    xal_list.append('AIBasic2StateHisterisis')
-                xal_list.append('0')
-                if xal_list not in class_xal_list:
-                    class_xal_list.append(xal_list)
-        # 3-XFO.csv
-        xfo_list = []
-        if DC_Data_Type[1] == 'I':
-            if DC_Data_Type[0] == 'D':
-                xfo_list.append(Pt_Id + ':' + 'dfo')
-                xfo_list.append('dfo_type')
-            elif DC_Data_Type[0] == 'A':
-                xfo_list.append(Pt_Id + ':' + 'afo')
-                xfo_list.append('afo_type')
-            else:
-                xfo_list.append(Pt_Id + ':' + 'sfo')
-                xfo_list.append('sfo_type')
-            if xfo_list not in class_xfo_list:
-                class_xfo_list.append(xfo_list)
-        # 3-dov.csv
-        dov_table_dict = {0: '', 1: '', 2: '', 3: ''}
-        num_list = []
-        dov_name_list = []
-        if DC_Data_Type[0:2] == 'DO':
-            dov_table_dict[0] = v0
-            dov_table_dict[1] = v1
-            dov_table_dict[2] = v2
-            # dov_table_dict[3] = str(v3).strip()
-            dov_table_dict[3] = v3
-            if DC_Data_Type[-3:] != 'INT' or point_name in Internal_without_ptdo_list:
-                for i in range(0, 4):
-                    if dov_table_dict[i] is not None:
-                        num_list.append(i)
-                for each in num_list:
-                    dov_list = []
-                    dov_name_last = 'dov' + sys_dict[System] + '-CTLVAL' + str(each)
-                    dov_ID = Pt_Id + ':' + dov_name_last
-                    dov_list.append(dov_ID)
-                    dov_list.append('dov_type')
-                    if System == 'PSCADA':
-                        dov_list.append(8192 + int(each))
-                    else:
-                        dov_list.append(int(each))
-                    if each == 0:
-                        dov_list.append(v0ic)
-                        dov_list.append(v0rc)
-                        if v0rc != '':
-                            dov_list.append(rcto)
-                    elif each == 1:
-                        dov_list.append(v1ic)
-                        dov_list.append(v1rc)
-                        if v1rc != '':
-                            dov_list.append(rcto)
-                    elif each == 2:
-                        dov_list.append(v2ic)
-                        dov_list.append(v2rc)
-                        if v2rc != '':
-                            dov_list.append(rcto)
-                    elif each == 3:
-                        dov_list.append(v3ic)
-                        dov_list.append(v3rc)
-                        if v3rc != '':
-                            dov_list.append(rcto)
-                    else:
-                        dov_list.append('')
-                        dov_list.append('')
-                        dov_list.append('')
-                    if dov_list not in class_dov_list:
-                        class_dov_list.append(dov_list)
-            else:
-                num = 0
+                    Attribute_Description = alm_dict[Attribute_Description]
 
-                for i in range(0, 4):
-                    if dov_table_dict[i] is not None:
-                        num += 1
-                if num == 2:
-                    for each in dov_table_dict.items():
-                        dov_list = []
-                        if each[1] is not None:
-                            dov_name_last = 'dovPOW-' + str(each[1])
+                Eqpt_Desc = ws_class.cell(row=row_num, column=class_dict[list_name_dict['Eqpt_Desc']] + 1).value
+                if Eqpt_Desc not in alm_dict:
+                    tmp_res = word_length_chk32(translation_to_pinyin(Eqpt_Desc))
+                    tmp_res, new_mapping_dict, alm_dict = insert_dup_value(new_mapping_dict, alm_dict,
+                                                                           Eqpt_Desc, tmp_res)
+                    Eqpt_Desc = tmp_res
+                else:
+                    Eqpt_Desc = alm_dict[Eqpt_Desc]
+                # 1-Equipments.csv
+                eq_list = []
+                if row_num == 3:
+                    eq_list.append(':R:A:' + System)
+                    eq_list.append('basicNode')
+                    eq_list.append('')
+                    eq_list.append('')
+                    class_eq_list.append(eq_list)
+                    eq_list = []
+                eq_list.append(Eq_Id)
+                eq_list.append(CFG_Element_Name)
+                eq_list.append(Eqpt_Desc)
+                # eq_list.append(CFG_Equipment_Class)
+                if eq_list not in class_eq_list:
+                    class_eq_list.append(eq_list)
+                # 2-PointInstance.csv
+                pt_list = []
+                pt_list.append(Pt_Id)
+                pt_list.append(pt_type_dict[DC_Data_Type])
+                pt_list.append(Attribute_Description)
+                pt_list.append('')
+                if pt_type_dict[DC_Data_Type][0] == 'a':
+                    if Unit != '' and Unit is not None:
+                        pt_list.append(Unit)
+                    else:
+                        pt_list.append('__ERASE__')
+                else:
+                    pt_list.append('')
+                pt_list.append('')
+                pt_list.append('')
+                pt_list.append('')
+                pt_list.append('')
+                pt_list.append('')
+                pt_list.append(HMI_Order)
+                if point_name[0:3] == 'aci':
+                    pt_list.append(aci_ce)
+                elif point_name[0:3] == 'aio':
+                    pt_list.append(ao_ce)
+                elif point_name[0:3] == 'dio' or point_name[0:3] == 'sio':
+                    pt_list.append(do_ce)
+                else:
+                    pt_list.append('')
+                if point_name[0:3] == 'dci':
+                    if CE_SIG == '1':
+                        pt_list.append('1')
+                    elif CE_SIG == '2':
+                        pt_list.append('2')
+                    else:
+                        pt_list.append('__ERASE__')
+                else:
+                    pt_list.append('')
+                class_pt_list.append(pt_list)
+                # 3-XAC.csv
+                xac_list = []
+                if DC_Data_Type[1] == 'I':
+                    xac_list.append(Pt_Id + ':' + str(xac_appendix_dict[point_name[0:3]]))
+                    xac_list.append(xac_type_dict[DC_Data_Type])
+                    if point_name[0] == 'd':
+                        xac_list.append('1')
+                    else:
+                        xac_list.append('')
+                    if xac_list not in class_xac_list:
+                        class_xac_list.append(xac_list)
+                # 3-XAL.csv
+                xal_list = []
+                if DC_Data_Type[1] == 'I':
+                    if DC_Data_Type[0] != 'S':
+                        xal_list.append(Pt_Id + ':' + str(xal_appendix_dict[point_name[0:3]]))
+                        if DC_Data_Type[-4:] == 'RESP':
+                            xal_list.append(xal_type_dict[DC_Data_Type])
+                        elif DC_Data_Type[-3:] == 'INT':
+                            xal_list.append('dal_type')
+                        else:
+                            xal_list.append(xal_type_dict[DC_Data_Type])
+                        xal_list.append('Ack')
+                        if point_name[0] == 'd':
+                            xal_list.append('DIBasic2StateLog')
+                        else:
+                            xal_list.append('AIBasic2StateHisterisis')
+                        xal_list.append('0')
+                        if xal_list not in class_xal_list:
+                            class_xal_list.append(xal_list)
+                # 3-XFO.csv
+                xfo_list = []
+                if DC_Data_Type[1] == 'I':
+                    if DC_Data_Type[0] == 'D':
+                        xfo_list.append(Pt_Id + ':' + 'dfo')
+                        xfo_list.append('dfo_type')
+                    elif DC_Data_Type[0] == 'A':
+                        xfo_list.append(Pt_Id + ':' + 'afo')
+                        xfo_list.append('afo_type')
+                    else:
+                        xfo_list.append(Pt_Id + ':' + 'sfo')
+                        xfo_list.append('sfo_type')
+                    if xfo_list not in class_xfo_list:
+                        class_xfo_list.append(xfo_list)
+                # 3-dov.csv
+                dov_table_dict = {0: '', 1: '', 2: '', 3: ''}
+                num_list = []
+                dov_name_list = []
+                if DC_Data_Type[0:2] == 'DO':
+                    dov_table_dict[0] = v0
+                    dov_table_dict[1] = v1
+                    dov_table_dict[2] = v2
+                    # dov_table_dict[3] = str(v3).strip()
+                    dov_table_dict[3] = v3
+                    dov_table_dict[4] = v4
+                    dov_table_dict[5] = v5
+                    dov_table_dict[6] = v6
+                    dov_table_dict[7] = v7
+
+                    if DC_Data_Type[-4:] != 'RESP' or point_name in Internal_without_ptdo_list:
+                        for i in range(0, 8):
+                            if dov_table_dict[i] is not None and dov_table_dict[i] != '':
+                                num_list.append(i)
+                        for each in num_list:
+                            dov_list = []
+                            dov_name_last = 'dov' + sys_dict[System] + '-CTLVAL' + str(each)
                             dov_ID = Pt_Id + ':' + dov_name_last
                             dov_list.append(dov_ID)
                             dov_list.append('dov_type')
-                            if each[0] == 0:
-                                dov_list.append(4096 + 2)
-                                dov_list.append('')
-                                dov_list.append('')
-                                dov_list.append('')
-                                if dov_list not in class_dov_list:
-                                    class_dov_list.append(dov_list)
+                            if System == 'PSCADA':
+                                dov_list.append(8192 + int(each))
                             else:
-                                dov_list.append(16384 + 2)
-                                dov_list.append('')
-                                dov_list.append('')
-                                dov_list.append('')
-                                if dov_list not in class_dov_list:
-                                    class_dov_list.append(dov_list)
-                elif num == 4:
-                    for each in dov_table_dict.items():
-                        dov_list = []
-                        if each[1] is not None:
-                            dov_name_last = 'dovPOW-' + str(each[1])
-                            dov_ID = Pt_Id + ':' + dov_name_last
-                            dov_list.append(dov_ID)
-                            dov_list.append('dov_type')
-                            if each[0] == 0:
-                                dov_list.append(4096 + 1)
+                                dov_list.append(int(each))
+                            if each == 0:
                                 dov_list.append(v0ic)
                                 dov_list.append(v0rc)
                                 if v0rc != '':
                                     dov_list.append(rcto)
-                                if dov_list not in class_dov_list:
-                                    class_dov_list.append(dov_list)
-                            elif each[0] == 1:
-                                dov_list.append(4096 + 2)
+                            elif each == 1:
                                 dov_list.append(v1ic)
                                 dov_list.append(v1rc)
                                 if v1rc != '':
                                     dov_list.append(rcto)
-                                if dov_list not in class_dov_list:
-                                    class_dov_list.append(dov_list)
-                            elif each[0] == 2:
-                                dov_list.append(16384 + 1)
+                            elif each == 2:
                                 dov_list.append(v2ic)
                                 dov_list.append(v2rc)
                                 if v2rc != '':
                                     dov_list.append(rcto)
-                                if dov_list not in class_dov_list:
-                                    class_dov_list.append(dov_list)
-                            elif each[0] == 3:
-                                dov_list.append(16384 + 2)
+                            elif each == 3:
                                 dov_list.append(v3ic)
                                 dov_list.append(v3rc)
                                 if v3rc != '':
                                     dov_list.append(rcto)
-                                if dov_list not in class_dov_list:
-                                    class_dov_list.append(dov_list)
-        # 4-AalValueTable
-        aal_table_dict = {0: '&DB_OUTOFRANGELOW', 1: '&DB_LOW', 2: '&DB_NORMAL', 3: '&DB_HIGH',
-                          4: '&DB_OUTOFRANGEHIGH'}
-        aal_table_severity_dict = {0: '4', 1: '4', 2: '0', 3: '4', 4: '4'}
-
-        if DC_Data_Type[0:2] == 'AI':
-            aal_vt_name = ':aal:V_valueTable_'
-            for each in ['format', 'index', 'label', 'severity', 'state']:
-                aal_each_list = []
-                if each == 'format':
-                    aal_ID = Pt_Id + aal_vt_name + each
-                    aal_each_list.append(aal_ID)
-                    for each_cat in aal_table_dict.items():
-                        if each_cat[1] is not None and each_cat[1] != '':
-                            aal_each_list.append(1)
-                if each == 'index':
-                    aal_ID = Pt_Id + aal_vt_name + each
-                    aal_each_list.append(aal_ID)
-                    for each_cat in aal_table_dict.items():
-                        aal_label = each_cat[1]
-                        if aal_label is not None and each_cat[1] != '':
-                            aal_each_list.append(int(each_cat[0]) + 1)
-                if each == 'label':
-                    aal_ID = Pt_Id + aal_vt_name + each
-                    aal_each_list.append(aal_ID)
-                    for each_cat in aal_table_dict.items():
-                        aal_label = each_cat[1]
-                        aal_each_list.append(aal_label)
-                if each == 'severity':
-                    aal_ID = Pt_Id + aal_vt_name + each
-                    aal_each_list.append(aal_ID)
-                    for each_cat in aal_table_severity_dict.items():
-                        aal_sev = each_cat[1]
-                        if aal_sev is not None and each_cat[1] != '':
-                            aal_each_list.append(aal_sev)
-
-                if each == 'state':
-                    aal_ID = Pt_Id + aal_vt_name + each
-                    aal_each_list.append(aal_ID)
-                    for each_cat in aal_table_severity_dict.items():
-                        aal_sev = each_cat[1]
-                        if aal_sev is not None and each_cat[1] != '':
-                            if int(aal_sev) != 0:
-                                aal_each_list.append('A')
                             else:
-                                aal_each_list.append('N')
-                class_aal_list.append(aal_each_list)
-        # 4-AalValueLimits
-        if DC_Data_Type[0:2] == 'AI':
-            aal_vl_each_list = []
-            min_value = ws_class.cell(row=row_num,
-                                      column=class_dict[list_name_dict['lower_limit']] + 1).value
-            max_value = ws_class.cell(row=row_num,
-                                      column=class_dict[list_name_dict['upper_limit']] + 1).value
-            if min_value is None or min_value == '':
-                min_value = '-99999996802856925000000000000000000000.000000'
-            else:
-                min_value = float(min_value) - 0.01
-            if max_value is None or max_value == '':
-                max_value = '99999996802856925000000000000000000000.000000'
-            aal_vl_name = ':aal:V_valueLimits'
-            aal_vl_ID = Pt_Id + aal_vl_name
-            aal_vl_each_list.append(aal_vl_ID)
-            aal_vl_each_list.append(0)
-            aal_vl_each_list.append(min_value)
-            aal_vl_each_list.append(min_value)
-            aal_vl_each_list.append(max_value)
-            aal_vl_each_list.append(max_value)
-            class_aal_vl_list.append(aal_vl_each_list)
+                                dov_list.append('')
+                                dov_list.append('')
+                                dov_list.append('')
+                            if dov_list not in class_dov_list:
+                                class_dov_list.append(dov_list)
+                    else:
+                        num = 0
 
-    save_class_excel(class_eq_list, csv_1_eq_path, 'eq')
-    xlsx2csv(csv_1_eq_path)
-    save_class_excel(class_pt_list, csv_2_pt_path, 'pt')
-    xlsx2csv(csv_2_pt_path)
-    save_class_excel(class_xac_list, csv_3_xac_path, 'xac')
-    xlsx2csv(csv_3_xac_path)
-    save_class_excel(class_xal_list, csv_3_xal_path, 'xal')
-    xlsx2csv(csv_3_xal_path)
-    save_class_excel(class_xfo_list, csv_3_xfo_path, 'xfo')
-    xlsx2csv(csv_3_xfo_path)
-    save_class_excel(class_dov_list, csv_3_dov_path, 'dov')
-    xlsx2csv(csv_3_dov_path)
-    save_class_excel(class_dio_list, csv_4_dio_path, 'dioVT')
-    xlsx2csv(csv_4_dio_path)
-    save_class_excel(class_dal_list, csv_4_dal_path, 'dalVT')
-    xlsx2csv(csv_4_dal_path)
-    save_class_excel(class_dal10_list, csv_4_dal10_path, 'dalVT10')
-    xlsx2csv(csv_4_dal10_path)
-    save_class_excel(class_aal_list, csv_4_aal_path, 'aalVT')
-    xlsx2csv(csv_4_aal_path)
-    save_class_excel(class_aal_vl_list, csv_4_aalvl_path, 'aalVL')
-    xlsx2csv(csv_4_aalvl_path)
-    save_new_po_csv(new_mapping_dict, alm_save_path)
-    save_new_po(alm_content, new_mapping_dict, alm_path.replace('.po', '_new.po'))
+                        for i in range(0, 4):
+                            if dov_table_dict[i] is not None:
+                                num += 1
+                        if num == 2:
+                            for each in dov_table_dict.items():
+                                dov_list = []
+                                if each[1] is not None:
+                                    dov_name_last = 'dovPOW-' + str(each[1])
+                                    dov_ID = Pt_Id + ':' + dov_name_last
+                                    dov_list.append(dov_ID)
+                                    dov_list.append('dov_type')
+                                    if each[0] == 0:
+                                        dov_list.append(4096 + 2)
+                                        dov_list.append('')
+                                        dov_list.append('')
+                                        dov_list.append('')
+                                        if dov_list not in class_dov_list:
+                                            class_dov_list.append(dov_list)
+                                    else:
+                                        dov_list.append(16384 + 2)
+                                        dov_list.append('')
+                                        dov_list.append('')
+                                        dov_list.append('')
+                                        if dov_list not in class_dov_list:
+                                            class_dov_list.append(dov_list)
+                        elif num == 4:
+                            for each in dov_table_dict.items():
+                                dov_list = []
+                                if each[1] is not None:
+                                    dov_name_last = 'dovPOW-' + str(each[1])
+                                    dov_ID = Pt_Id + ':' + dov_name_last
+                                    dov_list.append(dov_ID)
+                                    dov_list.append('dov_type')
+                                    if each[0] == 0:
+                                        dov_list.append(4096 + 1)
+                                        dov_list.append(v0ic)
+                                        dov_list.append(v0rc)
+                                        if v0rc != '':
+                                            dov_list.append(rcto)
+                                        if dov_list not in class_dov_list:
+                                            class_dov_list.append(dov_list)
+                                    elif each[0] == 1:
+                                        dov_list.append(4096 + 2)
+                                        dov_list.append(v1ic)
+                                        dov_list.append(v1rc)
+                                        if v1rc != '':
+                                            dov_list.append(rcto)
+                                        if dov_list not in class_dov_list:
+                                            class_dov_list.append(dov_list)
+                                    elif each[0] == 2:
+                                        dov_list.append(16384 + 1)
+                                        dov_list.append(v2ic)
+                                        dov_list.append(v2rc)
+                                        if v2rc != '':
+                                            dov_list.append(rcto)
+                                        if dov_list not in class_dov_list:
+                                            class_dov_list.append(dov_list)
+                                    elif each[0] == 3:
+                                        dov_list.append(16384 + 2)
+                                        dov_list.append(v3ic)
+                                        dov_list.append(v3rc)
+                                        if v3rc != '':
+                                            dov_list.append(rcto)
+                                        if dov_list not in class_dov_list:
+                                            class_dov_list.append(dov_list)
+                # 4-AalValueTable
+                aal_table_dict = {0: '&DB_OUTOFRANGELOW', 1: '&DB_LOW', 2: '&DB_NORMAL', 3: '&DB_HIGH',
+                                  4: '&DB_OUTOFRANGEHIGH'}
+                aal_table_severity_dict = {0: '4', 1: '4', 2: '0', 3: '4', 4: '4'}
+
+                if DC_Data_Type[0:2] == 'AI':
+                    aal_vt_name = ':aal:V_valueTable_'
+                    for each in ['format', 'index', 'label', 'severity', 'state']:
+                        aal_each_list = []
+                        if each == 'format':
+                            aal_ID = Pt_Id + aal_vt_name + each
+                            aal_each_list.append(aal_ID)
+                            for each_cat in aal_table_dict.items():
+                                if each_cat[1] is not None and each_cat[1] != '':
+                                    aal_each_list.append(1)
+                        if each == 'index':
+                            aal_ID = Pt_Id + aal_vt_name + each
+                            aal_each_list.append(aal_ID)
+                            for each_cat in aal_table_dict.items():
+                                aal_label = each_cat[1]
+                                if aal_label is not None and each_cat[1] != '':
+                                    aal_each_list.append(int(each_cat[0]) + 1)
+                        if each == 'label':
+                            aal_ID = Pt_Id + aal_vt_name + each
+                            aal_each_list.append(aal_ID)
+                            for each_cat in aal_table_dict.items():
+                                aal_label = each_cat[1]
+                                aal_each_list.append(aal_label)
+                        if each == 'severity':
+                            aal_ID = Pt_Id + aal_vt_name + each
+                            aal_each_list.append(aal_ID)
+                            for each_cat in aal_table_severity_dict.items():
+                                aal_sev = each_cat[1]
+                                if aal_sev is not None and each_cat[1] != '':
+                                    aal_each_list.append(aal_sev)
+
+                        if each == 'state':
+                            aal_ID = Pt_Id + aal_vt_name + each
+                            aal_each_list.append(aal_ID)
+                            for each_cat in aal_table_severity_dict.items():
+                                aal_sev = each_cat[1]
+                                if aal_sev is not None and each_cat[1] != '':
+                                    if int(aal_sev) != 0:
+                                        aal_each_list.append('A')
+                                    else:
+                                        aal_each_list.append('N')
+                        class_aal_list.append(aal_each_list)
+                # 4-AalValueLimits
+                if DC_Data_Type[0:2] == 'AI':
+                    aal_vl_each_list = []
+                    min_value = ws_class.cell(row=row_num,
+                                              column=class_dict[list_name_dict['lower_limit']] + 1).value
+                    max_value = ws_class.cell(row=row_num,
+                                              column=class_dict[list_name_dict['upper_limit']] + 1).value
+                    if min_value is None or min_value == '':
+                        min_value = '-99999996802856925000000000000000000000.000000'
+                    else:
+                        min_value = float(min_value) - 0.01
+                    if max_value is None or max_value == '':
+                        max_value = '99999996802856925000000000000000000000.000000'
+                    aal_vl_name = ':aal:V_valueLimits'
+                    aal_vl_ID = Pt_Id + aal_vl_name
+                    aal_vl_each_list.append(aal_vl_ID)
+                    aal_vl_each_list.append(0)
+                    aal_vl_each_list.append(min_value)
+                    aal_vl_each_list.append(min_value)
+                    aal_vl_each_list.append(max_value)
+                    aal_vl_each_list.append(max_value)
+                    class_aal_vl_list.append(aal_vl_each_list)
+
+        save_class_excel(class_eq_list, csv_1_eq_path, 'eq')
+        xlsx2csv(csv_1_eq_path)
+        save_class_excel(class_pt_list, csv_2_pt_path, 'pt')
+        xlsx2csv(csv_2_pt_path)
+        save_class_excel(class_xac_list, csv_3_xac_path, 'xac')
+        xlsx2csv(csv_3_xac_path)
+        save_class_excel(class_xal_list, csv_3_xal_path, 'xal')
+        xlsx2csv(csv_3_xal_path)
+        save_class_excel(class_xfo_list, csv_3_xfo_path, 'xfo')
+        xlsx2csv(csv_3_xfo_path)
+        save_class_excel(class_dov_list, csv_3_dov_path, 'dov')
+        xlsx2csv(csv_3_dov_path)
+        save_class_excel(class_dio_list, csv_4_dio_path, 'dioVT')
+        xlsx2csv(csv_4_dio_path)
+        save_class_excel(class_dal_list, csv_4_dal_path, 'dalVT')
+        xlsx2csv(csv_4_dal_path)
+        save_class_excel(class_dal10_list, csv_4_dal10_path, 'dalVT10')
+        xlsx2csv(csv_4_dal10_path)
+        save_class_excel(class_aal_list, csv_4_aal_path, 'aalVT')
+        xlsx2csv(csv_4_aal_path)
+        save_class_excel(class_aal_vl_list, csv_4_aalvl_path, 'aalVL')
+        xlsx2csv(csv_4_aalvl_path)
+        save_new_po_csv(new_mapping_dict, alm_save_path)
+        save_new_po(alm_content, new_mapping_dict, alm_path.replace('.po', '_new.po'))
+    except:
+        logger.exception("Class: 第%d行出现错误", error_line)
+
+
+def check_io(io_type, class_file_name, attr):
+    try:
+        if io_type == 'class':
+            io_class = ExcValue(class_file_name, 'class')
+            class_dict = {}
+            i = 0
+            for each in io_class.get_col_num():
+                class_dict[each[1].value] = i
+                i += 1
+            max_row_num = io_class.max_row()
+            while io_class.value(max_row_num, 9) is None:
+                max_row_num -= 1
+            class_list_ptname = {}
+            error_list = []
+            if attr == 'point_name':
+                for row_num in range(3, max_row_num + 1):
+                    Eqpt_Code = io_class.value(row_num, class_dict[list_name_dict['Eqpt_Code']] + 1)
+                    DC_Data_Type = io_class.value(row_num, class_dict[list_name_dict['DC_Data_Type']] + 1)
+                    point_name = io_class.value(row_num, class_dict[list_name_dict['IV_Point_Name']] + 1)
+                    Eqp_num_str = Eqpt_Code + ':' + DC_Data_Type + ':' + point_name
+                    if Eqp_num_str not in class_list_ptname.keys():
+                        class_list_ptname[Eqp_num_str] = 1
+                    else:
+                        class_list_ptname[Eqp_num_str] = class_list_ptname[Eqp_num_str].__add__(1)
+                print(class_list_ptname)
+                for each_key in class_list_ptname.items():
+                    prt_cont = each_key[0].split(':')[0] + ' : ' + each_key[0].split(':')[2]
+                    if each_key[1] > 1:
+                        error_list.append(prt_cont)
+
+                if len(error_list) > 0:
+                    print('请检查以下重复的点名：\n')
+                    print(error_list)
+                    # time.sleep(10)
+                    raise NameError
+            if attr == 'point_prefix':
+                for row_num in range(3, max_row_num + 1):
+                    sys = io_class.value(row_num, class_dict[list_name_dict['System']] + 1)[0:3]
+                    point_name = str(io_class.value(row_num, class_dict[list_name_dict['IV_Point_Name']] + 1))
+                    point_pre = point_name[3:6]
+                    print(sys, point_pre)
+                    if sys != point_pre:
+                        print('请检查点名中的系统：\n')
+                        print('第%d行的点名: %s' %(row_num, point_name))
+                        if point_name not in error_list:
+                            error_list.append(point_name)
+                        raise NameError
+
+        elif io_type == 'list':
+            io_list = ExcValue(class_file_name, 'list')
+
+    except:
+        logger.exception('please fix the error in io class : ' + '\n' + str(error_list))
 
 
 def add_list_int_pt():
@@ -1553,19 +1817,21 @@ def add_list_int_pt():
     j = 3
     while j <= max_row_num:
         if str(ws['DH' + str(j)].value).upper() == 'TWOSTEPS':
-            if str(ws['N' + str(j + 1)].value) == 'DI_INT':
+            if str(ws['N' + str(j + 1)].value) == 'DI_RESP':
                 # 只更新选择内部点地址
                 ws['EN' + str(j + 1)].value = ws['EN' + str(j)].value
                 ws['EO' + str(j + 1)].value = ws['EO' + str(j)].value
                 ws['EP' + str(j + 1)].value = ws['EP' + str(j)].value
                 ws['EQ' + str(j + 1)].value = ws['EQ' + str(j)].value
                 ws['ES' + str(j + 1)].value = ws['ES' + str(j)].value
+                ws['ER' + str(j + 1)].value = ws['ER' + str(j)].value
                 ws['EN' + str(j + 2)].value = ws['EN' + str(j)].value
                 ws['EO' + str(j + 2)].value = ws['EO' + str(j)].value
                 ws['EP' + str(j + 2)].value = ws['EP' + str(j)].value
                 ws['EQ' + str(j + 2)].value = ws['EQ' + str(j)].value
+                ws['ER' + str(j + 2)].value = ws['ER' + str(j)].value
                 ws['ES' + str(j + 2)].value = ws['ES' + str(j)].value
-                ws['EO' + str(j + 1)].value = str(ws['EO' + str(j)].value).replace('50', '20').replace('51', '21')
+                ws['EO' + str(j + 1)].value = str(ws['EO' + str(j)].value).replace('50', '150').replace('51', '151')
                 j = j + 1
             else:
                 ws.insert_rows(j + 1, 1)
@@ -1593,8 +1859,8 @@ def add_list_int_pt():
                                                                          bottom=Side(style='thin', color='FF000000'))
                 ws['DH' + str(j + 1)].value = ''
                 ws['DH' + str(j + 2)].value = ''
-                ws['N' + str(j + 1)].value = 'DI_INT'
-                ws['N' + str(j + 2)].value = 'DO_INT'
+                ws['N' + str(j + 1)].value = 'DI_RESP'
+                ws['N' + str(j + 2)].value = 'DO_RESP'
                 ws['EO' + str(j + 1)].value = str(ws['EO' + str(j)].value).replace('50', '150').replace('51', '151')
                 j = j + 3
                 max_row_num += 2
@@ -1614,8 +1880,12 @@ def add_rev_reg(wb):
     for each in str(ws_reg['A' + str(max_row_num)].value).split('.')[0:-1]:
         tar_vis = tar_vis + each + '.'
     tar_num = int(str(ws_reg['A' + str(max_row_num)].value).split('.')[-1])
-    tar_num += 1
-    tar_vis += str(tar_num)
+    fst_num = int(str(ws_reg['A' + str(max_row_num)].value).split('.')[0])
+    if tar_num < 9:
+        tar_num += 1
+        tar_vis += str(tar_num)
+    elif tar_num == 9:
+        tar_vis = str(fst_num + 1) + '.0'
     cur_date = time.strftime("%Y%m%d", time.localtime())
     ws_reg['A' + tar_row_num].value = tar_vis
     ws_reg['B' + tar_row_num].value = 'Update DB Information(Auto Gen)'
@@ -1707,6 +1977,41 @@ def update_dbeq_csv():
     xlsx2csv(up_eqp_file)
 
 
+def del_id(old_file, cur_file, del_eqp_file):
+    old_ev_list, old_evid_list = read_file_to_list(old_file)
+    cur_ev_list, cur_evid_list = read_file_to_list(cur_file)
+    del_eqp_list = []
+    for each in old_evid_list:
+        if each not in cur_evid_list:
+            del_eqpid_list = []
+            del_eqpid_list.append(each)
+            del_eqpid_list.append('TRUE')
+            del_eqp_list.append(del_eqpid_list)
+    save_to_del_excel(del_eqp_list, del_eqp_file)
+    xlsx2csv(del_eqp_file)
+
+
+def add_id(old_file, cur_file, new_addeqp_file):
+    old_ev_list, old_evid_list = read_file_to_list(old_file)
+    cur_ev_list, cur_evid_list = read_file_to_list(cur_file)
+    old_label_dict, old_eqp_loc_dict = read_eq_attribute_to_list(old_file)
+    cur_label_dict, cur_eqp_loc_dict = read_eq_attribute_to_list(cur_file)
+    # print(old_evid_list, cur_evid_list)
+    # add new equipment
+    new_eqp_list = []
+    for each in cur_evid_list:
+        if each not in old_evid_list:
+            for each1 in cur_ev_list:
+                if each in each1:
+                    add_eqp_list = []
+                    for each_ele in each1.split(','):
+                        each_ele = each_ele.replace('\n', '')
+                        add_eqp_list.append(each_ele)
+                    new_eqp_list.append(add_eqp_list)
+    save_to_excel(new_eqp_list, new_addeqp_file)
+    xlsx2csv(new_addeqp_file)
+
+
 def update_dbev_csv():
     csv_path = cur_path + '\\Generated_csv'
     comp_path = cur_path + '\\Compare_Result\\'
@@ -1796,8 +2101,6 @@ def update_dbev_csv():
                 else:
                     up_address_list.append('__ERASE__')
             if old_varinvalid != cur_varinvalid:
-                up_address_list.append(each)
-                up_address_list.append('')
                 if cur_varinvalid != '':
                     up_address_list.append(cur_varinvalid)
                 else:
@@ -1811,7 +2114,7 @@ def update_dbev_csv():
 
 
 def read_file_to_list(file_path):
-    with open(file_path, 'r', encoding='utf-8') as f1:
+    with open(file_path, 'r', encoding='gbk') as f1:
         list1 = f1.readlines()
         list_id = []
         for i in range(1, len(list1)):
@@ -2051,19 +2354,43 @@ def file_check_exist():
     return error_code
 
 
+def old_class_check_exist():
+    class_file_list = os.listdir(old_class_path)
+    error_code = 0
+    print("请确认以下文件:")
+    if len(class_file_list) > 1:
+        print("请确认在class文件夹中只能有一个class文件!")
+        error_code = 1
+    elif len(class_file_list) < 1:
+        print("请在Old_Class 文件夹中添加IO Class!")
+        error_code = 1
+    else:
+        print("IO Class : " + class_file_list[0])
+    return error_code
+
+
+def copy_files(org_path, target_path):
+    shutil.copyfile(org_path, target_path)
+
+
 if __name__ == "__main__":
     old_alm_path = alm_folder + 'alm_cn.po'
     new_alm_path = alm_folder + 'alm_cn_new.po'
+    eqpt_file = '1-Equipment.csv'
+    point_file = '2-PointInstance.csv'
+    dov_file = '3-dov.csv'
+    com_file_list = [eqpt_file, point_file, dov_file]
     server_alm_po = '\\\\192.168.1.200\\d\\NBL3_ALMPO\\alm_cn.po'
     error_code = file_check_exist()
     if error_code == 1:
         time.sleep(10)
         exit("请检查文件!")
+
     alm_code = file_check_diff(old_alm_path, server_alm_po)
     if alm_code == 0:
-        res = input('是否需要从DB服务器上获取并更新alm_cn.po文件: y/n(直接回车默认为y)\n')
-        if res == 'y' or res == '':
-            replace_alm_po(old_alm_path, server_alm_po)
+        #res = input('是否需要从DB服务器上获取并更新alm_cn.po文件: y/n(直接回车默认为y)\n')
+        #if res == 'y' or res == '':
+            #replace_alm_po(old_alm_path, server_alm_po)
         cmd = str(input("请对比DB服务器上，确认alm_cn.po文件为最新，按 y (或直接回车)继续:"))
         if cmd == '' or cmd.upper() == 'Y':
             pass
@@ -2072,6 +2399,7 @@ if __name__ == "__main__":
             time.sleep(5)
             exit()
     file_check_diff(old_alm_path, server_alm_po)
+
     print('请选择需要的操作,输入Q退出：')
     print(
         '1. 自动在点表中添加信息.\n2. 根据点表生成csv文件.\n3. 根据类表生成csv文件\n4. 点表中添加内部点\n5. 生成前后版本更新equipment.csv\n6. 生成前后版本更新ev.csv\n7. 生成车站fep com EV文件\n8. 上传alm_cn.po至DB Server')
@@ -2101,6 +2429,21 @@ if __name__ == "__main__":
             if res == 'y' or res == '':
                 replace_alm_po(old_alm_path, new_alm_path)
             gen_class_csv()
+            '''
+            copy_choose = input('是否需要将生成的csv移入Old_class_csv文件夹: y/n(直接回车默认为y)\n')
+            if copy_choose == 'y' or res == '':
+                files = os.listdir(cur_class_csv_path)
+                for each_move_file in files:
+                    copy_files(cur_class_csv_path + each_move_file, old_class_csv_path + each_move_file)
+                print('已将.csv文件移入Old_class_csv文件夹!')
+            '''
+            com_dif = input('是否需要比较新旧版本class: y/n(直接回车默认为y)\n')
+            if com_dif == 'y' or res == '':
+                for each in com_file_list:
+                    each_cur_file = cur_class_csv_path + each
+                    each_old_file = old_class_csv_path + each
+                    each_file_out = com_class_fileout_path + each.replace('.csv', '.xlsx')
+                    del_id(each_old_file, each_cur_file, each_file_out)
             print('生成完成！')
             print('请选择需要的操作,输入Q退出：')
             print(

@@ -1,1 +1,203 @@
 ID,ELEMENT_NAME,ctlvalue,initCond1,returnCond1,returnCondTO
+:R:A:BAS:TVF_:dioBAS-MANAUTO:dovBAS-CTLVAL0,dov_type,0,"IF([^:^:dciBAS-MANAUTO.value]=1,1,0)","IF([^:^:dciBAS-MANAUTO.value]=0,1,0)",30
+:R:A:BAS:TVF_:dioBAS-MANAUTO:dovBAS-CTLVAL1,dov_type,1,"IF([^:^:dciBAS-MANAUTO.value]=0,1,0)","IF([^:^:dciBAS-MANAUTO.value]=1,1,0)",30
+:R:A:BAS:TVF_:dioBAS-FWDCTL:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-BASLOC.value]=1) AND ([^:^:dciBAS-BASECS.value]=1) AND ([^:^:dciBAS-STPSTA.value]=1),1,0)","IF([^:^:dciBAS-FOWSTA.value]=1,1,0)",30
+:R:A:BAS:TVF_:dioBAS-REVCTL:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-BASLOC.value]=1) AND ([^:^:dciBAS-BASECS.value]=1) AND ([^:^:dciBAS-STPSTA.value]=1),1,0)","IF([^:^:dciBAS-REVSTA.value]=1,1,0)",30
+:R:A:BAS:TVF_:dioBAS-STOP:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-BASLOC.value]=1) AND ([^:^:dciBAS-BASECS.value]=1) AND (([^:^:dciBAS-FOWSTA.value]=1) OR ([^:^:dciBAS-REVSTA.value]=1)),1,0)","IF([^:^:dciBAS-STPSTA.value]=1,1,0)",30
+:R:A:BAS:TEF_:dioBAS-MANAUTO:dovBAS-CTLVAL0,dov_type,0,"IF([^:^:dciBAS-MANAUTO.value]=1,1,0)","IF([^:^:dciBAS-MANAUTO.value]=0,1,0)",30
+:R:A:BAS:TEF_:dioBAS-MANAUTO:dovBAS-CTLVAL1,dov_type,1,"IF([^:^:dciBAS-MANAUTO.value]=0,1,0)","IF([^:^:dciBAS-MANAUTO.value]=1,1,0)",30
+:R:A:BAS:TEF_:dioBAS-START:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-BASLOC.value]=1) AND ([^:^:dciBAS-ENCTL.value]=1) AND ([^:^:dciBAS-STOPSTA.value]=1),1,0)","IF([^:^:dciBAS-RUNSTA.value]=1,1,0)",30
+:R:A:BAS:TEF_:dioBAS-STOP:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-BASLOC.value]=1) AND ([^:^:dciBAS-ENCTL.value]=1) AND ([^:^:dciBAS-RUNSTA.value]=1),1,0)","IF([^:^:dciBAS-STOPSTA.value]=1,1,0)",30
+:R:A:BAS:TEF_:dioBAS-FQSTART:dovBAS-CTLVAL1,dov_type,1,"IF([^:^:dciBAS-ECSPOS.value]=1,1,0)","IF([^:^:dciBAS-FRQOPER.value]=1,1,0)",30
+:R:A:BAS:TEF_:dioBAS-FQSTOP:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-ECSPOS.value]=1) AND ([^:^:dciBAS-FRQOPER.value]=1),1,0)","IF([^:^:dciBAS-FRQOPER.value]=0,1,0)",30
+:R:A:BAS:JET_:dioBAS-MANAUTO:dovBAS-CTLVAL0,dov_type,0,"IF([^:^:dciBAS-MANAUTO.value]=1,1,0)","IF([^:^:dciBAS-MANAUTO.value]=0,1,0)",30
+:R:A:BAS:JET_:dioBAS-MANAUTO:dovBAS-CTLVAL1,dov_type,1,"IF([^:^:dciBAS-MANAUTO.value]=0,1,0)","IF([^:^:dciBAS-MANAUTO.value]=1,1,0)",30
+:R:A:BAS:JET_:dioBAS-FWDCTL:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-BASLOC.value]=1) AND ([^:^:dciBAS-BASECS.value]=1) AND ([^:^:dciBAS-STPSTA.value]=1),1,0)","IF([^:^:dciBAS-FOWSTA.value]=1,1,0)",30
+:R:A:BAS:JET_:dioBAS-REVCTL:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-BASLOC.value]=1) AND ([^:^:dciBAS-BASECS.value]=1) AND ([^:^:dciBAS-STPSTA.value]=1),1,0)","IF([^:^:dciBAS-REVSTA.value]=1,1,0)",30
+:R:A:BAS:JET_:dioBAS-STOP:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-BASLOC.value]=1) AND ([^:^:dciBAS-BASECS.value]=1) AND (([^:^:dciBAS-FOWSTA.value]=1) OR ([^:^:dciBAS-REVSTA.value]=1)),1,0)","IF([^:^:dciBAS-STPSTA.value]=1,1,0)",30
+:R:A:BAS:FAND:dioBAS-MANAUTO:dovBAS-CTLVAL0,dov_type,0,"IF([^:^:dciBAS-MANAUTO.value]=1,1,0)","IF([^:^:dciBAS-MANAUTO.value]=0,1,0)",30
+:R:A:BAS:FAND:dioBAS-MANAUTO:dovBAS-CTLVAL1,dov_type,1,"IF([^:^:dciBAS-MANAUTO.value]=0,1,0)","IF([^:^:dciBAS-MANAUTO.value]=1,1,0)",30
+:R:A:BAS:FAND:dioBAS-START:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-BASLOC.value]=1) AND ([^:^:dciBAS-BASECS.value]=1) AND ([^:^:dciBAS-STPSTA.value]=1),1,0)","IF([^:^:dciBAS-EXESTA.value]=1,1,0)",30
+:R:A:BAS:FAND:dioBAS-STOP:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-BASLOC.value]=1) AND ([^:^:dciBAS-BASECS.value]=1) AND ([^:^:dciBAS-EXESTA.value]=1),1,0)","IF([^:^:dciBAS-STPSTA.value]=1,1,0)",30
+:R:A:BAS:FANX:dioBAS-MANAUTO:dovBAS-CTLVAL0,dov_type,0,"IF([^:^:dciBAS-MANAUTO.value]=1,1,0)","IF([^:^:dciBAS-MANAUTO.value]=0,1,0)",30
+:R:A:BAS:FANX:dioBAS-MANAUTO:dovBAS-CTLVAL1,dov_type,1,"IF([^:^:dciBAS-MANAUTO.value]=0,1,0)","IF([^:^:dciBAS-MANAUTO.value]=1,1,0)",30
+:R:A:BAS:FANX:dioBAS-START:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-BASLOC.value]=1) AND ([^:^:dciBAS-BASECS.value]=1) AND ([^:^:dciBAS-STPSTA.value]=1),1,0)","IF([^:^:dciBAS-EXESTA.value]=1,1,0)",30
+:R:A:BAS:FANX:dioBAS-STOP:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-BASLOC.value]=1) AND ([^:^:dciBAS-BASECS.value]=1) AND ([^:^:dciBAS-EXESTA.value]=1),1,0)","IF([^:^:dciBAS-STPSTA.value]=1,1,0)",30
+:R:A:BAS:FANR:dioBAS-MANAUTO:dovBAS-CTLVAL0,dov_type,0,"IF([^:^:dciBAS-MANAUTO.value]=1,1,0)","IF([^:^:dciBAS-MANAUTO.value]=0,1,0)",30
+:R:A:BAS:FANR:dioBAS-MANAUTO:dovBAS-CTLVAL1,dov_type,1,"IF([^:^:dciBAS-MANAUTO.value]=0,1,0)","IF([^:^:dciBAS-MANAUTO.value]=1,1,0)",30
+:R:A:BAS:FANR:dioBAS-START:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-BASLOC.value]=1) AND ([^:^:dciBAS-BASECS.value]=1) AND ([^:^:dciBAS-STPSTA.value]=1),1,0)","IF([^:^:dciBAS-EXESTA.value]=1,1,0)",30
+:R:A:BAS:FANR:dioBAS-STOP:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-BASLOC.value]=1) AND ([^:^:dciBAS-BASECS.value]=1) AND ([^:^:dciBAS-EXESTA.value]=1),1,0)","IF([^:^:dciBAS-STPSTA.value]=1,1,0)",30
+:R:A:BAS:LQB_:dioBAS-MANAUTO:dovBAS-CTLVAL0,dov_type,0,"IF([^:^:dciBAS-MANAUTO.value]=1,1,0)","IF([^:^:dciBAS-MANAUTO.value]=0,1,0)",30
+:R:A:BAS:LQB_:dioBAS-MANAUTO:dovBAS-CTLVAL1,dov_type,1,"IF([^:^:dciBAS-MANAUTO.value]=0,1,0)","IF([^:^:dciBAS-MANAUTO.value]=1,1,0)",30
+:R:A:BAS:LQB_:dioBAS-START:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-BASLOC.value]=1) AND ([^:^:dciBAS-BASECS.value]=1) AND ([^:^:dciBAS-STPSTA.value]=1),1,0)","IF([^:^:dciBAS-EXESTA.value]=1,1,0)",30
+:R:A:BAS:LQB_:dioBAS-STOP:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-BASLOC.value]=1) AND ([^:^:dciBAS-BASECS.value]=1) AND ([^:^:dciBAS-EXESTA.value]=1),1,0)","IF([^:^:dciBAS-STPSTA.value]=1,1,0)",30
+:R:A:BAS:LQT_:dioBAS-MANAUTO:dovBAS-CTLVAL0,dov_type,0,"IF([^:^:dciBAS-MANAUTO.value]=1,1,0)","IF([^:^:dciBAS-MANAUTO.value]=0,1,0)",30
+:R:A:BAS:LQT_:dioBAS-MANAUTO:dovBAS-CTLVAL1,dov_type,1,"IF([^:^:dciBAS-MANAUTO.value]=0,1,0)","IF([^:^:dciBAS-MANAUTO.value]=1,1,0)",30
+:R:A:BAS:LQT_:dioBAS-START:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-BASLOC.value]=1) AND ([^:^:dciBAS-BASECS.value]=1) AND ([^:^:dciBAS-STPSTA.value]=1),1,0)","IF([^:^:dciBAS-EXESTA.value]=1,1,0)",30
+:R:A:BAS:LQT_:dioBAS-STOP:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-BASLOC.value]=1) AND ([^:^:dciBAS-BASECS.value]=1) AND ([^:^:dciBAS-EXESTA.value]=1),1,0)","IF([^:^:dciBAS-STPSTA.value]=1,1,0)",30
+:R:A:BAS:HPFD:dioBAS-MANAUTO:dovBAS-CTLVAL0,dov_type,0,"IF([^:^:dciBAS-MANAUTO.value]=1,1,0)","IF([^:^:dciBAS-MANAUTO.value]=0,1,0)",30
+:R:A:BAS:HPFD:dioBAS-MANAUTO:dovBAS-CTLVAL1,dov_type,1,"IF([^:^:dciBAS-MANAUTO.value]=0,1,0)","IF([^:^:dciBAS-MANAUTO.value]=1,1,0)",30
+:R:A:BAS:HPFD:dioBAS-START:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-BASLOC.value]=1) AND ([^:^:dciBAS-ENCTL.value]=1) AND ([^:^:dciBAS-STOPSTA.value]=1),1,0)","IF([^:^:dciBAS-RUNSTA.value]=1,1,0)",30
+:R:A:BAS:HPFD:dioBAS-STOP:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-BASLOC.value]=1) AND ([^:^:dciBAS-ENCTL.value]=1) AND ([^:^:dciBAS-RUNSTA.value]=1),1,0)","IF([^:^:dciBAS-STOPSTA.value]=1,1,0)",30
+:R:A:BAS:HPFD:dioBAS-FQSTART:dovBAS-CTLVAL1,dov_type,1,"IF([^:^:dciBAS-ECSPOS.value]=1,1,0)","IF([^:^:dciBAS-FRQOPER.value]=1,1,0)",30
+:R:A:BAS:HPFD:dioBAS-FQSTOP:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-ECSPOS.value]=1) AND ([^:^:dciBAS-FRQOPER.value]=1),1,0)","IF([^:^:dciBAS-FRQOPER.value]=0,1,0)",30
+:R:A:BAS:AHUD:dioBAS-MANAUTO:dovBAS-CTLVAL0,dov_type,0,"IF([^:^:dciBAS-MANAUTO.value]=1,1,0)","IF([^:^:dciBAS-MANAUTO.value]=0,1,0)",30
+:R:A:BAS:AHUD:dioBAS-MANAUTO:dovBAS-CTLVAL1,dov_type,1,"IF([^:^:dciBAS-MANAUTO.value]=0,1,0)","IF([^:^:dciBAS-MANAUTO.value]=1,1,0)",30
+:R:A:BAS:AHUD:dioBAS-START:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-BASLOC.value]=1) AND ([^:^:dciBAS-ENCTL.value]=1) AND ([^:^:dciBAS-STOPSTA.value]=1),1,0)","IF([^:^:dciBAS-RUNSTA.value]=1,1,0)",30
+:R:A:BAS:AHUD:dioBAS-STOP:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-BASLOC.value]=1) AND ([^:^:dciBAS-ENCTL.value]=1) AND ([^:^:dciBAS-RUNSTA.value]=1),1,0)","IF([^:^:dciBAS-STOPSTA.value]=1,1,0)",30
+:R:A:BAS:AHUD:dioBAS-FQSTART:dovBAS-CTLVAL1,dov_type,1,"IF([^:^:dciBAS-ECSPOS.value]=1,1,0)","IF([^:^:dciBAS-FRQOPER.value]=1,1,0)",30
+:R:A:BAS:AHUD:dioBAS-FQSTOP:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-ECSPOS.value]=1) AND ([^:^:dciBAS-FRQOPER.value]=1),1,0)","IF([^:^:dciBAS-FRQOPER.value]=0,1,0)",30
+:R:A:BAS:LDB_:dioBAS-MANAUTO:dovBAS-CTLVAL0,dov_type,0,"IF([^:^:dciBAS-MANAUTO.value]=1,1,0)","IF([^:^:dciBAS-MANAUTO.value]=0,1,0)",30
+:R:A:BAS:LDB_:dioBAS-MANAUTO:dovBAS-CTLVAL1,dov_type,1,"IF([^:^:dciBAS-MANAUTO.value]=0,1,0)","IF([^:^:dciBAS-MANAUTO.value]=1,1,0)",30
+:R:A:BAS:LDB_:dioBAS-START:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-BASLOC.value]=1) AND ([^:^:dciBAS-ENCTL.value]=1) AND ([^:^:dciBAS-STOPSTA.value]=1),1,0)","IF([^:^:dciBAS-RUNSTA.value]=1,1,0)",30
+:R:A:BAS:LDB_:dioBAS-STOP:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-BASLOC.value]=1) AND ([^:^:dciBAS-ENCTL.value]=1) AND ([^:^:dciBAS-RUNSTA.value]=1),1,0)","IF([^:^:dciBAS-STOPSTA.value]=1,1,0)",30
+:R:A:BAS:LDB_:dioBAS-FQSTART:dovBAS-CTLVAL1,dov_type,1,"IF([^:^:dciBAS-ECSPOS.value]=1,1,0)","IF([^:^:dciBAS-FRQOPER.value]=1,1,0)",30
+:R:A:BAS:LDB_:dioBAS-FQSTOP:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-ECSPOS.value]=1) AND ([^:^:dciBAS-FRQOPER.value]=1),1,0)","IF([^:^:dciBAS-FRQOPER.value]=0,1,0)",30
+:R:A:BAS:DDZF:dioBAS-MANAUTO:dovBAS-CTLVAL0,dov_type,0,"IF([^:^:dciBAS-MANAUTO.value]=1,1,0)","IF([^:^:dciBAS-MANAUTO.value]=0,1,0)",30
+:R:A:BAS:DDZF:dioBAS-MANAUTO:dovBAS-CTLVAL1,dov_type,1,"IF([^:^:dciBAS-MANAUTO.value]=0,1,0)","IF([^:^:dciBAS-MANAUTO.value]=1,1,0)",30
+:R:A:BAS:DDZF:dioBAS-VLVOPN:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-BASLOC.value]=1) AND ([^:^:dciBAS-ENCTL.value]=1) AND ([^:^:dciBAS-CLOSTA.value]=1),1,0)","IF([^:^:dciBAS-OPENSTA.value]=1,1,0)",30
+:R:A:BAS:DDZF:dioBAS-VLVCLO:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-BASLOC.value]=1) AND ([^:^:dciBAS-ENCTL.value]=1) AND ([^:^:dciBAS-OPENSTA.value]=1),1,0)","IF([^:^:dciBAS-CLOSTA.value]=1,1,0)",30
+:R:A:BAS:DDFD:dioBAS-MANAUTO:dovBAS-CTLVAL0,dov_type,0,"IF([^:^:dciBAS-MANAUTO.value]=1,1,0)","IF([^:^:dciBAS-MANAUTO.value]=0,1,0)",30
+:R:A:BAS:DDFD:dioBAS-MANAUTO:dovBAS-CTLVAL1,dov_type,1,"IF([^:^:dciBAS-MANAUTO.value]=0,1,0)","IF([^:^:dciBAS-MANAUTO.value]=1,1,0)",30
+:R:A:BAS:DDFD:dioBAS-VLVOPN:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-BASECS.value]=1) AND ([^:^:dciBAS-CLOSTA.value]=1),1,0)","IF([^:^:dciBAS-OPENSTA.value]=1,1,0)",30
+:R:A:BAS:DDFD:dioBAS-VLVCLO:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-BASECS.value]=1) AND ([^:^:dciBAS-OPENSTA.value]=1),1,0)","IF([^:^:dciBAS-CLOSTA.value]=1,1,0)",30
+:R:A:BAS:DDFX:dioBAS-MANAUTO:dovBAS-CTLVAL0,dov_type,0,"IF([^:^:dciBAS-MANAUTO.value]=1,1,0)","IF([^:^:dciBAS-MANAUTO.value]=0,1,0)",30
+:R:A:BAS:DDFX:dioBAS-MANAUTO:dovBAS-CTLVAL1,dov_type,1,"IF([^:^:dciBAS-MANAUTO.value]=0,1,0)","IF([^:^:dciBAS-MANAUTO.value]=1,1,0)",30
+:R:A:BAS:DDFX:dioBAS-VLVOPN:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-BASECS.value]=1) AND ([^:^:dciBAS-CLOSTA.value]=1),1,0)","IF([^:^:dciBAS-OPENSTA.value]=1,1,0)",30
+:R:A:BAS:DDFX:dioBAS-VLVCLO:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-BASECS.value]=1) AND ([^:^:dciBAS-OPENSTA.value]=1),1,0)","IF([^:^:dciBAS-CLOSTA.value]=1,1,0)",30
+:R:A:BAS:DDFR:dioBAS-MANAUTO:dovBAS-CTLVAL0,dov_type,0,"IF([^:^:dciBAS-MANAUTO.value]=1,1,0)","IF([^:^:dciBAS-MANAUTO.value]=0,1,0)",30
+:R:A:BAS:DDFR:dioBAS-MANAUTO:dovBAS-CTLVAL1,dov_type,1,"IF([^:^:dciBAS-MANAUTO.value]=0,1,0)","IF([^:^:dciBAS-MANAUTO.value]=1,1,0)",30
+:R:A:BAS:DDFR:dioBAS-VLVOPN:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-BASECS.value]=1) AND ([^:^:dciBAS-CLOSTA.value]=1),1,0)","IF([^:^:dciBAS-OPENSTA.value]=1,1,0)",30
+:R:A:BAS:DDFR:dioBAS-VLVCLO:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-BASECS.value]=1) AND ([^:^:dciBAS-OPENSTA.value]=1),1,0)","IF([^:^:dciBAS-CLOSTA.value]=1,1,0)",30
+:R:A:BAS:DDDF:dioBAS-MANAUTO:dovBAS-CTLVAL0,dov_type,0,"IF([^:^:dciBAS-MANAUTO.value]=1,1,0)","IF([^:^:dciBAS-MANAUTO.value]=0,1,0)",30
+:R:A:BAS:DDDF:dioBAS-MANAUTO:dovBAS-CTLVAL1,dov_type,1,"IF([^:^:dciBAS-MANAUTO.value]=0,1,0)","IF([^:^:dciBAS-MANAUTO.value]=1,1,0)",30
+:R:A:BAS:DDDF:dioBAS-VLVOPN:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-BASECS.value]=1) AND ([^:^:dciBAS-CLOSTA.value]=1),1,0)","IF([^:^:dciBAS-OPENSTA.value]=1,1,0)",30
+:R:A:BAS:DDDF:dioBAS-VLVCLO:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-BASECS.value]=1) AND ([^:^:dciBAS-OPENSTA.value]=1),1,0)","IF([^:^:dciBAS-CLOSTA.value]=1,1,0)",30
+:R:A:BAS:TDDF:dioBAS-MANAUTO:dovBAS-CTLVAL0,dov_type,0,"IF([^:^:dciBAS-MANAUTO.value]=1,1,0)","IF([^:^:dciBAS-MANAUTO.value]=0,1,0)",30
+:R:A:BAS:TDDF:dioBAS-MANAUTO:dovBAS-CTLVAL1,dov_type,1,"IF([^:^:dciBAS-MANAUTO.value]=0,1,0)","IF([^:^:dciBAS-MANAUTO.value]=1,1,0)",30
+:R:A:BAS:TDDF:dioBAS-FLOPN:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-ENCTL.value]=1) AND (([^:^:dciBAS-HLVOPN.value]=1) OR ([^:^:dciBAS-CLOSTA.value]=1)),1,0)","IF([^:^:dciBAS-FULOPN.value]=1,1,0)",30
+:R:A:BAS:TDDF:dioBAS-HVOPN:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-ENCTL.value]=1) AND (([^:^:dciBAS-FULOPN.value]=1) OR ([^:^:dciBAS-CLOSTA.value]=1)),1,0)","IF([^:^:dciBAS-HLVOPN.value]=1,1,0)",30
+:R:A:BAS:TDDF:dioBAS-CLOCMD:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-ENCTL.value]=1) AND (([^:^:dciBAS-FULOPN.value]=1) OR ([^:^:dciBAS-HLVOPN.value]=1)),1,0)","IF([^:^:dciBAS-CLOSTA.value]=1,1,0)",30
+:R:A:BAS:XDDF:dioBAS-MANAUTO:dovBAS-CTLVAL0,dov_type,0,"IF([^:^:dciBAS-MANAUTO.value]=1,1,0)","IF([^:^:dciBAS-MANAUTO.value]=0,1,0)",30
+:R:A:BAS:XDDF:dioBAS-MANAUTO:dovBAS-CTLVAL1,dov_type,1,"IF([^:^:dciBAS-MANAUTO.value]=0,1,0)","IF([^:^:dciBAS-MANAUTO.value]=1,1,0)",30
+:R:A:BAS:XDDF:dioBAS-FLOPN:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-ENCTL.value]=1) AND (([^:^:dciBAS-HLVOPN.value]=1) OR ([^:^:dciBAS-CLOSTA.value]=1)),1,0)","IF([^:^:dciBAS-FULOPN.value]=1,1,0)",30
+:R:A:BAS:XDDF:dioBAS-HVOPN:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-ENCTL.value]=1) AND (([^:^:dciBAS-FULOPN.value]=1) OR ([^:^:dciBAS-CLOSTA.value]=1)),1,0)","IF([^:^:dciBAS-HLVOPN.value]=1,1,0)",30
+:R:A:BAS:XDDF:dioBAS-CLOCMD:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-ENCTL.value]=1) AND (([^:^:dciBAS-FULOPN.value]=1) OR ([^:^:dciBAS-HLVOPN.value]=1)),1,0)","IF([^:^:dciBAS-CLOSTA.value]=1,1,0)",30
+:R:A:BAS:DJSB:dioBAS-MANAUTO:dovBAS-CTLVAL0,dov_type,0,"IF([^:^:dciBAS-MANAUTO.value]=1,1,0)","IF([^:^:dciBAS-MANAUTO.value]=0,1,0)",30
+:R:A:BAS:DJSB:dioBAS-MANAUTO:dovBAS-CTLVAL1,dov_type,1,"IF([^:^:dciBAS-MANAUTO.value]=0,1,0)","IF([^:^:dciBAS-MANAUTO.value]=1,1,0)",30
+:R:A:BAS:DJSB:dioBAS-STARTPUP1:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-REMOTE.value]=1) AND ([^:^:dciBAS-RUNSTOP1.value]=0),1,0)","IF([^:^:dciBAS-RUNSTOP1.value]=1,1,0)",30
+:R:A:BAS:DJSB:dioBAS-STOPPUP1:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-REMOTE.value]=1) AND ([^:^:dciBAS-RUNSTOP1.value]=1),1,0)","IF([^:^:dciBAS-RUNSTOP1.value]=0,1,0)",30
+:R:A:BAS:DJSB:dioBAS-STARTPUP2:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-REMOTE.value]=1) AND ([^:^:dciBAS-RUNSTOP2.value]=0),1,0)","IF([^:^:dciBAS-RUNSTOP2.value]=1,1,0)",30
+:R:A:BAS:DJSB:dioBAS-STOPPUP2:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-REMOTE.value]=1) AND ([^:^:dciBAS-RUNSTOP2.value]=1),1,0)","IF([^:^:dciBAS-RUNSTOP2.value]=0,1,0)",30
+:R:A:BAS:SJSB:dioBAS-MANAUTO:dovBAS-CTLVAL0,dov_type,0,"IF([^:^:dciBAS-MANAUTO.value]=1,1,0)","IF([^:^:dciBAS-MANAUTO.value]=0,1,0)",30
+:R:A:BAS:SJSB:dioBAS-MANAUTO:dovBAS-CTLVAL1,dov_type,1,"IF([^:^:dciBAS-MANAUTO.value]=0,1,0)","IF([^:^:dciBAS-MANAUTO.value]=1,1,0)",30
+:R:A:BAS:SJSB:dioBAS-STARTPUP1:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-REMOTE.value]=1) AND ([^:^:dciBAS-RUNSTOP1.value]=0),1,0)","IF([^:^:dciBAS-RUNSTOP1.value]=1,1,0)",30
+:R:A:BAS:SJSB:dioBAS-STOPPUP1:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-REMOTE.value]=1) AND ([^:^:dciBAS-RUNSTOP1.value]=1),1,0)","IF([^:^:dciBAS-RUNSTOP1.value]=0,1,0)",30
+:R:A:BAS:SJSB:dioBAS-STARTPUP2:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-REMOTE.value]=1) AND ([^:^:dciBAS-RUNSTOP2.value]=0),1,0)","IF([^:^:dciBAS-RUNSTOP2.value]=1,1,0)",30
+:R:A:BAS:SJSB:dioBAS-STOPPUP2:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-REMOTE.value]=1) AND ([^:^:dciBAS-RUNSTOP2.value]=1),1,0)","IF([^:^:dciBAS-RUNSTOP2.value]=0,1,0)",30
+:R:A:BAS:QJSB:dioBAS-MANAUTO:dovBAS-CTLVAL0,dov_type,0,"IF([^:^:dciBAS-MANAUTO.value]=1,1,0)","IF([^:^:dciBAS-MANAUTO.value]=0,1,0)",30
+:R:A:BAS:QJSB:dioBAS-MANAUTO:dovBAS-CTLVAL1,dov_type,1,"IF([^:^:dciBAS-MANAUTO.value]=0,1,0)","IF([^:^:dciBAS-MANAUTO.value]=1,1,0)",30
+:R:A:BAS:QJSB:dioBAS-STARTPUP1:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-REMOTE.value]=1) AND ([^:^:dciBAS-RUNSTOP1.value]=0),1,0)","IF([^:^:dciBAS-RUNSTOP1.value]=1,1,0)",30
+:R:A:BAS:QJSB:dioBAS-STOPPUP1:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-REMOTE.value]=1) AND ([^:^:dciBAS-RUNSTOP1.value]=1),1,0)","IF([^:^:dciBAS-RUNSTOP1.value]=0,1,0)",30
+:R:A:BAS:QJSB:dioBAS-STARTPUP2:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-REMOTE.value]=1) AND ([^:^:dciBAS-RUNSTOP2.value]=0),1,0)","IF([^:^:dciBAS-RUNSTOP2.value]=1,1,0)",30
+:R:A:BAS:QJSB:dioBAS-STOPPUP2:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-REMOTE.value]=1) AND ([^:^:dciBAS-RUNSTOP2.value]=1),1,0)","IF([^:^:dciBAS-RUNSTOP2.value]=0,1,0)",30
+:R:A:BAS:QJSB:dioBAS-PUPRESET:dovBAS-CTLVAL0,dov_type,0,,,
+:R:A:BAS:QJSB:dioBAS-PUPRESET:dovBAS-CTLVAL1,dov_type,1,,,
+:R:A:BAS:TJSB:dioBAS-MANAUTO:dovBAS-CTLVAL0,dov_type,0,"IF([^:^:dciBAS-MANAUTO.value]=1,1,0)","IF([^:^:dciBAS-MANAUTO.value]=0,1,0)",30
+:R:A:BAS:TJSB:dioBAS-MANAUTO:dovBAS-CTLVAL1,dov_type,1,"IF([^:^:dciBAS-MANAUTO.value]=0,1,0)","IF([^:^:dciBAS-MANAUTO.value]=1,1,0)",30
+:R:A:BAS:TJSB:dioBAS-STARTPUP1:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-REMOTE.value]=1) AND ([^:^:dciBAS-RUNSTOP1.value]=0),1,0)","IF([^:^:dciBAS-RUNSTOP1.value]=1,1,0)",30
+:R:A:BAS:TJSB:dioBAS-STOPPUP1:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-REMOTE.value]=1) AND ([^:^:dciBAS-RUNSTOP1.value]=1),1,0)","IF([^:^:dciBAS-RUNSTOP1.value]=0,1,0)",30
+:R:A:BAS:TJSB:dioBAS-STARTPUP2:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-REMOTE.value]=1) AND ([^:^:dciBAS-RUNSTOP2.value]=0),1,0)","IF([^:^:dciBAS-RUNSTOP2.value]=1,1,0)",30
+:R:A:BAS:TJSB:dioBAS-STOPPUP2:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-REMOTE.value]=1) AND ([^:^:dciBAS-RUNSTOP2.value]=1),1,0)","IF([^:^:dciBAS-RUNSTOP2.value]=0,1,0)",30
+:R:A:BAS:TJSB:dioBAS-STARTPUP3:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-REMOTE.value]=1) AND ([^:^:dciBAS-RUNSTOP3.value]=0),1,0)","IF([^:^:dciBAS-RUNSTOP3.value]=1,1,0)",30
+:R:A:BAS:TJSB:dioBAS-STOPPUP3:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-REMOTE.value]=1) AND ([^:^:dciBAS-RUNSTOP3.value]=1),1,0)","IF([^:^:dciBAS-RUNSTOP3.value]=0,1,0)",30
+:R:A:BAS:TJSB:dioBAS-PUPRESET:dovBAS-CTLVAL0,dov_type,0,,,
+:R:A:BAS:TJSB:dioBAS-PUPRESET:dovBAS-CTLVAL1,dov_type,1,,,
+:R:A:BAS:ZNZM:dioBAS-MANAUTO:dovBAS-CTLVAL0,dov_type,0,"IF([^:^:dciBAS-MANAUTO.value]=1,1,0)","IF([^:^:dciBAS-MANAUTO.value]=0,1,0)",30
+:R:A:BAS:ZNZM:dioBAS-MANAUTO:dovBAS-CTLVAL1,dov_type,1,"IF([^:^:dciBAS-MANAUTO.value]=0,1,0)","IF([^:^:dciBAS-MANAUTO.value]=1,1,0)",30
+:R:A:BAS:ZNZM:dioBAS-HIGFED:dovBAS-CTLVAL1,dov_type,1,,,
+:R:A:BAS:ZNZM:dioBAS-NOMFED:dovBAS-CTLVAL1,dov_type,1,,,
+:R:A:BAS:ZNZM:dioBAS-CLNFED:dovBAS-CTLVAL1,dov_type,1,,,
+:R:A:BAS:ZNZM:dioBAS-LIGFED:dovBAS-CTLVAL1,dov_type,1,,,
+:R:A:BAS:ZNZM:dioBAS-STPFED:dovBAS-CTLVAL1,dov_type,1,,,
+:R:A:BAS:ZNZM:dioBAS-SELFED:dovBAS-CTLVAL1,dov_type,1,,,
+:R:A:BAS:WSTS:dioBAS-MANAUTO:dovBAS-CTLVAL0,dov_type,0,"IF([^:^:dciBAS-MANAUTO.value]=1,1,0)","IF([^:^:dciBAS-MANAUTO.value]=0,1,0)",30
+:R:A:BAS:WSTS:dioBAS-MANAUTO:dovBAS-CTLVAL1,dov_type,1,"IF([^:^:dciBAS-MANAUTO.value]=0,1,0)","IF([^:^:dciBAS-MANAUTO.value]=1,1,0)",30
+:R:A:BAS:WSTS:dioBAS-START:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-LRSTA.value]=1) AND ([^:^:dciBAS-STPSTA1.value]=1) AND ([^:^:dciBAS-STPSTA2.value]=1),1,0)","IF(([^:^:dciBAS-RUNSTA1.value]=1) OR ([^:^:dciBAS-RUNSTA2.value]=1),1,0)",30
+:R:A:BAS:GFKX:dioBAS-MANAUTO:dovBAS-CTLVAL0,dov_type,0,"IF([^:^:dciBAS-MANAUTO.value]=1,1,0)","IF([^:^:dciBAS-MANAUTO.value]=0,1,0)",30
+:R:A:BAS:GFKX:dioBAS-MANAUTO:dovBAS-CTLVAL1,dov_type,1,"IF([^:^:dciBAS-MANAUTO.value]=0,1,0)","IF([^:^:dciBAS-MANAUTO.value]=1,1,0)",30
+:R:A:BAS:GFKX:dioBAS-EXEUP:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-LRSTA.value]=0) AND ([^:^:dciBAS-EXESTA.value]=0),1,0)","IF([^:^:dciBAS-EXESTA.value]=1,1,0)",30
+:R:A:BAS:GFKX:dioBAS-STOPUP:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-LRSTA.value]=0) AND ([^:^:dciBAS-EXESTA.value]=1),1,0)","IF([^:^:dciBAS-EXESTA.value]=0,1,0)",30
+:R:A:BAS:LSJZ:dioBAS-MANAUTO:dovBAS-CTLVAL0,dov_type,0,"IF([^:^:dciBAS-MANAUTO.value]=1,1,0)","IF([^:^:dciBAS-MANAUTO.value]=0,1,0)",30
+:R:A:BAS:LSJZ:dioBAS-MANAUTO:dovBAS-CTLVAL1,dov_type,1,"IF([^:^:dciBAS-MANAUTO.value]=0,1,0)","IF([^:^:dciBAS-MANAUTO.value]=1,1,0)",30
+:R:A:BAS:LSJZ:dioBAS-STARTUP:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-SITE.value]=0) AND ([^:^:dciBAS-RUNSTA.value]=0),1,0)","IF([^:^:dciBAS-RUNSTA.value]=2,1,0)",30
+:R:A:BAS:LSJZ:dioBAS-STOPUP:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-SITE.value]=0) AND ([^:^:dciBAS-RUNSTA.value]=2),1,0)","IF([^:^:dciBAS-RUNSTA.value]=0,1,0)",30
+:R:A:BAS:XFDF:dioBAS-MANAUTO:dovBAS-CTLVAL0,dov_type,0,"IF([^:^:dciBAS-MANAUTO.value]=1,1,0)","IF([^:^:dciBAS-MANAUTO.value]=0,1,0)",30
+:R:A:BAS:XFDF:dioBAS-MANAUTO:dovBAS-CTLVAL1,dov_type,1,"IF([^:^:dciBAS-MANAUTO.value]=0,1,0)","IF([^:^:dciBAS-MANAUTO.value]=1,1,0)",30
+:R:A:BAS:XFDF:dioBAS-OPN:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-LRSTA.value]=0) AND ([^:^:dciBAS-CLOSTA.value]=1),1,0)","IF([^:^:dciBAS-OPENSTA.value]=1,1,0)",30
+:R:A:BAS:XFDF:dioBAS-CLO:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-LRSTA.value]=0) AND ([^:^:dciBAS-OPENSTA.value]=1),1,0)","IF([^:^:dciBAS-CLOSTA.value]=1,1,0)",30
+:R:A:BAS:DSSB:dioBAS-MANAUTO:dovBAS-CTLVAL0,dov_type,0,"IF([^:^:dciBAS-MANAUTO.value]=1,1,0)","IF([^:^:dciBAS-MANAUTO.value]=0,1,0)",30
+:R:A:BAS:DSSB:dioBAS-MANAUTO:dovBAS-CTLVAL1,dov_type,1,"IF([^:^:dciBAS-MANAUTO.value]=0,1,0)","IF([^:^:dciBAS-MANAUTO.value]=1,1,0)",30
+:R:A:BAS:DSSB:dioBAS-START:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-LRSTA.value]=0) AND ([^:^:dciBAS-RUNSTOP.value]=0),1,0)","IF([^:^:dciBAS-RUNSTOP.value]=1,1,0)",30
+:R:A:BAS:DSSB:dioBAS-STOP:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-LRSTA.value]=0) AND ([^:^:dciBAS-RUNSTOP.value]=1),1,0)","IF([^:^:dciBAS-RUNSTOP.value]=0,1,0)",30
+:R:A:BAS:DDSB:dioBAS-MANAUTO:dovBAS-CTLVAL0,dov_type,0,"IF([^:^:dciBAS-MANAUTO.value]=1,1,0)","IF([^:^:dciBAS-MANAUTO.value]=0,1,0)",30
+:R:A:BAS:DDSB:dioBAS-MANAUTO:dovBAS-CTLVAL1,dov_type,1,"IF([^:^:dciBAS-MANAUTO.value]=0,1,0)","IF([^:^:dciBAS-MANAUTO.value]=1,1,0)",30
+:R:A:BAS:DDSB:dioBAS-STARTPUP1:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-LRSTA.value]=0) AND ([^:^:dciBAS-RUNSTOP1.value]=0),1,0)","IF([^:^:dciBAS-RUNSTOP1.value]=1,1,0)",30
+:R:A:BAS:DDSB:dioBAS-STOPPUP1:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-LRSTA.value]=0) AND ([^:^:dciBAS-RUNSTOP1.value]=1),1,0)","IF([^:^:dciBAS-RUNSTOP1.value]=0,1,0)",30
+:R:A:BAS:DDSB:dioBAS-STARTPUP2:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-LRSTA.value]=0) AND ([^:^:dciBAS-RUNSTOP2.value]=0),1,0)","IF([^:^:dciBAS-RUNSTOP2.value]=1,1,0)",30
+:R:A:BAS:DDSB:dioBAS-STOPPUP2:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-LRSTA.value]=0) AND ([^:^:dciBAS-RUNSTOP2.value]=1),1,0)","IF([^:^:dciBAS-RUNSTOP2.value]=0,1,0)",30
+:R:A:BAS:ETF_:dioBAS-MANAUTO:dovBAS-CTLVAL0,dov_type,0,"IF([^:^:dciBAS-MANAUTO.value]=1,1,0)","IF([^:^:dciBAS-MANAUTO.value]=0,1,0)",30
+:R:A:BAS:ETF_:dioBAS-MANAUTO:dovBAS-CTLVAL1,dov_type,1,"IF([^:^:dciBAS-MANAUTO.value]=0,1,0)","IF([^:^:dciBAS-MANAUTO.value]=1,1,0)",30
+:R:A:BAS:VRF_:dioBAS-OPEN:dovBAS-CTLVAL0,dov_type,0,"IF([^:^:dciBAS-OPNCLO.value]=1,1,0)","IF([^:^:dciBAS-OPNCLO.value]=0,1,0)",30
+:R:A:BAS:VRF_:dioBAS-OPEN:dovBAS-CTLVAL1,dov_type,1,"IF([^:^:dciBAS-OPNCLO.value]=0,1,0)","IF([^:^:dciBAS-OPNCLO.value]=1,1,0)",30
+:R:A:BAS:VRF_:dioBAS-WIND:dovBAS-CTLVAL1,dov_type,1,,,
+:R:A:BAS:VRF_:dioBAS-WIND:dovBAS-CTLVAL2,dov_type,2,,,
+:R:A:BAS:VRF_:dioBAS-WIND:dovBAS-CTLVAL3,dov_type,3,,,
+:R:A:BAS:FJPG:dioBAS-MANAUTO:dovBAS-CTLVAL0,dov_type,0,"IF([^:^:dciBAS-MANAUTO.value]=1,1,0)","IF([^:^:dciBAS-MANAUTO.value]=0,1,0)",30
+:R:A:BAS:FJPG:dioBAS-MANAUTO:dovBAS-CTLVAL1,dov_type,1,"IF([^:^:dciBAS-MANAUTO.value]=0,1,0)","IF([^:^:dciBAS-MANAUTO.value]=1,1,0)",30
+:R:A:BAS:FJPG:dioBAS-FLOPN:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-MANAUTO.value]=1) AND ([^:^:dciBAS-FULCLO.value]=1),1,0)","IF([^:^:dciBAS-FULOPN.value]=1,1,0)",30
+:R:A:BAS:FJPG:dioBAS-FLCLO:dovBAS-CTLVAL1,dov_type,1,"IF(([^:^:dciBAS-MANAUTO.value]=1) AND ([^:^:dciBAS-FULOPN.value]=1),1,0)","IF([^:^:dciBAS-FULCLO.value]=1,1,0)",30
+:R:A:BAS:RSET:dioBAS-FIRERESET:dovBAS-CTLVAL1,dov_type,1,,,
+:R:A:BAS:SYS_:dioBAS-SYSSEL:dovBAS-CTLVAL1,dov_type,1,,,
+:R:A:BAS:SYS_:dioBAS-SYSSEL:dovBAS-CTLVAL2,dov_type,2,,,
+:R:A:BAS:SYS_:dioBAS-SYSSEL:dovBAS-CTLVAL3,dov_type,3,,,
+:R:A:BAS:STA1:dioBAS-HOSTAT:dovBAS-CTLVAL0,dov_type,0,,,
+:R:A:BAS:STA1:dioBAS-HOSTAT:dovBAS-CTLVAL1,dov_type,1,,,
+:R:A:BAS:STA1:dioBAS-HOSTAT:dovBAS-CTLVAL2,dov_type,2,,,
+:R:A:BAS:STA1:dioBAS-HOSTAT:dovBAS-CTLVAL3,dov_type,3,,,
+:R:A:BAS:STA1:dioBAS-HOSTAT:dovBAS-CTLVAL4,dov_type,4,,,
+:R:A:BAS:STA1:dioBAS-HOSTAT:dovBAS-CTLVAL5,dov_type,5,,,
+:R:A:BAS:STA1:dioBAS-HOSTAT:dovBAS-CTLVAL6,dov_type,6,,,
+:R:A:BAS:STA1:dioBAS-HOSTAT:dovBAS-CTLVAL7,dov_type,7,,,
+:R:A:BAS:STA2:dioBAS-HOSTAT:dovBAS-CTLVAL0,dov_type,0,,,
+:R:A:BAS:STA2:dioBAS-HOSTAT:dovBAS-CTLVAL1,dov_type,1,,,
+:R:A:BAS:STA2:dioBAS-HOSTAT:dovBAS-CTLVAL2,dov_type,2,,,
+:R:A:BAS:STA2:dioBAS-HOSTAT:dovBAS-CTLVAL3,dov_type,3,,,
+:R:A:BAS:STA2:dioBAS-HOSTAT:dovBAS-CTLVAL4,dov_type,4,,,
+:R:A:BAS:STA2:dioBAS-HOSTAT:dovBAS-CTLVAL5,dov_type,5,,,
+:R:A:BAS:STA2:dioBAS-HOSTAT:dovBAS-CTLVAL6,dov_type,6,,,
+:R:A:BAS:STA2:dioBAS-HOSTAT:dovBAS-CTLVAL7,dov_type,7,,,
+:R:A:BAS:STA3:dioBAS-HOSTAT:dovBAS-CTLVAL0,dov_type,0,,,
+:R:A:BAS:STA3:dioBAS-HOSTAT:dovBAS-CTLVAL1,dov_type,1,,,
+:R:A:BAS:STA3:dioBAS-HOSTAT:dovBAS-CTLVAL2,dov_type,2,,,
+:R:A:BAS:STA3:dioBAS-HOSTAT:dovBAS-CTLVAL3,dov_type,3,,,
+:R:A:BAS:STA3:dioBAS-HOSTAT:dovBAS-CTLVAL4,dov_type,4,,,
+:R:A:BAS:STA3:dioBAS-HOSTAT:dovBAS-CTLVAL5,dov_type,5,,,
+:R:A:BAS:STA3:dioBAS-HOSTAT:dovBAS-CTLVAL6,dov_type,6,,,
+:R:A:BAS:STA3:dioBAS-HOSTAT:dovBAS-CTLVAL7,dov_type,7,,,
+:R:A:BAS:STA4:dioBAS-HOSTAT:dovBAS-CTLVAL0,dov_type,0,,,
+:R:A:BAS:STA4:dioBAS-HOSTAT:dovBAS-CTLVAL1,dov_type,1,,,
+:R:A:BAS:STA4:dioBAS-HOSTAT:dovBAS-CTLVAL2,dov_type,2,,,
+:R:A:BAS:STA4:dioBAS-HOSTAT:dovBAS-CTLVAL3,dov_type,3,,,
+:R:A:BAS:STA4:dioBAS-HOSTAT:dovBAS-CTLVAL4,dov_type,4,,,
+:R:A:BAS:STA4:dioBAS-HOSTAT:dovBAS-CTLVAL5,dov_type,5,,,
+:R:A:BAS:STA4:dioBAS-HOSTAT:dovBAS-CTLVAL6,dov_type,6,,,
+:R:A:BAS:STA4:dioBAS-HOSTAT:dovBAS-CTLVAL7,dov_type,7,,,
+:R:A:BAS:STA5:dioBAS-HOSTAT:dovBAS-CTLVAL0,dov_type,0,,,
+:R:A:BAS:STA5:dioBAS-HOSTAT:dovBAS-CTLVAL1,dov_type,1,,,
+:R:A:BAS:STA5:dioBAS-HOSTAT:dovBAS-CTLVAL2,dov_type,2,,,
+:R:A:BAS:STA5:dioBAS-HOSTAT:dovBAS-CTLVAL3,dov_type,3,,,
+:R:A:BAS:STA5:dioBAS-HOSTAT:dovBAS-CTLVAL4,dov_type,4,,,
+:R:A:BAS:STA5:dioBAS-HOSTAT:dovBAS-CTLVAL5,dov_type,5,,,
+:R:A:BAS:STA5:dioBAS-HOSTAT:dovBAS-CTLVAL6,dov_type,6,,,
+:R:A:BAS:STA5:dioBAS-HOSTAT:dovBAS-CTLVAL7,dov_type,7,,,
